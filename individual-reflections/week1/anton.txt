@@ -1,0 +1,5 @@
+(A) Currently, we have just started working on the administrative sides of the project. We now have a slack, a github repository, which we've filled with an early backlog, our chosen KPIs, and a social contract. Yet, we haven't taken any concrete steps towards creating our application. However, we've spent some time getting to know each other and decided on some details regarding how we will work throughout the project.
+
+(B) Soon, I'd like us to get going with the actual application. We have a lot to do, and we should start creating user stories and possibly fleshing out our epic. We need to get a stronger sense of how our application will function before we can create tasks and actually start coding.
+
+(A -> B) To get here, I (and the rest of the team) needs to learn more about SCRUM and how we will use this way of working. I think we would benefit from more physical meetings where we can use a blackboard and detail how SCRUM works. In addition to this, we need to start thinking about the project at large -- what will our application entail? This will help us formulating user stories further on.
