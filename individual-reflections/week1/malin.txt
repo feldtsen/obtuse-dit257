@@ -1,0 +1,10 @@
+This introductional week our team has been focusing on the product idea, choosing KPIs and writing a social contract. 
+We have created a team forum in Slack and a repository in Github. We’ve also had our first IRL-meeting, however I was attending on link this time. 
+This I will try to avoid in future meetings, even though it worked out OK, since I feel it’s more rewarding to meet in person.
+
+Since I’m not used to Github and Java I’ve spent some time on tutorials, and I plan to do continuous self-studying throughout this course. 
+It seems like the other team members are much more capable programmers than me and that they are willing to help out when needed, which feels comforting. 
+I’m happy that I've contributed to the product idea we have chosen, and that it seems like the whole team is eager to start working on it! 
+
+Next week I think we should be focusing on learning more about scrum, and planning our project accordingly. 
+I also hope that we will get to know each other, and our different set of skills, better. 
