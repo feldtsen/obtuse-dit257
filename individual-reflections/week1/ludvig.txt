@@ -1,0 +1,4 @@
+This week I want to learn how to work more seamlessly with git repos in a project with multiple people uploading every week without merge conflicts.
+There are multiple guides on this and i think i can find ideas or suggestions for how to do it efficiently that we all can learn.
+I think this week we had a good meeting and learned how to deal with situations where some people are remote, and some are in person in the project.
+In this weeks deliverables i feel i contributed by throwing out suggestions that we could expand upon for KPIs that everyone felt comfortable with, and how to structure our social contract.
