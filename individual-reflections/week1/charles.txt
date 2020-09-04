@@ -1,0 +1,3 @@
+Now that we have all had our first proper meeting I'm looking forward to discussing and working on the project more together next week!
+So far we have an idea that everyone is onboard with and everyone (including me!) seems eager to get started on the project, but I think it's easy to get ahead of ourselves too fast and forget to organize ourselves properly. We should make sure we establish and follow a properly structured development process for not only educational purposes but it will also likely save us time in the long run. 
+Not everyone in the group seems familiar with Git and I think it's important that we help each other out and establish a proper workflow we all follow.
