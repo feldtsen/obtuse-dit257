@@ -20,7 +20,9 @@ we want to...
 * create some user stories and break them down into some tasks
 * add some contents to the scrum board
 * make a hello world in repo (initial javafx setup)
+* create a UML diagram of the application structure
 * find a name for our application!
+
 
 ### Customer value and scope
 * scope: how large should app be?
@@ -40,4 +42,5 @@ we want to...
 * fill scrum board with initial ideas, to get feedback!
 * share scrum roles initially, but maybe determine more specific roles further on (allowing people to contribute with what they do best!)
 * help each other out with hello world, make sure the setup works on everyone's device!
+* have a mindstorm session where we create an outline over the application structure (UML diagram)
 
