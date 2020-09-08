@@ -12,4 +12,3 @@ The application could also be expanded to support sharing tools, various househo
 
 ### Goal 12: Responsible Consumption and Production - *Recycle*
 > **12.3** By 2030, halve per capita global food waste at the retail and consumer levels and reduce food losses along production and supply chains, including post-harvest losses
-
