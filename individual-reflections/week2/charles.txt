@@ -1,0 +1,5 @@
+This week we have had two longer meetings. In the first meeting we discussed the SCRUM board, which we have now set up, and what IDE to use and other technicalities. We also decided to use openjfx for our project, which we used in our hello world. 
+In the second meeting our main topic was the application itself. What should it look like and do we have an idea how we should implement it. We decided with the name Konrad for our app and we even a idea for the logo.
+Together we drew a rough sketch of the program and deconstructed it together and drew a UML. I think this helps give everyone a good idea on how the application will be structured and the decisions behind it which will help once we start working on the project more independently.
+
+I think next week we will face some difficulties structuring user stories to be independent of each other, as many will likely depend on each other. A solution to this could be to actually translate our UML into classes and interfaces, without any actual functionality (empty methods). That way we will all have a skeleton to refer too and I think this might help to prevent some future merge conflicts.  
