@@ -3,8 +3,8 @@ that I still have more to learn in this area
 I started to understand scrum a bit better so there was an improvment.
 We didn't work with updating our KPIs and that's mainly because we havn't start yet with coding.
 
-Hello wworld! is completed and runnable my personal goal is to nake a vertikal slice of our
-application abd that's by showing a GUI for it with simple action listners connected to its components.
+Hello wworld! is completed and runnable my personal goal is to make a vertikal slice of our
+application and that's by showing a GUI for it with simple action listners connected to its components.
 My goal is learn Javafx a bit more and that will helps me achieving the goal.
 
 UML diagram is done and I helped the team with suggesting some ideas through our discussions about it.
@@ -13,4 +13,4 @@ about all the relations we have between classes.
 
 We completed all the deliveries this sprint and the goal to do the same next week and that by having a 
 meeting in the middle of the next week to discuss what needed to be done and with attending the lectures
-hopefully we will get closer deliver what needed before the deadline.
+hopefully we will get closer delivering what needed before the deadline.
