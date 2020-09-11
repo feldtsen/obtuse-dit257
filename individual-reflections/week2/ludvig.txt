@@ -1,0 +1,8 @@
+Right now we have formulated a pretty solid idea on what we will try to create, and i am happy with how we are thinking about the project so far.
+The team seems on solid ground to hit the ground running when we start implement ideas into the application, we seem prepared once we've decided on the functionality we want to start with.
+
+I still have goals about working more seamlessly with the repo, but also how to structure and discipline my workflow with scrum in a collaborative environment. 
+And right now our user stories seem a bit broad to just start implementing, so a goal would be to try to make it more tangible what to do when we all sit down to program.
+
+How we get to those goals is to practice using the repo on a daily basis, and that requires us to start coding, and to start coding we need to formalize the tasks we want to do as soon as possible.
+Guides and theory only gets you so far, we need practice as a team so we run into common problems as soon as possible so we can learn how to adress them early on rather than at a critical moment.
