@@ -1,0 +1,16 @@
+Individual reflection week 2
+
+This week we have produced a scrum board with some user stories, a “Hello World” and a team reflection in Github. 
+We have created an UML diagram and we have agreed on a name for our application. 
+We have also started the discussion on the layout of the application. 
+
+This week we have had two group meetings and I have attended both in person, since it’s more rewarding to me. 
+It feels like we have really started to get to know each other and our set of skills this week. 
+The group seems overall cooperative and supportive, although we have some discussions about the functionality. 
+I’m happy with the progress we have made this week and that we’ve been working quite efficiently within the group. 
+I have taken the responsibility for creating the logo and produced a sketch version of it. 
+
+Next week I hope we will get useful feedback from our first tutoring session, agree on the functionality issues we have and start to build our application. 
+We need to break down the user stories into tasks. 
+Personally, I want to learn more Java and get to know JavaFX, which we have decided to use for this project. 
+I also plan to create a final high resolution logo.
