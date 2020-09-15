@@ -1,4 +1,6 @@
-package application.model;
+package application.model.posts;
+
+import application.model.tags.ITag;
 
 import java.util.List;
 

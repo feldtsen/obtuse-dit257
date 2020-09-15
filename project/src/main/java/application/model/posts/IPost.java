@@ -1,4 +1,4 @@
-package application.model;
+package application.model.posts;
 
 public interface IPost {
     IItem getItem();
