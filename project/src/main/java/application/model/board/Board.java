@@ -18,7 +18,7 @@ public class Board implements IBoard {
     }
 
     @Override
-    public void addPost(IPost new_post) {
-        posts.add(new_post);
+    public void addPost(IPost post) {
+        posts.add(post);
     }
 }
