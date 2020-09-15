@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
+<VBox prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
@@ -23,7 +22,7 @@
       </VBox>
       <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
          <children>
-            <Button minWidth="220.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #242424;" stylesheets="@../styles/button.css" textFill="#b5b5b5" HBox.hgrow="ALWAYS">
+            <Button minWidth="220.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="2000.0" style="-fx-background-color: #242424;" stylesheets="@../styles/button.css" textFill="#b5b5b5" HBox.hgrow="ALWAYS">
                <graphic>
                   <ImageView fitWidth="210.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -35,7 +34,7 @@
                   <Insets top="5.0" />
                </padding>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" minWidth="220.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="500.0" stylesheets="@../styles/button.css" text="Board" textAlignment="CENTER" textFill="#b5b5b5" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" contentDisplay="CENTER" minWidth="220.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="2000.0" stylesheets="@../styles/button.css" text="Board" textAlignment="CENTER" textFill="#b5b5b5" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="FontAwesome" size="13.0" />
                </font>
@@ -43,7 +42,7 @@
                   <Insets top="10.0" />
                </padding>
             </Button>
-            <Button alignment="CENTER" minWidth="220.0" mnemonicParsing="false" onAction="#handlePublishButton" prefHeight="500.0" prefWidth="500.0" stylesheets="@../styles/button.css" text="Publish" textFill="#b5b5b5" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" minWidth="220.0" mnemonicParsing="false" onAction="#handlePublishButton" prefHeight="500.0" prefWidth="2000.0" stylesheets="@../styles/button.css" text="Publish" textFill="#b5b5b5" HBox.hgrow="ALWAYS">
                <padding>
                   <Insets top="10.0" />
                </padding>
