@@ -1,8 +1,7 @@
 .scroll-pane {
- -fx-border: none;
- -fx-background: #202020;
  -fx-focus-color: transparent;
- -fx-border-color: #202020;
+ -fx-background: #1A1A1A;
+ -fx-border-color: #1A1A1A;
 }
 
 
