@@ -6,9 +6,6 @@
 }
 
 
-.scroll-pane {
-    -fx-background-color: black;
-}
 
 .scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color:transparent;
