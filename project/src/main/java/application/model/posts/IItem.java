@@ -8,5 +8,4 @@ public interface IItem {
     String getName();
     List<ITag> getTags();
     //Image getImage();
-    String getDescription();
 }

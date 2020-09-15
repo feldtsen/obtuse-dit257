@@ -4,14 +4,13 @@ import application.model.tags.ITag;
 import java.util.List;
 
 public class Item implements IItem {
-    public final String name;
-    public final List<ITag> itag;
-    public final String description;
+    private final String name;
+    private final List<ITag> tags;
+    //private final Image image;
 
-    public Item(String name, List<ITag> itag, String description){
+    public Item(String name, List<ITag> tags){
         this.name = name;
-        this.itag = itag;
-        this.description = description;
+        this.tags = tags;
     }
 
     @Override
@@ -21,11 +20,6 @@ public class Item implements IItem {
 
     @Override
     public List<ITag> getTags() {
-        return itag;
-    }
-
-    @Override
-    public String getDescription() {
-        return description;
+        return tags;
     }
 }
