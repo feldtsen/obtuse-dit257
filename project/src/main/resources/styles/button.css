@@ -2,11 +2,12 @@
 -fx-focus-color: transparent;
 -fx-background-radius: 0;
 -fx-border-style: none;
--fx-background-color: rgb(35, 35, 35);
+-fx-background-color: #282828;
 -fx-border: 0;
+-fx-min-width: 220px;
 }
 
 .button:hover {
--fx-background-color: rgb(45,45,45);
+-fx-background-color: #3A3A3A;
 }
 
