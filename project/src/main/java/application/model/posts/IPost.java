@@ -4,6 +4,7 @@ import application.model.users.IUser;
 
 public interface IPost {
     String getTitle();
+    String getDescription();
     IItem getItem();
     IUser getUser();
     //Range getAvailableTime();

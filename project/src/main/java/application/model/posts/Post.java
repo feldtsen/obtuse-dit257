@@ -5,14 +5,16 @@ import application.model.users.IUser;
 public abstract class Post implements IPost {
 
     private final String title;
+    private final String description;
     private final IUser user;
     private final IItem item;
     //private final Range Availabletime;
     private boolean claimed;
     private boolean received;
 
-    public Post(String title, IUser user, IItem item) {
+    public Post(String title, String description, IUser user, IItem item) {
         this.title = title;
+        this.description = description;
         this.user = user;
         this.item = item;
         this.claimed = false;
@@ -22,6 +24,11 @@ public abstract class Post implements IPost {
     @Override
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
     }
 
     @Override
