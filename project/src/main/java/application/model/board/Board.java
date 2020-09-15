@@ -7,13 +7,18 @@ import java.util.List;
 
 public class Board implements IBoard {
 
-    List<IPost> posts = new ArrayList<>();
+    List<IPost> posts;
 
-    public Board(List<IPost> posts) {
-        this.posts = posts;
+    public Board() {
+        this.posts = new ArrayList<>();
     }
     @Override
     public List<IPost> getVisiblePosts() {
         return posts;
+    }
+
+    @Override
+    public void addPost(IPost new_post) {
+        posts.add(new_post);
     }
 }
