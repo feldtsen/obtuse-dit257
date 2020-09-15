@@ -1,6 +1,7 @@
 package application.model.posts;
 
 public interface IPost {
+    String getTitle();
     IItem getItem();
     //IUser getUser();
     //Range getAvailableTime();
