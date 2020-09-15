@@ -8,7 +8,6 @@ public class Item implements IItem {
     private final List<ITag> tags;
     //private final Image image;
 
-
     public Item(String name, List<ITag> tags){
         this.name = name;
         this.tags = tags;
