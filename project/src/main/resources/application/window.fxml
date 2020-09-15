@@ -43,6 +43,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background: #383838; -fx-border-color: #383838;" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" />
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/scrollPane.css" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" />
    </children>
 </GridPane>
