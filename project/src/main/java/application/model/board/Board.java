@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board implements IBoard {
-
-    List<IPost> posts;
+    private final List<IPost> posts;
 
     public Board() {
         this.posts = new ArrayList<>();
