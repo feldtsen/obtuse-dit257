@@ -7,5 +7,6 @@ import java.util.List;
 public interface IBoard {
     List<IPost> getVisiblePosts();
     void addPost(IPost post);
+    boolean deletePost(IPost post);
     //void setFilter(IFilter);
 }
