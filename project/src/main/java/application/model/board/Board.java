@@ -21,4 +21,9 @@ public class Board implements IBoard {
     public void addPost(IPost post) {
         posts.add(post);
     }
+
+    @Override
+    public boolean deletePost(IPost post) {
+        return posts.remove(post);
+    }
 }
