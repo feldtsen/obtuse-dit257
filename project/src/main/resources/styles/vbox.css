@@ -1,5 +1,5 @@
-.vbox {
--fx-focus-color: transparent;
+#vbox {
+    -fx-background-color: #202020;
 }
 
 
