@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class User implements IUser{
-    private String name;
-    private String phoneNumber;
+    private final String name;
+    private final String phoneNumber;
 
     public User(String name, String phoneNumber){
         this.name = name;
