@@ -9,35 +9,21 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<HBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="publishSite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="703.0" spacing="10.0" style="-fx-background-color: #232323;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
    <children>
-      <HBox alignment="CENTER" style="-fx-background-color: #1B1B1B;">
+      <ImageView fitHeight="371.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@food.jpg" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
          <children>
-            <HBox fx:id="publishSite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="703.0" spacing="10.0" style="-fx-background-color: #232323;">
-               <children>
-                  <ImageView fitHeight="371.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@food.jpg" />
-                     </image>
-                  </ImageView>
-                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="219.0" prefWidth="486.0" text="CAT FOOD FOR HUMANOIDS" textFill="#d3d3d3" textOverrun="CLIP" wrapText="true" />
-                        <Button minHeight="30.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="1000.0" stylesheets="@../styles/button.css" text="Claim" textFill="#dadada" VBox.vgrow="ALWAYS" />
-                     </children>
-                  </VBox>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets bottom="10.0" right="10.0" />
-               </HBox.margin>
-            </HBox>
+            <Label alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="219.0" prefWidth="486.0" text="CAT FOOD FOR HUMANOIDS" textFill="#d3d3d3" textOverrun="CLIP" wrapText="true" />
+            <Button minHeight="30.0" mnemonicParsing="false" onAction="#handleClaimButton" prefHeight="50.0" prefWidth="1000.0" stylesheets="@../styles/button.css" text="Claim it" textFill="#dadada" VBox.vgrow="ALWAYS" />
          </children>
-         <HBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </HBox.margin>
-      </HBox>
+      </VBox>
    </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
 </HBox>

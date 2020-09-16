@@ -11,15 +11,11 @@
 
 <VBox prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
-         <children>
-            <ScrollPane fx:id="scrollPane" prefHeight="0.0" prefWidth="0.0" style="-fx-fit-to-width: true;" stylesheets="@../styles/scrollPane.css" VBox.vgrow="ALWAYS">
-               <content>
-                  <VBox fx:id="content" alignment="TOP_CENTER" prefHeight="265.0" prefWidth="1000.0" stylesheets="@../styles/vbox.css" />
-               </content>
-            </ScrollPane>
-         </children>
-      </VBox>
+      <ScrollPane fx:id="scrollPane" prefHeight="0.0" prefWidth="0.0" style="-fx-fit-to-width: true;" stylesheets="@../styles/scrollPane.css" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox fx:id="content" alignment="TOP_CENTER" prefHeight="265.0" prefWidth="1000.0" stylesheets="@../styles/vbox.css" />
+         </content>
+      </ScrollPane>
       <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">
          <children>
             <Button minWidth="220.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="2000.0" style="-fx-background-color: #242424;" stylesheets="@../styles/button.css" textFill="#b5b5b5" HBox.hgrow="ALWAYS">
@@ -34,7 +30,7 @@
                   <Insets top="5.0" />
                </padding>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" minWidth="220.0" mnemonicParsing="false" prefHeight="500.0" prefWidth="2000.0" stylesheets="@../styles/button.css" text="Board" textAlignment="CENTER" textFill="#b5b5b5" HBox.hgrow="ALWAYS">
+            <Button alignment="CENTER" contentDisplay="CENTER" minWidth="220.0" mnemonicParsing="false" onAction="#handleBoardButton" prefHeight="500.0" prefWidth="2000.0" stylesheets="@../styles/button.css" text="Board" textAlignment="CENTER" textFill="#b5b5b5" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="FontAwesome" size="13.0" />
                </font>
