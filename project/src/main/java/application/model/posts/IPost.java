@@ -11,8 +11,4 @@ public interface IPost {
     List<IItem> getItems();
     IUser getAuthor();
     //Range getAvailableTime();
-
-    boolean claim(IUser user);
-    boolean isClaimed();
-    boolean isReceived();
 }
