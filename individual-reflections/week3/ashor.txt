@@ -1,0 +1,18 @@
+I just started to learn how to work in agile manner and things are new for me. We started by
+following the scrum board that we put together. I need to learn the intelij IDE a bit better
+there were some improvments in this field already. 
+I find it the best way to help my group members is to show them directly if only few needed some
+help and that worked just fine.
+My cotributions this sprint was working on create user classes and test everything is working and
+I got that done successfully.
+
+We need to do estimation of time for every task or user story we have and that we missed this
+sprint. I find it very hepfull and assures we follow our KPIs. I think we need more testing
+to assure things are working properly
+
+
+By coding more with our IDE I can learn to master it better. When we have better time estimation
+it will give us better understanding of our progression through out the project. Testing will
+help us in the future to catch any bug we might encounter.
+
+
