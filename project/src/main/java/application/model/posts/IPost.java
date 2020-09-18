@@ -9,10 +9,6 @@ public interface IPost {
     String getDescription();
 
     List<IItem> getItems();
-    IUser getUser();
+    IUser getAuthor();
     //Range getAvailableTime();
-
-    boolean claim(IUser user);
-    boolean isClaimed();
-    boolean isReceived();
 }
