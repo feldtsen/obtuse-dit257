@@ -1,0 +1,16 @@
+
+This week we have started our first sprint and started coding.
+We have had two group meetings this week.
+We have made a logo, basic post and basic user and started making a basic GUI, basic start board and basic screen.
+
+This week I have made a high resolution logo in Gimp and learned the basics in Gimp to be able to do it.
+I've started to get to know how to use Github properly and the very basics of Vim, thanks to my fellow group members.
+
+We have implemented Fist of 5 this week, and have decided to have at least 2 meetings each sprint.
+On the last meeting we decided to have a Scrum Master, and that I should have that role.
+
+We should be more structured and plan ahead our estimated time for the next sprint.
+We should also be more specific and break down the tasks on our Scrum Board in Trello, which we started to use this week.
+I plan to continue learning and hope to do some parallel programming next sprint.
+I feel that the Scrum Master role will push me to motivate our group to work better according to scrum.
+ 
