@@ -10,8 +10,8 @@ public class Donation extends Post {
     private IUser claimedBy;
     private boolean received;
 
-    public Donation(String title, String description, IUser user, List<IItem> items) {
-        super(title, description, user, items);
+    public Donation(String title, String description, IUser author, List<IItem> items) {
+        super(title, description, author, items);
         this.claimed = false;
         this.claimedBy = null;
     }
