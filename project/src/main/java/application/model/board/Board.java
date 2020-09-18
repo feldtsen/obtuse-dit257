@@ -12,8 +12,15 @@ public class Board implements IBoard {
         this.posts = new ArrayList<>();
     }
     @Override
-    public List<IPost> getVisiblePosts() {
+    public List<IPost> getAllPosts() {
         return posts;
+    }
+
+    @Override
+    public List<IPost> getVisiblePosts() {
+        //return posts;
+        //TODO: apply filter
+        return null;
     }
 
     @Override
