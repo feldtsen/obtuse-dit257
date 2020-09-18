@@ -1,0 +1,8 @@
+The agile process is still somewhat diffuse. Now we've decided to focus more on the scrum process, hopefully, this will help us to achieve our goals more efficiently. I need to read up on the role distribution. rewatch some of the lectures, read more from external resources and ask my team members.
+
+I'm getting more used to the JavaFX library, if my team members implement GUI-elements they can consult me for guidance. 
+
+My tasks have been too big, I need to break them down and assign parts of it to other members. 
+
+
+
