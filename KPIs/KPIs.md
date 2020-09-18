@@ -1,4 +1,4 @@
-# 1. Task completion (weekly) (percentage)
+# 1. Acceptence criteria fulfilled (weekly) (percentage)
 * how many tasks are completed relative to our estimate?
 * (completed tasks) / (estimated completed tasks) 
 
