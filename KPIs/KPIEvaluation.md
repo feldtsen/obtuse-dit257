@@ -2,13 +2,13 @@
 ## Acceptence criteria fulfilled (weekly)
 9/12 75%
 
-## Personal well-being (daily)
+## Personal well-being (daily) (1-5)
 * Day 1: 3.14
 * Day 2: 3.42 
 * Day 3: 3
 * Day 4: 3.66
 
-## Team satisfaction (weekly) 
+## Team satisfaction (weekly) (1-5)
 3.66
 
 
