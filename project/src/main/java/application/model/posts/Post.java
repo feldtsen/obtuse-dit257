@@ -8,16 +8,17 @@ public abstract class Post implements IPost {
 
     private final String title;
     private final String description;
-    private final IUser user;
+    private final IUser author;
     private final List<IItem> items;
     //private final Range Availabletime;
+    private IUser claimedBy;
     private boolean claimed;
     private boolean received;
 
-    public Post(String title, String description, IUser user, List<IItem> items) {
+    public Post(String title, String description, IUser author, List<IItem> items) {
         this.title = title;
         this.description = description;
-        this.user = user;
+        this.author = author;
         this.items = items;
         this.claimed = false;
         this.received = false;
@@ -39,8 +40,8 @@ public abstract class Post implements IPost {
     }
 
     @Override
-    public IUser getUser() {
-        return user;
+    public IUser getAuthor() {
+        return author;
     }
 /*
     @Override
@@ -60,7 +61,9 @@ public abstract class Post implements IPost {
 
     @Override
     public boolean claim(IUser user) {
-        // TODO
-        return false;
+        if(isClaimed() || user == author) return false;
+        this.claimed = true;
+        this.claimedBy = user;
+        return true;
     }
 }
