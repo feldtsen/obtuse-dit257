@@ -1,4 +1,4 @@
-project/target/
-project/.idea/
+project/target
+project/.idea
 project/.attach_pid*
 project/project.iml
