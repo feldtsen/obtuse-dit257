@@ -14,7 +14,7 @@ public class UserTests {
     }
 
     @Test
-    public void getPhonenumberTest(){
+    public void getPhoneNumberTest(){
         assertEquals("0737266506", ashor.getPhoneNumber());
     }
 }
