@@ -2,3 +2,4 @@ project/target
 project/.idea
 project/.attach_pid*
 project/project.iml
+.DS_Store
