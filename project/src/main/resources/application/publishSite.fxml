@@ -3,27 +3,47 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-<HBox fx:id="publishSite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="703.0" spacing="10.0" style="-fx-background-color: #232323;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
+<VBox maxWidth="600.0" minWidth="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
    <children>
-      <ImageView fitHeight="371.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@food.jpg" />
-         </image>
-      </ImageView>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+      <VBox prefHeight="200.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #303030;">
          <children>
-            <Label alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="219.0" prefWidth="486.0" text="CAT FOOD FOR HUMANOIDS" textFill="#d3d3d3" textOverrun="CLIP" wrapText="true" />
-            <Button minHeight="30.0" mnemonicParsing="false" onAction="#handleClaimButton" prefHeight="50.0" prefWidth="1000.0" stylesheets="@../styles/button.css" text="Claim it" textFill="#dadada" VBox.vgrow="ALWAYS" />
+            <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Title" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextArea maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Label" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextArea maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <Button mnemonicParsing="false" prefWidth="6000.0" stylesheets="@../styles/button.css" text="Post" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
    </children>
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
-</HBox>
+</VBox>
