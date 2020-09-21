@@ -25,9 +25,8 @@ public class Request extends Post{
     public boolean offer(IUser donator){
         if(isSatisfied){return false;}
         donators.add(donator);
+        this.isSatisfied = true;
         return true;
     }
-
-    public void setIsSatisfied(){isSatisfied = true;}
 
 }
