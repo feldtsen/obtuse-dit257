@@ -23,7 +23,7 @@ public class Request extends Post{
     public List<IUser> getDonator(){return donators;}
 
     public boolean offer(IUser donator){
-        if(isSatisfied){return false;}
+        if(isSatisfied || donator == getAuthor()){return false;}
         donators.add(donator);
         this.isSatisfied = true;
         return true;
