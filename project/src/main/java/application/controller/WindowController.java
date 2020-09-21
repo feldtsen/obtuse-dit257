@@ -29,7 +29,7 @@ public class WindowController {
 
     @FXML
     private void handleBoardButton() {
-        Post post = new Post(content);
+        PostGenerator post = new PostGenerator(content);
         for (int i = 0; i < 100; i++) {
             post.createDonation("I'm going abroad!", "Mammal milk products expires in 3 days! " +
                     "The perfect fatty ingredients you need in your life. I can bring it to your door, " +

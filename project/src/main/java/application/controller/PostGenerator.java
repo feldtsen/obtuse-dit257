@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
-public class Post {
+public class PostGenerator {
     final VBox container;
     VBox post;
     final static String buttonCssPath = App.class.getResource("/styles/button.css").toString();
@@ -19,7 +19,7 @@ public class Post {
 
     final static int MAX_WIDTH = 800;
 
-    public Post(VBox container) {
+    public PostGenerator(VBox container) {
         // The board where the posts will show up
         this.container = container;
         //clears the container
