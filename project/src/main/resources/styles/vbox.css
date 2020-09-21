@@ -2,4 +2,9 @@
     -fx-background-color: #202020;
 }
 
+#post {
+    -fx-background-color: #2A2A2A;
+    -fx-padding: 10;
+}
+
 
