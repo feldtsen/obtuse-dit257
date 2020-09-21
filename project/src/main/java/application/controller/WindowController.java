@@ -1,27 +1,38 @@
 package application.controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
 import application.App;
+import application.model.board.Board;
+import application.model.posts.Donation;
+import application.model.posts.IPost;
+import application.model.posts.Post;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
-public class WindowController {
+public class WindowController implements Initializable {
 
+    final static Board board = new Board();
 
     @FXML
     VBox content;
 
     @FXML
     private void generatePost(ActionEvent e) {
+        System.out.println("generatePost");
         Button publishSiteButton = (Button) e.getSource();
         VBox publishSiteContainer = (VBox) publishSiteButton.getParent().getParent();
-        System.out.println(((Button)publishSiteContainer.lookup("#publishPostButton")).getText());
-        System.out.println(((TextArea) publishSiteContainer.lookup("#titleInput")).getText());
-        System.out.println(((TextArea) publishSiteContainer.lookup("#descriptionInput")).getText());
+        String titleText =((TextArea) publishSiteContainer.lookup("#titleInput")).getText();
+        String descriptionText =((TextArea) publishSiteContainer.lookup("#descriptionInput")).getText();
+        Post newPost = new Donation(titleText, descriptionText, null, null);
+        board.addPost(newPost);
     }
 
     @FXML
@@ -32,13 +43,14 @@ public class WindowController {
 
     @FXML
     private void handleBoardButton() {
-        PostGenerator post = new PostGenerator(content);
-        for (int i = 0; i < 100; i++) {
-            post.createDonation("I'm going abroad!", "Mammal milk products expires in 3 days! " +
-                    "The perfect fatty ingredients you need in your life. I can bring it to your door, " +
-                    "just claim it and I'll be there in a heartbeat.");
+        System.out.println("Board");
+        PostGenerator postGenerator = new PostGenerator(content);
+        List<IPost> posts = board.getAllPosts();
 
+        for (IPost post : posts) {
+            postGenerator.createDonation(post.getTitle(),  post.getDescription());
         }
+
     }
 
     @FXML
@@ -50,4 +62,7 @@ public class WindowController {
         System.out.println("Claim button " + button.getText() + " pressed");
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    }
 }
