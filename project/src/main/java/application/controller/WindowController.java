@@ -15,8 +15,13 @@ public class WindowController {
     @FXML
     VBox content;
 
-    private void generatePost() throws IOException {
-
+    @FXML
+    private void generatePost(ActionEvent e) {
+        Button publishSiteButton = (Button) e.getSource();
+        VBox publishSiteContainer = (VBox) publishSiteButton.getParent().getParent();
+        System.out.println(((Button)publishSiteContainer.lookup("#publishPostButton")).getText());
+        System.out.println(((TextArea) publishSiteContainer.lookup("#titleInput")).getText());
+        System.out.println(((TextArea) publishSiteContainer.lookup("#descriptionInput")).getText());
     }
 
     @FXML
@@ -24,8 +29,6 @@ public class WindowController {
         VBox root = FXMLLoader.load(App.class.getResource("publishSite.fxml"));
         content.getChildren().setAll(root);
     }
-
-
 
     @FXML
     private void handleBoardButton() {
