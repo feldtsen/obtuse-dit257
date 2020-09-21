@@ -23,6 +23,7 @@ public class Request extends Post{
     public List<IUser> getDonator(){return donators;}
 
     public boolean offer(IUser donator){
+        // Todo: change implementation to be able to have multiple items
         if(isSatisfied || donator == getAuthor()){return false;}
         donators.add(donator);
         this.isSatisfied = true;
