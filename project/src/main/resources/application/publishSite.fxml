@@ -8,42 +8,38 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox maxWidth="600.0" minWidth="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
+<VBox maxWidth="600.0" minWidth="600.0" prefHeight="300.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #303030;">
+      <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <Label text="Title" textFill="WHITE" VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <TextArea maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <Label text="Label" textFill="WHITE" VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <TextArea maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-            </VBox>
-            <Button mnemonicParsing="false" prefWidth="6000.0" stylesheets="@../styles/button.css" text="Post" textFill="WHITE">
+            <Label text="Title" textFill="WHITE" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="24.0" />
                </font>
-            </Button>
+            </Label>
+            <TextArea fx:id="titleInput" maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
          </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
       </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label text="Description" textFill="WHITE" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="descriptionInput" maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </VBox>
+      <Button fx:id="publishPostButton" mnemonicParsing="false" onAction="#generatePost" prefWidth="6000.0" stylesheets="@../styles/button.css" text="Post" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </VBox>
