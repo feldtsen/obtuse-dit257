@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
+<VBox alignment="TOP_CENTER" prefHeight="900.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
    <children>
       <ScrollPane fx:id="scrollPane" prefHeight="0.0" prefWidth="0.0" style="-fx-fit-to-width: true;" stylesheets="@../styles/scrollPane.css" VBox.vgrow="ALWAYS">
          <content>
-            <VBox fx:id="content" alignment="TOP_CENTER" prefHeight="265.0" prefWidth="1000.0" stylesheets="@../styles/vbox.css" />
+            <VBox fx:id="content" alignment="CENTER" prefHeight="265.0" prefWidth="1000.0" stylesheets="@../styles/vbox.css" />
          </content>
       </ScrollPane>
       <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="NEVER">

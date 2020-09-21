@@ -1,13 +1,14 @@
 .button {
--fx-focus-color: transparent;
--fx-background-radius: 0;
--fx-border-style: none;
--fx-background-color: #282828;
--fx-border: 0;
--fx-min-width: 220px;
+    -fx-focus-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-style: none;
+    -fx-background-color: #2F2F2F;
+    -fx-border: 0;
+    -fx-text-fill: BBBBBB;
+
 }
 
 .button:hover {
--fx-background-color: #3A3A3A;
+    -fx-background-color: #3A3A3A;
 }
 
