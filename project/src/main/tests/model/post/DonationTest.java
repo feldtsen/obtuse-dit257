@@ -7,6 +7,8 @@ import application.model.posts.IPost;
 import application.model.posts.Post;
 import application.model.users.IUser;
 import application.model.users.User;
+import application.model.util.InvalidPhoneNumberException;
+import application.model.util.PhoneNumber;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -17,8 +19,14 @@ public class DonationTest {
     @Test
     public void testClaimUnclaimed(){
 
-        IUser u1 = new User("Oom", "0738400612");
-        IUser u2 = new User("Joachim", "0738400612");
+        IUser u1 = null;
+        IUser u2 = null;
+        try {
+            u1 = new User("Oom", new PhoneNumber("0738400612"));
+            u2 = new User("Joachim", new PhoneNumber("0738400612"));
+        } catch (InvalidPhoneNumberException e) {
+            fail();
+        }
 
         List<IItem> items = new ArrayList<>();
 
@@ -33,9 +41,16 @@ public class DonationTest {
     @Test
     public void testClaimClaimed(){
 
-        IUser u1 = new User("Oom", "0738400612");
-        IUser u2 = new User("Joachim", "0738433312");
-        IUser u3 = new User("Anton", "0738444412");
+        IUser u1 = null;
+        IUser u2 = null;
+        IUser u3 = null;
+        try {
+            u1 = new User("Oom", new PhoneNumber("0738400612"));
+            u2 = new User("Joachim", new PhoneNumber("0738433312"));
+            u3 = new User("Anton", new PhoneNumber("0738444412"));
+        } catch (InvalidPhoneNumberException e) {
+            fail();
+        }
 
         List<IItem> items = new ArrayList<>();
 
@@ -51,7 +66,12 @@ public class DonationTest {
     @Test
     public void testClaimOwnPost(){
 
-        IUser u1 = new User("Oom", "0738400612");
+        IUser u1 = null;
+        try {
+            u1 = new User("Oom", new PhoneNumber("0738400612"));
+        } catch (InvalidPhoneNumberException e) {
+            fail();
+        }
 
         List<IItem> items = new ArrayList<>();
 
