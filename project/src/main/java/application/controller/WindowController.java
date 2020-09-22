@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import application.App;
-import application.model.board.Board;
 import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.posts.Donation;
@@ -22,7 +21,6 @@ import javafx.scene.layout.VBox;
 
 public class WindowController implements Initializable {
 
-    final static Board board = new Board();
     final static IClient client = Client.getTest();
 
     @FXML
@@ -34,39 +32,40 @@ public class WindowController implements Initializable {
 
     @FXML
     private void generatePost(ActionEvent e) {
-        System.out.println("generatePost");
+        //The button being pressed
         Button publishSiteButton = (Button) e.getSource();
+        // Need to get to the right level in the hierarchy
         VBox publishSiteContainer = (VBox) publishSiteButton.getParent().getParent();
-        String titleText =((TextArea) publishSiteContainer.lookup("#titleInput")).getText();
+
+        //Retrieves the content of the title input field
+        String titleText = ((TextArea) publishSiteContainer.lookup("#titleInput")).getText();
+        //Retrieves the content of the description field
         String descriptionText =((TextArea) publishSiteContainer.lookup("#descriptionInput")).getText();
-        Post newPost = new Donation(titleText, descriptionText, null, null);
-        board.addPost(newPost);
+
+        //Generates the new post and adds it to the board
+        Post newPost = new Donation(titleText, descriptionText, client.getUser(), null);
+        client.getBoard().addPost(newPost);
     }
 
     @FXML
     private void handlePublishButton() throws IOException {
+        //loads the specified page
         VBox root = FXMLLoader.load(App.class.getResource("publishSite.fxml"));
+        //adds margin of the site loaded
         VBox.setMargin(root, new Insets(20, 0, 0, 0));
+        //removes current page and updates with the requested site
         content.getChildren().setAll(root);
     }
 
     @FXML
     private void handleBoardButton() {
-        System.out.println("Board");
         PostGenerator postGenerator = new PostGenerator(content);
-        List<IPost> posts = board.getAllPosts();
+
+        List<IPost> posts = client.getBoard().getAllPosts();
 
         for (IPost post : posts) {
-            postGenerator.createDonation(post.getTitle(),  post.getDescription());
+            postGenerator.createDonation(post);
         }
     }
 
-    @FXML
-    private void handleClaimButton(ActionEvent e) {
-        Button button = (Button) e.getSource();
-        Label title = (Label) button.getParent().lookup("#title");
-        title.setText(button.getText() + " claimed!");
-        button.setStyle("-fx-background-color: green");
-        System.out.println("Claim button " + button.getText() + " pressed");
-    }
 }
