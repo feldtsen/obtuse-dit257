@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 
 import application.App;
 import application.model.board.Board;
+import application.model.client.Client;
+import application.model.client.IClient;
 import application.model.posts.Donation;
 import application.model.posts.IPost;
 import application.model.posts.Post;
@@ -21,6 +23,7 @@ import javafx.scene.layout.VBox;
 public class WindowController implements Initializable {
 
     final static Board board = new Board();
+    final static IClient client = Client.getTest();
 
     @FXML
     VBox content;
