@@ -1,6 +1,13 @@
 package application.model.util;
 
+import java.util.regex.Pattern;
+
 public class PhoneNumber {
+    private final static String VALID_PATTERNS
+            = "^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$"
+            + "|^(\\+\\d{1,3}( )?)?(\\d{3}[ ]?){2}\\d{3}$"
+            + "|^(\\+\\d{1,3}( )?)?(\\d{3}[ ]?)(\\d{2}[ ]?){2}\\d{2}$";
+
     private final String number;
 
     public PhoneNumber(String number) throws InvalidPhoneNumberException {
@@ -9,11 +16,16 @@ public class PhoneNumber {
     }
 
     private boolean isValidNumber(String number) {
-
-        return true;
+        Pattern pattern = Pattern.compile(VALID_PATTERNS);
+        return pattern.matcher(number).matches();
     }
 
     public String getNumber() {
+        return number;
+    }
+
+    @Override
+    public String toString() {
         return number;
     }
 }
