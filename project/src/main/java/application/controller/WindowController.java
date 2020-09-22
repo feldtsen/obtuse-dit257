@@ -31,25 +31,33 @@ public class WindowController implements Initializable {
 
     @FXML
     private void generatePost(ActionEvent e) {
-        System.out.println("generatePost");
+        //The button being pressed
         Button publishSiteButton = (Button) e.getSource();
+        // Need to get to the right level in the hierarchy
         VBox publishSiteContainer = (VBox) publishSiteButton.getParent().getParent();
+
+        //Retrieves the content of the title input field
         String titleText =((TextArea) publishSiteContainer.lookup("#titleInput")).getText();
+        //Retrieves the content of the description field
         String descriptionText =((TextArea) publishSiteContainer.lookup("#descriptionInput")).getText();
+
+        //Generates the new post and adds it to the board
         Post newPost = new Donation(titleText, descriptionText, null, null);
         board.addPost(newPost);
     }
 
     @FXML
     private void handlePublishButton() throws IOException {
+        //loads the specified page
         VBox root = FXMLLoader.load(App.class.getResource("publishSite.fxml"));
+        //adds margin of the site loaded
         VBox.setMargin(root, new Insets(20, 0, 0, 0));
+        //removes current page and updates with the requested site
         content.getChildren().setAll(root);
     }
 
     @FXML
     private void handleBoardButton() {
-        System.out.println("Board");
         PostGenerator postGenerator = new PostGenerator(content);
         List<IPost> posts = board.getAllPosts();
 
