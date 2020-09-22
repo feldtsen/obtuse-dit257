@@ -79,6 +79,7 @@ public class PostGenerator {
     }
 
     private void claimClicked(MouseEvent e) {
+        ((Button) e.getSource()).setStyle("-fx-background-color: green");
         System.out.println("clicked");
     }
 

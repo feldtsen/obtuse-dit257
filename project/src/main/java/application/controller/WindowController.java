@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
@@ -23,6 +24,10 @@ public class WindowController implements Initializable {
 
     @FXML
     VBox content;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    }
 
     @FXML
     private void generatePost(ActionEvent e) {
@@ -38,6 +43,7 @@ public class WindowController implements Initializable {
     @FXML
     private void handlePublishButton() throws IOException {
         VBox root = FXMLLoader.load(App.class.getResource("publishSite.fxml"));
+        VBox.setMargin(root, new Insets(20, 0, 0, 0));
         content.getChildren().setAll(root);
     }
 
@@ -50,7 +56,6 @@ public class WindowController implements Initializable {
         for (IPost post : posts) {
             postGenerator.createDonation(post.getTitle(),  post.getDescription());
         }
-
     }
 
     @FXML
@@ -60,9 +65,5 @@ public class WindowController implements Initializable {
         title.setText(button.getText() + " claimed!");
         button.setStyle("-fx-background-color: green");
         System.out.println("Claim button " + button.getText() + " pressed");
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
     }
 }
