@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import application.App;
-import application.model.board.Board;
 import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.posts.Donation;
@@ -22,7 +21,6 @@ import javafx.scene.layout.VBox;
 
 public class WindowController implements Initializable {
 
-    final static Board board = new Board();
     final static IClient client = Client.getTest();
 
     @FXML
@@ -45,8 +43,8 @@ public class WindowController implements Initializable {
         String descriptionText =((TextArea) publishSiteContainer.lookup("#descriptionInput")).getText();
 
         //Generates the new post and adds it to the board
-        Post newPost = new Donation(titleText, descriptionText, null, null);
-        board.addPost(newPost);
+        Post newPost = new Donation(titleText, descriptionText, client.getUser(), null);
+        client.getBoard().addPost(newPost);
     }
 
     @FXML
@@ -63,10 +61,10 @@ public class WindowController implements Initializable {
     private void handleBoardButton() {
         PostGenerator postGenerator = new PostGenerator(content);
 
-        List<IPost> posts = board.getAllPosts();
+        List<IPost> posts = client.getBoard().getAllPosts();
 
         for (IPost post : posts) {
-            postGenerator.createDonation(post.getTitle(),  post.getDescription());
+            postGenerator.createDonation(post);
         }
     }
 
