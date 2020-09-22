@@ -7,6 +7,8 @@ import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.users.IUser;
 import application.model.users.User;
+import application.model.util.InvalidPhoneNumberException;
+import application.model.util.PhoneNumber;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +19,10 @@ public class ClientTest {
 
     @Before
     public void init() {
-        user = new User("TestName", "+00000000000");
+        try {
+            user = new User("TestName", new PhoneNumber("00000000000"));
+        } catch (InvalidPhoneNumberException ignored) {
+        }
         board = new Board();
         client = new Client(user,board);
 
