@@ -40,7 +40,7 @@ public class PostGenerator {
         createPostContainer();
         addChild(label(post.getTitle()));
         addChild(descriptionTextFlow(post.getDescription()));
-        addChild(label(post.getAuthor().getPhoneNumber()));
+        addChild(label(post.getAuthor().getPhoneNumber().toString()));
         addChild(label(post.getAuthor().getName()));
         addChild(claimButton());
     }
