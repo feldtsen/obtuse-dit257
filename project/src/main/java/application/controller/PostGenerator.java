@@ -27,16 +27,17 @@ public class PostGenerator {
     }
 
     public void createDonation (String title, String description) {
+        createPost(title, description);
+    }
+
+    public void createRequest (String title) {
+    }
+
+    private void createPost (String title, String description) {
         createPostContainer();
         addChild(titleLabel(title));
         addChild(descriptionTextFlow(description));
         addChild(claimButton());
-    }
-
-    public void createRequest (String title) {
-        createPostContainer();
-        addChild(claimButton());
-        addChild(titleLabel(title));
     }
 
     private void createPostContainer () {

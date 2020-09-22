@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxWidth="600.0" minWidth="800.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
+<VBox maxWidth="600.0" minWidth="800.0" prefHeight="400.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #202020;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.WindowController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
          <children>
@@ -30,6 +30,32 @@
                </font>
             </Label>
             <TextArea fx:id="descriptionInput" maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text="Description" textFill="WHITE" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="descriptionInput1" maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text="Description" textFill="WHITE" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="descriptionInput11" maxHeight="30.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
          </children>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
