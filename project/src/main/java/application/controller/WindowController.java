@@ -37,7 +37,7 @@ public class WindowController implements Initializable {
         VBox publishSiteContainer = (VBox) publishSiteButton.getParent().getParent();
 
         //Retrieves the content of the title input field
-        String titleText =((TextArea) publishSiteContainer.lookup("#titleInput")).getText();
+        String titleText = ((TextArea) publishSiteContainer.lookup("#titleInput")).getText();
         //Retrieves the content of the description field
         String descriptionText =((TextArea) publishSiteContainer.lookup("#descriptionInput")).getText();
 
