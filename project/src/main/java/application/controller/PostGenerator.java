@@ -1,5 +1,8 @@
 package application.controller;
 import application.App;
+import application.model.posts.IPost;
+import application.model.posts.Post;
+import application.model.users.IUser;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -26,17 +29,19 @@ public class PostGenerator {
         container.getChildren().setAll();
     }
 
-    public void createDonation (String title, String description) {
-        createPost(title, description);
+    public void createDonation (IPost post) {
+        createPost(post);
     }
 
     public void createRequest (String title) {
     }
 
-    private void createPost (String title, String description) {
+    private void createPost (IPost post) {
         createPostContainer();
-        addChild(titleLabel(title));
-        addChild(descriptionTextFlow(description));
+        addChild(label(post.getTitle()));
+        addChild(descriptionTextFlow(post.getDescription()));
+        addChild(label(post.getAuthor().getPhoneNumber()));
+        addChild(label(post.getAuthor().getName()));
         addChild(claimButton());
     }
 
@@ -49,13 +54,14 @@ public class PostGenerator {
         container.getChildren().add(post);
     }
 
-    private Label titleLabel (String text) {
-        Label title = new Label(text);
-        title.setId("title");
-        title.getStylesheets().add(labelCssPath);
-        title.setPrefWidth(MAX_WIDTH);
-        return title;
+    private Label label(String text) {
+        Label label = new Label(text);
+        label.setId(text);
+        label.getStylesheets().add(labelCssPath);
+        label.setPrefWidth(MAX_WIDTH);
+        return label;
     }
+
 
     private TextFlow descriptionTextFlow (String text) {
         TextFlow textContainer = new TextFlow();
