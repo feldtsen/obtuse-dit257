@@ -59,6 +59,7 @@ public class WindowController implements Initializable {
     @FXML
     private void handleBoardButton() {
         PostGenerator postGenerator = new PostGenerator(content);
+
         List<IPost> posts = board.getAllPosts();
 
         for (IPost post : posts) {
@@ -66,12 +67,4 @@ public class WindowController implements Initializable {
         }
     }
 
-    @FXML
-    private void handleClaimButton(ActionEvent e) {
-        Button button = (Button) e.getSource();
-        Label title = (Label) button.getParent().lookup("#title");
-        title.setText(button.getText() + " claimed!");
-        button.setStyle("-fx-background-color: green");
-        System.out.println("Claim button " + button.getText() + " pressed");
-    }
 }
