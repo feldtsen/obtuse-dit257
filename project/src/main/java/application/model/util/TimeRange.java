@@ -27,7 +27,7 @@ public class TimeRange {
     public LocalDateTime getEnd(){return end;}
 
     private boolean isNotChronological(LocalDateTime startDate, LocalDateTime endDate){
-        return startDate.isBefore(endDate);
+        return startDate.isAfter(endDate);
     }
 
     private boolean isInvalidDate(LocalDateTime date){
