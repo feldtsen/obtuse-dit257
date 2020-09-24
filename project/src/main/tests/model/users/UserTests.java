@@ -27,4 +27,9 @@ public class UserTests {
     public void getPhoneNumberTest(){
         assertEquals("0737266506", ashor.getPhoneNumber().toString());
     }
+
+    @Test
+    public void getAddressTest() {
+        assertEquals("Where he lives", ashor.getAddress());
+    }
 }
