@@ -22,8 +22,8 @@ public class DonationTest {
         IUser u1 = null;
         IUser u2 = null;
         try {
-            u1 = new User("Oom", new PhoneNumber("0738400612"));
-            u2 = new User("Joachim", new PhoneNumber("0738400612"));
+            u1 = new User("Oom", "O'Conner Street 420", new PhoneNumber("0738400612"));
+            u2 = new User("Joachim", "Nowhere Land 0", new PhoneNumber("0738400612"));
         } catch (InvalidPhoneNumberException e) {
             fail();
         }
@@ -45,9 +45,9 @@ public class DonationTest {
         IUser u2 = null;
         IUser u3 = null;
         try {
-            u1 = new User("Oom", new PhoneNumber("0738400612"));
-            u2 = new User("Joachim", new PhoneNumber("0738433312"));
-            u3 = new User("Anton", new PhoneNumber("0738444412"));
+            u1 = new User("Oom", "O'Conner street 420", new PhoneNumber("0738400612"));
+            u2 = new User("Joachim", "Nowhere land 0", new PhoneNumber("0738433312"));
+            u3 = new User("Anton", "On the road to [redacted]", new PhoneNumber("0738444412"));
         } catch (InvalidPhoneNumberException e) {
             fail();
         }
@@ -68,7 +68,7 @@ public class DonationTest {
 
         IUser u1 = null;
         try {
-            u1 = new User("Oom", new PhoneNumber("0738400612"));
+            u1 = new User("Oom", "O'Conner street 420", new PhoneNumber("0738400612"));
         } catch (InvalidPhoneNumberException e) {
             fail();
         }

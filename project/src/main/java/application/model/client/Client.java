@@ -27,7 +27,7 @@ public class Client implements IClient{
     public static IClient getTest(){
         IUser u1 = null;
         try {
-            u1 = new User("Oom", new PhoneNumber("012323422"));
+            u1 = new User("Oom", "O'Conner street 420", new PhoneNumber("012323422"));
         } catch (InvalidPhoneNumberException ignored) {
         }
         IBoard b1 = new Board();

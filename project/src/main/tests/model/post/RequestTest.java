@@ -20,8 +20,8 @@ public class RequestTest {
         IUser u1 = null;
         IUser u2 = null;
         try {
-            u1 = new User("Oom", new PhoneNumber("0738400612"));
-            u2 = new User("Joachim", new PhoneNumber("0738400612"));
+            u1 = new User("Oom", "O'Conner Street 420", new PhoneNumber("0738400612"));
+            u2 = new User("Joachim", "Nowhere Land 0", new PhoneNumber("0738400612"));
         } catch (InvalidPhoneNumberException ignored) {
             fail();
         }
@@ -43,9 +43,9 @@ public class RequestTest {
         IUser u2 = null;
         IUser u3 = null;
         try {
-            u1 = new User("Oom", new PhoneNumber("0738400612"));
-            u2 = new User("Joachim", new PhoneNumber("0738400612"));
-            u3 = new User("Anton", new PhoneNumber("0738400612"));
+            u1 = new User("Oom", "O'Conner Street 420", new PhoneNumber("0738400612"));
+            u2 = new User("Joachim", "Nowhere Land 0", new PhoneNumber("0738400612"));
+            u3 = new User("Anton", "The road to [redacted]", new PhoneNumber("0738400612"));
         } catch (InvalidPhoneNumberException e) {
             fail();
         }
@@ -65,7 +65,7 @@ public class RequestTest {
 
         IUser u1 = null;
         try {
-            u1 = new User("Oom", new PhoneNumber("0738400612"));
+            u1 = new User("Oom", "O'Conner street 420", new PhoneNumber("0738400612"));
         } catch (InvalidPhoneNumberException e) {
             fail();
         }

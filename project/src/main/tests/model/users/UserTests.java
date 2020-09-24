@@ -12,7 +12,7 @@ public class UserTests {
 
     {
         try {
-            ashor = new User("Ashor.k", new PhoneNumber("0737266506"));
+            ashor = new User("Ashor.k", "Where he lives", new PhoneNumber("0737266506"));
         } catch (InvalidPhoneNumberException e) {
             e.printStackTrace();
         }
