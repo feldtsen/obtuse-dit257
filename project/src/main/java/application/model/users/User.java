@@ -4,11 +4,13 @@ import application.model.util.PhoneNumber;
 
 public class User implements IUser{
     private final String name;
-    private final PhoneNumber phonenumber;
+    private final String address;
+    private final PhoneNumber phoneNumber;
 
-    public User(String name, PhoneNumber phonenumber){
+    public User(String name, String address, PhoneNumber phoneNumber){
         this.name = name;
-        this.phonenumber = phonenumber;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
@@ -18,7 +20,7 @@ public class User implements IUser{
 
     @Override
     public PhoneNumber getPhoneNumber(){
-        return phonenumber;
+        return phoneNumber;
     }
 
 }
