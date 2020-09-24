@@ -4,12 +4,10 @@ import application.model.util.PhoneNumber;
 
 public class User implements IUser{
     private final String name;
-    private final String address;
     private final PhoneNumber phoneNumber;
 
-    public User(String name, String address, PhoneNumber phoneNumber){
+    public User(String name, PhoneNumber phoneNumber){
         this.name = name;
-        this.address = address;
         this.phoneNumber = phoneNumber;
     }
 
