@@ -24,19 +24,6 @@ public class Client implements IClient{
         return board;
     }
 
-    public static IClient getTest(){
-        IUser u1 = null;
-        try {
-            u1 = new User("Oom", new PhoneNumber("012323422"));
-        } catch (InvalidPhoneNumberException ignored) {
-        }
-        IBoard b1 = new Board();
-
-        IClient c1 = new Client(u1, b1);
-
-        return c1;
-    }
-
     //boolean notifyRoom(IPost post);
     //Update getNotifications();
 }

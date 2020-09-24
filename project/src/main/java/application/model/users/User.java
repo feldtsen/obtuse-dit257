@@ -1,18 +1,14 @@
 package application.model.users;
 
-import application.model.posts.IPost;
 import application.model.util.PhoneNumber;
-
-import java.util.List;
-import java.util.ArrayList;
 
 public class User implements IUser{
     private final String name;
-    private final PhoneNumber phoneNumber;
+    private final PhoneNumber phonenumber;
 
-    public User(String name, PhoneNumber phoneNumber){
+    public User(String name, PhoneNumber phonenumber){
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        this.phonenumber = phonenumber;
     }
 
     @Override
@@ -22,6 +18,7 @@ public class User implements IUser{
 
     @Override
     public PhoneNumber getPhoneNumber(){
-        return phoneNumber;
+        return phonenumber;
     }
+
 }
