@@ -28,6 +28,7 @@ public class WindowController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
     }
 
     @FXML
@@ -37,7 +38,7 @@ public class WindowController implements Initializable {
         // Need to get to the right level in the hierarchy
         VBox publishSiteContainer = (VBox) publishSiteButton.getParent().getParent();
 
-        //Retrieves the content of the title input field
+        //Retrieves the content of the title input field`
         String titleText = ((TextArea) publishSiteContainer.lookup("#titleInput")).getText();
         //Retrieves the content of the description field
         String descriptionText =((TextArea) publishSiteContainer.lookup("#descriptionInput")).getText();
