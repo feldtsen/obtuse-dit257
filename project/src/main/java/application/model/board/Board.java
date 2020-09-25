@@ -29,6 +29,11 @@ public class Board implements IBoard {
     }
 
     @Override
+    public void replacePost(IPost newPost, IPost oldPost) {
+        posts.set(posts.indexOf(oldPost),newPost);
+    }
+
+    @Override
     public boolean deletePost(IPost post) {
         return posts.remove(post);
     }

@@ -8,6 +8,9 @@ public interface IBoard {
     List<IPost> getVisiblePosts();
     List<IPost> getAllPosts();
     void addPost(IPost post);
+
+    void replacePost(IPost newPost, IPost oldPost);
+
     boolean deletePost(IPost post);
     //void setFilter(IFilter);
 }
