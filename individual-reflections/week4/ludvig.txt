@@ -1,0 +1,9 @@
+A:
+We have fleshed out the model we are working with and also connected it more with the GUI.
+We have also created some helper classes and tests for the model aswell to make it easier when we increase functionality.
+B:
+I would like to be able to myself work with the GUI so i can work more independantly to create new functionality by myself and get visual feedback.
+I would also like to get better at using Git still, right now i feel i have to ask for help if any issue arises instead being able to troubleshoot without fearing i will damage the master branch.
+A->B:
+To achieve this i want to look into the GUI framework more myself to learn, and also have more dialogue about it with the team. 
+I think to achieve my goals with Git still just requires more regular coding as the project develops and reading up on my own time.
