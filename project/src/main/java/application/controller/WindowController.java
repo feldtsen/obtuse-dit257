@@ -116,6 +116,7 @@ public class WindowController implements Initializable {
     /**
      * Create a client object with empty board inside
      * @param name the name of the user
+     * @param address the address for the user
      * @param phonenumber the phonenumber of the user
      * @return the client object
      *          otherwise null

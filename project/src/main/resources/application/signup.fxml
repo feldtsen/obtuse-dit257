@@ -45,7 +45,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="signupPhoneTF1" promptText="Type your phone number here!">
+            <TextField fx:id="signupPhoneTF" promptText="Type your phone number here!">
                <font>
                   <Font size="14.0" />
                </font>
