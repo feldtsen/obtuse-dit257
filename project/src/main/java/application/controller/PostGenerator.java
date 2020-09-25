@@ -1,8 +1,7 @@
 package application.controller;
+
 import application.App;
 import application.model.posts.IPost;
-import application.model.posts.Post;
-import application.model.users.IUser;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;

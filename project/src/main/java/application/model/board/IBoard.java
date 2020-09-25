@@ -2,9 +2,10 @@ package application.model.board;
 
 import application.model.posts.IPost;
 
+import java.io.Serializable;
 import java.util.List;
 
-public interface IBoard {
+public interface IBoard extends Serializable {
     List<IPost> getVisiblePosts();
     List<IPost> getAllPosts();
     void addPost(IPost post);
