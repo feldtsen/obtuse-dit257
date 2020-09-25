@@ -101,16 +101,23 @@ public class WindowController implements Initializable {
     @FXML
     private void handleBoardButton() {
         IClient client = loadClient();
-        PostGenerator postGenerator = new PostGenerator(content);
+        if( !(client==null) ) {
+            PostGenerator postGenerator = new PostGenerator(content);
+            List<IPost> posts = client.getBoard().getAllPosts();
 
-        List<IPost> posts = client.getBoard().getAllPosts();
-
-        for (IPost post : posts) {
-            postGenerator.createDonation(post);
+            for (IPost post : posts) {
+                postGenerator.createDonation(post);
+            }
         }
     }
 
-
+    /**
+     * Create a client object with empty board inside
+     * @param name the name of the user
+     * @param phonenumber the phonenumber of the user
+     * @return the client object
+     *          otherwise null
+     */
     private IClient createClient(String name, String phonenumber) {
         IClient client = null;
         try {
@@ -124,6 +131,12 @@ public class WindowController implements Initializable {
         return client;
     }
 
+    /**
+     * Save the client object to a file according to the path of
+     * specified by filename
+     * @param client the client object that needed to be stored
+     * @param filename the path to the file used for storing the client object
+     */
     private void saveClient(IClient client, String filename) {
         try {
             File clientFile = new File(filename);
@@ -138,6 +151,11 @@ public class WindowController implements Initializable {
         }
     }
 
+    /**
+     * Load the client object if there is one
+     * @return the client object that is stored locally
+     *          otherwise null
+     */
     private IClient loadClient() {
         IClient client = null;
         try {
