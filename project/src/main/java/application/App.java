@@ -1,13 +1,10 @@
 
 package application;
 
-import application.view.MainWindow;
+import application.view.MainParent;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException;
 
 /**
  * JavaFX App
@@ -16,7 +13,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        Scene scene = new Scene(MainWindow.getInstance());
+        Scene scene = new Scene(MainParent.getInstance(stage), 1200, 800);
         stage.setScene(scene);
         stage.show();
     }

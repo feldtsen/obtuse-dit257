@@ -2,15 +2,16 @@ package application.view;
 
 import javafx.scene.layout.VBox;
 
-public class BoardView extends VBox implements OnClickAction {
-    private static BoardView instance = null;
+public class BoardParent extends VBox implements OnClickAction {
+    private static BoardParent instance = null;
 
-    private BoardView() {
+    private BoardParent() {
+
     }
 
-    public static BoardView getInstance() {
+    public static BoardParent getInstance() {
         if (instance == null) {
-           instance = new BoardView();
+           instance = new BoardParent();
         }
         return instance;
     }
