@@ -118,15 +118,15 @@ public class WindowController implements Initializable {
      * Create a client object with empty board inside
      * @param name the name of the user
      * @param address the address for the user
-     * @param phonenumber the phonenumber of the user
+     * @param phoneNumber the phoneNumber of the user
      * @return the client object
      *          otherwise null
      */
-    private IClient createClient(String name, String address, String phonenumber) {
+    private IClient createClient(String name, String address, String phoneNumber) {
         IClient client = null;
         try {
-            PhoneNumber phonenumberObj = new PhoneNumber(phonenumber);
-            IUser user = new User(name, address, phonenumberObj);
+            PhoneNumber phoneNumberObj = new PhoneNumber(phoneNumber);
+            IUser user = new User(name, address, phoneNumberObj);
             IBoard board = new Board();
             client = new Client(user, board);
         } catch (InvalidPhoneNumberException e1) {

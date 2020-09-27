@@ -1,8 +1,8 @@
 package application.view.navigation;
 
-
 import application.view.pages.PageParent;
 import application.view.pages.PublishPage;
+import javafx.scene.input.MouseEvent;
 
 public class PublishNavigationButton extends NavigationButton {
     private static PublishNavigationButton instance = null;
@@ -10,7 +10,7 @@ public class PublishNavigationButton extends NavigationButton {
     private PublishNavigationButton() {
         super();
         this.setText("Publish");
-        this.setOnMouseClicked(e -> this.action());
+        this.setOnMouseClicked(this::action);
 
     }
 
@@ -20,7 +20,7 @@ public class PublishNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action() {
+    public void action(MouseEvent e) {
         PageParent.loadPage(PublishPage.getInstance());
     }
 }

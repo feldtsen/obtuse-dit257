@@ -7,6 +7,7 @@ public class BoardPage extends VBox implements Page {
 
     private BoardPage () {
         this.setId("boardPage");
+
     }
 
     public static BoardPage getInstance() {

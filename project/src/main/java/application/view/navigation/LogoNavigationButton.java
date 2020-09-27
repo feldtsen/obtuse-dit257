@@ -6,6 +6,7 @@ import application.view.pages.BoardPage;
 import application.view.pages.PageParent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class LogoNavigationButton extends NavigationButton {
     private static LogoNavigationButton instance = null;
@@ -23,7 +24,7 @@ public class LogoNavigationButton extends NavigationButton {
         this.setGraphic(imageView);
 
 
-        this.setOnMouseClicked(e -> this.action());
+        this.setOnMouseClicked(this::action);
     }
 
     public static LogoNavigationButton getInstance() {
@@ -32,7 +33,7 @@ public class LogoNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action() {
+    public void action(MouseEvent e) {
         PageParent.loadPage(BoardPage.getInstance());
     }
 }

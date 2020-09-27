@@ -1,8 +1,10 @@
 package application.view.navigation;
 
 
+import application.controller.BoardController;
 import application.view.pages.BoardPage;
 import application.view.pages.PageParent;
+import javafx.scene.input.MouseEvent;
 
 public class BoardNavigationButton extends NavigationButton {
     private static BoardNavigationButton instance = null;
@@ -10,7 +12,7 @@ public class BoardNavigationButton extends NavigationButton {
     private BoardNavigationButton () {
         super();
         this.setText("Board");
-        this.setOnMouseClicked(e -> this.action());
+        this.setOnMouseClicked(this::action);
 
     }
 
@@ -20,7 +22,8 @@ public class BoardNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action() {
+    public void action(MouseEvent e) {
         PageParent.loadPage(BoardPage.getInstance());
+        BoardController.createBoard();
     }
 }

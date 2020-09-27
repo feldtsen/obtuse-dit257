@@ -3,6 +3,7 @@ package application.view.navigation;
 
 import application.view.pages.PageParent;
 import application.view.pages.RegisterPage;
+import javafx.scene.input.MouseEvent;
 
 public class RegisterNavigationButton extends NavigationButton {
     private static RegisterNavigationButton instance = null;
@@ -10,7 +11,7 @@ public class RegisterNavigationButton extends NavigationButton {
     private RegisterNavigationButton() {
         super();
         this.setText("Register");
-        this.setOnMouseClicked(e -> this.action());
+        this.setOnMouseClicked(this::action);
 
     }
 
@@ -20,7 +21,7 @@ public class RegisterNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action() {
+    public void action(MouseEvent e) {
         PageParent.loadPage(RegisterPage.getInstance());
     }
 }

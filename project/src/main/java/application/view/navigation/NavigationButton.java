@@ -1,6 +1,7 @@
 package application.view.navigation;
 
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 public abstract class NavigationButton extends Button implements OnClickAction {
     private final static double VALUE_THAT_NEVER_GETS_EXCEEDED_BY_SCREEN_RESOLUTION = 100000000;
@@ -14,4 +15,5 @@ public abstract class NavigationButton extends Button implements OnClickAction {
         this.setPrefHeight(VALUE_THAT_NEVER_GETS_EXCEEDED_BY_SCREEN_RESOLUTION);
         this.setPrefWidth(VALUE_THAT_NEVER_GETS_EXCEEDED_BY_SCREEN_RESOLUTION);
     }
+
 }
