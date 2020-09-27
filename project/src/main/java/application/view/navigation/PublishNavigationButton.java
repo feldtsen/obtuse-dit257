@@ -1,6 +1,9 @@
 package application.view.navigation;
 
 
+import application.view.pages.PageParent;
+import application.view.pages.PublishPage;
+
 public class PublishNavigationButton extends NavigationButton {
     private static PublishNavigationButton instance = null;
 
@@ -18,6 +21,6 @@ public class PublishNavigationButton extends NavigationButton {
 
     @Override
     public void action() {
-        System.out.println("publish");
+        PageParent.loadPage(PublishPage.getInstance());
     }
 }

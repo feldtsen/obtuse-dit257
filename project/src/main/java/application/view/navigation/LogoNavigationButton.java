@@ -2,6 +2,8 @@ package application.view.navigation;
 
 
 import application.view.ResourceLoader;
+import application.view.pages.BoardPage;
+import application.view.pages.PageParent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -31,6 +33,6 @@ public class LogoNavigationButton extends NavigationButton {
 
     @Override
     public void action() {
-        System.out.println("logo clicked");
+        PageParent.loadPage(BoardPage.getInstance());
     }
 }

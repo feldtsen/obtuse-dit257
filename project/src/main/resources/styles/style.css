@@ -1,7 +1,8 @@
-#contentParent {
+#rootParent {
     -fx-background-color: #202020;
 }
 
+/*NAVIGATION*/
 #navigationParent {
     -fx-background-color: #2A2A2A;
 }
@@ -20,4 +21,13 @@
 
 #navigationButton:hover {
     -fx-background-color: #303030;
+}
+
+/*PAGES*/
+#pageParent{
+    -fx-background: rgba(0, 0, 0, 0);
+    -fx-background-color: rgba(0, 0, 0, 0);
+}
+
+#boardPage {
 }

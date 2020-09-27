@@ -11,15 +11,15 @@ public class RootParent extends VBox {
 
     private RootParent(Stage primaryStage) {
         NavigationParent navigationParent = NavigationParent.getInstance();
-        PageParent boardParent = PageParent.getInstance();
+        PageParent pageParent = PageParent.getInstance();
 
 
-        this.getChildren().addAll(boardParent, navigationParent);
+        this.getChildren().addAll(pageParent, navigationParent);
 
         this.setId("rootParent");
         this.getStylesheets().add(ResourceLoader.stylesheet);
 
-        this.setResponsiveSize(boardParent, primaryStage, .80);
+        this.setResponsiveSize(pageParent, primaryStage, .80);
         this.setResponsiveSize(navigationParent, primaryStage, .20);
 
     }

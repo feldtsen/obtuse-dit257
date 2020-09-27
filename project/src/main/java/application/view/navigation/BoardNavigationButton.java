@@ -1,6 +1,9 @@
 package application.view.navigation;
 
 
+import application.view.pages.BoardPage;
+import application.view.pages.PageParent;
+
 public class BoardNavigationButton extends NavigationButton {
     private static BoardNavigationButton instance = null;
 
@@ -18,6 +21,6 @@ public class BoardNavigationButton extends NavigationButton {
 
     @Override
     public void action() {
-        System.out.println("board");
+        PageParent.loadPage(BoardPage.getInstance());
     }
 }

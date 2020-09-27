@@ -1,6 +1,9 @@
 package application.view.navigation;
 
 
+import application.view.pages.PageParent;
+import application.view.pages.RegisterPage;
+
 public class RegisterNavigationButton extends NavigationButton {
     private static RegisterNavigationButton instance = null;
 
@@ -18,6 +21,6 @@ public class RegisterNavigationButton extends NavigationButton {
 
     @Override
     public void action() {
-        System.out.println("register");
+        PageParent.loadPage(RegisterPage.getInstance());
     }
 }
