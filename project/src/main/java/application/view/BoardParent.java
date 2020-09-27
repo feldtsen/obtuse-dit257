@@ -6,7 +6,7 @@ public class BoardParent extends VBox implements OnClickAction {
     private static BoardParent instance = null;
 
     private BoardParent() {
-
+        this.setId("boardParent");
     }
 
     public static BoardParent getInstance() {

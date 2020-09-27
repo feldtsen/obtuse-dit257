@@ -1,19 +1,20 @@
 
 package application;
 
-import application.view.MainParent;
+import application.view.RootParent;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        Scene scene = new Scene(MainParent.getInstance(stage), 1200, 800);
+        Scene scene = new Scene(RootParent.getInstance(stage));
+
+        stage.setMinHeight(400);
+        stage.setMinWidth(600);
+
         stage.setScene(scene);
         stage.show();
     }
