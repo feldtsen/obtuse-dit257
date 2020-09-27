@@ -16,6 +16,7 @@ import application.model.users.IUser;
 import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
+import application.view.PostGenerator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -169,9 +170,7 @@ public class WindowController implements Initializable {
             clientOI.close();
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return client;

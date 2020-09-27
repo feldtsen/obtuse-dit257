@@ -1,4 +1,4 @@
-package application.controller;
+package application.view;
 
 import application.App;
 import application.model.posts.IPost;
