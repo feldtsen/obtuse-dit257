@@ -1,4 +1,4 @@
-package application.view;
+package application.view.navigation;
 
 
 public class BoardNavigationButton extends NavigationButton {
@@ -7,7 +7,7 @@ public class BoardNavigationButton extends NavigationButton {
     private BoardNavigationButton () {
         super();
         this.setText("Board");
-        this.setOnMouseClicked(e -> this.apply());
+        this.setOnMouseClicked(e -> this.action());
 
     }
 
@@ -17,7 +17,7 @@ public class BoardNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void apply() {
+    public void action() {
         System.out.println("board");
     }
 }

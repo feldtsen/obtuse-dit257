@@ -1,7 +1,7 @@
 package application.view;
 
-import javafx.scene.Node;
-import javafx.scene.Parent;
+import application.view.navigation.NavigationParent;
+import application.view.pages.PageParent;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -11,20 +11,16 @@ public class RootParent extends VBox {
 
     private RootParent(Stage primaryStage) {
         NavigationParent navigationParent = NavigationParent.getInstance();
-        BoardParent boardParent = BoardParent.getInstance();
+        PageParent boardParent = PageParent.getInstance();
 
 
         this.getChildren().addAll(boardParent, navigationParent);
 
         this.setId("rootParent");
-        this.getStylesheets().add(StylesheetRetriever.stylesheet);
+        this.getStylesheets().add(ResourceLoader.stylesheet);
 
-        this.setRelativeSize(boardParent, primaryStage, .85);
-        this.setRelativeSize(navigationParent, primaryStage, .15);
-
-        navigationParent.getChildren().addAll(
-                BoardNavigationButton.getInstance()
-        );
+        this.setResponsiveSize(boardParent, primaryStage, .80);
+        this.setResponsiveSize(navigationParent, primaryStage, .20);
 
     }
 
@@ -35,8 +31,9 @@ public class RootParent extends VBox {
         return instance;
     }
 
-    private void setRelativeSize(Region region, Stage primaryStage, double heightPercentage) {
-        region.prefWidthProperty().bind(primaryStage.widthProperty().multiply(heightPercentage));
+    private void setResponsiveSize(Region region, Stage primaryStage, double heightPercentage) {
+        region.prefWidthProperty().bind(primaryStage.widthProperty());
+
         region.prefHeightProperty().bind(primaryStage.heightProperty().multiply(heightPercentage));
     }
 

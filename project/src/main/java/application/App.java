@@ -10,10 +10,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        Scene scene = new Scene(RootParent.getInstance(stage));
+        Scene scene = new Scene(RootParent.getInstance(stage), 1000, 600);
 
-        stage.setMinHeight(400);
-        stage.setMinWidth(600);
+        stage.setMinHeight(600);
+        stage.setMinWidth(800);
 
         stage.setScene(scene);
         stage.show();
