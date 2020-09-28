@@ -1,8 +1,9 @@
 package application.model.util;
 
+import java.io.Serializable;
 import java.util.regex.Pattern;
 
-public class PhoneNumber {
+public class PhoneNumber implements Serializable {
     private final static String VALID_PATTERNS
             = "^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$"
             + "|^(\\+\\d{1,3}( )?)?(\\d{3}[ ]?){2}\\d{3}$"

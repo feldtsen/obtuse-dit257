@@ -1,10 +1,6 @@
 package application.model.users;
 
-import application.model.posts.IPost;
 import application.model.util.PhoneNumber;
-
-import java.util.List;
-import java.util.ArrayList;
 
 public class User implements IUser{
     private final String name;
@@ -31,4 +27,5 @@ public class User implements IUser{
     public PhoneNumber getPhoneNumber(){
         return phoneNumber;
     }
+
 }
