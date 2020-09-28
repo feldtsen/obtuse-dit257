@@ -12,25 +12,17 @@ public class PublishPage extends VBox implements Page {
 
     private PublishPage() {
         this.setId("publishPage");
-        titleInput = createTextField();
-        descriptionInput = createTextField();
+        titleInput = new TextField();
+        descriptionInput = new TextField();
 
         this.getChildren().addAll(
-                createLabel("Title"),
+                new Label("Title"),
                 titleInput,
-                createLabel("Description"),
+                new Label("Description"),
                 descriptionInput,
                 SubmitPostButton.getInstance()
         );
 
-    }
-
-    private Label createLabel(String title) {
-       return new Label(title) ;
-    }
-
-    private TextField createTextField() {
-        return new TextField();
     }
 
     public TextField getTitleInput () {

@@ -15,28 +15,21 @@ public class RegisterPage extends VBox implements Page {
     private RegisterPage() {
         this.setId("registerPage");
 
-        nameInput = createTextField();
-        addressInput = createTextField();
-        phoneInput = createTextField();
+        nameInput = new TextField();
+        addressInput = new TextField();
+        phoneInput = new TextField();
 
         this.getChildren().addAll(
-                createLabel("Name"),
+                new Label("Name"),
                 nameInput,
-                createLabel("Address"),
+                new Label("Address"),
                 addressInput,
-                createLabel("Phone number"),
+                new Label("Phone number"),
                 phoneInput,
                 SubmitRegisterButton.getInstance()
         );
 
 
-    }
-    private Label createLabel(String title) {
-        return new Label(title) ;
-    }
-
-    private TextField createTextField() {
-        return new TextField();
     }
 
     public TextField getNameInput () {
