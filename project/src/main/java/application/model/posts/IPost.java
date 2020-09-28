@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface IPost extends Serializable {
+    String getID();
     String getTitle();
     String getDescription();
 

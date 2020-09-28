@@ -8,10 +8,11 @@ import java.util.List;
 public interface IBoard extends Serializable {
     List<IPost> getVisiblePosts();
     List<IPost> getAllPosts();
+
     void addPost(IPost post);
 
-    void replacePost(IPost newPost, IPost oldPost);
+    void replacePost(String id, IPost newPost);
 
-    boolean deletePost(IPost post);
+    boolean deletePost(String id);
     //void setFilter(IFilter);
 }

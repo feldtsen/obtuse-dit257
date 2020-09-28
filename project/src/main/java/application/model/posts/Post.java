@@ -3,9 +3,11 @@ package application.model.posts;
 import application.model.users.IUser;
 
 import java.util.List;
+import java.util.UUID;
 
 public abstract class Post implements IPost {
 
+    private final String uniqueID;
     private final String title;
     private final String description;
     private final IUser author;
@@ -17,6 +19,12 @@ public abstract class Post implements IPost {
         this.description = description;
         this.author = author;
         this.items = items;
+        this.uniqueID = UUID.randomUUID().toString();
+    }
+
+    @Override
+    public String getID() {
+        return this.uniqueID;
     }
 
     @Override
