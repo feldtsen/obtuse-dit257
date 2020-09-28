@@ -4,7 +4,6 @@ import application.controller.BoardController;
 import application.model.posts.IPost;
 import application.view.ResourceLoader;
 import application.view.pages.BoardPage;
-import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
