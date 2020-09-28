@@ -1,11 +1,14 @@
 package application.view.pages.posts;
 
+import application.controller.BoardController;
 import application.model.posts.IPost;
 import application.view.ResourceLoader;
 import application.view.pages.BoardPage;
+import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -63,7 +66,12 @@ public class PostCard extends VBox {
     private Button claimButton () {
         Button claimButton = new Button("Claim");
         claimButton.setId("claimButton");
+        claimButton.setOnMouseClicked(this::onClickAction);
         return claimButton;
+    }
+
+    private void onClickAction(MouseEvent e){
+        BoardController.claimButtonHandler(e);
     }
 
     private void addChild (Node node) {
