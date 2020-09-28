@@ -28,9 +28,13 @@ public class PostCard extends VBox {
 
         addChild(title(post.getTitle()));
         addChild(text(post.getDescription()));
-        addChild(label(post.getAuthor().getName()));
-        addChild(label(post.getAuthor().getPhoneNumber().toString()));
-        addChild(label(post.getAuthor().getAddress()));
+        addChild(label(
+                post.getAuthor().getName() + ", " +
+                        post.getAuthor().getAddress()
+                ));
+        addChild(label(
+                post.getAuthor().getPhoneNumber().toString()
+        ));
         addChild(claimButton());
     }
 
@@ -57,7 +61,9 @@ public class PostCard extends VBox {
     }
 
     private Button claimButton () {
-        return new Button("Claim");
+        Button claimButton = new Button("Claim");
+        claimButton.setId("claimButton");
+        return claimButton;
     }
 
     private void addChild (Node node) {
