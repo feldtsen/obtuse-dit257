@@ -10,7 +10,6 @@ public class BoardController {
     public static void retrievePosts() {
         IClient client = ClientController.loadClient();
         if( client != null ) {
-            PostCard postCard = new PostCard();
             List<IPost> posts = client.getBoard().getAllPosts();
 
             for (IPost post : posts) {
