@@ -1,6 +1,7 @@
 #rootParent {
     -fx-background-color: #202020;
     -fx-padding: 20;
+    -fx-font-size: 18;
 }
 
 /*NAVIGATION*/

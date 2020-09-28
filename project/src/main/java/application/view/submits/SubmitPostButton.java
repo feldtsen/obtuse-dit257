@@ -1,7 +1,7 @@
-package application.view.navigation;
+package application.view.submits;
 
-import application.controller.RegisterController;
-import application.view.pages.RegisterPage;
+import application.controller.PublishController;
+import application.view.pages.PublishPage;
 import javafx.scene.control.Button;
 
 public class SubmitPostButton extends Button  {
@@ -10,11 +10,8 @@ public class SubmitPostButton extends Button  {
     private SubmitPostButton() {
         this.setId("submitPostButton");
 
-
         this.setText("Submit post");
         this.setOnMouseClicked(e -> mouseClickAction());
-
-
     }
 
     public static SubmitPostButton getInstance() {
@@ -24,12 +21,7 @@ public class SubmitPostButton extends Button  {
 
 
     private void mouseClickAction () {
-        RegisterPage registerPage = RegisterPage.getInstance();
-        RegisterController.handleSubmitButton (
-                registerPage.getNameInput().getText(),
-                registerPage.getAddressInput().getText(),
-                registerPage.getPhoneInput().getText()
-        );
+        PublishController.createPost();
     }
 
 }

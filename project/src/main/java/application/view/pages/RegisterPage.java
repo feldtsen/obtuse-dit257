@@ -1,6 +1,6 @@
 package application.view.pages;
 
-import application.view.navigation.SubmitRegisterButton;
+import application.view.submits.SubmitRegisterButton;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -30,9 +30,6 @@ public class RegisterPage extends VBox implements Page {
         );
 
 
-        this.getChildren().addAll(
-
-        );
     }
     private Label createLabel(String title) {
         return new Label(title) ;
@@ -40,10 +37,6 @@ public class RegisterPage extends VBox implements Page {
 
     private TextField createTextField() {
         return new TextField();
-    }
-
-    private Button createButton(String text) {
-       return new Button(text);
     }
 
     public TextField getNameInput () {

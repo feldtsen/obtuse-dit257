@@ -23,7 +23,11 @@ public class BoardNavigationButton extends NavigationButton {
 
     @Override
     public void action(MouseEvent e) {
+        // Clears the posts on the board
+        BoardPage.getInstance().getChildren().setAll();
+
+        // Gets all the posts for the current client
+        BoardController.retrievePosts();
         PageParent.loadPage(BoardPage.getInstance());
-        BoardController.createBoard();
     }
 }

@@ -2,20 +2,19 @@ package application.controller;
 
 import application.model.client.IClient;
 import application.model.posts.IPost;
-import application.view.PostGenerator;
-import application.view.pages.BoardPage;
+import application.view.pages.posts.PostCard;
 
 import java.util.List;
 
 public class BoardController {
-    public static void createBoard() {
-        IClient client = RegisterController.loadClient();
+    public static void retrievePosts() {
+        IClient client = ClientController.loadClient();
         if( client != null ) {
-            PostGenerator postGenerator = new PostGenerator(BoardPage.getInstance());
+            PostCard postCard = new PostCard();
             List<IPost> posts = client.getBoard().getAllPosts();
 
             for (IPost post : posts) {
-                postGenerator.createDonation(post);
+                postCard.createDonation(post);
             }
         }
     }

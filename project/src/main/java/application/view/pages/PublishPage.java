@@ -1,9 +1,9 @@
 package application.view.pages;
 
+import application.view.submits.SubmitPostButton;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 public class PublishPage extends VBox implements Page {
     private static PublishPage instance = null;
@@ -19,7 +19,8 @@ public class PublishPage extends VBox implements Page {
                 createLabel("Title"),
                 titleInput,
                 createLabel("Description"),
-                descriptionInput
+                descriptionInput,
+                SubmitPostButton.getInstance()
         );
 
     }
@@ -32,11 +33,11 @@ public class PublishPage extends VBox implements Page {
         return new TextField();
     }
 
-    private TextField getTitleInput () {
+    public TextField getTitleInput () {
         return titleInput;
     }
 
-    private TextField getDescriptionInput() {
+    public TextField getDescriptionInput() {
        return descriptionInput;
     }
 

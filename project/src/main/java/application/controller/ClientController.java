@@ -1,6 +1,5 @@
 package application.controller;
 
-import application.App;
 import application.model.board.Board;
 import application.model.board.IBoard;
 import application.model.client.Client;
@@ -9,16 +8,10 @@ import application.model.users.IUser;
 import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
-import application.view.pages.PageParent;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 
 import java.io.*;
 
-public class RegisterController {
+public class ClientController {
     public static void handleSubmitButton(String name, String address, String phoneNumber) {
             IClient newClient = createClient(name, address, phoneNumber);
             saveClient(newClient, "clientFile.txt");
@@ -28,7 +21,7 @@ public class RegisterController {
      * Create a client object with empty board inside
      * @param name the name of the user
      * @param address the address for the user
-     * @param phoneNumber the phonenumber of the user
+     * @param phoneNumber the phone number of the user
      * @return the client object
      *          otherwise null
      */

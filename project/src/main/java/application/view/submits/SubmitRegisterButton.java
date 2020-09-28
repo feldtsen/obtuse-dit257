@@ -1,6 +1,6 @@
-package application.view.navigation;
+package application.view.submits;
 
-import application.controller.RegisterController;
+import application.controller.ClientController;
 import application.view.pages.RegisterPage;
 import javafx.scene.control.Button;
 
@@ -25,7 +25,7 @@ public class SubmitRegisterButton extends Button  {
 
     private void mouseClickAction () {
         RegisterPage registerPage = RegisterPage.getInstance();
-        RegisterController.handleSubmitButton (
+        ClientController.handleSubmitButton (
                 registerPage.getNameInput().getText(),
                 registerPage.getAddressInput().getText(),
                 registerPage.getPhoneInput().getText()
