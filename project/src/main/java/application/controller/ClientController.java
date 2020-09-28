@@ -8,13 +8,14 @@ import application.model.users.IUser;
 import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
+import application.view.ResourceLoader;
 
 import java.io.*;
 
 public class ClientController {
     public static void handleSubmitButton(String name, String address, String phoneNumber) {
             IClient newClient = createClient(name, address, phoneNumber);
-            saveClient(newClient, "clientFile.txt");
+            saveClient(newClient, ResourceLoader.clientFile);
     }
 
     /**
@@ -66,7 +67,7 @@ public class ClientController {
     public static IClient loadClient() {
         IClient client = null;
         try {
-            File clientFile = new File("clientFile.txt");
+            File clientFile = new File(ResourceLoader.clientFile);
             FileInputStream clientFI = new FileInputStream(clientFile);
             ObjectInputStream clientOI = new ObjectInputStream(clientFI);
             client = (IClient) clientOI.readObject();

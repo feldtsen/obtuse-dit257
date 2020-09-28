@@ -1,7 +1,7 @@
 #rootParent {
     -fx-background-color: #202020;
     -fx-padding: 20;
-    -fx-font-size: 18;
+    -fx-font-size: 13;
 }
 
 /*NAVIGATION*/
@@ -31,9 +31,6 @@
     -fx-background-color: rgba(0, 0, 0, 0);
 }
 
-#boardPage {
-}
-
 .scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color:transparent;
 }
@@ -54,4 +51,17 @@
 .scroll-bar:vertical .thumb {
     -fx-background-color: #303030;
     -fx-background-radius: 0em;
+}
+/*POSTS*/
+#postCard {
+    -fx-background-color: #252525;
+    -fx-padding: 10;
+}
+
+#description{
+    -fx-fill: #CCCCCC;
+}
+
+#title {
+    -fx-font-size: 18;
 }

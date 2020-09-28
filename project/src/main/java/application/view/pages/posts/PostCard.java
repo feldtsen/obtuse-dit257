@@ -1,19 +1,19 @@
 package application.view.pages.posts;
 
 import application.model.posts.IPost;
+import application.view.ResourceLoader;
 import application.view.pages.BoardPage;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 
-public class PostCard {
+public class PostCard extends VBox {
     private final static BoardPage boardPage = BoardPage.getInstance();
-    VBox post;
 
     public PostCard() {
+       VBox.setMargin(this, ResourceLoader.margin);
     }
 
     public void createDonation (IPost post) {
@@ -26,8 +26,8 @@ public class PostCard {
     private void createPost (IPost post) {
         createPostContainer();
 
-        addChild(label(post.getTitle()));
-        addChild(descriptionTextFlow(post.getDescription()));
+        addChild(title(post.getTitle()));
+        addChild(text(post.getDescription()));
         addChild(label(post.getAuthor().getName()));
         addChild(label(post.getAuthor().getPhoneNumber().toString()));
         addChild(label(post.getAuthor().getAddress()));
@@ -35,22 +35,25 @@ public class PostCard {
     }
 
     private void createPostContainer () {
-        post = new VBox();
-        boardPage.getChildren().add(post);
+        this.setId("postCard");
+        boardPage.getChildren().add(this);
     }
 
     private Label label(String text) {
         return new Label(text);
     }
 
+    private Label title(String title) {
+       Label titleLabel = label(title);
+       titleLabel.setId("title");
+       return titleLabel;
+    }
 
-    private TextFlow descriptionTextFlow (String text) {
-        TextFlow textContainer = new TextFlow();
-        Text description = new Text(text);
+    private Text text(String description) {
+        Text text = new Text(description);
+        text.setId("description");
 
-        textContainer.getChildren().add(description);
-
-        return textContainer;
+        return text;
     }
 
     private Button claimButton () {
@@ -58,7 +61,7 @@ public class PostCard {
     }
 
     private void addChild (Node node) {
-        post.getChildren().add(node);
+        this.getChildren().add(node);
     }
 
 }

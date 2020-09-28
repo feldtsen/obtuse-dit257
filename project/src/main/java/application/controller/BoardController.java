@@ -14,7 +14,7 @@ public class BoardController {
             List<IPost> posts = client.getBoard().getAllPosts();
 
             for (IPost post : posts) {
-                postCard.createDonation(post);
+                new PostCard().createDonation(post);
             }
         }
     }
