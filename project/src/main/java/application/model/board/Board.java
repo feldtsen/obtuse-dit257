@@ -2,22 +2,18 @@ package application.model.board;
 
 import application.model.posts.IPost;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Board implements IBoard {
-    private final List<IPost> postList;
-
     private final HashMap<String,IPost> postMap;
+
     public Board() {
-        this.postList = new ArrayList<>();
         this.postMap = new HashMap<>();
     }
 
     @Override
-    public List<IPost> getAllPosts() {
-        return new ArrayList<>(postList);
+    public Collection<IPost> getAllPosts() {
+        return new HashSet<>(postMap.values());
     }
     @Override
     public List<IPost> getVisiblePosts() {
@@ -33,14 +29,12 @@ public class Board implements IBoard {
 
     @Override
     public void addPost(IPost post) {
-        postList.add(post);
         postMap.put(post.getUUID(),post);
     }
 
     @Override
     public void replacePost(String id, IPost newPost) {
         if (postMap.containsKey(id)) {
-            postList.set(postList.indexOf(postMap.get(id)),newPost);
             postMap.replace(id,newPost);
         }
 
@@ -48,8 +42,6 @@ public class Board implements IBoard {
 
     @Override
     public boolean deletePost(String id) {
-        boolean success = postList.remove(postMap.get(id));
-        postMap.remove(id);
-        return success;
+        return postMap.remove(id) != null;
     }
 }
