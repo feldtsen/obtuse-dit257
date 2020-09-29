@@ -4,99 +4,67 @@ import application.controller.BoardController;
 import application.controller.ClientController;
 import application.controller.PostController;
 import application.model.posts.IPost;
+import application.model.users.IUser;
 import application.view.ResourceLoader;
 import application.view.pages.BoardPage;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.util.Objects;
+
 public class PostCard extends VBox {
-    private final static BoardPage boardPage = BoardPage.getInstance();
+    public PostCard(IPost post) {
+       //Appends the post to the board
+       BoardPage.getInstance().getChildren().add(this);
 
-    public PostCard() {
-       VBox.setMargin(this, ResourceLoader.margin);
-    }
+       //The author of the current post
+       IUser author = post.getAuthor();
 
-    public void createDonation (IPost post) {
-        createPost(post);
-    }
+       //Creates the GUI elements
+       Label  titleLabel          = new Label(post.getTitle());
+       Label  nameAndAddressLabel = new Label(author.getName() + ", " + author.getAddress());
+       Label  phoneNumberLabel    = new Label("Contact " + author.getPhoneNumber().getNumber());
+       Text   descriptionText     = new Text(post.getDescription());
+       Text   postUuidHiddenText  = new Text(post.getUUID());
+       Button claimButton         = new Button("Claim");
+       Button editButton          = new Button("Edit");
 
-    public void createRequest (String title) {
-    }
-
-    private void createPost (IPost post) {
-        createPostContainer();
-
-        addChild(title(post.getTitle()));
-        addChild(text(post.getDescription()));
-        addChild(label(
-                post.getAuthor().getName() + ", " + post.getAuthor().getAddress()
-                ));
-        addChild(label(
-                post.getAuthor().getPhoneNumber().toString()
-        ));
-        addChild(claimButton());
-        if (ClientController.loadState().getUser().getName().equals(post.getAuthor().getName())) addChild(editButton());
-        addChild(idField(post.getUUID()));
-    }
-
-    private void createPostContainer () {
-        this.setId("postCard");
-        boardPage.getChildren().add(this);
-    }
-
-    private Label label(String text) {
-        return new Label(text);
-    }
-
-    private Label title(String title) {
-       Label titleLabel = label(title);
+       //Id used for styling and reference
+       this.setId("postCard");
        titleLabel.setId("title");
-       return titleLabel;
+       descriptionText.setId("description");
+       postUuidHiddenText.setId("id");
+       claimButton.setId("claimButton");
+       editButton.setId("editButton");
+
+
+       //Adds margin between the posts
+       VBox.setMargin(this, ResourceLoader.margin);
+
+       //Connect button clicks with a controller
+       claimButton.setOnMouseClicked(BoardController::claimButtonHandler);
+       editButton.setOnMouseClicked(PostController::editPost);
+
+       //Only the post author should be able to edit the post
+       if (!Objects.requireNonNull(ClientController.loadState()).getUser().getName().equals(post.getAuthor().getName()))
+           editButton.setVisible(false);
+
+       //The UUID of the post should not be visible to the user - we need it to reference the currently clicked post
+       postUuidHiddenText.setVisible(false);
+
+       //Adds the GUI components to the post
+       this.getChildren().setAll(
+               titleLabel,
+               descriptionText,
+               phoneNumberLabel,
+               nameAndAddressLabel,
+               editButton,
+               claimButton,
+               postUuidHiddenText
+       );
+
     }
-
-    private Text text(String description) {
-        Text text = new Text(description);
-        text.setId("description");
-
-        return text;
-    }
-
-    private Button claimButton () {
-        Button claimButton = new Button("Claim");
-        claimButton.setId("claimButton");
-        claimButton.setOnMouseClicked(this::onClickClaim);
-        return claimButton;
-    }
-
-    private Button editButton() {
-        Button editButton = new Button("Edit");
-        editButton.setId("editButton");
-        editButton.setOnMouseClicked(this::onClickEdit);
-        return editButton;
-    }
-
-    private void onClickClaim(MouseEvent e){
-        BoardController.claimButtonHandler(e);
-    }
-
-    private void onClickEdit(MouseEvent e){
-        PostController.editPost(e);
-    }
-
-    private void addChild (Node node) {
-        this.getChildren().add(node);
-    }
-
-    private Text idField(String id) {
-        Text hiddenIdField = new Text(id);
-        hiddenIdField.setId("id");
-        hiddenIdField.setVisible(false);
-        return hiddenIdField;
-    }
-
 }
 
