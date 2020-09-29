@@ -30,6 +30,11 @@
     -fx-spacing: 10;
 }
 
+#claimButton {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #046c0c;
+}
+
 /*NAVIGATION*/
 #navigationParent {
     -fx-background-color: #2A2A2A;
