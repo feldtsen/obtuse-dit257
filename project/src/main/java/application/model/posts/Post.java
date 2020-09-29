@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public abstract class Post implements IPost {
 
-    private final String uniqueID;
+    private String uniqueID;
     private final String title;
     private final String description;
     private final IUser author;
@@ -21,9 +21,16 @@ public abstract class Post implements IPost {
         this.items = items;
         this.uniqueID = UUID.randomUUID().toString();
     }
+    public Post(String title, String description, IUser author, List<IItem> items, String uuid) {
+        this.title = title;
+        this.description = description;
+        this.author = author;
+        this.items = items;
+        this.uniqueID = uuid;
+    }
 
     @Override
-    public String getID() {
+    public String getUUID() {
         return this.uniqueID;
     }
 

@@ -1,6 +1,7 @@
 package application.view.pages.posts;
 
 import application.controller.BoardController;
+import application.controller.PostController;
 import application.model.posts.IPost;
 import application.view.ResourceLoader;
 import application.view.pages.BoardPage;
@@ -31,13 +32,14 @@ public class PostCard extends VBox {
         addChild(title(post.getTitle()));
         addChild(text(post.getDescription()));
         addChild(label(
-                post.getAuthor().getName() + ", " +
-                        post.getAuthor().getAddress()
+                post.getAuthor().getName() + ", " + post.getAuthor().getAddress()
                 ));
         addChild(label(
                 post.getAuthor().getPhoneNumber().toString()
         ));
         addChild(claimButton());
+        addChild(editButton());
+        addChild(idField(post.getUUID()));
     }
 
     private void createPostContainer () {
@@ -65,16 +67,34 @@ public class PostCard extends VBox {
     private Button claimButton () {
         Button claimButton = new Button("Claim");
         claimButton.setId("claimButton");
-        claimButton.setOnMouseClicked(this::onClickAction);
+        claimButton.setOnMouseClicked(this::onClickClaim);
         return claimButton;
     }
 
-    private void onClickAction(MouseEvent e){
+    private Button editButton() {
+        Button editButton = new Button("Edit");
+        editButton.setId("editButton");
+        editButton.setOnMouseClicked(this::onClickEdit);
+        return editButton;
+    }
+
+    private void onClickClaim(MouseEvent e){
         BoardController.claimButtonHandler(e);
+    }
+
+    private void onClickEdit(MouseEvent e){
+        PostController.editPost(e);
     }
 
     private void addChild (Node node) {
         this.getChildren().add(node);
+    }
+
+    private Text idField(String id) {
+        Text hiddenIdField = new Text(id);
+        hiddenIdField.setId("id");
+        hiddenIdField.setVisible(false);
+        return hiddenIdField;
     }
 
 }

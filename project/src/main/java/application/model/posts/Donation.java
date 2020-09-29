@@ -3,6 +3,7 @@ package application.model.posts;
 import application.model.users.IUser;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Donation extends Post {
 
@@ -15,6 +16,12 @@ public class Donation extends Post {
         this.claimed = false;
         this.claimedBy = null;
     }
+    public Donation(String title, String description, IUser author, List<IItem> items, String uuid) {
+        super(title, description, author, items, uuid);
+        this.claimed = false;
+        this.claimedBy = null;
+    }
+
 
     public boolean claim(IUser user) {
         if(isClaimed() || user == getAuthor()) return false;

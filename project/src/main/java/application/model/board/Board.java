@@ -8,17 +8,17 @@ import java.util.List;
 
 public class Board implements IBoard {
     private final List<IPost> postList;
-    private final HashMap<String,IPost> postMap;
 
+    private final HashMap<String,IPost> postMap;
     public Board() {
         this.postList = new ArrayList<>();
         this.postMap = new HashMap<>();
     }
+
     @Override
     public List<IPost> getAllPosts() {
         return new ArrayList<>(postList);
     }
-
     @Override
     public List<IPost> getVisiblePosts() {
         //return posts;
@@ -27,9 +27,14 @@ public class Board implements IBoard {
     }
 
     @Override
+    public IPost getSpecificPost(String id) {
+        return postMap.get(id);
+    }
+
+    @Override
     public void addPost(IPost post) {
         postList.add(post);
-        postMap.put(post.getID(),post);
+        postMap.put(post.getUUID(),post);
     }
 
     @Override

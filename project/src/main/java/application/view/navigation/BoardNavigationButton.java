@@ -28,6 +28,7 @@ public class BoardNavigationButton extends NavigationButton {
 
         // Gets all the posts for the current client
         BoardController.retrievePosts();
+
         PageParent.loadPage(BoardPage.getInstance());
     }
 }
