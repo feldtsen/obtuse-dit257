@@ -25,12 +25,12 @@ public class PublishPage extends VBox implements Page {
 
     }
 
-    public TextField getTitleInput () {
-        return titleInput;
+    public String getTitleInput () {
+        return titleInput.getText();
     }
 
-    public TextField getDescriptionInput() {
-       return descriptionInput;
+    public String getDescriptionInput() {
+       return descriptionInput.getText();
     }
 
     public static PublishPage getInstance() {

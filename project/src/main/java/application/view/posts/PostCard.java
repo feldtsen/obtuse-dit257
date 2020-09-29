@@ -1,4 +1,4 @@
-package application.view.pages.posts;
+package application.view.posts;
 
 import application.controller.BoardController;
 import application.controller.ClientController;
@@ -13,9 +13,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class PostCard extends VBox {
+
     public PostCard(IPost post) {
        //Appends the post to the board
        BoardPage.getInstance().getChildren().add(this);
@@ -28,15 +31,16 @@ public class PostCard extends VBox {
        Label  nameAndAddressLabel = new Label(author.getName() + ", " + author.getAddress());
        Label  phoneNumberLabel    = new Label("Contact " + author.getPhoneNumber().getNumber());
        Text   descriptionText     = new Text(post.getDescription());
-       Text   postUuidHiddenText  = new Text(post.getUUID());
        Button claimButton         = new Button("Claim");
        Button editButton          = new Button("Edit");
+
+       //List of buttons to be wrapped in a HBox
+       List<Button> buttons = new ArrayList<>(List.of(claimButton, editButton));
 
        //Id used for styling and reference
        this.setId("postCard");
        titleLabel.setId("title");
        descriptionText.setId("description");
-       postUuidHiddenText.setId("id");
        claimButton.setId("claimButton");
        editButton.setId("editButton");
 
@@ -45,15 +49,12 @@ public class PostCard extends VBox {
        VBox.setMargin(this, ResourceLoader.margin);
 
        //Connect button clicks with a controller
-       claimButton.setOnMouseClicked(BoardController::claimButtonHandler);
-       editButton.setOnMouseClicked(PostController::editPost);
+       claimButton.setOnMouseClicked(e-> BoardController.claimButtonHandler(post.getUUID()));
+       editButton.setOnMouseClicked(e-> PostController.editPost(post.getUUID()));
 
        //Only the post author should be able to edit the post
-       if (!Objects.requireNonNull(ClientController.loadState()).getUser().getName().equals(post.getAuthor().getName()))
+       if (!Objects.requireNonNull(ClientController.loadState()).getUser().getPhoneNumber().getNumber().equals(author.getPhoneNumber().getNumber()))
            editButton.setVisible(false);
-
-       //The UUID of the post should not be visible to the user - we need it to reference the currently clicked post
-       postUuidHiddenText.setVisible(false);
 
        //Adds the GUI components to the post
        this.getChildren().setAll(
@@ -61,11 +62,13 @@ public class PostCard extends VBox {
                descriptionText,
                phoneNumberLabel,
                nameAndAddressLabel,
-               editButton,
-               claimButton,
-               postUuidHiddenText
+               new ButtonContainer(buttons)
        );
 
+    }
+
+    public VBox getPostContainer () {
+       return this;
     }
 }
 

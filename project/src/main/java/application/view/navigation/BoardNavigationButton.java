@@ -12,7 +12,7 @@ public class BoardNavigationButton extends NavigationButton {
     private BoardNavigationButton () {
         super();
         this.setText("Board");
-        this.setOnMouseClicked(this::action);
+        this.setOnMouseClicked(e->this.action());
 
     }
 
@@ -22,7 +22,7 @@ public class BoardNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action(MouseEvent e) {
+    public void action() {
         // Clears the posts on the board
         BoardPage.getInstance().getChildren().setAll();
 

@@ -10,8 +10,7 @@ public class PublishNavigationButton extends NavigationButton {
     private PublishNavigationButton() {
         super();
         this.setText("Publish");
-        this.setOnMouseClicked(this::action);
-
+        this.setOnMouseClicked(e->this.action());
     }
 
     public static PublishNavigationButton getInstance() {
@@ -20,7 +19,7 @@ public class PublishNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action(MouseEvent e) {
+    public void action() {
         PageParent.loadPage(PublishPage.getInstance());
     }
 }

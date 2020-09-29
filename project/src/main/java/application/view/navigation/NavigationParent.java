@@ -1,5 +1,6 @@
 package application.view.navigation;
 
+import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
 
 public class NavigationParent extends HBox  {

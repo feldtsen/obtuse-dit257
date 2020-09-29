@@ -2,7 +2,7 @@ package application.controller;
 
 import application.model.client.IClient;
 import application.model.posts.IPost;
-import application.view.pages.posts.PostCard;
+import application.view.posts.PostCard;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -21,7 +21,8 @@ public class BoardController {
         }
     }
 
-    public static void claimButtonHandler(MouseEvent e) {
-        System.out.println(((Label)((Button)e.getSource()).getParent().lookup("#title")).getText());
+    public static void claimButtonHandler(String postUUID) {
+        IPost post = ClientController.loadState().getBoard().getSpecificPost(postUUID);
+        System.out.println(post.getTitle());
     }
 }

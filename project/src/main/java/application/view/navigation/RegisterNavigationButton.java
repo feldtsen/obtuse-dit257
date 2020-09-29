@@ -11,7 +11,7 @@ public class RegisterNavigationButton extends NavigationButton {
     private RegisterNavigationButton() {
         super();
         this.setText("Register");
-        this.setOnMouseClicked(this::action);
+        this.setOnMouseClicked(e->this.action());
 
     }
 
@@ -21,7 +21,7 @@ public class RegisterNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action(MouseEvent e) {
+    public void action() {
         PageParent.loadPage(RegisterPage.getInstance());
     }
 }

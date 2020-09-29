@@ -26,6 +26,10 @@
     -fx-background-color: #505050;
 }
 
+#buttonContainer {
+    -fx-spacing: 10;
+}
+
 /*NAVIGATION*/
 #navigationParent {
     -fx-background-color: #2A2A2A;

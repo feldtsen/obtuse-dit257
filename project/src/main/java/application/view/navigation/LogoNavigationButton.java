@@ -24,7 +24,7 @@ public class LogoNavigationButton extends NavigationButton {
         this.setGraphic(imageView);
 
 
-        this.setOnMouseClicked(this::action);
+        this.setOnMouseClicked(e-> this.action());
     }
 
     public static LogoNavigationButton getInstance() {
@@ -33,7 +33,7 @@ public class LogoNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action(MouseEvent e) {
+    public void action() {
         PageParent.loadPage(BoardPage.getInstance());
     }
 }
