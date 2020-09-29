@@ -7,6 +7,7 @@ import application.model.posts.IPost;
 import application.model.users.IUser;
 import application.view.ResourceLoader;
 import application.view.pages.BoardPage;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;

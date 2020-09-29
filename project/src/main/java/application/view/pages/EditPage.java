@@ -4,21 +4,31 @@ import application.controller.PostController;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 public class EditPage extends VBox implements Page {
     private static EditPage instance = null;
+
     private static TextField descriptionInput;
     private static TextField titleInput;
     private static String uuidField;
 
     public EditPage() {
-        this.setId("editPage");
-        Button update = new Button("Update");
+        // Create the GUI elements
         Label newTitle = new Label("New title");
         Label newDescription = new Label("New description");
+        Button update = new Button("Update");
 
+        // Set id for reference
+        this.setId("editPage");
+        newTitle.setId("newTitle");
+        newDescription.setId("newDescription");
+        update.setId("updateButton");
+
+        // Connect button to controller
+        update.setOnMouseClicked(e -> PostController.updatePost());
+
+        // Add GUI elements to the page
         this.getChildren().addAll(
                 newTitle,
                 titleInput = new TextField(),
@@ -28,19 +38,9 @@ public class EditPage extends VBox implements Page {
 
         );
 
-        newTitle.setId("newTitle");
-        newDescription.setId("newDescription");
-
-        update.setOnMouseClicked(this::updatePost);
-        update.setId("updateButton");
-
-
     }
 
-    private void updatePost(MouseEvent e) {
-        PostController.updatePost();
-    }
-
+    // Singleton
     public static EditPage getInstance() {
         if (instance == null) instance = new EditPage();
         return instance;
