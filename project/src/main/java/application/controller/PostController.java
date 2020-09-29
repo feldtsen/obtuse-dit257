@@ -8,11 +8,12 @@ import application.view.pages.PublishPage;
 public class PostController {
 
     public static void createPost() {
-        IClient client = ClientController.loadClient();
+        IClient client = ClientController.loadState();
         PublishPage publishPage = PublishPage.getInstance();
         Post newPost = new Donation(publishPage.getTitleInput().getText(), publishPage.getDescriptionInput().getText(), client.getUser(), null);
         client.getBoard().addPost(newPost);
-        ClientController.saveClient(client, "clientFile.txt");
+        //ClientController.saveClient(client, "clientFile.txt");
+        ClientController.saveState(client);
     }
 
     public static void editPost() {

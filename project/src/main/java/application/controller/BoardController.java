@@ -11,7 +11,7 @@ import java.util.List;
 
 public class BoardController {
     public static void retrievePosts() {
-        IClient client = ClientController.loadClient();
+        IClient client = ClientController.loadState();
         if( client != null ) {
             List<IPost> posts = client.getBoard().getAllPosts();
 
