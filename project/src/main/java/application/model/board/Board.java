@@ -16,7 +16,7 @@ public class Board implements IBoard {
     }
     @Override
     public List<IPost> getAllPosts() {
-        return postList;
+        return new ArrayList<>(postList);
     }
 
     @Override

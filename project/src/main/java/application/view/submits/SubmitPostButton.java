@@ -1,7 +1,6 @@
 package application.view.submits;
 
-import application.controller.PublishController;
-import application.view.pages.PublishPage;
+import application.controller.PostController;
 import javafx.scene.control.Button;
 
 public class SubmitPostButton extends Button  {
@@ -21,7 +20,7 @@ public class SubmitPostButton extends Button  {
 
 
     private void mouseClickAction () {
-        PublishController.createPost();
+        PostController.createPost();
     }
 
 }
