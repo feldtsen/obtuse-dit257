@@ -58,7 +58,7 @@ public class PostController {
         IClient client = ClientController.loadState();
 
         // Removes the specified post from the board
-        client.getBoard().removeSpecificPost(postUUID);
+        client.getBoard().deletePost(postUUID);
 
         // Saves the changes to our persistent storage
         ClientController.saveState(client);
