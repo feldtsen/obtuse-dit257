@@ -11,6 +11,8 @@ public interface IBoard extends Serializable {
 
     IPost getSpecificPost(String id);
 
+    void removeSpecificPost(String id);
+
     void addPost(IPost post);
 
     void replacePost(String id, IPost newPost);

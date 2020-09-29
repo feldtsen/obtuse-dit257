@@ -31,6 +31,11 @@ public class Board implements IBoard {
         return postMap.get(id);
     }
 
+    public void removeSpecificPost(String id) {
+        IPost removedPost = postMap.remove(id);
+        postList.remove(removedPost);
+    }
+
     @Override
     public void addPost(IPost post) {
         postList.add(post);

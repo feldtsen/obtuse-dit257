@@ -6,7 +6,7 @@
 }
 /* BUTTON */
 #navigationButton,     #logoButton, #claimButton, #submitPostButton,
-#submitRegisterButton, #editButton, #updateButton {
+#submitRegisterButton, #editButton, #updateButton, #deleteButton {
     -fx-focus-color:       transparent;
     -fx-background-radius: 0;
     -fx-border-style:      none;
@@ -16,23 +16,38 @@
 }
 
 #claimButton, #submitRegisterButton, #submitPostButton,
-#editButton,  #updateButton { /*Adds contrast*/
+#editButton,  #updateButton, #deleteButton { /*Adds contrast*/
      -fx-min-width:        100;
      -fx-background-color: #303030;
  }
 
 #navigationButton:hover, #submitPostButton:hover, #submitRegisterButton:hover,
-#claimButton:hover,      #editButton:hover,       #updateButton:hover {
+#editButton:hover,       #updateButton:hover {
     -fx-background-color: #505050;
 }
+
 
 #buttonContainer {
     -fx-spacing: 10;
 }
 
 #claimButton {
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill:        #FFFFFF;
     -fx-background-color: #046c0c;
+}
+
+#claimButton:hover {
+    -fx-background-color: #349c3c;
+}
+
+#deleteButton {
+    -fx-text-fill:        #FFFFFF;
+    -fx-background-color: #B22222;
+}
+
+#deleteButton:hover {
+
+    -fx-background-color: #F26262;
 }
 
 /*NAVIGATION*/

@@ -54,4 +54,17 @@ public class PostController {
         BoardNavigationButton.getInstance().action();
     }
 
+    public static void deletePost(String postUUID) {
+        IClient client = ClientController.loadState();
+
+        // Removes the specified post from the board
+        client.getBoard().removeSpecificPost(postUUID);
+
+        // Saves the changes to our persistent storage
+        ClientController.saveState(client);
+
+        //Simulating clicking the "board" button, loading the board page and refreshing all the post cards
+        BoardNavigationButton.getInstance().action();
+    }
+
 }
