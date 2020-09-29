@@ -15,7 +15,7 @@ import java.io.*;
 public class ClientController {
     public static String createUserFilePath(IUser user) {
         // TODO: create user file by ID?
-        return ResourceLoader.usersDir + "/" + user.getPhoneNumber() + ".ser";
+        return ResourceLoader.usersDir + "/" + user.getPhoneNumber() + ".user";
     }
 
     public static void handleSubmitButton(String name, String address, String phoneNumber) {
