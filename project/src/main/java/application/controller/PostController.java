@@ -17,17 +17,17 @@ import javafx.scene.text.Text;
 public class PostController {
 
     public static void createPost() {
-        IClient client = ClientController.loadClient();
+        IClient client = ClientController.loadState();
         PublishPage publishPage = PublishPage.getInstance();
         Post newPost = new Donation(publishPage.getTitleInput().getText(), publishPage.getDescriptionInput().getText(), client.getUser(), null);
 
         client.getBoard().addPost(newPost);
 
-        ClientController.saveClient(client, ResourceLoader.clientFile);
+        ClientController.saveState(client);
     }
 
    public static void editPost(MouseEvent e) {
-        IClient client = ClientController.loadClient();
+        IClient client = ClientController.loadState();
         String id = ((Text)((Button) e.getSource()).getParent().lookup("#id")).getText();
 
         IPost oldPost = client.getBoard().getSpecificPost(id);
@@ -40,16 +40,18 @@ public class PostController {
 
 
         PageParent.loadPage(editPage);
+
+        ClientController.saveState(client);
     }
 
     public static void updatePost(){
-        IClient client = ClientController.loadClient();
+        IClient client = ClientController.loadState();
 
         Post newPost = new Donation(EditPage.getTitleInput().getText(), EditPage.getDescriptionInput().getText(), client.getUser(), null, EditPage.getUuid());
 
         client.getBoard().replacePost(EditPage.getUuid(), newPost);
 
-        ClientController.saveClient(client, ResourceLoader.clientFile);
+        ClientController.saveState(client);
 
         BoardNavigationButton.getInstance().action(null);
 

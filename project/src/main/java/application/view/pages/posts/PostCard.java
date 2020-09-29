@@ -39,7 +39,7 @@ public class PostCard extends VBox {
                 post.getAuthor().getPhoneNumber().toString()
         ));
         addChild(claimButton());
-        if (ClientController.loadClient().getUser().getName().equals(post.getAuthor().getName())) addChild(editButton());
+        if (ClientController.loadState().getUser().getName().equals(post.getAuthor().getName())) addChild(editButton());
         addChild(idField(post.getUUID()));
     }
 
