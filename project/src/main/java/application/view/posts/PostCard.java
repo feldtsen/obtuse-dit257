@@ -35,7 +35,7 @@ public class PostCard extends VBox {
        Button editButton          = new Button("Edit");
 
        //List of buttons to be wrapped in a HBox
-       List<Button> buttons = new ArrayList<>(List.of(claimButton, editButton));
+       List<Button> buttons = new ArrayList<>();
 
        //Id used for styling and reference
        this.setId("postCard");
@@ -52,9 +52,15 @@ public class PostCard extends VBox {
        claimButton.setOnMouseClicked(e-> BoardController.claimButtonHandler(post.getUUID()));
        editButton.setOnMouseClicked(e-> PostController.editPost(post.getUUID()));
 
-       //Only the post author should be able to edit the post
-       if (!Objects.requireNonNull(ClientController.loadState()).getUser().getPhoneNumber().getNumber().equals(author.getPhoneNumber().getNumber()))
-           editButton.setVisible(false);
+       //Only the post author should be able to edit the post, and authors should not be able to claim their own post
+       String currentUserPhoneNumber = ClientController.loadState().getUser().getPhoneNumber().getNumber();
+       if (currentUserPhoneNumber.equals(author.getPhoneNumber().getNumber())) {
+          buttons.add(editButton);
+       } else {
+          buttons.add(claimButton);
+       }
+
+
 
        //Adds the GUI components to the post
        this.getChildren().setAll(
