@@ -5,7 +5,8 @@
     -fx-font-family: Arial;
 }
 /* BUTTON */
-#navigationButton, #logoButton, #claimButton, #submitPostButton, #submitRegisterButton{
+#navigationButton,     #logoButton, #claimButton, #submitPostButton,
+#submitRegisterButton, #editButton, #updateButton {
     -fx-focus-color: transparent;
     -fx-background-radius: 0;
     -fx-border-style: none;
@@ -14,12 +15,14 @@
     -fx-font-size: 18;
 }
 
-#claimButton, #submitRegisterButton, #submitPostButton { /*Adds contrast*/
+#claimButton, #submitRegisterButton, #submitPostButton,
+#editButton,  #updateButton { /*Adds contrast*/
      -fx-min-width: 50;
      -fx-background-color: #303030;
  }
 
-#navigationButton:hover, #submitPostButton:hover, #submitRegisterButton:hover, #claimButton:hover{
+#navigationButton:hover, #submitPostButton:hover, #submitRegisterButton:hover,
+#claimButton:hover,      #editButton:hover,       #updateButton:hover {
     -fx-background-color: #505050;
 }
 
@@ -38,7 +41,7 @@
     -fx-background-color: rgba(0, 0, 0, 0);
 }
 
-#publishPage, #registerPage {
+#publishPage, #registerPage, #editPage {
     -fx-background-color: #202020;
     -fx-spacing: 10;
     -fx-padding: 10;
@@ -78,7 +81,7 @@
     -fx-fill: #CCCCCC;
 }
 
-#title {
+#title, #newTitle, #newDescription {
     -fx-font-size: 20;
 }
 

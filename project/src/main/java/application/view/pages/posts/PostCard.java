@@ -1,6 +1,7 @@
 package application.view.pages.posts;
 
 import application.controller.BoardController;
+import application.controller.ClientController;
 import application.controller.PostController;
 import application.model.posts.IPost;
 import application.view.ResourceLoader;
@@ -38,7 +39,7 @@ public class PostCard extends VBox {
                 post.getAuthor().getPhoneNumber().toString()
         ));
         addChild(claimButton());
-        addChild(editButton());
+        if (ClientController.loadClient().getUser().getName().equals(post.getAuthor().getName())) addChild(editButton());
         addChild(idField(post.getUUID()));
     }
 

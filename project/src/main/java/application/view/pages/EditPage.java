@@ -16,17 +16,23 @@ public class EditPage extends VBox implements Page {
     public EditPage() {
         this.setId("editPage");
         Button update = new Button("Update");
+        Label newTitle = new Label("New title");
+        Label newDescription = new Label("New description");
 
         this.getChildren().addAll(
-                new Label("New title: "),
+                newTitle,
                 titleInput = new TextField(),
-                new Label("New description: "),
+                newDescription,
                 descriptionInput = new TextField(),
                 update
 
         );
 
+        newTitle.setId("newTitle");
+        newDescription.setId("newDescription");
+
         update.setOnMouseClicked(this::updatePost);
+        update.setId("updateButton");
 
 
     }

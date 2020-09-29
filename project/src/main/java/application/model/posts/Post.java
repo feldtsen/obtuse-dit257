@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public abstract class Post implements IPost {
 
-    private String uniqueID;
+    private final String uniqueID;
     private final String title;
     private final String description;
     private final IUser author;
@@ -27,6 +27,7 @@ public abstract class Post implements IPost {
         this.author = author;
         this.items = items;
         this.uniqueID = uuid;
+
     }
 
     @Override
