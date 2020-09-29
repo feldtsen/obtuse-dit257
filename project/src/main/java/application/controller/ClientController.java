@@ -14,42 +14,37 @@ import java.io.*;
 
 public class ClientController {
     public static String createUserFilePath(IUser user) {
-        // TODO: create user file by ID?
-        return ResourceLoader.usersDir + "/" + user.getPhoneNumber() + ".user";
+        return createUserFilePath(user.getPhoneNumber().toString());
+    }
+
+    public static String createUserFilePath(String phoneNumber) {
+        return ResourceLoader.usersDir + "/" + phoneNumber + ".user";
     }
 
     public static void handleSubmitButton(String name, String address, String phoneNumber) {
-        //TODO: submit button?
-        //IClient newClient = createClient(name, address, phoneNumber);
         IUser user = createUser(name, address, phoneNumber);
         IBoard board = createBoard();
-        //saveClient(newClient, ResourceLoader.clientFile);
+
         saveObject(user, createUserFilePath(user));
-        saveObject(board, ResourceLoader.boardFile);
+        saveObject(board, ResourceLoader.boardFile); //TODO: store board on user registration?
+
+        //TODO: login newly created user
     }
 
     /**
-     * Create a client object with empty board inside
+     * Create a user
      * @param name the name of the user
      * @param address the address for the user
      * @param phoneNumber the phone number of the user
-     * @return the client object
-     *          otherwise null
+     * @return the newly created user object, or a stored one if the user already exists
      */
-    public static IClient createClient(String name, String address, String phoneNumber) {
-        PhoneNumber phone = null;
-        try {
-            phone = new PhoneNumber(phoneNumber);
-        } catch (InvalidPhoneNumberException e) {
-            e.printStackTrace();
+    public static IUser createUser(String name, String address, String phoneNumber) {
+        String path;
+        if(new File(path = createUserFilePath(phoneNumber)).exists()) {
+            //TODO: error handling? message saying user already exists?
+            return loadUser(path);
         }
 
-        IUser user = new User(name, address, phone);
-        IBoard board = new Board();
-        return new Client(user, board);
-    }
-
-    public static IUser createUser(String name, String address, String phoneNumber) {
         PhoneNumber phone;
         try {
             phone = new PhoneNumber(phoneNumber);
@@ -60,29 +55,17 @@ public class ClientController {
     }
 
     public static IBoard createBoard() {
-        return new Board();
+        if(new File(ResourceLoader.boardFile).exists()) {
+            return loadBoard(ResourceLoader.boardFile);
+        } else {
+            return new Board();
+        }
     }
 
     /**
-     * Save the client object to a file according to the path of
-     * specified by filename
+     * Save the client board and user.
      * @param client the client object that needed to be stored
-     //* @param filename the path to the file used for storing the client object
      */
-    /*public static void saveClient(IClient client, String filename) {
-        try {
-            File clientFile = new File(filename);
-            FileOutputStream clientFO = new FileOutputStream(clientFile);
-            ObjectOutputStream clientOO = new ObjectOutputStream(clientFO);
-            clientOO.writeObject(client);
-            clientOO.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
-
     public static void saveState(IClient client) {
         saveObject(client.getBoard(), ResourceLoader.boardFile);
         saveObject(client.getUser(), createUserFilePath(client.getUser()));
@@ -109,30 +92,22 @@ public class ClientController {
      * @return the client object that is stored locally
      *          otherwise null
      */
-    /*public static IClient loadClient() {
-        IClient client = null;
-        try {
-            File clientFile = new File(ResourceLoader.clientFile);
-            FileInputStream clientFI = new FileInputStream(clientFile);
-            ObjectInputStream clientOI = new ObjectInputStream(clientFI);
-            client = (IClient) clientOI.readObject();
-            clientOI.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return client;
-    }*/
-
     public static IClient loadState() {
         // TODO: temporary solution (before login, just load first user in directory)
         String[] userPaths = new File(ResourceLoader.usersDir).list();
         if(userPaths == null || userPaths.length == 0) return null;
 
-        IUser user = (IUser)loadObject(ResourceLoader.usersDir + "/" + userPaths[0]);
-        IBoard board = (IBoard)loadObject(ResourceLoader.boardFile);
+        IUser user = loadUser(ResourceLoader.usersDir + "/" + userPaths[0]);
+        IBoard board = loadBoard(ResourceLoader.boardFile);
         return new Client(user, board);
+    }
+
+    public static IUser loadUser(String path) {
+        return (IUser)loadObject(path);
+    }
+
+    public static IBoard loadBoard(String path) {
+        return (IBoard)loadObject(path);
     }
 
     public static Object loadObject(String path) {
