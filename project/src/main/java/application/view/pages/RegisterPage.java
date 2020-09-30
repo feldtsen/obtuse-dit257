@@ -1,6 +1,7 @@
 package application.view.pages;
 
 import application.view.pages.login.LoginModule;
+import application.view.pages.login.LoginStatusModule;
 import application.view.pages.login.RegisterModule;
 import javafx.scene.layout.HBox;
 
@@ -12,7 +13,8 @@ public class RegisterPage extends HBox implements Page {
 
         this.getChildren().addAll(
                 LoginModule.getInstance(),
-                RegisterModule.getInstance()
+                RegisterModule.getInstance(),
+                LoginStatusModule.getInstance()
         );
 
     }
