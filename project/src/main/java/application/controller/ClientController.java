@@ -88,6 +88,12 @@ public class ClientController {
         if (userFile.exists()) {
             return loadUser(userFilePath);
         }
+        // Create user directory if it does not exist
+        File userDir = new File(ResourceLoader.usersDir);
+        if(!userDir.exists()) {
+            userDir.mkdirs();
+        }
+
         PhoneNumber phone = new PhoneNumber(phoneNumber);
         return new User(name, address, phone);
     }
