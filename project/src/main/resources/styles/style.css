@@ -78,7 +78,7 @@
 #loginModule, #registerModule {
     -fx-background-color: #202020;
     -fx-padding:          10;
-    -fx-spacing: 10;
+    -fx-spacing:          10;
 }
 
 .scroll-bar:horizontal, .scroll-bar:vertical{

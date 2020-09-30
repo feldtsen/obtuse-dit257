@@ -21,4 +21,5 @@ public class RegisterPage extends HBox implements Page {
         if (instance == null) instance = new RegisterPage();
         return instance;
     }
+
 }

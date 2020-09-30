@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 public class RegisterModule extends VBox implements Page {
@@ -35,6 +36,10 @@ public class RegisterModule extends VBox implements Page {
 
         HBox.setHgrow(this, Priority.ALWAYS);
 
+        //Forces buttons to bottom
+        Region spacing = new Region();
+        VBox.setVgrow(spacing, Priority.ALWAYS);
+
         this.getChildren().addAll(
                 registerLabel,
 
@@ -47,6 +52,7 @@ public class RegisterModule extends VBox implements Page {
                 phoneLabel,
                 phoneInput,
 
+                spacing,
                 SubmitRegisterButton.getInstance()
 
         );

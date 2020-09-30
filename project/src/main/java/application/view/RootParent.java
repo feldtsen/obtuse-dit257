@@ -1,5 +1,6 @@
 package application.view;
 
+import application.ResourceLoader;
 import application.view.navigation.NavigationParent;
 import application.view.pages.PageParent;
 import javafx.scene.layout.Region;

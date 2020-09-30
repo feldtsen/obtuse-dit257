@@ -8,7 +8,7 @@ import application.model.users.IUser;
 import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
-import application.view.ResourceLoader;
+import application.ResourceLoader;
 
 import java.io.*;
 

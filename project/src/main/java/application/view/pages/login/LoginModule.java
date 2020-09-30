@@ -2,13 +2,12 @@ package application.view.pages.login;
 
 import application.view.pages.Page;
 import application.view.submits.SubmitLoginButton;
-import application.view.submits.SubmitRegisterButton;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 public class LoginModule extends VBox implements Page {
@@ -30,7 +29,14 @@ public class LoginModule extends VBox implements Page {
         phoneLabel.setId("phoneLabel");
         passwordLabel.setId("passwordLabel");
 
+        Region buttonSpacing = new Region();
+        VBox.setVgrow(buttonSpacing, Priority.ALWAYS);
+
         HBox.setHgrow(this, Priority.ALWAYS);
+
+        //Forces the button to the bottom
+        Region spacing = new Region();
+        VBox.setVgrow(spacing, Priority.ALWAYS);
 
         this.getChildren().addAll(
                 loginLabel,
@@ -41,6 +47,7 @@ public class LoginModule extends VBox implements Page {
                 passwordLabel,
                 passwordInput,
 
+                spacing,
                 SubmitLoginButton.getInstance()
         );
 
