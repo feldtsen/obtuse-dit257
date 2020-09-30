@@ -27,7 +27,6 @@
     -fx-background-color: #505050;
 }
 
-
 #buttonContainer {
     -fx-spacing: 10;
 }
@@ -66,10 +65,20 @@
     -fx-background-color: rgba(0, 0, 0, 0);
 }
 
-#publishPage, #registerPage, #editPage {
+#publishPage, #editPage {
     -fx-background-color: #202020;
     -fx-spacing:          10;
     -fx-padding:          10;
+}
+
+
+#registerPage {
+    -fx-spacing: 10;
+}
+#loginModule, #registerModule {
+    -fx-background-color: #202020;
+    -fx-padding:          10;
+    -fx-spacing: 10;
 }
 
 .scroll-bar:horizontal, .scroll-bar:vertical{
@@ -93,8 +102,6 @@
     -fx-background-color:  #2A2A2A;
     -fx-background-radius: 0em;
 }
-
-
 
 /*POSTS*/
 #postCard {

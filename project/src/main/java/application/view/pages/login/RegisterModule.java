@@ -6,6 +6,8 @@ import application.view.submits.SubmitRegisterButton;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 public class RegisterModule extends VBox implements Page {
@@ -30,6 +32,8 @@ public class RegisterModule extends VBox implements Page {
         nameLabel.setId("nameLabel");
         addressLabel.setId("addressLabel");
         phoneLabel.setId("phoneLabel");
+
+        HBox.setHgrow(this, Priority.ALWAYS);
 
         this.getChildren().addAll(
                 registerLabel,

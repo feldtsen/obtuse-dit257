@@ -2,55 +2,19 @@ package application.view.pages;
 
 import application.view.pages.login.LoginModule;
 import application.view.pages.login.RegisterModule;
-import application.view.submits.SubmitRegisterButton;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 public class RegisterPage extends HBox implements Page {
     private static RegisterPage instance = null;
 
-    private final TextField nameInput;
-    private final TextField addressInput;
-    private final TextField phoneInput;
-
     private RegisterPage() {
         this.setId("registerPage");
-
-        nameInput = new TextField();
-        addressInput = new TextField();
-        phoneInput = new TextField();
-
-        /*
-        this.getChildren().addAll(
-                new Label("Name"),
-                nameInput,
-                new Label("Address"),
-                addressInput,
-                new Label("Phone number"),
-                phoneInput,
-                SubmitRegisterButton.getInstance()
-        );
-         */
 
         this.getChildren().addAll(
                 LoginModule.getInstance(),
                 RegisterModule.getInstance()
-
         );
 
-    }
-
-    public TextField getNameInput () {
-        return nameInput;
-    }
-
-    public TextField getAddressInput() {
-        return addressInput;
-    }
-
-    public TextField getPhoneInput() {
-        return phoneInput;
     }
 
     public static RegisterPage getInstance() {

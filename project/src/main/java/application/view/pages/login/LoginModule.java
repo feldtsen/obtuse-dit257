@@ -3,9 +3,12 @@ package application.view.pages.login;
 import application.view.pages.Page;
 import application.view.submits.SubmitLoginButton;
 import application.view.submits.SubmitRegisterButton;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 public class LoginModule extends VBox implements Page {
@@ -27,6 +30,8 @@ public class LoginModule extends VBox implements Page {
         phoneLabel.setId("phoneLabel");
         passwordLabel.setId("passwordLabel");
 
+        HBox.setHgrow(this, Priority.ALWAYS);
+
         this.getChildren().addAll(
                 loginLabel,
 
@@ -38,6 +43,7 @@ public class LoginModule extends VBox implements Page {
 
                 SubmitLoginButton.getInstance()
         );
+
     }
 
     public static LoginModule getInstance() {
