@@ -13,11 +13,11 @@ import application.view.ResourceLoader;
 import java.io.*;
 
 public class ClientController {
-    public static String createUserFilePath(IUser user) {
+    private static String createUserFilePath(IUser user) {
         return createUserFilePath(user.getPhoneNumber().toString());
     }
 
-    public static String createUserFilePath(String phoneNumber) {
+    private static String createUserFilePath(String phoneNumber) {
         return ResourceLoader.usersDir + "/" + phoneNumber + ".user";
     }
 
@@ -49,15 +49,19 @@ public class ClientController {
         try {
             phone = new PhoneNumber(phoneNumber);
         } catch (InvalidPhoneNumberException e) {
+            //TODO throw exception instead
             return null;
         }
         return new User(name, address, phone);
     }
 
     public static IBoard createBoard() {
+        // If a stored board already exists
         if(new File(ResourceLoader.boardFile).exists()) {
+            // Return the stored board
             return loadBoard(ResourceLoader.boardFile);
         } else {
+            // Otherwise, return a new, empty board
             return new Board();
         }
     }
@@ -71,6 +75,7 @@ public class ClientController {
         saveObject(client.getUser(), createUserFilePath(client.getUser()));
     }
 
+    // Saves a particular object to disk.
     private static void saveObject(Serializable object, String path) {
         try {
             File file = new File(path);
@@ -102,15 +107,15 @@ public class ClientController {
         return new Client(user, board);
     }
 
-    public static IUser loadUser(String path) {
+    private static IUser loadUser(String path) {
         return (IUser)loadObject(path);
     }
 
-    public static IBoard loadBoard(String path) {
+    private static IBoard loadBoard(String path) {
         return (IBoard)loadObject(path);
     }
 
-    public static Object loadObject(String path) {
+    private static Object loadObject(String path) {
         Object object = null;
         try {
             File file = new File(path);
