@@ -9,6 +9,8 @@ import application.view.pages.EditPage;
 import application.view.pages.PageParent;
 import application.view.pages.PublishPage;
 
+import java.io.IOException;
+
 public class PostController {
 
     public static void createPost() {
@@ -22,7 +24,11 @@ public class PostController {
         client.getBoard().addPost(newPost);
 
         // Save changes to persistent storage
-        ClientController.saveState(client);
+        try {
+            ClientController.saveState(client);
+        } catch (IOException e) {
+            System.out.println("Failed to save client!");
+        }
     }
 
    public static void editPost(String oldPostUUID) {
@@ -48,7 +54,11 @@ public class PostController {
         client.getBoard().replacePost(EditPage.getUUID(), newPost);
 
         // Saves the changes to our persistent storage
-        ClientController.saveState(client);
+        try {
+            ClientController.saveState(client);
+        } catch (IOException e) {
+            System.out.println("Failed to save client!");
+        }
 
         //Simulating clicking the "board" button, loading the board page and refreshing all the post cards
         BoardNavigationButton.getInstance().action();
@@ -61,7 +71,11 @@ public class PostController {
         client.getBoard().deletePost(postUUID);
 
         // Saves the changes to our persistent storage
-        ClientController.saveState(client);
+        try {
+            ClientController.saveState(client);
+        } catch (IOException e) {
+            System.out.println("Failed to save client!");
+        }
 
         //Simulating clicking the "board" button, loading the board page and refreshing all the post cards
         BoardNavigationButton.getInstance().action();
