@@ -1,6 +1,7 @@
 package application.view.pages.login;
 
 import application.view.pages.Page;
+import application.view.submits.SubmitLoginButton;
 import application.view.submits.SubmitRegisterButton;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -35,7 +36,7 @@ public class LoginModule extends VBox implements Page {
                 passwordLabel,
                 passwordInput,
 
-                SubmitRegisterButton.getInstance()
+                SubmitLoginButton.getInstance()
         );
     }
 
@@ -43,5 +44,15 @@ public class LoginModule extends VBox implements Page {
         if (instance == null) instance = new LoginModule();
 
         return instance;
+    }
+
+    public String getPhoneInput() {
+        return phoneInput.getText();
+
+    }
+
+    public String getPasswordInput() {
+
+        return passwordInput.getText();
     }
 }

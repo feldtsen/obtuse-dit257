@@ -13,6 +13,11 @@ import application.view.ResourceLoader;
 import java.io.*;
 
 public class ClientController {
+    public static void handleLoginButton(String phone, String password) {
+        System.out.println(phone);
+        System.out.println(password);
+    }
+
     private static String createUserFilePath(IUser user) {
         return createUserFilePath(user.getPhoneNumber().toString());
     }
