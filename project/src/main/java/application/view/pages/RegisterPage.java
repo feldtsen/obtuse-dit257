@@ -1,12 +1,15 @@
 package application.view.pages;
 
+import application.view.pages.login.LoginModule;
+import application.view.pages.login.RegisterModule;
 import application.view.submits.SubmitRegisterButton;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
-public class RegisterPage extends VBox implements Page {
+public class RegisterPage extends HBox implements Page {
     private static RegisterPage instance = null;
+
     private final TextField nameInput;
     private final TextField addressInput;
     private final TextField phoneInput;
@@ -18,6 +21,7 @@ public class RegisterPage extends VBox implements Page {
         addressInput = new TextField();
         phoneInput = new TextField();
 
+        /*
         this.getChildren().addAll(
                 new Label("Name"),
                 nameInput,
@@ -26,6 +30,13 @@ public class RegisterPage extends VBox implements Page {
                 new Label("Phone number"),
                 phoneInput,
                 SubmitRegisterButton.getInstance()
+        );
+         */
+
+        this.getChildren().addAll(
+                LoginModule.getInstance(),
+                RegisterModule.getInstance()
+
         );
 
     }
