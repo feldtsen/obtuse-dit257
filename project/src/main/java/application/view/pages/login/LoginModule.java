@@ -49,8 +49,8 @@ public class LoginModule extends VBox implements Page {
                 passwordInput,
 
                 spacing,
-                SubmitLoginButton.getInstance(),
-                LoginStatusModule.getInstance() // Need to be moved!
+                SubmitLoginButton.getInstance()
+
         );
 
     }
