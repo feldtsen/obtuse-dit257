@@ -9,6 +9,7 @@ import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
+import application.view.pages.login.LoginStatusModule;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -18,6 +19,7 @@ public class ClientController {
     public static void handleLoginButton(String phone, String password) {
         System.out.println(phone);
         System.out.println(password);
+        LoginStatusModule.getInstance().setLoginUser(phone); //Shows the phone number of the logged in user
     }
 
     private static String createUserFilePath(IUser user) {
