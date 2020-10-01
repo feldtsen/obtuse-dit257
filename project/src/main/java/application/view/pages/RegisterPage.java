@@ -13,8 +13,7 @@ public class RegisterPage extends HBox implements Page {
 
         this.getChildren().addAll(
                 LoginModule.getInstance(),
-                RegisterModule.getInstance(),
-                LoginStatusModule.getInstance()
+                RegisterModule.getInstance()
         );
 
     }

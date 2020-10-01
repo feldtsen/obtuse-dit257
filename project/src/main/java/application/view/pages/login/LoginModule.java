@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 
 public class LoginModule extends VBox implements Page {
     private static LoginModule instance = null;
@@ -48,7 +49,8 @@ public class LoginModule extends VBox implements Page {
                 passwordInput,
 
                 spacing,
-                SubmitLoginButton.getInstance()
+                SubmitLoginButton.getInstance(),
+                LoginStatusModule.getInstance() // Need to be moved!
         );
 
     }
