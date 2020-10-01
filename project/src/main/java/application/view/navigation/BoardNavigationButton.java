@@ -4,7 +4,6 @@ package application.view.navigation;
 import application.controller.BoardController;
 import application.view.pages.BoardPage;
 import application.view.pages.PageParent;
-import application.view.pages.login.LoginStatusModule;
 import javafx.scene.input.MouseEvent;
 
 public class BoardNavigationButton extends NavigationButton {
@@ -26,8 +25,6 @@ public class BoardNavigationButton extends NavigationButton {
     public void action() {
         // Clears the posts on the board
         BoardPage.getInstance().getChildren().setAll();
-
-        BoardPage.getInstance().getChildren().add(LoginStatusModule.getInstance()); // Need to be moved!
 
         // Gets all the posts for the current client
         BoardController.retrievePosts();

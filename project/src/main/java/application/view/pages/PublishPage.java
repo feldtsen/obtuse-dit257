@@ -1,6 +1,6 @@
 package application.view.pages;
 
-import application.view.pages.login.LoginStatusModule;
+import application.view.pages.login.LoginStatusPublish;
 import application.view.submits.SubmitPostButton;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -17,14 +17,13 @@ public class PublishPage extends VBox implements Page {
         descriptionInput = new TextField();
 
         this.getChildren().addAll(
-                LoginStatusModule.getInstance(), //Shows the logged in user
+                LoginStatusPublish.getInstance(), //a module to help showing the logged in user
                 new Label("Title"),
                 titleInput,
                 new Label("Description"),
                 descriptionInput,
                 SubmitPostButton.getInstance()
         );
-
     }
 
     public String getTitleInput () {

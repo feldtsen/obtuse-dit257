@@ -1,7 +1,6 @@
 package application.view.pages;
 
 import application.controller.BoardController;
-import application.view.pages.login.LoginStatusModule;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 
