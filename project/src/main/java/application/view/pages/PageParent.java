@@ -29,7 +29,6 @@ public class PageParent extends ScrollPane {
     // Changes the active page
     public static void loadPage (Node page) {
         instance.setContent(page);
-
     }
 
 }
