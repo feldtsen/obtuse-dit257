@@ -1,5 +1,6 @@
 package application.view.pages.login;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
@@ -12,6 +13,7 @@ public class LoginStatusPublish extends HBox {
     private LoginStatusPublish() {
         loginText = new Label("Logged in as: ");
         loginStatus = new Label("None");
+        this.setAlignment(Pos.CENTER_RIGHT);
         this.getChildren().addAll(loginText, loginStatus);
     }
 
