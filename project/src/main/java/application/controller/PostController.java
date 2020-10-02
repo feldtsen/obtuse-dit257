@@ -17,6 +17,12 @@ public class PostController {
     public static void createPost() {
         IClient client = Client.getInstance();
 
+        if(client.getUser() == null) {
+            //TODO: alert?
+            System.out.println("You cannot make a post unless you are logged in.");
+            return;
+        }
+
         // Referencing the publish page to retrieve input from the user
         PublishPage publishPage = PublishPage.getInstance();
         Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), null, publishPage.getPostType());
