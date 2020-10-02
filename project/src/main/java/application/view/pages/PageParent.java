@@ -1,7 +1,6 @@
 package application.view.pages;
 
 import application.controller.BoardController;
-import application.view.pages.login.LoginStatusModule;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 
@@ -30,7 +29,6 @@ public class PageParent extends ScrollPane {
     // Changes the active page
     public static void loadPage (Node page) {
         instance.setContent(page);
-
     }
 
 }
