@@ -21,9 +21,10 @@ public class RootParent extends VBox {
         this.setId("rootParent");
 
         this.getChildren().addAll(
-                LoginBanner.getInstance(),
                 pageParent,
-                navigationParent);
+                LoginBanner.getInstance(),
+                navigationParent
+        );
 
 
         this.setResponsiveSize(pageParent, primaryStage, .80);
