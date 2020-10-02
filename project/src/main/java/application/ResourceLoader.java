@@ -1,8 +1,9 @@
-package application.view;
+package application;
 
 
 import application.App;
 import javafx.geometry.Insets;
+import javafx.scene.layout.Region;
 
 import java.io.InputStream;
 

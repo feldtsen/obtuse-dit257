@@ -1,12 +1,11 @@
 package application.view.navigation;
 
 
-import application.view.ResourceLoader;
+import application.ResourceLoader;
 import application.view.pages.BoardPage;
 import application.view.pages.PageParent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 public class LogoNavigationButton extends NavigationButton {
     private static LogoNavigationButton instance = null;

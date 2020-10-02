@@ -5,7 +5,7 @@ import application.controller.ClientController;
 import application.controller.PostController;
 import application.model.posts.IPost;
 import application.model.users.IUser;
-import application.view.ResourceLoader;
+import application.ResourceLoader;
 import application.view.pages.BoardPage;
 
 import javafx.scene.control.Button;
@@ -15,7 +15,6 @@ import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class PostCard extends VBox {
 

@@ -1,7 +1,7 @@
 package application.view.submits;
 
 import application.controller.ClientController;
-import application.view.pages.RegisterPage;
+import application.view.pages.login.RegisterModule;
 import javafx.scene.control.Button;
 
 public class SubmitRegisterButton extends Button  {
@@ -10,10 +10,9 @@ public class SubmitRegisterButton extends Button  {
     private SubmitRegisterButton() {
         this.setId("submitRegisterButton");
 
-
         this.setText("Register");
-        this.setOnMouseClicked(e -> mouseClickAction());
 
+        this.setOnMouseClicked(e -> mouseClickAction());
 
     }
 
@@ -22,13 +21,12 @@ public class SubmitRegisterButton extends Button  {
         return instance;
     }
 
-
     private void mouseClickAction () {
-        RegisterPage registerPage = RegisterPage.getInstance();
+        RegisterModule registerModule = RegisterModule.getInstance();
         ClientController.handleSubmitButton (
-                registerPage.getNameInput().getText(),
-                registerPage.getAddressInput().getText(),
-                registerPage.getPhoneInput().getText()
+                registerModule.getNameInput(),
+                registerModule.getAddressInput(),
+                registerModule.getPhoneInput()
         );
     }
 
