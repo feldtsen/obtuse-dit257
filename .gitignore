@@ -1,6 +1,7 @@
 project/target
 project/.idea
-.idea
 project/.attach_pid*
 project/project.iml
+project/board.ser
+.idea
 .DS_Store
