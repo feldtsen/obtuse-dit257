@@ -1,0 +1,11 @@
+A:
+I have made improvments this sprint in helping other teammates to learn something new. and that by doing the task
+together. I simply start the skeleton of the program and llet the other person continue with the task and we had 
+shared video for the person that is typing. This worked great and we achieved a good result in completing the task.
+I faced some difficulties to understand the code but that is mainly due to poor code documentations.
+
+I continued with a task that has connection with what I did in previous sprint and that is the signup function. 
+It seems working now and behaves as we planned.
+
+This helped us with the deliveries but we had some issues about our estimation mainly because teammate didn't take
+into acoount their other courses work.  
