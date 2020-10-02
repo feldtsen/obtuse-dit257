@@ -9,6 +9,7 @@ import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
+import application.view.pages.login.LoginStatusBoard;
 import application.view.pages.login.LoginStatusPublish;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -17,9 +18,25 @@ import java.io.*;
 
 public class ClientController {
     public static void handleLoginButton(String phone, String password) {
-        System.out.println(phone);
-        System.out.println(password);
-        LoginStatusPublish.getInstance().setLoggedInAs(phone); //Shows the phone number of the logged in user
+        //System.out.println(phone);
+        //System.out.println(password);
+
+        String path = createUserFilePath(phone);
+        File file = new File(path);
+        if(file.exists()) {
+            IClient client = loadState();
+            client.setUser(loadUser(path));
+            try {
+                saveState(client);
+                LoginStatusPublish.getInstance().setLoggedInAs(phone); //Shows the phone number of the logged in user
+                LoginStatusBoard.getInstance().setLoggedInAs(phone);
+                showAlert("Login successful", "Login successful as " + client.getUser().getName(), Alert.AlertType.CONFIRMATION, ButtonType.OK);
+            } catch (IOException e) {
+                showAlert("HELP", "Error saving data.", Alert.AlertType.ERROR, ButtonType.OK);
+            }
+        } else {
+            showAlert("No such user", "Please register or type the correct username.", Alert.AlertType.ERROR, ButtonType.OK);
+        }
     }
 
     private static String createUserFilePath(IUser user) {
@@ -140,7 +157,7 @@ public class ClientController {
     public static IClient loadState () {
         // TODO: temporary solution (before login, just load first user in directory)
         String[] userPaths = new File(ResourceLoader.usersDir).list();
-        if (userPaths == null || userPaths.length == 0) return null;
+        if (userPaths == null || userPaths.length == 0) return null; //TODO: fix this!!!!
 
         IUser user = loadUser(ResourceLoader.usersDir + "/" + userPaths[0]);
         IBoard board = loadBoard(ResourceLoader.boardFile);
