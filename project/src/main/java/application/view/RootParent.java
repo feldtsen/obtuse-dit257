@@ -4,6 +4,7 @@ import application.ResourceLoader;
 import application.controller.ClientController;
 import application.view.navigation.NavigationParent;
 import application.view.pages.PageParent;
+import application.view.pages.login.AlertBanner;
 import application.view.pages.login.LoginBanner;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -22,6 +23,7 @@ public class RootParent extends VBox {
 
         this.getChildren().addAll(
                 pageParent,
+                AlertBanner.getInstance(),
                 LoginBanner.getInstance(),
                 navigationParent
         );
