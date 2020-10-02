@@ -1,6 +1,7 @@
 package application.view;
 
 import application.ResourceLoader;
+import application.controller.ClientController;
 import application.view.navigation.NavigationParent;
 import application.view.pages.PageParent;
 import application.view.pages.login.LoginBanner;
@@ -28,6 +29,7 @@ public class RootParent extends VBox {
         this.setResponsiveSize(pageParent, primaryStage, .80);
         this.setResponsiveSize(navigationParent, primaryStage, .20);
 
+        ClientController.init();
     }
 
     public static RootParent getInstance(Stage primaryStage) {

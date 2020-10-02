@@ -16,6 +16,10 @@ import javafx.scene.control.ButtonType;
 import java.io.*;
 
 public class ClientController {
+    public static void init() {
+        loadFromDisk();
+    }
+
     public static void handleLoginButton(String phone, String password) {
         String path = createUserFilePath(phone);
         File file = new File(path);
@@ -78,7 +82,7 @@ public class ClientController {
             System.out.println("The user couldn't be saved!");
             showAlert("Error saving file!", "The user couldn't be saved! Check file path and try again!", Alert.AlertType.ERROR, ButtonType.OK);
         }
-        IBoard board = createBoard();
+        IBoard board = loadBoard();
 
         try {
             saveObject(board, ResourceLoader.boardFile); //TODO: store board on user registration?
@@ -113,7 +117,7 @@ public class ClientController {
         return new User(name, address, phone);
     }
 
-    public static IBoard createBoard() {
+    public static IBoard loadBoard() {
         // If a stored board already exists
         if (new File(ResourceLoader.boardFile).exists()) {
             // Return the stored board
@@ -148,7 +152,7 @@ public class ClientController {
      * @return the client object that is stored locally
      *          otherwise null
      */
-    private static IClient loadFromDisk() {
+     private static IClient loadFromDisk() {
         IBoard board = loadBoard(ResourceLoader.boardFile);
         Client.init(null, board);
         return Client.getInstance();
