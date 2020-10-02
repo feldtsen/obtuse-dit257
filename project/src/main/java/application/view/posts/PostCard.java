@@ -24,6 +24,7 @@ public class PostCard extends VBox {
        IUser author = post.getAuthor();
 
        //Creates the GUI elements
+       Label  postTypeLabel       = new Label(post.getPostType());
        Label  titleLabel          = new Label(post.getTitle());
        Label  nameAndAddressLabel = new Label(author.getName() + ", " + author.getAddress());
        Label  phoneNumberLabel    = new Label("Contact " + author.getPhoneNumber().getNumber());
@@ -66,6 +67,7 @@ public class PostCard extends VBox {
 
        //Adds the GUI components to the post
        this.getChildren().setAll(
+               postTypeLabel,
                titleLabel,
                descriptionText,
                phoneNumberLabel,

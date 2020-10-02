@@ -5,30 +5,32 @@ import application.model.users.IUser;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class Post implements IPost {
+public class Post implements IPost {
 
-    //private final String postType;
     private final String uniqueID;
     private final String title;
     private final String description;
     private final IUser author;
     private final List<IItem> items;
+    private final String postType;
     //private final Range Availabletime;
 
-    public Post(String title, String description, IUser author, List<IItem> items) {
+    public Post(String title, String description, IUser author, List<IItem> items, String postType) {
         this.title = title;
         this.description = description;
         this.author = author;
         this.items = items;
         this.uniqueID = UUID.randomUUID().toString();
+        this.postType = postType;
 
     }
-    public Post(String title, String description, IUser author, List<IItem> items, String uuid) {
+    public Post(String title, String description, IUser author, List<IItem> items, String uuid, String postType) {
         this.title = title;
         this.description = description;
         this.author = author;
         this.items = items;
         this.uniqueID = uuid;
+        this.postType = postType;
 
     }
 
@@ -55,6 +57,11 @@ public abstract class Post implements IPost {
     @Override
     public IUser getAuthor() {
         return author;
+    }
+
+    @Override
+    public String getPostType() {
+        return postType;
     }
 /*
     @Override

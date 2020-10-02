@@ -9,6 +9,7 @@ public interface IPost extends Serializable {
     String getUUID();
     String getTitle();
     String getDescription();
+    String getPostType();
 
     List<IItem> getItems();
     IUser getAuthor();

@@ -12,12 +12,12 @@ public class Donation extends Post {
     private boolean received;
 
     public Donation(String title, String description, IUser author, List<IItem> items) {
-        super(title, description, author, items);
+        super(title, description, author, items, "Donation");
         this.claimed = false;
         this.claimedBy = null;
     }
     public Donation(String title, String description, IUser author, List<IItem> items, String uuid) {
-        super(title, description, author, items, uuid);
+        super(title, description, author, items, uuid, "Donation");
         this.claimed = false;
         this.claimedBy = null;
     }

@@ -16,26 +16,41 @@ import java.util.List;
 
 public class PublishPage extends VBox implements Page {
     private static PublishPage instance = null;
+
     private final TextField titleInput;
     private final TextField descriptionInput;
+    private String type = "Donation";
 
     private PublishPage() {
         this.setId("publishPage");
         titleInput = new TextField();
         descriptionInput = new TextField();
+
+        Button donationButton = new Button();
+        Button requestButton = new Button();
+
+        donationButton.setId("donationButton");
+        requestButton.setId("requestButton");
+
+        donationButton.setText("Donation");
+        requestButton.setText("Request");
+
         List<Button> buttons = new ArrayList<>();
-        buttons.add(DonationButton.getInstance());
-        buttons.add(RequestButton.getInstance());
+        buttons.add(donationButton);
+        buttons.add(requestButton);
+
+        donationButton.setOnMouseClicked(e -> this.setPostType("Donation"));
+        requestButton.setOnMouseClicked(e -> this.setPostType("Request"));
+
         ButtonContainer buttonContainer = new ButtonContainer(buttons);
         this.getChildren().addAll(
-                buttonContainer,
                 new Label("Title"),
+                buttonContainer,
                 titleInput,
                 new Label("Description"),
                 descriptionInput,
                 SubmitPostButton.getInstance()
         );
-
     }
 
     public String getTitleInput () {
@@ -44,6 +59,14 @@ public class PublishPage extends VBox implements Page {
 
     public String getDescriptionInput() {
        return descriptionInput.getText();
+    }
+
+    public String getPostType() {
+        return type;
+    }
+
+    public void setPostType(String type) {
+        this.type = type;
     }
 
     public static PublishPage getInstance() {

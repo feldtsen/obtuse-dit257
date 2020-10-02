@@ -12,7 +12,7 @@ public class Request extends Post{
     private final List<IUser> donators;
 
     public Request(String title, String description, IUser author, List<IItem> items) {
-        super(title, description, author, items);
+        super(title, description, author, items, "Request");
         this.isSatisfied = false;
         this.isReceived = false;
         this.donators = new ArrayList<>();

@@ -19,7 +19,7 @@ public class PostController {
 
         // Referencing the publish page to retrieve input from the user
         PublishPage publishPage = PublishPage.getInstance();
-        Post newPost = new Donation(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), null);
+        Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), null, publishPage.getPostType());
 
         // Adds the post to the board
         client.getBoard().addPost(newPost);
