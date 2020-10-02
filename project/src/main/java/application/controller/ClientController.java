@@ -21,10 +21,10 @@ public class ClientController {
         File file = new File(path);
         if(file.exists()) {
             //TODO: add password stuff
-            IClient client = loadState();
+            IClient client = loadFromDisk();
             client.setUser(loadUser(path));
             try {
-                saveState(client);
+                saveToDisk();
                 LoginBanner.getInstance().setLoggedInAs(client.getUser().getName());
                 showAlert("Login successful", "Login successful as " + client.getUser().getName(), Alert.AlertType.CONFIRMATION, ButtonType.OK);
             } catch (IOException e) {
@@ -126,12 +126,10 @@ public class ClientController {
 
     /**
      * Save the client board and user.
-     *
-     * @param client the client object that needed to be stored
      */
-    public static void saveState(IClient client) throws IOException {
-        saveObject(client.getBoard(), ResourceLoader.boardFile);
-        saveObject(client.getUser(), createUserFilePath(client.getUser()));
+    public static void saveToDisk() throws IOException {
+        saveObject(Client.getInstance().getBoard(), ResourceLoader.boardFile);
+        saveObject(Client.getInstance().getUser(), createUserFilePath(Client.getInstance().getUser()));
 
     }
 
@@ -150,14 +148,16 @@ public class ClientController {
      * @return the client object that is stored locally
      *          otherwise null
      */
-    public static IClient loadState () {
+    private static IClient loadFromDisk() {
         // TODO: temporary solution (before login, just load first user in directory)
-        String[] userPaths = new File(ResourceLoader.usersDir).list();
+        /*String[] userPaths = new File(ResourceLoader.usersDir).list();
         if (userPaths == null || userPaths.length == 0) return null; //TODO: fix this!!!!
 
-        IUser user = loadUser(ResourceLoader.usersDir + "/" + userPaths[0]);
+        IUser user = loadUser(ResourceLoader.usersDir + "/" + userPaths[0]);*/
         IBoard board = loadBoard(ResourceLoader.boardFile);
-        return new Client(user, board);
+        //return new Client(user, board);
+        Client.init(null, board);
+        return Client.getInstance();
     }
 
     /**

@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.posts.Donation;
 import application.model.posts.IPost;
@@ -14,7 +15,8 @@ import java.io.IOException;
 public class PostController {
 
     public static void createPost() {
-        IClient client = ClientController.loadState();
+        //IClient client = ClientController.loadState();
+        IClient client = Client.getInstance();
 
         // Referencing the publish page to retrieve input from the user
         PublishPage publishPage = PublishPage.getInstance();
@@ -25,14 +27,15 @@ public class PostController {
 
         // Save changes to persistent storage
         try {
-            ClientController.saveState(client);
+            ClientController.saveToDisk();
         } catch (IOException e) {
             System.out.println("Failed to save client!");
         }
     }
 
    public static void editPost(String oldPostUUID) {
-        IClient client = ClientController.loadState();
+        //IClient client = ClientController.loadState();
+       IClient client = Client.getInstance();
 
         // Retrieves the correct post based on the UUID
         IPost oldPost = client.getBoard().getSpecificPost(oldPostUUID);
@@ -47,7 +50,8 @@ public class PostController {
     }
 
     public static void updatePost(){
-        IClient client = ClientController.loadState();
+        //IClient client = ClientController.loadState();
+        IClient client = Client.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
         Post newPost = new Donation(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), null, EditPage.getUUID());
@@ -55,7 +59,7 @@ public class PostController {
 
         // Saves the changes to our persistent storage
         try {
-            ClientController.saveState(client);
+            ClientController.saveToDisk();
         } catch (IOException e) {
             System.out.println("Failed to save client!");
         }
@@ -65,14 +69,15 @@ public class PostController {
     }
 
     public static void deletePost(String postUUID) {
-        IClient client = ClientController.loadState();
+        //IClient client = ClientController.loadState();
+        IClient client = Client.getInstance();
 
         // Removes the specified post from the board
         client.getBoard().deletePost(postUUID);
 
         // Saves the changes to our persistent storage
         try {
-            ClientController.saveState(client);
+            ClientController.saveToDisk();
         } catch (IOException e) {
             System.out.println("Failed to save client!");
         }

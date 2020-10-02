@@ -24,7 +24,9 @@ public class ClientTest {
         } catch (InvalidPhoneNumberException ignored) {
         }
         board = new Board();
-        client = new Client(user,board);
+        //client = new Client(user,board);
+        Client.init(user, board);
+        client = Client.getInstance();
 
     }
 

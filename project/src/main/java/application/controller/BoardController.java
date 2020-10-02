@@ -1,7 +1,9 @@
 package application.controller;
 
+import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.posts.IPost;
+import application.view.pages.BoardPage;
 import application.view.posts.PostCard;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,18 +14,21 @@ import java.util.List;
 
 public class BoardController {
     public static void retrievePosts() {
-        IClient client = ClientController.loadState();
+        IClient client = Client.getInstance();
         if( client != null ) {
             Collection<IPost> posts = client.getBoard().getAllPosts();
 
             for (IPost post : posts) {
-                new PostCard(post);
+                PostCard postCard = new PostCard(post);
+
+                //Appends the post to the board
+                BoardPage.getInstance().getChildren().add(postCard);
             }
         }
     }
 
     public static void claimButtonHandler(String postUUID) {
-        IPost post = ClientController.loadState().getBoard().getSpecificPost(postUUID);
+        IPost post = Client.getInstance().getBoard().getSpecificPost(postUUID);
         System.out.println(post.getTitle());
     }
 }

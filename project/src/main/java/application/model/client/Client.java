@@ -4,12 +4,22 @@ import application.model.board.IBoard;
 import application.model.users.IUser;
 
 public class Client implements IClient{
+    private static IClient INSTANCE;
+
     private IUser user;
     private final IBoard board;
 
-    public Client(IUser user, IBoard board) {
+    private Client(IUser user, IBoard board) {
         this.user = user;
         this.board = board;
+    }
+
+    public static void init(IUser user, IBoard board) {
+        INSTANCE = new Client(user, board);
+    }
+
+    public static IClient getInstance() {
+        return INSTANCE;
     }
 
     @Override

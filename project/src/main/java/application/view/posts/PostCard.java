@@ -3,6 +3,7 @@ package application.view.posts;
 import application.controller.BoardController;
 import application.controller.ClientController;
 import application.controller.PostController;
+import application.model.client.Client;
 import application.model.posts.IPost;
 import application.model.users.IUser;
 import application.ResourceLoader;
@@ -19,9 +20,6 @@ import java.util.List;
 public class PostCard extends VBox {
 
     public PostCard(IPost post) {
-       //Appends the post to the board
-       BoardPage.getInstance().getChildren().add(this);
-
        //The author of the current post
        IUser author = post.getAuthor();
 
@@ -55,7 +53,8 @@ public class PostCard extends VBox {
        deleteButton.setOnMouseClicked(e-> PostController.deletePost(post.getUUID()));
 
        //Only the post author should be able to edit the post, and authors should not be able to claim their own post
-       String currentUserPhoneNumber = ClientController.loadState().getUser().getPhoneNumber().getNumber();
+       //String currentUserPhoneNumber = ClientController.loadState().getUser().getPhoneNumber().getNumber();
+       String currentUserPhoneNumber = Client.getInstance().getUser().getPhoneNumber().getNumber();
        if (currentUserPhoneNumber.equals(author.getPhoneNumber().getNumber())) {
           buttons.add(editButton);
           buttons.add(deleteButton);
