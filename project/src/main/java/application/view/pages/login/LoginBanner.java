@@ -4,22 +4,26 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
-public class LoginStatusBoard extends HBox {
+public class LoginBanner extends HBox {
 
-    private static LoginStatusBoard instance = null;
-    private final Label loginText;
-    private Label loginStatus;  //label that shows what user is currently logged in
+    private static LoginBanner instance = null;
+   private Label loginStatus;  //label that shows what user is currently logged in
 
-    private LoginStatusBoard() {
-        loginText = new Label("Logged in as: ");
+    private LoginBanner() {
+        Label loginText = new Label("Logged in as: ");
         loginStatus = new Label("None");
+
+        this.setId("loginBanner");
+
+        loginStatus.setStyle("-fx-text-fill: #BBBBBB!important;");
+
         this.setAlignment(Pos.CENTER_RIGHT);
         this.getChildren().addAll(loginText, loginStatus);
     }
 
-    public static LoginStatusBoard getInstance() {
+    public static LoginBanner getInstance() {
         if(instance == null)
-            instance = new LoginStatusBoard();
+            instance = new LoginBanner();
         return instance;
     }
 

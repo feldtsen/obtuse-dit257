@@ -9,8 +9,7 @@ import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
-import application.view.pages.login.LoginStatusBoard;
-import application.view.pages.login.LoginStatusPublish;
+import application.view.pages.login.LoginBanner;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -18,18 +17,15 @@ import java.io.*;
 
 public class ClientController {
     public static void handleLoginButton(String phone, String password) {
-        //System.out.println(phone);
-        //System.out.println(password);
-
         String path = createUserFilePath(phone);
         File file = new File(path);
         if(file.exists()) {
+            //TODO: add password stuff
             IClient client = loadState();
             client.setUser(loadUser(path));
             try {
                 saveState(client);
-                LoginStatusPublish.getInstance().setLoggedInAs(phone); //Shows the phone number of the logged in user
-                LoginStatusBoard.getInstance().setLoggedInAs(phone);
+                LoginBanner.getInstance().setLoggedInAs(client.getUser().getName());
                 showAlert("Login successful", "Login successful as " + client.getUser().getName(), Alert.AlertType.CONFIRMATION, ButtonType.OK);
             } catch (IOException e) {
                 showAlert("HELP", "Error saving data.", Alert.AlertType.ERROR, ButtonType.OK);

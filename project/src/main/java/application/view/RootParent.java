@@ -3,6 +3,7 @@ package application.view;
 import application.ResourceLoader;
 import application.view.navigation.NavigationParent;
 import application.view.pages.PageParent;
+import application.view.pages.login.LoginBanner;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -14,11 +15,15 @@ public class RootParent extends VBox {
         NavigationParent navigationParent = NavigationParent.getInstance();
         PageParent pageParent = PageParent.getInstance();
 
-
-        this.getChildren().addAll(pageParent, navigationParent);
+        this.getStylesheets().add(ResourceLoader.stylesheet);
 
         this.setId("rootParent");
-        this.getStylesheets().add(ResourceLoader.stylesheet);
+
+        this.getChildren().addAll(
+                LoginBanner.getInstance(),
+                pageParent,
+                navigationParent);
+
 
         this.setResponsiveSize(pageParent, primaryStage, .80);
         this.setResponsiveSize(navigationParent, primaryStage, .20);
