@@ -149,13 +149,7 @@ public class ClientController {
      *          otherwise null
      */
     private static IClient loadFromDisk() {
-        // TODO: temporary solution (before login, just load first user in directory)
-        /*String[] userPaths = new File(ResourceLoader.usersDir).list();
-        if (userPaths == null || userPaths.length == 0) return null; //TODO: fix this!!!!
-
-        IUser user = loadUser(ResourceLoader.usersDir + "/" + userPaths[0]);*/
         IBoard board = loadBoard(ResourceLoader.boardFile);
-        //return new Client(user, board);
         Client.init(null, board);
         return Client.getInstance();
     }

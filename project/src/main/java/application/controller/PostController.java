@@ -15,7 +15,6 @@ import java.io.IOException;
 public class PostController {
 
     public static void createPost() {
-        //IClient client = ClientController.loadState();
         IClient client = Client.getInstance();
 
         // Referencing the publish page to retrieve input from the user
@@ -50,7 +49,6 @@ public class PostController {
     }
 
     public static void updatePost(){
-        //IClient client = ClientController.loadState();
         IClient client = Client.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
@@ -69,7 +67,6 @@ public class PostController {
     }
 
     public static void deletePost(String postUUID) {
-        //IClient client = ClientController.loadState();
         IClient client = Client.getInstance();
 
         // Removes the specified post from the board
