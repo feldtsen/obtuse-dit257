@@ -9,4 +9,4 @@ More flexibility in our sprints, in case something comes up (e.g family matters 
 Personally I would also like to spend some time understanding all the different components in our project.
 
 ### __Feedback designed to reduce the gap (A -> B)__
-A solution that has been discussed was to put more effort into the planning stage in the beginning of the sprint. By putting more time and effort at the start of the sprint we can perhaps make more accurate estimations and hopefully get started working faster in the sprint as well.
+A solution that has been discussed is to put more effort into the planning stage in the beginning of the sprint. By putting more time and effort at the start of the sprint we can perhaps make more accurate estimations and hopefully get started working faster in the sprint as well.
