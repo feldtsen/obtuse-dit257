@@ -29,7 +29,6 @@ public class PostCard extends VBox {
        Label  nameAndAddressLabel = new Label(author.getName() + ", " + author.getAddress());
        Label  phoneNumberLabel    = new Label("Contact " + author.getPhoneNumber().getNumber());
        Text   descriptionText     = new Text(post.getDescription());
-       Button claimButton         = new Button("Claim");
        Button editButton          = new Button("Edit");
        Button deleteButton        = new Button("Delete");
 
@@ -40,7 +39,6 @@ public class PostCard extends VBox {
        this.setId("postCard");
        titleLabel.setId("title");
        descriptionText.setId("description");
-       claimButton.setId("claimButton");
        editButton.setId("editButton");
        deleteButton.setId("deleteButton");
 
@@ -49,7 +47,6 @@ public class PostCard extends VBox {
        VBox.setMargin(this, ResourceLoader.margin);
 
        //Connect button clicks with a controller
-       claimButton.setOnMouseClicked(e-> BoardController.claimButtonHandler(post.getUUID()));
        editButton.setOnMouseClicked(e-> PostController.editPost(post.getUUID()));
        deleteButton.setOnMouseClicked(e-> PostController.deletePost(post.getUUID()));
 
@@ -60,8 +57,6 @@ public class PostCard extends VBox {
           if (currentUserPhoneNumber.equals(author.getPhoneNumber().getNumber())) {
              buttons.add(editButton);
              buttons.add(deleteButton);
-          } else {
-             buttons.add(claimButton);
           }
        }
 
@@ -79,8 +74,5 @@ public class PostCard extends VBox {
 
     }
 
-    public VBox getPostContainer () {
-       return this;
-    }
 }
 
