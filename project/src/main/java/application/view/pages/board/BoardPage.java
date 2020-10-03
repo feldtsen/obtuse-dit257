@@ -1,6 +1,7 @@
 package application.view.pages.board;
 
 import application.view.pages.Page;
+import application.view.pages.board.posts.PostCard;
 import javafx.scene.layout.*;
 
 public class BoardPage extends GridPane implements Page {
@@ -16,10 +17,8 @@ public class BoardPage extends GridPane implements Page {
         //Each cell occupies 50 percent of the width
         columnConstraints.setPercentWidth(50);
 
-        //Defines width for the first column
-        this.getColumnConstraints().add(columnConstraints);
-        //Defines width for the second column
-        this.getColumnConstraints().add(columnConstraints);
+        //Defines width for the first and second column
+        this.getColumnConstraints().addAll(columnConstraints, columnConstraints);
 
         this.setVgap(10);
         this.setHgap(10);
@@ -28,5 +27,9 @@ public class BoardPage extends GridPane implements Page {
     public static BoardPage getInstance() {
         if (instance == null) instance = new BoardPage();
         return instance;
+    }
+
+    public void setFullWidth(PostCard postCard) {
+        GridPane.setColumnSpan(postCard, 2);
     }
 }

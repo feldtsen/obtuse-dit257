@@ -62,7 +62,7 @@ public class PostController {
         IClient client = Client.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
-        Post newPost = new Donation(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), null, EditPage.getUUID());
+        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), null, EditPage.getUUID());
         client.getBoard().replacePost(EditPage.getUUID(), newPost);
 
         ClientController.showAlert("Successfully updated " + newPost.getTitle(), Alert.AlertType.CONFIRMATION);
