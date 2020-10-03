@@ -30,6 +30,7 @@ public class PostController {
 
         // Adds the post to the board
         client.getBoard().addPost(newPost);
+        ClientController.showAlert("Successfully posted " + newPost.getTitle(), Alert.AlertType.CONFIRMATION);
 
         // Save changes to persistent storage
         try {
@@ -49,6 +50,8 @@ public class PostController {
         // Populates the field in the edit page to reflect the current content of the post
         EditPage.getInstance().prepareWithOldValues(oldPost);
 
+        ClientController.showAlert("Currently editing " + oldPost.getTitle(), Alert.AlertType.INFORMATION);
+
 
         // Makes the edit page visible
         PageParent.loadPage(EditPage.getInstance());
@@ -59,8 +62,10 @@ public class PostController {
         IClient client = Client.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
-        Post newPost = new Donation(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), null, EditPage.getUUID());
+        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), null, EditPage.getUUID());
         client.getBoard().replacePost(EditPage.getUUID(), newPost);
+
+        ClientController.showAlert("Successfully updated " + newPost.getTitle(), Alert.AlertType.CONFIRMATION);
 
         // Saves the changes to our persistent storage
         try {
@@ -75,9 +80,11 @@ public class PostController {
 
     public static void deletePost(String postUUID) {
         IClient client = Client.getInstance();
+        IPost oldPost = client.getBoard().getSpecificPost(postUUID);
 
         // Removes the specified post from the board
         client.getBoard().deletePost(postUUID);
+        ClientController.showAlert("Successfully deleted " + oldPost.getTitle(), Alert.AlertType.CONFIRMATION);
 
         // Saves the changes to our persistent storage
         try {

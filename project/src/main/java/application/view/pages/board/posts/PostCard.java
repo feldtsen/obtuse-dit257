@@ -6,10 +6,14 @@ import application.model.posts.IPost;
 import application.model.users.IUser;
 import application.ResourceLoader;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +25,14 @@ public class PostCard extends VBox {
        IUser author = post.getAuthor();
 
        //Creates the GUI elements
-       Label  postTypeLabel       = new Label(post.getPostType());
-       Label  titleLabel          = new Label(post.getTitle());
-       Label  nameAndAddressLabel = new Label(author.getName() + ", " + author.getAddress());
-       Label  phoneNumberLabel    = new Label("Contact " + author.getPhoneNumber().getNumber());
-       Text   descriptionText     = new Text(post.getDescription());
-       Button editButton          = new Button("Edit");
-       Button deleteButton        = new Button("Delete");
+       Label  postTypeLabel          = new Label(post.getPostType());
+       Label  titleLabel             = new Label(post.getTitle());
+       Label  nameAndAddressLabel    = new Label(author.getName() + ", " + author.getAddress());
+       Label  phoneNumberLabel       = new Label("Contact " + author.getPhoneNumber().getNumber());
+       Text descriptionText          = new Text(post.getDescription());
+       TextFlow descriptionContainer = new TextFlow(descriptionText);
+       Button editButton             = new Button("Edit");
+       Button deleteButton           = new Button("Delete");
 
        //List of buttons to be wrapped in a HBox
        List<Button> buttons = new ArrayList<>();
@@ -63,7 +68,7 @@ public class PostCard extends VBox {
        this.getChildren().setAll(
                postTypeLabel,
                titleLabel,
-               descriptionText,
+               descriptionContainer,
                phoneNumberLabel,
                nameAndAddressLabel,
                new ButtonContainer(buttons)

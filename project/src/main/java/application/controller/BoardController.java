@@ -6,7 +6,6 @@ import application.model.posts.IPost;
 import application.view.pages.board.BoardPage;
 import application.view.pages.board.posts.PostCard;
 import javafx.scene.control.Alert;
-
 import java.util.Collection;
 
 public class BoardController {
@@ -22,18 +21,32 @@ public class BoardController {
             return;
         }
 
+        if (client.getBoard() == null)
+            return;
+
         Collection<IPost> posts = client.getBoard().getAllPosts();
 
+        int counter = 0;
+        int rowIndex = 0;
+        int colIndex;
         for (IPost post : posts) {
+            // Restricts it to 2 columns
+            colIndex = (counter % 2);
+
             PostCard postCard = new PostCard(post);
 
+            // If there is only one card on a row, it will take occupy 100% of the width
+            if (posts.size() - 1 == counter && colIndex == 0) BoardPage.getInstance().setFullWidth(postCard);
+
             //Appends the post to the board
-            BoardPage.getInstance().getChildren().add(postCard);
+            BoardPage.getInstance().add(postCard, colIndex, rowIndex);
+
+
+            // Everytime we filled a cell in the second column, we start on a new row
+            if(colIndex == 1) rowIndex++;
+            counter++;
         }
+
     }
 
-    public static void claimButtonHandler(String postUUID) {
-        IPost post = Client.getInstance().getBoard().getSpecificPost(postUUID);
-        System.out.println(post.getTitle());
-    }
 }
