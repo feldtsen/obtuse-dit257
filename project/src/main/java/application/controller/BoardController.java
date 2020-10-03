@@ -1,17 +1,11 @@
 package application.controller;
 
-import application.model.board.Board;
 import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.posts.IPost;
-import application.model.posts.Post;
 import application.view.pages.board.BoardPage;
 import application.view.pages.board.posts.PostCard;
 import javafx.scene.control.Alert;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.VBox;
-
 import java.util.Collection;
 
 public class BoardController {
@@ -26,6 +20,9 @@ public class BoardController {
             ClientController.showAlert("You need to be logged in to view the board", Alert.AlertType.INFORMATION);
             return;
         }
+
+        if (client.getBoard() == null)
+            return;
 
         Collection<IPost> posts = client.getBoard().getAllPosts();
 
