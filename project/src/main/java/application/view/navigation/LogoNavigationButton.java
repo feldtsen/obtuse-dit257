@@ -2,9 +2,8 @@ package application.view.navigation;
 
 
 import application.ResourceLoader;
-import application.view.pages.BoardPage;
+import application.view.pages.board.BoardPage;
 import application.view.pages.PageParent;
-import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

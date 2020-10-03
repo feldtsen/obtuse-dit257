@@ -1,13 +1,10 @@
-package application.view.posts;
+package application.view.pages.board.posts;
 
-import application.controller.BoardController;
-import application.controller.ClientController;
 import application.controller.PostController;
 import application.model.client.Client;
 import application.model.posts.IPost;
 import application.model.users.IUser;
 import application.ResourceLoader;
-import application.view.pages.BoardPage;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

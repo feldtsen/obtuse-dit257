@@ -1,5 +1,6 @@
-package application.view.pages;
+package application.view.pages.board;
 
+import application.view.pages.Page;
 import javafx.scene.layout.VBox;
 
 public class BoardPage extends VBox implements Page {

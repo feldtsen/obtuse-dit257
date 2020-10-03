@@ -6,9 +6,9 @@ import application.model.posts.Donation;
 import application.model.posts.IPost;
 import application.model.posts.Post;
 import application.view.navigation.BoardNavigationButton;
-import application.view.pages.EditPage;
+import application.view.pages.board.EditPage;
 import application.view.pages.PageParent;
-import application.view.pages.PublishPage;
+import application.view.pages.publish.PublishPage;
 import javafx.scene.control.Alert;
 
 import java.io.IOException;

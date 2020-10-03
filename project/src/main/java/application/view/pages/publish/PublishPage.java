@@ -1,7 +1,8 @@
-package application.view.pages;
+package application.view.pages.publish;
 
-import application.view.posts.ButtonContainer;
-import application.view.submits.SubmitPostButton;
+import application.view.pages.Page;
+import application.view.pages.board.posts.ButtonContainer;
+import application.view.pages.board.posts.SubmitPostButton;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -22,21 +23,10 @@ public class PublishPage extends VBox implements Page {
         titleInput = new TextField();
         descriptionInput = new TextField();
 
-        Button donationButton = new Button();
-        Button requestButton = new Button();
-
-        donationButton.setId("donationButton");
-        requestButton.setId("requestButton");
-
-        donationButton.setText("Donation");
-        requestButton.setText("Request");
 
         List<Button> buttons = new ArrayList<>();
-        buttons.add(donationButton);
-        buttons.add(requestButton);
-
-        donationButton.setOnMouseClicked(e -> this.setPostType("Donation"));
-        requestButton.setOnMouseClicked(e -> this.setPostType("Request"));
+        buttons.add(DonationButton.getInstance());
+        buttons.add(RequestButton.getInstance());
 
         ButtonContainer buttonContainer = new ButtonContainer(buttons);
         this.getChildren().addAll(

@@ -2,7 +2,7 @@ package application.view.navigation;
 
 
 import application.view.pages.PageParent;
-import application.view.pages.RegisterPage;
+import application.view.pages.login.RegisterPage;
 
 public class LoginNavigationButton extends NavigationButton {
     private static LoginNavigationButton instance = null;

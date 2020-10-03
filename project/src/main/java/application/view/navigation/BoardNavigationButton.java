@@ -2,7 +2,7 @@ package application.view.navigation;
 
 
 import application.controller.BoardController;
-import application.view.pages.BoardPage;
+import application.view.pages.board.BoardPage;
 import application.view.pages.PageParent;
 
 public class BoardNavigationButton extends NavigationButton {

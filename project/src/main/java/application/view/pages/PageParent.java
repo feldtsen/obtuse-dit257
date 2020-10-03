@@ -1,5 +1,6 @@
 package application.view.pages;
 
+import application.view.pages.login.RegisterPage;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 
