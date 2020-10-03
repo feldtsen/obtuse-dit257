@@ -40,7 +40,7 @@ public class ClientController {
     }
 
     private static String createUserFilePath(IUser user) {
-        return createUserFilePath(user.getPhoneNumber().toString());
+        return createUserFilePath(user.getPhoneNumber().getNumber());
     }
 
     private static String createUserFilePath(String phoneNumber) {
