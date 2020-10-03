@@ -6,6 +6,8 @@ import application.model.posts.IPost;
 import application.view.pages.board.BoardPage;
 import application.view.pages.board.posts.PostCard;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
 
 import java.util.Collection;
 
@@ -24,11 +26,18 @@ public class BoardController {
 
         Collection<IPost> posts = client.getBoard().getAllPosts();
 
+        int counter = 0;
+        int rowIndex = 0;
+        int colIndex;
         for (IPost post : posts) {
-            PostCard postCard = new PostCard(post);
+            colIndex = (counter % 2);
 
             //Appends the post to the board
-            BoardPage.getInstance().getChildren().add(postCard);
+            BoardPage.getInstance().add(new PostCard(post), colIndex, rowIndex);
+
+            if(colIndex == 1) rowIndex++;
+
+            counter++;
         }
     }
 
