@@ -9,8 +9,8 @@ import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
-import application.view.pages.login.AlertBanner;
-import application.view.pages.login.LoginBanner;
+import application.view.status.AlertBannerModule;
+import application.view.status.LoginBannerModule;
 import javafx.scene.control.Alert;
 
 import java.io.*;
@@ -29,7 +29,7 @@ public class ClientController {
             client.setUser(loadUser(path));
             try {
                 saveToDisk();
-                LoginBanner.getInstance().setLoggedInAs(client.getUser().getName());
+                LoginBannerModule.getInstance().setLoggedInAs(client.getUser().getName());
                 showAlert("Login successful as " + client.getUser().getName(), Alert.AlertType.CONFIRMATION);
             } catch (IOException e) {
                 showAlert("Error saving data.", Alert.AlertType.ERROR);
@@ -57,14 +57,12 @@ public class ClientController {
 
     public static void handleSubmitButton(String name, String address, String phoneNumber) {
         if (name.equals("")) {
-            System.out.println("Name field must be filled!");
-            showAlert( "Name field must be filled!", Alert.AlertType.ERROR);
+            showAlert( "Name field must be filled", Alert.AlertType.ERROR);
             return;
         }
 
         if (address.equals("")) {
-            System.out.println("Address field must be filled!");
-            showAlert("Address field must be filled!", Alert.AlertType.ERROR);
+            showAlert("Address field must be filled", Alert.AlertType.ERROR);
             return;
         }
 
@@ -72,14 +70,11 @@ public class ClientController {
         try {
             user = createUser(name, address, phoneNumber);
             saveObject(user, createUserFilePath(user));
-            System.out.println("Registration succeeded!");
-            showAlert("You have been registered successfully!", Alert.AlertType.CONFIRMATION);
+            showAlert("You have been registered successfully", Alert.AlertType.CONFIRMATION);
         } catch (InvalidPhoneNumberException e) {
-            System.out.println("Phone number is invalid!");
             showAlert("Your phone number format is invalid", Alert.AlertType.ERROR);
             return;
         } catch (IOException e) {
-            System.out.println("The user couldn't be saved!");
             showAlert("The user couldn't be saved! Check file path and try again!", Alert.AlertType.ERROR);
         }
         IBoard board = loadBoard();
@@ -87,7 +82,7 @@ public class ClientController {
         try {
             saveObject(board, ResourceLoader.boardFile); //TODO: store board on user registration?
         } catch (IOException e) {
-            System.out.println("Saving of board failed!");
+            System.out.println("Saving of board failed");
             System.out.println(e.getMessage());
         }
     }
@@ -175,9 +170,9 @@ public class ClientController {
             objectInputStream.close();
             inputStream.close();
         } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
+            System.out.println("File not found");
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Loading of object failed!");
+            System.out.println("Loading of object failed");
         }
         return object;
     }
@@ -187,10 +182,9 @@ public class ClientController {
      * @param message an message that will be displayed in the alert
      * @param alertType a type for the alert
      */
-    private static void showAlert (String message, Alert.AlertType alertType){
+    public static void showAlert (String message, Alert.AlertType alertType){
         //Alert myAlert = new Alert(alertType, message, buttonType);
-        System.out.println(alertType);
-        AlertBanner myAlert = AlertBanner.getInstance();
-        myAlert.setAlertMessage(message);
+        AlertBannerModule myAlert = AlertBannerModule.getInstance();
+        myAlert.setAlertMessage(message, alertType);
     }
 }

@@ -9,6 +9,7 @@ import application.view.navigation.BoardNavigationButton;
 import application.view.pages.EditPage;
 import application.view.pages.PageParent;
 import application.view.pages.PublishPage;
+import javafx.scene.control.Alert;
 
 import java.io.IOException;
 
@@ -19,7 +20,7 @@ public class PostController {
 
         if(client.getUser() == null) {
             //TODO: alert?
-            System.out.println("You cannot make a post unless you are logged in.");
+            ClientController.showAlert("You cannot make a post unless you are logged in", Alert.AlertType.INFORMATION);
             return;
         }
 

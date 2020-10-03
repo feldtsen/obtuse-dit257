@@ -18,7 +18,7 @@ public class LoginModule extends VBox implements Page {
     private final PasswordField passwordInput;
 
     private LoginModule() {
-        Label loginLabel = new Label("Log In");
+        Label loginLabel = new Label("Login");
         Label phoneLabel = new Label("Phone Number");
         Label passwordLabel = new Label("Password");
 

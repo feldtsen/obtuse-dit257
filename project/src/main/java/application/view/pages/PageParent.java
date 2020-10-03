@@ -1,6 +1,5 @@
 package application.view.pages;
 
-import application.controller.BoardController;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 
@@ -16,8 +15,7 @@ public class PageParent extends ScrollPane {
 
         // Add pages to the scroll pane
         // The one set here will be the initial page
-        this.setContent(BoardPage.getInstance());
-        BoardController.retrievePosts();
+        this.setContent(RegisterPage.getInstance());
     }
 
     // Singleton

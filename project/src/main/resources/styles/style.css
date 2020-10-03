@@ -1,3 +1,15 @@
+@font-face {
+    -fx-font-family: Awesome;
+}
+
+#icon {
+    -fx-text-fill: #BBBBBB;
+    -fx-font-size: 18;
+    -fx-max-height: 10;
+    -fx-max-width: 10;
+}
+
+
 #rootParent {
     -fx-background-color: #1A1A1A;
     -fx-padding:          15;
@@ -55,6 +67,7 @@
 /*NAVIGATION*/
 #navigationParent {
     -fx-background-color: #2A2A2A;
+    -fx-max-height: 120!important;
 }
 
 #logoButton {
@@ -122,8 +135,16 @@
 
 
 /*Status*/
+#statusBanner {
+    -fx-padding: 2 0 2 0;
+}
+
+#alertBanner {
+}
+
 #loginBanner {
-    -fx-padding: 10;
+    -fx-spacing: 5;
+    -fx-padding: 0 0 0 2;
 }
 
 
