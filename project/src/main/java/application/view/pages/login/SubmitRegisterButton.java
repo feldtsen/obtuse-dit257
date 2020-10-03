@@ -22,7 +22,7 @@ public class SubmitRegisterButton extends Button  {
 
     private void mouseClickAction () {
         RegisterModule registerModule = RegisterModule.getInstance();
-        ClientController.handleSubmitButton (
+        ClientController.handleRegisterButton(
                 registerModule.getNameInput(),
                 registerModule.getAddressInput(),
                 registerModule.getPhoneInput()

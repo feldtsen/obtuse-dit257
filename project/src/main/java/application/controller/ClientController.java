@@ -55,7 +55,7 @@ public class ClientController {
         return (IBoard) loadObject(path);
     }
 
-    public static void handleSubmitButton(String name, String address, String phoneNumber) {
+    public static void handleRegisterButton(String name, String address, String phoneNumber) {
         if (name.equals("")) {
             showAlert( "Name field must be filled", Alert.AlertType.ERROR);
             return;
@@ -66,11 +66,11 @@ public class ClientController {
             return;
         }
 
-        IUser user = null;
+        IUser user;
         try {
             user = createUser(name, address, phoneNumber);
             saveObject(user, createUserFilePath(user));
-            showAlert("You have been registered successfully", Alert.AlertType.CONFIRMATION);
+            showAlert("You have been registered successfully, please log in", Alert.AlertType.CONFIRMATION);
         } catch (InvalidPhoneNumberException e) {
             showAlert("Your phone number format is invalid", Alert.AlertType.ERROR);
             return;
@@ -85,6 +85,7 @@ public class ClientController {
             System.out.println("Saving of board failed");
             System.out.println(e.getMessage());
         }
+
     }
 
     /**
