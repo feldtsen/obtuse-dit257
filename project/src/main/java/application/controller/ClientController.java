@@ -40,7 +40,7 @@ public class ClientController {
     }
 
     private static String createUserFilePath(IUser user) {
-        return createUserFilePath(user.getPhoneNumber().toString());
+        return createUserFilePath(user.getPhoneNumber().getNumber());
     }
 
     private static String createUserFilePath(String phoneNumber) {
@@ -190,7 +190,7 @@ public class ClientController {
     private static void showAlert (String message, Alert.AlertType alertType){
         //Alert myAlert = new Alert(alertType, message, buttonType);
         System.out.println(alertType);
-        AlertBanner myAlert = AlertBanner.getInstance();
-        myAlert.setAlertMessage(message);
+        AlertBanner alert = AlertBanner.getInstance();
+        alert.setAlertMessage(message);
     }
 }

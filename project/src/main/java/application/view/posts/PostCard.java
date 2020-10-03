@@ -53,14 +53,16 @@ public class PostCard extends VBox {
        editButton.setOnMouseClicked(e-> PostController.editPost(post.getUUID()));
        deleteButton.setOnMouseClicked(e-> PostController.deletePost(post.getUUID()));
 
-       //Only the post author should be able to edit the post, and authors should not be able to claim their own post
-       //String currentUserPhoneNumber = ClientController.loadState().getUser().getPhoneNumber().getNumber();
-       String currentUserPhoneNumber = Client.getInstance().getUser().getPhoneNumber().getNumber();
-       if (currentUserPhoneNumber.equals(author.getPhoneNumber().getNumber())) {
-          buttons.add(editButton);
-          buttons.add(deleteButton);
-       } else {
-          buttons.add(claimButton);
+       // No options if no user is logged in
+       if(Client.getInstance().getUser() != null) {
+          //Only the post author should be able to edit the post, and authors should not be able to claim their own post
+          String currentUserPhoneNumber = Client.getInstance().getUser().getPhoneNumber().getNumber();
+          if (currentUserPhoneNumber.equals(author.getPhoneNumber().getNumber())) {
+             buttons.add(editButton);
+             buttons.add(deleteButton);
+          } else {
+             buttons.add(claimButton);
+          }
        }
 
 
