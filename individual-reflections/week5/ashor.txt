@@ -1,5 +1,5 @@
 A:
-I have made improvments this sprint in helping other teammates to learn something new. and that by doing the task
+I have made improvments this sprint in helping other teammates to learn something new, and that by doing the task
 together. I simply start the skeleton of the program and let the other person continue with the task and we had 
 shared screen of the person that is typing. This worked great and we achieved a good result in completing the task.
 I faced some difficulties to understand the code but that is mainly due to poor code documentations.
@@ -9,13 +9,14 @@ This helped us with the deliveries but we had some issues about our estimation m
 into account their other deliveries in other courses.
 Responses from other teammates were slow and when I needed a help or hint on how to do certain things I didn't get it
 in time instead I tried to do it by searching online of anything that could help me achieve a good result or
-testing many different approaches until getting what I wanted and that took me much more longer time then estimated
+testing many different approaches until getting what I wanted and that took me much more longer time than usual but
+it helped to understand the code better.
 
 B:
 I am feeling I need to work on more of our model instead of the GUI and controllers and that what I will try to do
 next sprint.
-I need to be able to understand the code without following every row in our source code. Method descriptions and 
-more code comments are needed. we need to try plan some refactoring of our code to make things more clear.
+I need to be able to understand the code without following every row in our source code. class and method descriptions
+mare needed in our code. we need to try plan some refactoring of our code to make things more clear.
 Quicker response to any questions or help requestes from other teammates.
 
 A->B:
@@ -23,4 +24,3 @@ Working together with someone who is not sure how to do things work well and i w
 by writing code together and trying make things work according the acceptance criteria of our tasks.
 I will try to pick more tasks of improving out model from our scrum board next sprint.
 I will point out the importance of quick response from other teammates in our team meetings during next sprint.
-
