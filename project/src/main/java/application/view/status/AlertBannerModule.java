@@ -9,18 +9,25 @@ import javafx.scene.layout.Priority;
 
 public class AlertBannerModule extends HBox {
     private static AlertBannerModule instance = null;
+
+    // How many alert messages currently running
     private static int alertIndex = 0;
 
+    // How long the alert message will be visible
     private static final int DURATION_IN_MILLISECONDS = 5000;
 
     private AlertBannerModule() {
         this.setId("alertBanner");
+
+
+        // If this is set on all components in a HBox, it will split the space evenly
         HBox.setHgrow(this, Priority.ALWAYS);
 
-
+        // The message will be shown to the far right of the given space
         this.setAlignment(Pos.CENTER_RIGHT);
     }
 
+    // Singleton
     public static AlertBannerModule getInstance() {
         if(instance == null)
             instance = new AlertBannerModule();
@@ -31,20 +38,25 @@ public class AlertBannerModule extends HBox {
         alertIndex++;
         Label alertMessageLabel = new Label(" (" + alertIndex + ") " + alertMessage);
 
+        // We gibe the message different colors based on what type of alert it is
         if (alertType == Alert.AlertType.ERROR)alertMessageLabel.setStyle("-fx-text-fill: #CC5050");
         else if (alertType == Alert.AlertType.INFORMATION)alertMessageLabel.setStyle("-fx-text-fill: #5050CC");
         else alertMessageLabel.setStyle("-fx-text-fill: #50CC50!important;");
 
+        // We visually override the last message
         this.getChildren().setAll(alertMessageLabel);
 
-        Thread thread = new Thread(() -> {
+        // We start a new thread so that the app doesn't freeze while a message is being displayed
+        new Thread(() -> {
             try {
+                // We wait for given time before removing the message
                 Thread.sleep(DURATION_IN_MILLISECONDS);
                 alertIndex--;
-                Platform.runLater(() -> AlertBannerModule.getInstance().getChildren().remove(alertMessageLabel));
+                // Since we use setAll previously, only the last message gets removed by us. The rest will get
+                // picked up by the garbage collector
+                Platform.runLater(() -> this.getChildren().remove(alertMessageLabel));
             } catch (InterruptedException ignored) {
             }
-        });
-        thread.start();
+        }).start();
     }
 }

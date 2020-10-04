@@ -24,8 +24,10 @@ public class BoardController {
         if (client.getBoard() == null)
             return;
 
-        Collection<IPost> posts = client.getBoard().getAllPosts();
 
+        BoardPage boardPage = BoardPage.getInstance();
+        Collection<IPost> posts = client.getBoard().getAllPosts();
+        PostCard postCard;
         int counter = 0;
         int rowIndex = 0;
         int colIndex;
@@ -33,13 +35,13 @@ public class BoardController {
             // Restricts it to 2 columns
             colIndex = (counter % 2);
 
-            PostCard postCard = new PostCard(post);
+            postCard = new PostCard(post);
 
             // If there is only one card on a row, it will take occupy 100% of the width
-            if (posts.size() - 1 == counter && colIndex == 0) BoardPage.getInstance().setFullWidth(postCard);
+            if (posts.size() - 1 == counter && colIndex == 0) boardPage.setFullWidth(postCard);
 
-            //Appends the post to the board
-            BoardPage.getInstance().add(postCard, colIndex, rowIndex);
+            //Appends the post to the board (grid pane) which need to know which cell to put it in
+            boardPage.add(postCard, colIndex, rowIndex);
 
 
             // Everytime we filled a cell in the second column, we start on a new row
