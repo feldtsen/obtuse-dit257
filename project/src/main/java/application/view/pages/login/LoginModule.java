@@ -1,7 +1,6 @@
 package application.view.pages.login;
 
 import application.view.pages.Page;
-import application.view.submits.SubmitLoginButton;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -9,7 +8,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.TextAlignment;
 
 public class LoginModule extends VBox implements Page {
     private static LoginModule instance = null;
@@ -18,7 +16,7 @@ public class LoginModule extends VBox implements Page {
     private final PasswordField passwordInput;
 
     private LoginModule() {
-        Label loginLabel = new Label("Log In");
+        Label loginLabel = new Label("Login");
         Label phoneLabel = new Label("Phone Number");
         Label passwordLabel = new Label("Password");
 

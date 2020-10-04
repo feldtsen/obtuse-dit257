@@ -1,16 +1,14 @@
-package application.view.pages;
+package application.view.pages.publish;
 
-import application.model.posts.Request;
-import application.view.pages.posttype.DonationButton;
-import application.view.pages.posttype.RequestButton;
-import application.view.posts.ButtonContainer;
-import application.view.submits.SubmitPostButton;
+import application.view.pages.Page;
+import application.view.pages.board.posts.ButtonContainer;
+import application.view.pages.board.posts.SubmitPostButton;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,29 +16,21 @@ public class PublishPage extends VBox implements Page {
     private static PublishPage instance = null;
 
     private final TextField titleInput;
-    private final TextField descriptionInput;
+    private final TextArea descriptionInput;
     private String type = "Donation";
 
     private PublishPage() {
         this.setId("publishPage");
         titleInput = new TextField();
-        descriptionInput = new TextField();
+        descriptionInput = new TextArea();
 
-        Button donationButton = new Button();
-        Button requestButton = new Button();
+        descriptionInput.setMinHeight(150);
+        descriptionInput.setWrapText(true);
 
-        donationButton.setId("donationButton");
-        requestButton.setId("requestButton");
-
-        donationButton.setText("Donation");
-        requestButton.setText("Request");
 
         List<Button> buttons = new ArrayList<>();
-        buttons.add(donationButton);
-        buttons.add(requestButton);
-
-        donationButton.setOnMouseClicked(e -> this.setPostType("Donation"));
-        requestButton.setOnMouseClicked(e -> this.setPostType("Request"));
+        buttons.add(DonationButton.getInstance());
+        buttons.add(RequestButton.getInstance());
 
         ButtonContainer buttonContainer = new ButtonContainer(buttons);
         this.getChildren().addAll(

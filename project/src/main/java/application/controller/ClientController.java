@@ -9,9 +9,9 @@ import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
-import application.view.pages.login.LoginBanner;
+import application.view.status.AlertBannerModule;
+import application.view.status.LoginBannerModule;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 
 import java.io.*;
 
@@ -29,18 +29,18 @@ public class ClientController {
             client.setUser(loadUser(path));
             try {
                 saveToDisk();
-                LoginBanner.getInstance().setLoggedInAs(client.getUser().getName());
-                showAlert("Login successful", "Login successful as " + client.getUser().getName(), Alert.AlertType.CONFIRMATION, ButtonType.OK);
+                LoginBannerModule.getInstance().setLoggedInAs(client.getUser().getName());
+                showAlert("Login successful as " + client.getUser().getName(), Alert.AlertType.CONFIRMATION);
             } catch (IOException e) {
-                showAlert("HELP", "Error saving data.", Alert.AlertType.ERROR, ButtonType.OK);
+                showAlert("Error saving data.", Alert.AlertType.ERROR);
             }
         } else {
-            showAlert("No such user", "Please register or type the correct username.", Alert.AlertType.ERROR, ButtonType.OK);
+            showAlert("Please register or type the correct username", Alert.AlertType.ERROR);
         }
     }
 
     private static String createUserFilePath(IUser user) {
-        return createUserFilePath(user.getPhoneNumber().toString());
+        return createUserFilePath(user.getPhoneNumber().getNumber());
     }
 
     private static String createUserFilePath(String phoneNumber) {
@@ -55,41 +55,37 @@ public class ClientController {
         return (IBoard) loadObject(path);
     }
 
-    public static void handleSubmitButton(String name, String address, String phoneNumber) {
+    public static void handleRegisterButton(String name, String address, String phoneNumber) {
         if (name.equals("")) {
-            System.out.println("Name field must be filled!");
-            showAlert("Empty name field", "Name field must be filled!", Alert.AlertType.ERROR, ButtonType.OK);
+            showAlert( "Name field must be filled", Alert.AlertType.ERROR);
             return;
         }
 
         if (address.equals("")) {
-            System.out.println("Address field must be filled!");
-            showAlert("Empty address field", "Address field must be filled!", Alert.AlertType.ERROR, ButtonType.OK);
+            showAlert("Address field must be filled", Alert.AlertType.ERROR);
             return;
         }
 
-        IUser user = null;
+        IUser user;
         try {
             user = createUser(name, address, phoneNumber);
             saveObject(user, createUserFilePath(user));
-            System.out.println("Registration succeeded!");
-            showAlert("Registration succeeded", "You have been registered successfully!", Alert.AlertType.CONFIRMATION, ButtonType.OK);
+            showAlert("You have been registered successfully, please log in", Alert.AlertType.CONFIRMATION);
         } catch (InvalidPhoneNumberException e) {
-            System.out.println("Phone number is invalid!");
-            showAlert("Invalid Phone number", "Your phone number format is invalid", Alert.AlertType.ERROR, ButtonType.OK);
+            showAlert("Your phone number format is invalid", Alert.AlertType.ERROR);
             return;
         } catch (IOException e) {
-            System.out.println("The user couldn't be saved!");
-            showAlert("Error saving file!", "The user couldn't be saved! Check file path and try again!", Alert.AlertType.ERROR, ButtonType.OK);
+            showAlert("The user couldn't be saved! Check file path and try again!", Alert.AlertType.ERROR);
         }
         IBoard board = loadBoard();
 
         try {
             saveObject(board, ResourceLoader.boardFile); //TODO: store board on user registration?
         } catch (IOException e) {
-            System.out.println("Saving of board failed!");
+            System.out.println("Saving of board failed");
             System.out.println(e.getMessage());
         }
+
     }
 
     /**
@@ -175,9 +171,9 @@ public class ClientController {
             objectInputStream.close();
             inputStream.close();
         } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
+            System.out.println("File not found");
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Loading of object failed!");
+            System.out.println("Loading of object failed");
         }
         return object;
     }
@@ -187,9 +183,9 @@ public class ClientController {
      * @param message an message that will be displayed in the alert
      * @param alertType a type for the alert
      */
-    private static void showAlert (String title, String message, Alert.AlertType alertType, ButtonType buttonType){
-        Alert myAlert = new Alert(alertType, message, buttonType);
-        myAlert.setTitle(title);
-        myAlert.show();
+    public static void showAlert (String message, Alert.AlertType alertType){
+        //Alert myAlert = new Alert(alertType, message, buttonType);
+        AlertBannerModule myAlert = AlertBannerModule.getInstance();
+        myAlert.setAlertMessage(message, alertType);
     }
 }

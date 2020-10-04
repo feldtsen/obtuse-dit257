@@ -4,7 +4,8 @@ import application.ResourceLoader;
 import application.controller.ClientController;
 import application.view.navigation.NavigationParent;
 import application.view.pages.PageParent;
-import application.view.pages.login.LoginBanner;
+import application.view.status.StatusBanner;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -20,14 +21,21 @@ public class RootParent extends VBox {
 
         this.setId("rootParent");
 
+        Region spacing = new Region();
+        VBox.setVgrow(spacing, Priority.ALWAYS);
+
         this.getChildren().addAll(
-                LoginBanner.getInstance(),
                 pageParent,
-                navigationParent);
+
+                spacing,
+                StatusBanner.getInstance(),
+
+                navigationParent
+        );
 
 
-        this.setResponsiveSize(pageParent, primaryStage, .80);
-        this.setResponsiveSize(navigationParent, primaryStage, .20);
+        this.setResponsiveSize(pageParent, primaryStage, .78);
+        this.setResponsiveSize(navigationParent, primaryStage, .22);
 
         ClientController.init();
     }

@@ -1,3 +1,15 @@
+@font-face {
+    -fx-font-family: Awesome;
+}
+
+#icon {
+    -fx-text-fill: #BBBBBB;
+    -fx-font-size: 18;
+    -fx-max-height: 10;
+    -fx-max-width: 10;
+}
+
+
 #rootParent {
     -fx-background-color: #1A1A1A;
     -fx-padding:          15;
@@ -7,7 +19,7 @@
 /* BUTTON */
 #navigationButton,     #logoButton, #claimButton,  #submitPostButton,
 #submitRegisterButton, #editButton, #updateButton, #deleteButton,
-#submitLoginButton,    #donationButton,            #requestButton {
+#submitLoginButton,    #active,            #inactive {
     -fx-focus-color:       transparent;
     -fx-background-radius: 0;
     -fx-border-style:      none;
@@ -18,15 +30,29 @@
 
 #claimButton, #submitRegisterButton, #submitPostButton,
 #editButton,  #updateButton, #deleteButton, #submitLoginButton,
-#donationButton, #requestButton{ /*Adds contrast*/
+#active, #inactive{ /*Adds contrast*/
      -fx-min-width:        100;
      -fx-background-color: #303030;
  }
 
 #navigationButton:hover, #submitPostButton:hover, #submitRegisterButton:hover,
 #editButton:hover,       #updateButton:hover, #submitLoginButton:hover,
-#donationButton:hover,   #requestButton:hover {
+#active:hover,   #inactive:hover {
     -fx-background-color: #505050;
+}
+
+
+#active {
+    -fx-background-color: #50AA50;
+    -fx-text-fill: white;
+}
+
+#active:hover {
+    -fx-background-color: #50AA50;
+}
+
+#inactive {
+    -fx-background-color: #303030;
 }
 
 #buttonContainer {
@@ -55,6 +81,7 @@
 /*NAVIGATION*/
 #navigationParent {
     -fx-background-color: #2A2A2A;
+    -fx-max-height: 120!important;
 }
 
 #logoButton {
@@ -122,8 +149,17 @@
 
 
 /*Status*/
+#statusBanner {
+    -fx-padding: 2 0 2 0;
+}
+
+#alertBanner {
+    -fx-font-size: 18;
+}
+
 #loginBanner {
-    -fx-padding: 10;
+    -fx-spacing: 5;
+    -fx-padding: 0 0 0 2;
 }
 
 

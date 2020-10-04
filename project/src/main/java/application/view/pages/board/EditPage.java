@@ -1,7 +1,8 @@
-package application.view.pages;
+package application.view.pages.board;
 
 import application.controller.PostController;
 import application.model.posts.IPost;
+import application.view.pages.Page;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -13,6 +14,7 @@ public class EditPage extends VBox implements Page {
     private static TextField descriptionInput;
     private static TextField titleInput;
     private static String uuidField;
+    private static String postType;
 
 
     public EditPage() {
@@ -54,6 +56,7 @@ public class EditPage extends VBox implements Page {
         titleInput.setText(oldPost.getTitle());
         descriptionInput.setText(oldPost.getDescription());
         uuidField = oldPost.getUUID();
+        postType = oldPost.getPostType();
     }
 
     public static String getTitleInput () {
@@ -66,6 +69,10 @@ public class EditPage extends VBox implements Page {
 
     public static String getUUID() {
         return uuidField;
+    }
+
+    public static String getPostType(){
+        return postType;
     }
 
 

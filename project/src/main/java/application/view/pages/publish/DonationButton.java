@@ -1,4 +1,4 @@
-package application.view.pages.posttype;
+package application.view.pages.publish;
 
 
 import application.view.navigation.OnClickAction;
@@ -10,7 +10,8 @@ public class DonationButton extends Button implements OnClickAction {
     private DonationButton() {
         this.setText("Donation");
         this.setOnMouseClicked(e -> this.action());
-        this.setId("donationButton");
+
+        this.setId("active");
     }
 
     public static DonationButton getInstance() {
@@ -20,6 +21,8 @@ public class DonationButton extends Button implements OnClickAction {
 
     @Override
     public void action() {
-        System.out.println("button clicked");
+        this.setId("active");
+        RequestButton.getInstance().setId("inactive");
+        PublishPage.getInstance().setPostType("Donation");
     }
 }
