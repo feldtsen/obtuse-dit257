@@ -2,6 +2,7 @@ package application.model.posts;
 
 import application.model.tags.ITag;
 import application.model.users.IUser;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,9 @@ public class Post implements IPost {
     private final String postType;
     //private final Range Availabletime;
     private final List<String> tags;
+    // TODO: implement private final ImageContainer image;
 
+    private static boolean isCreated = false;
 
     public Post(String title, String description, IUser author, List<IItem> items, String postType, List<String> tags) {
         this.title = title;
@@ -27,7 +30,8 @@ public class Post implements IPost {
         this.uniqueID = UUID.randomUUID().toString();
         this.postType = postType;
         this.tags = new ArrayList<>(tags);
-
+        if (!isCreated) this.tags.add(postType);
+        isCreated = true;
     }
 
 
@@ -70,5 +74,20 @@ public class Post implements IPost {
     @Override
     public void setUniqueID(String uniqueID) {
         this.uniqueID = uniqueID;
+    }
+
+  /*  @Override
+    public ImageView getImage() {
+        return image;
+    }
+
+    @Override
+    public void setImage(ImageView image) {
+
+    }
+*/
+    @Override
+    public List<String> getTags() {
+        return tags;
     }
 }

@@ -1,6 +1,7 @@
 package application.model.posts;
 
 import application.model.users.IUser;
+import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,4 +16,7 @@ public interface IPost extends Serializable {
     IUser getAuthor();
     //Range getAvailableTime();
     void setUniqueID(String uniqueID);
+    //ImageView getImage();
+    //void setImage(ImageView image);
+    List<String> getTags();
 }
