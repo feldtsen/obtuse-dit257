@@ -54,6 +54,42 @@ public class TagParser {
 
     public String[] getAllTags(){
         String[] result = new String[10];
+        try
+        {
+            String line = "";
+            //Create the file reader
+            fileReader = new BufferedReader(new FileReader(fileToParse));
+            int tagnr = 0;
+            //Read the file line by line
+            while ((line = fileReader.readLine()) != null)
+            {
+                //Get all tokens available in line
+                String[] tokens = line.split(DELIMITER);
+                for(int i = 0; i < tokens.length; i++)
+                {
+                    if(tokens[i].equals("tags")){
+                        for(int j = 1; j < tokens.length-i; j++) {
+                            result[tagnr] = tokens[i + j];
+                            tagnr++;
+                        }
+                    }
+                }
+            }
+            for (String kategori : result){
+                System.out.println(kategori);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try {
+                fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         return result;
     }
 }
