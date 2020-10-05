@@ -5,13 +5,14 @@ import application.model.posts.IPost;
 import application.view.pages.Page;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 public class EditPage extends VBox implements Page {
     private static EditPage instance = null;
 
-    private static TextField descriptionInput;
+    private static TextArea descriptionInput;
     private static TextField titleInput;
     private static String uuidField;
     private static String postType;
@@ -23,7 +24,7 @@ public class EditPage extends VBox implements Page {
         Label newDescription = new Label("New description");
         Button update        = new Button("Update");
         titleInput           = new TextField();
-        descriptionInput     = new TextField();
+        descriptionInput     = new TextArea();
 
         // Set id for reference
         this.setId("editPage");
@@ -31,6 +32,8 @@ public class EditPage extends VBox implements Page {
         newDescription.setId("newDescription");
         update.setId("updateButton");
 
+        descriptionInput.setMinHeight(150);
+        descriptionInput.setWrapText(true);
         // Connect button to controller
         update.setOnMouseClicked(e -> PostController.updatePost());
 
