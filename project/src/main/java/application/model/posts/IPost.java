@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface IPost extends Serializable {
-    String getUUID();
+    String getUniqueID();
     String getTitle();
     String getDescription();
     String getPostType();
@@ -14,4 +14,5 @@ public interface IPost extends Serializable {
     List<IItem> getItems();
     IUser getAuthor();
     //Range getAvailableTime();
+    void setUniqueID(String uniqueID);
 }

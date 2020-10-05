@@ -2,7 +2,6 @@ package application.controller;
 
 import application.model.client.Client;
 import application.model.client.IClient;
-import application.model.posts.Donation;
 import application.model.posts.IPost;
 import application.model.posts.Post;
 import application.view.navigation.BoardNavigationButton;
@@ -26,7 +25,7 @@ public class PostController {
 
         // Referencing the publish page to retrieve input from the user
         PublishPage publishPage = PublishPage.getInstance();
-        Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), null, publishPage.getPostType());
+        Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), null, publishPage.getPostType(), null);
 
         // Adds the post to the board
         client.getBoard().addPost(newPost);
@@ -62,7 +61,8 @@ public class PostController {
         IClient client = Client.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
-        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), null, EditPage.getUUID(), EditPage.getPostType());
+        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), null, EditPage.getPostType(), null);
+        newPost.setUniqueID(EditPage.getUUID());
         client.getBoard().replacePost(EditPage.getUUID(), newPost);
 
         ClientController.showAlert("Successfully updated " + newPost.getTitle(), Alert.AlertType.CONFIRMATION);

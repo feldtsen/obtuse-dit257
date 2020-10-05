@@ -1,41 +1,38 @@
 package application.model.posts;
 
+import application.model.tags.ITag;
 import application.model.users.IUser;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class Post implements IPost {
 
-    private final String uniqueID;
+    private String uniqueID;
     private final String title;
     private final String description;
     private final IUser author;
     private final List<IItem> items;
     private final String postType;
     //private final Range Availabletime;
+    private final List<String> tags;
 
-    public Post(String title, String description, IUser author, List<IItem> items, String postType) {
+
+    public Post(String title, String description, IUser author, List<IItem> items, String postType, List<String> tags) {
         this.title = title;
         this.description = description;
         this.author = author;
         this.items = items;
         this.uniqueID = UUID.randomUUID().toString();
         this.postType = postType;
+        this.tags = new ArrayList<>(/*add tags when user can add tags to their post*/);
 
     }
-    public Post(String title, String description, IUser author, List<IItem> items, String uuid, String postType) {
-        this.title = title;
-        this.description = description;
-        this.author = author;
-        this.items = items;
-        this.uniqueID = uuid;
-        this.postType = postType;
 
-    }
 
     @Override
-    public String getUUID() {
+    public String getUniqueID() {
         return this.uniqueID;
     }
 
@@ -70,8 +67,8 @@ public class Post implements IPost {
     }
 */
 
-
-
-
-
+    @Override
+    public void setUniqueID(String uniqueID) {
+        this.uniqueID = uniqueID;
+    }
 }

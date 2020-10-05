@@ -55,7 +55,7 @@ public class EditPage extends VBox implements Page {
     public void prepareWithOldValues(IPost oldPost) {
         titleInput.setText(oldPost.getTitle());
         descriptionInput.setText(oldPost.getDescription());
-        uuidField = oldPost.getUUID();
+        uuidField = oldPost.getUniqueID();
         postType = oldPost.getPostType();
     }
 
