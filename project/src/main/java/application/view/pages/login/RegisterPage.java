@@ -1,7 +1,6 @@
-package application.view.pages;
+package application.view.pages.login;
 
-import application.view.pages.login.LoginModule;
-import application.view.pages.login.RegisterModule;
+import application.view.pages.Page;
 import javafx.scene.layout.HBox;
 
 public class RegisterPage extends HBox implements Page {

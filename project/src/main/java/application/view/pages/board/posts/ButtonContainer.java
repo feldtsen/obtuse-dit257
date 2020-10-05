@@ -1,4 +1,4 @@
-package application.view.posts;
+package application.view.pages.board.posts;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;

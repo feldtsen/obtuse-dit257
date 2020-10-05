@@ -1,9 +1,6 @@
 package application.view.pages.login;
 
 import application.view.pages.Page;
-import application.view.submits.SubmitPostButton;
-import application.view.submits.SubmitRegisterButton;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;

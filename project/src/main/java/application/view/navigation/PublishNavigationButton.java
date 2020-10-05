@@ -1,8 +1,7 @@
 package application.view.navigation;
 
 import application.view.pages.PageParent;
-import application.view.pages.PublishPage;
-import javafx.scene.input.MouseEvent;
+import application.view.pages.publish.PublishPage;
 
 public class PublishNavigationButton extends NavigationButton {
     private static PublishNavigationButton instance = null;
