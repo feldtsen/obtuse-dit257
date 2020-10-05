@@ -6,7 +6,7 @@ import java.io.IOException;
 public class TagParser {
     final String DELIMITER = "#";
     //Input file which needs to be parsed
-    String fileToParse = "";
+    String fileToParse = "tags.csv";
     BufferedReader fileReader = null;
 
     public TagParser(){
