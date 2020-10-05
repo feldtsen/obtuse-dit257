@@ -6,11 +6,8 @@ import application.model.posts.IPost;
 import application.model.users.IUser;
 import application.ResourceLoader;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -49,8 +46,8 @@ public class PostCard extends VBox {
        VBox.setMargin(this, ResourceLoader.margin);
 
        //Connect button clicks with a controller
-       editButton.setOnMouseClicked(e-> PostController.editPost(post.getUUID()));
-       deleteButton.setOnMouseClicked(e-> PostController.deletePost(post.getUUID()));
+       editButton.setOnMouseClicked(e-> PostController.editPost(post.getUniqueID()));
+       deleteButton.setOnMouseClicked(e-> PostController.deletePost(post.getUniqueID()));
 
        // No options if no user is logged in
        if(Client.getInstance().getUser() != null) {
