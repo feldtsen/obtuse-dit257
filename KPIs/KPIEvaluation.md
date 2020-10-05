@@ -10,7 +10,7 @@
 
 ### Week 3:
 
-* 16/18 89%
+* 17/18 94%
 
 ## Personal well-being (daily) (1-5)
 
