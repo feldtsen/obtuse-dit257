@@ -26,7 +26,7 @@ public class Post implements IPost {
         this.items = items;
         this.uniqueID = UUID.randomUUID().toString();
         this.postType = postType;
-        this.tags = new ArrayList<>(/*add tags when user can add tags to their post*/);
+        this.tags = new ArrayList<>(tags);
 
     }
 

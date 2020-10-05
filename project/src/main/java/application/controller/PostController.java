@@ -11,6 +11,7 @@ import application.view.pages.publish.PublishPage;
 import javafx.scene.control.Alert;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class PostController {
 
@@ -25,7 +26,7 @@ public class PostController {
 
         // Referencing the publish page to retrieve input from the user
         PublishPage publishPage = PublishPage.getInstance();
-        Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), null, publishPage.getPostType(), null);
+        Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), null, publishPage.getPostType(), new ArrayList<>(/*TODO: actually implement*/));
 
         // Adds the post to the board
         client.getBoard().addPost(newPost);
@@ -61,7 +62,7 @@ public class PostController {
         IClient client = Client.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
-        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), null, EditPage.getPostType(), null);
+        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), null, EditPage.getPostType(), new ArrayList<>(/*TODO: actually implement*/));
         newPost.setUniqueID(EditPage.getUUID());
         client.getBoard().replacePost(EditPage.getUUID(), newPost);
 
