@@ -20,39 +20,22 @@ public class ClientController {
         loadFromDisk();
     }
 
-    public static void handleLoginButton(String phone, String password) {
+    public static void handleLogin(String phone, String password) {
         String path = createUserFilePath(phone);
         File file = new File(path);
         if(file.exists()) {
             //TODO: add password stuff
-            IClient client = loadFromDisk();
-            client.setUser(loadUser(path));
-            try {
-                saveToDisk();
-                LoginBannerModule.getInstance().setLoggedInAs(client.getUser().getName());
-                showAlert("Login successful as " + client.getUser().getName(), Alert.AlertType.CONFIRMATION);
-            } catch (IOException e) {
-                showAlert("Error saving data.", Alert.AlertType.ERROR);
-            }
+            loadFromDisk();
+            loginUser(loadUser(path));
         } else {
             showAlert("Please register or type the correct username", Alert.AlertType.ERROR);
         }
     }
 
-    private static String createUserFilePath(IUser user) {
-        return createUserFilePath(user.getPhoneNumber().getNumber());
-    }
-
-    private static String createUserFilePath(String phoneNumber) {
-        return ResourceLoader.usersDir + "/" + phoneNumber + ".user";
-    }
-
-    private static IUser loadUser(String path) {
-        return (IUser) loadObject(path);
-    }
-
-    private static IBoard loadBoard(String path) {
-        return (IBoard) loadObject(path);
+    private static void loginUser(IUser user) {
+        Client.getInstance().setUser(user);
+        LoginBannerModule.getInstance().setLoggedInAs(user.getName());
+        showAlert("Login successful as " + user.getName(), Alert.AlertType.CONFIRMATION);
     }
 
     public static void handleRegisterButton(String name, String address, String phoneNumber) {
@@ -76,22 +59,16 @@ public class ClientController {
         try {
             user = createUser(name, address, phoneNumber);
             saveObject(user, createUserFilePath(user));
-            showAlert("You have been registered successfully, please log in", Alert.AlertType.CONFIRMATION);
+            showAlert("You have been registered successfully", Alert.AlertType.CONFIRMATION);
         } catch (InvalidPhoneNumberException e) {
             showAlert("Your phone number format is invalid", Alert.AlertType.ERROR);
             return;
         } catch (IOException e) {
             showAlert("The user couldn't be saved! Check file path and try again!", Alert.AlertType.ERROR);
+            return;
         }
-        IBoard board = loadBoard();
-
-        try {
-            saveObject(board, ResourceLoader.boardFile); //TODO: store board on user registration?
-        } catch (IOException e) {
-            System.out.println("Saving of board failed");
-            System.out.println(e.getMessage());
-        }
-
+        // Automatically login registered user
+        loginUser(user);
     }
 
     /**
@@ -119,13 +96,25 @@ public class ClientController {
         return new User(name, address, phone);
     }
 
+    private static String createUserFilePath(IUser user) {
+        return createUserFilePath(user.getPhoneNumber().getNumber());
+    }
+
+    private static String createUserFilePath(String phoneNumber) {
+        return ResourceLoader.usersDir + "/" + phoneNumber + ".user";
+    }
+
+    private static IUser loadUser(String path) {
+        return (IUser) loadObject(path);
+    }
+
     public static IBoard loadBoard() {
         // If a stored board already exists
         if (new File(ResourceLoader.boardFile).exists()) {
             // Return the stored board
-            return loadBoard(ResourceLoader.boardFile);
+            return (IBoard)loadObject(ResourceLoader.boardFile);
         } else {
-            // Otherwise, return a new, empty board
+            // Otherwise, store a new, empty board and return
             return new Board();
         }
     }
@@ -134,9 +123,16 @@ public class ClientController {
      * Save the client board and user.
      */
     public static void saveToDisk() throws IOException {
-        saveObject(Client.getInstance().getBoard(), ResourceLoader.boardFile);
-        saveObject(Client.getInstance().getUser(), createUserFilePath(Client.getInstance().getUser()));
+        saveUserToDisk();
+        saveBoardToDisk();
+    }
 
+    public static void saveUserToDisk() throws IOException {
+        saveObject(Client.getInstance().getUser(), createUserFilePath(Client.getInstance().getUser()));
+    }
+
+    public static void saveBoardToDisk() throws IOException {
+        saveObject(Client.getInstance().getBoard(), ResourceLoader.boardFile);
     }
 
     // Saves a particular object to disk.
@@ -155,7 +151,7 @@ public class ClientController {
      *          otherwise null
      */
      private static IClient loadFromDisk() {
-        IBoard board = loadBoard(ResourceLoader.boardFile);
+        IBoard board = loadBoard();
         Client.init(null, board);
         return Client.getInstance();
     }

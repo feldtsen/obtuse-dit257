@@ -22,7 +22,7 @@ public class SubmitLoginButton extends Button  {
 
     private void mouseClickAction () {
         LoginModule loginModule = LoginModule.getInstance();
-        ClientController.handleLoginButton (
+        ClientController.handleLogin(
                 loginModule.getPhoneInput(),
                 loginModule.getPasswordInput()
         );
