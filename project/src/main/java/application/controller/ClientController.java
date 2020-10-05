@@ -68,7 +68,7 @@ public class ClientController {
 
         // If the user already exist, do not register anew
         if(new File(createUserFilePath(phoneNumber)).exists()) {
-            showAlert("A user with the phone number" + phoneNumber + " already exists.", Alert.AlertType.ERROR);
+            showAlert("A user with the phone number " + phoneNumber + " already exists.", Alert.AlertType.ERROR);
             return;
         }
 
