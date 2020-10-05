@@ -1,0 +1,10 @@
+A:
+We have made more detailed use of our model in the GUI now.
+And have also done a simple parser for some text data to use.
+
+B:
+I would like to get better at planning out how long a certain task will take and how easy it will be to merge with the rest of the project.
+I would also want to get better at estimating how much time i will have available during the week to program.
+A->B:
+To achieve this i think i need to be more forward looking during the planning phase of the sprint.
+I need to check if i have other deadlines or committments during the sprint which will limit how many tasks and how much time to program i have.
