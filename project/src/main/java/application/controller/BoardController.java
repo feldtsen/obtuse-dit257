@@ -1,11 +1,18 @@
 package application.controller;
 
+import application.ResourceLoader;
+import application.model.board.Board;
+import application.model.board.IBoard;
 import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.posts.IPost;
+import application.model.util.FileIO;
 import application.view.pages.board.BoardPage;
 import application.view.pages.board.posts.PostCard;
 import javafx.scene.control.Alert;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 
 public class BoardController {
@@ -43,7 +50,6 @@ public class BoardController {
             //Appends the post to the board (grid pane) which need to know which cell to put it in
             boardPage.add(postCard, colIndex, rowIndex);
 
-
             // Everytime we filled a cell in the second column, we start on a new row
             if(colIndex == 1) rowIndex++;
             counter++;
@@ -51,4 +57,18 @@ public class BoardController {
 
     }
 
+    public static IBoard loadBoard() {
+        // If a stored board already exists
+        if (new File(ResourceLoader.boardFile).exists()) {
+            // Return the stored board
+            return (IBoard)FileIO.loadObject(ResourceLoader.boardFile);
+        } else {
+            // Otherwise, store a new, empty board and return
+            return new Board();
+        }
+    }
+
+    public static void saveBoardToDisk() throws IOException {
+        FileIO.saveObject(Client.getInstance().getBoard(), ResourceLoader.boardFile);
+    }
 }

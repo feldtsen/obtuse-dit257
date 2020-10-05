@@ -6,13 +6,13 @@ import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.users.IUser;
 import application.model.users.User;
+import application.model.util.FileIO;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
 import application.view.status.AlertBannerModule;
 import application.view.status.LoginBannerModule;
 import javafx.scene.control.Alert;
-
 import java.io.*;
 
 public class ClientController {
@@ -58,7 +58,7 @@ public class ClientController {
         IUser user;
         try {
             user = createUser(name, address, phoneNumber);
-            saveObject(user, createUserFilePath(user));
+            FileIO.saveObject(user, createUserFilePath(user));
             showAlert("You have been registered successfully", Alert.AlertType.CONFIRMATION);
         } catch (InvalidPhoneNumberException e) {
             showAlert("Your phone number format is invalid", Alert.AlertType.ERROR);
@@ -105,45 +105,22 @@ public class ClientController {
     }
 
     private static IUser loadUser(String path) {
-        return (IUser) loadObject(path);
+        return (IUser) FileIO.loadObject(path);
     }
 
-    public static IBoard loadBoard() {
-        // If a stored board already exists
-        if (new File(ResourceLoader.boardFile).exists()) {
-            // Return the stored board
-            return (IBoard)loadObject(ResourceLoader.boardFile);
-        } else {
-            // Otherwise, store a new, empty board and return
-            return new Board();
-        }
-    }
 
     /**
      * Save the client board and user.
      */
     public static void saveToDisk() throws IOException {
         saveUserToDisk();
-        saveBoardToDisk();
+        BoardController.saveBoardToDisk();
     }
 
     public static void saveUserToDisk() throws IOException {
-        saveObject(Client.getInstance().getUser(), createUserFilePath(Client.getInstance().getUser()));
+        FileIO.saveObject(Client.getInstance().getUser(), createUserFilePath(Client.getInstance().getUser()));
     }
 
-    public static void saveBoardToDisk() throws IOException {
-        saveObject(Client.getInstance().getBoard(), ResourceLoader.boardFile);
-    }
-
-    // Saves a particular object to disk.
-    private static void saveObject(Serializable object, String path) throws IOException {
-        File file = new File(path);
-        FileOutputStream outputStream = new FileOutputStream(file);
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-        objectOutputStream.writeObject(object);
-        objectOutputStream.close();
-        outputStream.close();
-    }
 
     /**
      * Load the client object if there is one
@@ -151,33 +128,9 @@ public class ClientController {
      *          otherwise null
      */
      private static IClient loadFromDisk() {
-        IBoard board = loadBoard();
+        IBoard board = BoardController.loadBoard();
         Client.init(null, board);
         return Client.getInstance();
-    }
-
-    /**
-     * Load an object
-     * @param path the path of the object
-     * @return the object otherwise
-     *          null
-     * Writes a message to console in case of file not found or loading failed.
-     */
-    private static Object loadObject (String path){
-        Object object = null;
-        try {
-            File file = new File(path);
-            FileInputStream inputStream = new FileInputStream(file);
-            ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-            object = objectInputStream.readObject();
-            objectInputStream.close();
-            inputStream.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Loading of object failed");
-        }
-        return object;
     }
 
     /**
