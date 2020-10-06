@@ -40,8 +40,7 @@ public class TagParser {
         BufferedReader myReader = new BufferedReader(new FileReader(filePath));
         String aLine = "";
         ArrayList<String> anArray = new ArrayList<>();
-        while( (aLine = myReader.readLine()) != null)
-        {
+        while( (aLine = myReader.readLine()) != null) {
             String[] arrayLine = aLine.split(delimiter);   //convert a string line to an array of strings
 
             // index 1 is the category name and index 3 is the start of the tags in the line
@@ -49,7 +48,8 @@ public class TagParser {
 
             for(int i=3; i<arrayLine.length; i++)
                 fileMap.get(arrayLine[1]).add(arrayLine[i]);    //add the rest of line as HashMap value for category key
-            }
+        }
+        myReader.close();
     }
 
 
