@@ -45,10 +45,34 @@ public class TagParserTest {
 
     @Test
     public void getAllCategoriesTest(){
-        HashSet<String> actualSet = myParser.getAllCategories();
-        HashSet<String> expectedSet = new HashSet<>();
-        expectedSet.add("kött");
-        expectedSet.add("fryst");
-        assertEquals(expectedSet, actualSet);
+        HashSet<String> actualCategories = myParser.getAllCategories();
+        HashSet<String> expectedCategories = new HashSet<>();
+        expectedCategories.add("kött");
+        expectedCategories.add("fryst");
+        assertEquals(expectedCategories, actualCategories);
+    }
+
+    @Test
+    public void getAllTagsTest(){
+        HashSet<String> actualTags = myParser.getAllTags();
+        String expectedTag1 = "köttfärs";
+        String expectedTag2 = "övrigt kött";
+        String expectedTag3 = "köttbullar";
+        String expectedTag4 = "övrigt fryst";
+        assertTrue("Do tags contain köttfärs?", actualTags.contains(expectedTag1));
+        assertTrue("Do tags contain övrigt kött?", actualTags.contains(expectedTag2));
+        assertTrue("Do tags contain köttbullar?", actualTags.contains(expectedTag3));
+        assertTrue("Do tags contain övrigt fryst?", actualTags.contains(expectedTag4));
+    }
+
+    @Test
+    public void getTagsForCategory(){
+        HashSet<String> actualCategoryTags = myParser.getTagsForCategory("fryst");
+        HashSet<String> expectedCategoryTags = new HashSet<>();
+        expectedCategoryTags.add("köttbullar");
+        expectedCategoryTags.add("fiskpinnar");
+        expectedCategoryTags.add("frysta grönsaker");
+        expectedCategoryTags.add("övrigt fryst");
+        assertEquals(expectedCategoryTags, actualCategoryTags);
     }
 }

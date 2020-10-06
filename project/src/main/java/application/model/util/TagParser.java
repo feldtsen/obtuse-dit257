@@ -51,7 +51,10 @@ public class TagParser {
         myReader.close();
     }
 
-
+    /**
+     * Gives a set of all categories in file tags.csv
+     * @return a set of categories
+     */
     public HashSet<String> getAllCategories(){
         HashSet<String> mySet = new HashSet<>();
         for(String aCategory: fileMap.keySet())
@@ -59,6 +62,10 @@ public class TagParser {
         return mySet;
     }
 
+    /**
+     * Gives a set of all tags in file tags.csv
+     * @return a set of tags
+     */
     public HashSet<String> getAllTags(){
         Collection<List<String>> values = fileMap.values();
         HashSet<String> mySet = new HashSet<>();
@@ -68,6 +75,11 @@ public class TagParser {
         return mySet;
     }
 
+    /**
+     * Gives a set of all tags for the category specified below in file tags.csv
+     * @param category the category for which the tags are returned
+     * @return a set of tags for the specified category
+     */
     public HashSet<String> getTagsForCategory (String category) {
         HashSet<String> mySet = new HashSet<>();
         for(String aTag: fileMap.get(category))
