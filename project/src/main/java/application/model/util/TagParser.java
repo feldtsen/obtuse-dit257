@@ -1,143 +1,89 @@
 package application.model.util;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.*;
+
 
 public class TagParser {
-    final String DELIMITER = "#";
-    //Input file which needs to be parsed
-    String fileToParse = "tags.csv";
-    BufferedReader fileReader = null;
+    private String filePath;    //Input file which needs to be parsed
+    private String delimiter;
+    private Map<String, List<String>> fileMap;  //a map with category as key and tags as values
 
-    public TagParser(){
 
+    public TagParser(String filePath, String delimiter) throws IOException {
+        this.filePath=filePath;
+        this.delimiter=delimiter;
+        prepareData(filePath, delimiter);
     }
 
-    public String[] getAllCategories(){
-        String[] result = new String[10];
-        try
-        {
-            String line = "";
-            //Create the file reader
-            fileReader = new BufferedReader(new FileReader(fileToParse));
-            int kategorinr = 0;
-            //Read the file line by line
-            while ((line = fileReader.readLine()) != null)
-            {
-                //Get all tokens available in line
-                String[] tokens = line.split(DELIMITER);
-                for(int i = 0; i < tokens.length; i++)
-                {
-                    if (tokens[i].equals("kategori")){
-                        result[kategorinr] = tokens[i+1];
-                        kategorinr++;
-                    }
-                }
-            }
-            for (String kategori : result){
-                System.out.println(kategori);
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        finally
-        {
-            try {
-                fileReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
+    public String getFilePath() {
+        return filePath;
     }
 
-    public String[] getAllTags(){
-        String[] result = new String[10];
-        try
-        {
-            String line = "";
-            //Create the file reader
-            fileReader = new BufferedReader(new FileReader(fileToParse));
-            int tagnr = 0;
-            //Read the file line by line
-            while ((line = fileReader.readLine()) != null)
-            {
-                //Get all tokens available in line
-                String[] tokens = line.split(DELIMITER);
-                for(int i = 0; i < tokens.length; i++)
-                {
-                    if(tokens[i].equals("tags")){
-                        for(int j = 1; j < tokens.length-i; j++) {
-                            result[tagnr] = tokens[i + j];
-                            tagnr++;
-                        }
-                    }
-                }
-            }
-            for (String tags : result){
-                System.out.println(tags);
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        finally
-        {
-            try {
-                fileReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
+    public String getDelimiter() {
+        return delimiter;
     }
 
-    public String[] getTagsForCategory (String kategori) {
-        String[] result = new String[10];
-        try
-        {
-            String line = "";
-            //Create the file reader
-            fileReader = new BufferedReader(new FileReader(fileToParse));
-            int tagkatnr = 0;
-            //Read the file line by line
-            while ((line = fileReader.readLine()) != null)
-            {
-                //Get all tokens available in line
-                String[] tokens = line.split(DELIMITER);
-                for(int i = 0; i < tokens.length; i++)
-                {
-                    if(tokens[i].equals(kategori)){
-                        result[tagkatnr] = tokens[i+1];
-                        tagkatnr++;
-                        int k = i+2;
-                        while (!(tokens[k].equals("kategori"))){
-                            result[tagkatnr] = tokens[k];
-                            tagkatnr++;
-                            if (k < tokens.length-1) {
-                                k++;
-                            } else {
-                                break;
-                            }                        }
-                    }
-                }
-            }
-            for (String category : result){
-                System.out.println(category);
-            }
+    /**
+     * This method convert a file with the following format
+     * category<delimiter><category-name><delimiter>tags<delimiter><tag1> and so on in every line of the file
+     * into a Hashmap with category as key and tags as a value
+     * @param filePath the file that need to be converted
+     * @param delimiter what type of delimiter each word is separated with
+     * @throws IOException if file not found or other reading errors occur
+     */
+    private void prepareData(String filePath, String delimiter) throws IOException {
+        BufferedReader myReader = new BufferedReader(new FileReader(filePath));
+        String aLine = "";
+        ArrayList<String> anArray = new ArrayList<>();
+        fileMap = new HashMap<>();
+        while( (aLine = myReader.readLine()) != null) {
+            String[] arrayLine = aLine.split(delimiter);   //convert a string line to an array of strings
+
+            // index 1 is the category name and index 3 is the start of the tags in the line
+            fileMap.put(arrayLine[1], new ArrayList<>());   // set category as key
+
+            for(int i=3; i<arrayLine.length; i++)
+                fileMap.get(arrayLine[1]).add(arrayLine[i]);    //add the rest of line as HashMap value for category key
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        finally
-        {
-            try {
-                fileReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
+        myReader.close();
+    }
+
+    /**
+     * Gives a set of all categories in file tags.csv
+     * @return a set of categories
+     */
+    public HashSet<String> getAllCategories(){
+        HashSet<String> mySet = new HashSet<>();
+        for(String aCategory: fileMap.keySet())
+            mySet.add(aCategory);
+        return mySet;
+    }
+
+    /**
+     * Gives a set of all tags in file tags.csv
+     * @return a set of tags
+     */
+    public HashSet<String> getAllTags(){
+        Collection<List<String>> values = fileMap.values();
+        HashSet<String> mySet = new HashSet<>();
+        for(List aList: values)
+            for(Object aTag: aList)
+                mySet.add((String)aTag);
+        return mySet;
+    }
+
+    /**
+     * Gives a set of all tags for the category specified below in file tags.csv
+     * @param category the category for which the tags are returned
+     * @return a set of tags for the specified category
+     */
+    public HashSet<String> getTagsForCategory (String category) {
+        HashSet<String> mySet = new HashSet<>();
+        for(String aTag: fileMap.get(category))
+            mySet.add(aTag);
+        return mySet;
     }
 }
