@@ -3,9 +3,7 @@ package application.model.util;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 public class TagParser {
@@ -53,15 +51,23 @@ public class TagParser {
     }
 
 
-    public List<String> getAllCategories(){
-        return null;
+    public Set<String> getAllCategories(){
+        return fileMap.keySet();
     }
 
-    public List<String> getAllTags(){
-        return null;
+    public Set<String> getAllTags(){
+        Collection<List<String>> values = fileMap.values();
+        Set<String> mySet = null;
+        for(List aList: values)
+            for(Object aTag: aList)
+                mySet.add((String)aTag);
+        return mySet;
     }
 
-    public List<String> getTagsForCategory (String category) {
-        return null;
+    public Set<String> getTagsForCategory (String category) {
+        Set<String> mySet = null;
+        for(String aTag: fileMap.get(category))
+            mySet.add(aTag);
+        return mySet;
     }
 }
