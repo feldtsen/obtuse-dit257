@@ -9,7 +9,7 @@ import java.util.*;
 public class TagParser {
     private String filePath;    //Input file which needs to be parsed
     private String delimiter;
-    private HashMap<String, List<String>> fileMap;  //a map with category as key and tags as values
+    private Map<String, List<String>> fileMap;  //a map with category as key and tags as values
 
 
     public TagParser(String filePath, String delimiter) throws IOException {
@@ -38,6 +38,7 @@ public class TagParser {
         BufferedReader myReader = new BufferedReader(new FileReader(filePath));
         String aLine = "";
         ArrayList<String> anArray = new ArrayList<>();
+        fileMap = new HashMap<>();
         while( (aLine = myReader.readLine()) != null) {
             String[] arrayLine = aLine.split(delimiter);   //convert a string line to an array of strings
 
@@ -51,21 +52,24 @@ public class TagParser {
     }
 
 
-    public Set<String> getAllCategories(){
-        return fileMap.keySet();
+    public HashSet<String> getAllCategories(){
+        HashSet<String> mySet = new HashSet<>();
+        for(String aCategory: fileMap.keySet())
+            mySet.add(aCategory);
+        return mySet;
     }
 
-    public Set<String> getAllTags(){
+    public HashSet<String> getAllTags(){
         Collection<List<String>> values = fileMap.values();
-        Set<String> mySet = null;
+        HashSet<String> mySet = new HashSet<>();
         for(List aList: values)
             for(Object aTag: aList)
                 mySet.add((String)aTag);
         return mySet;
     }
 
-    public Set<String> getTagsForCategory (String category) {
-        Set<String> mySet = null;
+    public HashSet<String> getTagsForCategory (String category) {
+        HashSet<String> mySet = new HashSet<>();
         for(String aTag: fileMap.get(category))
             mySet.add(aTag);
         return mySet;
