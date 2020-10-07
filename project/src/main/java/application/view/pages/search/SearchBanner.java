@@ -4,10 +4,9 @@ import application.view.pages.Page;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 public class SearchBanner extends HBox implements Page {
-    private static SearchBanner instance = null;
-
     private final TextField searchInput;
 
     public SearchBanner() {
@@ -15,8 +14,14 @@ public class SearchBanner extends HBox implements Page {
         Button searchButton = new Button("Search");
         searchInput = new TextField();
 
+        searchButton.setId("searchButton");
+
+        this.setId("searchBanner");
+
         this.setId("searchModule");
         searchLabel.setId("searchLabel");
+
+        HBox.setHgrow(searchInput, Priority.ALWAYS);
 
         this.getChildren().addAll(
                 searchInput,
