@@ -1,7 +1,6 @@
-package application.view.submits;
+package application.view.pages.login;
 
 import application.controller.ClientController;
-import application.view.pages.login.RegisterModule;
 import javafx.scene.control.Button;
 
 public class SubmitRegisterButton extends Button  {
@@ -23,7 +22,7 @@ public class SubmitRegisterButton extends Button  {
 
     private void mouseClickAction () {
         RegisterModule registerModule = RegisterModule.getInstance();
-        ClientController.handleSubmitButton (
+        ClientController.handleRegisterButton(
                 registerModule.getNameInput(),
                 registerModule.getAddressInput(),
                 registerModule.getPhoneInput()

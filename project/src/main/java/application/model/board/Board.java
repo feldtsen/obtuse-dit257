@@ -34,7 +34,7 @@ public class Board implements IBoard {
     @Override
     public void addPost(IPost post) {
         postList.add(post);
-        postMap.put(post.getUUID(),post);
+        postMap.put(post.getUniqueID(),post);
     }
 
     @Override

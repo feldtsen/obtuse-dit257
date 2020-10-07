@@ -1,4 +1,4 @@
-package application.view.submits;
+package application.view.pages.board.posts;
 
 import application.controller.PostController;
 import javafx.scene.control.Button;

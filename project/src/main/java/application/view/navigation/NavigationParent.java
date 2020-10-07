@@ -1,6 +1,5 @@
 package application.view.navigation;
 
-import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
 
 public class NavigationParent extends HBox  {
@@ -15,7 +14,7 @@ public class NavigationParent extends HBox  {
                 LogoNavigationButton.getInstance(),
                 BoardNavigationButton.getInstance(),
                 PublishNavigationButton.getInstance(),
-                RegisterNavigationButton.getInstance()
+                LoginNavigationButton.getInstance()
         );
 
     }

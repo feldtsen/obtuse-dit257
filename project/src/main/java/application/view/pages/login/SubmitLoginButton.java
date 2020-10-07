@@ -1,12 +1,7 @@
-package application.view.submits;
+package application.view.pages.login;
 
 import application.controller.ClientController;
-import application.view.pages.login.LoginModule;
-import application.view.pages.login.RegisterModule;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 public class SubmitLoginButton extends Button  {
     private static SubmitLoginButton instance = null;
@@ -27,7 +22,7 @@ public class SubmitLoginButton extends Button  {
 
     private void mouseClickAction () {
         LoginModule loginModule = LoginModule.getInstance();
-        ClientController.handleLoginButton (
+        ClientController.handleLogin(
                 loginModule.getPhoneInput(),
                 loginModule.getPasswordInput()
         );

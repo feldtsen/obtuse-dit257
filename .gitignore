@@ -1,6 +1,11 @@
 project/target
 project/.idea
-.idea
 project/.attach_pid*
 project/project.iml
+project/board.ser
+project/users
+board.ser
+.idea
 .DS_Store
+project/src/main/resources/tags.csv.test
+
