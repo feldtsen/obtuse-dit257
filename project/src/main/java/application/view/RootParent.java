@@ -37,7 +37,6 @@ public class RootParent extends VBox {
         this.setResponsiveSize(pageParent, primaryStage, .78);
         this.setResponsiveSize(navigationParent, primaryStage, .22);
 
-        ClientController.init();
     }
 
     public static RootParent getInstance(Stage primaryStage) {
