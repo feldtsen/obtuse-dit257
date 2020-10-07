@@ -40,6 +40,16 @@ public class ClientController {
 
     public static void handleLogout() {
         //TODO
+        IClient client = Client.getInstance();
+        IUser user = client.getUser();
+        if (user==null) {
+            showAlert("No user is logged in", Alert.AlertType.ERROR);
+            return;
+        }
+        showAlert(user.getName()+" is logged out", Alert.AlertType.CONFIRMATION);
+        client.setUser(null);
+        LoginBannerModule.getInstance().setNotLoggedIn();
+
     }
 
     public static void handleRegisterButton(String name, String address, String phoneNumber) {
