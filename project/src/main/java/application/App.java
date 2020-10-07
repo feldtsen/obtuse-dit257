@@ -6,6 +6,7 @@ import application.model.client.Client;
 import application.model.util.TagParser;
 import application.view.RootParent;
 import application.view.pages.board.posts.TagDropdown;
+import application.view.pages.search.AutocompleteSearch;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -30,6 +31,7 @@ public class App extends Application {
 
         stage.setScene(scene);
         stage.show();
+
 
     }
 
