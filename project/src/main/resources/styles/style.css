@@ -19,7 +19,7 @@
 /* BUTTON */
 #navigationButton,     #logoButton, #claimButton,  #submitPostButton,
 #submitRegisterButton, #editButton, #updateButton, #deleteButton,
-#submitLoginButton,    #active,            #inactive {
+#submitLoginButton, #logoutButton,    #active,            #inactive {
     -fx-focus-color:       transparent;
     -fx-background-radius: 0;
     -fx-border-style:      none;
@@ -29,14 +29,14 @@
 }
 
 #claimButton, #submitRegisterButton, #submitPostButton,
-#editButton,  #updateButton, #deleteButton, #submitLoginButton,
+#editButton,  #updateButton, #deleteButton, #submitLoginButton, #logoutButton,
 #active, #inactive{ /*Adds contrast*/
      -fx-min-width:        100;
      -fx-background-color: #303030;
  }
 
 #navigationButton:hover, #submitPostButton:hover, #submitRegisterButton:hover,
-#editButton:hover,       #updateButton:hover, #submitLoginButton:hover,
+#editButton:hover,       #updateButton:hover, #submitLoginButton:hover, #logoutButton:hover,
 #active:hover,   #inactive:hover {
     -fx-background-color: #505050;
 }

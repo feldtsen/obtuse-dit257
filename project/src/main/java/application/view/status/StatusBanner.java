@@ -9,6 +9,7 @@ public class StatusBanner extends HBox {
         this.setId("statusBanner");
 
         this.getChildren().addAll(
+                LogoutButton.getInstance(),
                 LoginBannerModule.getInstance(),
                 AlertBannerModule.getInstance()
         );
