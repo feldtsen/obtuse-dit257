@@ -1,5 +1,6 @@
 package application.view.pages.search;
 
+import application.view.pages.board.posts.TagDropdown;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
@@ -14,6 +15,7 @@ public class SearchInput extends TextField {
 
         private void keyTyped(KeyEvent keyEvent){
                 System.out.println(keyEvent.getCharacter());
+                TagDropdown.getInstance().show();
 
         }
 

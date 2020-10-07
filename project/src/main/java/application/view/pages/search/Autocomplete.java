@@ -11,13 +11,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Window;
 
-public class AutocompleteSearch {
+public class Autocomplete {
 
     private final TagDropdown tagDropdown = TagDropdown.getInstance();
     String filter = "";
     private final ObservableList<String> originalItems = TagDropdown.getInstance().getItems();
 
-    public AutocompleteSearch() {
+    public Autocomplete() {
         tagDropdown.setTooltip(new Tooltip());
         tagDropdown.setOnKeyPressed(this::handleOnKeyPressed);
         tagDropdown.setOnHidden(this::handleOnHiding);

@@ -2,16 +2,10 @@
 package application;
 
 import application.controller.ClientController;
-import application.model.client.Client;
-import application.model.util.TagParser;
 import application.view.RootParent;
-import application.view.pages.board.posts.TagDropdown;
-import application.view.pages.search.AutocompleteSearch;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class App extends Application {
     private final static double INITIAL_WIDTH  = 1200;
