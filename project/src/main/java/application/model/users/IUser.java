@@ -8,4 +8,5 @@ public interface IUser extends Serializable {
     String getName();
     String getAddress();
     PhoneNumber getPhoneNumber();
+    String getPassword();
 }

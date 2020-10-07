@@ -1,6 +1,5 @@
 package application.controller;
 
-import application.model.board.Board;
 import application.model.board.IBoard;
 import application.model.client.Client;
 import application.model.client.IClient;
@@ -13,6 +12,7 @@ import application.ResourceLoader;
 import application.view.status.AlertBannerModule;
 import application.view.status.LoginBannerModule;
 import javafx.scene.control.Alert;
+
 import java.io.*;
 
 public class ClientController {
@@ -24,9 +24,14 @@ public class ClientController {
         String path = createUserFilePath(phone);
         File file = new File(path);
         if(file.exists()) {
-            //TODO: add password stuff
-            loadFromDisk();
-            loginUser(loadUser(path));
+            IUser currentUser= loadUser(file.getPath());
+            if (currentUser.getPassword().equals(password)) {
+                loginUser(loadUser(path));
+            }
+            else {
+                showAlert("Wrong password", Alert.AlertType.ERROR);
+                return;
+            }
         } else {
             showAlert("Please register or type the correct username", Alert.AlertType.ERROR);
         }
@@ -52,7 +57,8 @@ public class ClientController {
 
     }
 
-    public static void handleRegisterButton(String name, String address, String phoneNumber) {
+    public static void handleRegisterButton(String name, String address, String phoneNumber, String password) {
+
         if (name.equals("")) {
             showAlert( "Name field must be filled", Alert.AlertType.ERROR);
             return;
@@ -60,6 +66,11 @@ public class ClientController {
 
         if (address.equals("")) {
             showAlert("Address field must be filled", Alert.AlertType.ERROR);
+            return;
+        }
+
+        if (password.equals("")) {
+            showAlert("Password field must be filled", Alert.AlertType.ERROR);
             return;
         }
 
@@ -71,7 +82,7 @@ public class ClientController {
 
         IUser user;
         try {
-            user = createUser(name, address, phoneNumber);
+            user = createUser(name, address, phoneNumber, password);
             FileIO.saveObject(user, createUserFilePath(user));
             showAlert("You have been registered successfully", Alert.AlertType.CONFIRMATION);
         } catch (InvalidPhoneNumberException e) {
@@ -94,7 +105,7 @@ public class ClientController {
      * @return a new user object, or a stored one if already exists
      * @throws InvalidPhoneNumberException if the phone number is invalid
      */
-    public static IUser createUser(String name, String address, String phoneNumber) throws InvalidPhoneNumberException {
+    public static IUser createUser(String name, String address, String phoneNumber, String password) throws InvalidPhoneNumberException {
         String userFilePath = createUserFilePath(phoneNumber);
         File userFile = new File(userFilePath);
         if (userFile.exists()) {
@@ -107,7 +118,7 @@ public class ClientController {
         }
 
         PhoneNumber phone = new PhoneNumber(phoneNumber);
-        return new User(name, address, phone);
+        return new User(name, address, phone, password);
     }
 
     private static String createUserFilePath(IUser user) {
@@ -122,7 +133,6 @@ public class ClientController {
         return (IUser) FileIO.loadObject(path);
     }
 
-
     /**
      * Save the client board and user.
      */
@@ -135,11 +145,9 @@ public class ClientController {
         FileIO.saveObject(Client.getInstance().getUser(), createUserFilePath(Client.getInstance().getUser()));
     }
 
-
     /**
      * Load the client object if there is one
      * @return the client object that is stored locally
-     *          otherwise null
      */
      private static IClient loadFromDisk() {
         IBoard board = BoardController.loadBoard();
@@ -157,5 +165,4 @@ public class ClientController {
         AlertBannerModule myAlert = AlertBannerModule.getInstance();
         myAlert.setAlertMessage(message, alertType);
     }
-
 }
