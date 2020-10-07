@@ -44,7 +44,6 @@ public class BoardController {
 
 
             if (rowIndex == 0) {
-                System.out.println("First");
                 SearchBanner searchBanner = new SearchBanner();
                 boardPage.setFullWidth(searchBanner);
                 boardPage.add(searchBanner, colIndex, rowIndex);

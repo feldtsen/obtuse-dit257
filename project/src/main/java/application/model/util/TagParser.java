@@ -36,7 +36,6 @@ public class TagParser {
      * @throws IOException if file not found or other reading errors occur
      */
     private void prepareData(String filePath, String delimiter) throws IOException {
-        System.out.println(filePath);
         File file = new File(filePath);
         FileReader fileReader = new FileReader(file);
         BufferedReader reader = new BufferedReader(fileReader);

@@ -31,10 +31,11 @@ public class LoginBannerModule extends HBox {
 
         loginStatus.setStyle("-fx-text-fill: #BBBBBB!important;");
 
-        this.setAlignment(Pos.CENTER_LEFT);
+        this.setAlignment(Pos.CENTER_RIGHT);
         this.getChildren().addAll(
-                icon,
-                loginStatus
+                loginStatus,
+                LogoutButton.getInstance(),
+                icon
         );
     }
 

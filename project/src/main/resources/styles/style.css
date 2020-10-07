@@ -29,7 +29,7 @@
 }
 
 #claimButton, #submitRegisterButton, #submitPostButton,
-#editButton,  #updateButton, #deleteButton, #submitLoginButton, #logoutButton,
+#editButton,  #updateButton, #deleteButton, #submitLoginButton,
 #active, #inactive, #searchButton{ /*Adds contrast*/
      -fx-min-width:        100;
      -fx-background-color: #303030;
@@ -53,6 +53,18 @@
 
 #inactive {
     -fx-background-color: #303030;
+}
+
+#logoutButton {
+    -fx-text-fill: #505050;
+    -fx-font-size: 14;
+    -fx-padding: 10 0 10 0;
+    -fx-text-alignment: right;
+}
+
+#logoutButton:hover {
+    -fx-background-color: none;
+    -fx-text-fill: #FFFFFF;
 }
 
 #buttonContainer {

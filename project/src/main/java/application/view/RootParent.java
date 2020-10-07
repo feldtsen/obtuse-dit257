@@ -29,7 +29,6 @@ public class RootParent extends VBox {
 
                 spacing,
                 StatusBanner.getInstance(),
-
                 navigationParent
         );
 
