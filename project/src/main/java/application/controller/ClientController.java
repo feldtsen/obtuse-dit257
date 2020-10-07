@@ -149,7 +149,7 @@ public class ClientController {
              tagParser = new TagParser(ResourceLoader.tagsFile, ResourceLoader.tagsDelimiter);
          } catch (IOException e) {
              // TODO: handle this
-             System.exit(0);
+
          }
          Client.init(null, board, tagParser);
         return Client.getInstance();

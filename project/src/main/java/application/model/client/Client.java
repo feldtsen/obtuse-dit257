@@ -42,4 +42,9 @@ public class Client implements IClient{
 
     //boolean notifyRoom(IPost post);
     //Update getNotifications();
+
+    @Override
+    public TagParser getTagParser() {
+        return tagParser;
+    }
 }
