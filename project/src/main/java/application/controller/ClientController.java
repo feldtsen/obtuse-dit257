@@ -24,9 +24,14 @@ public class ClientController {
         String path = createUserFilePath(phone);
         File file = new File(path);
         if(file.exists()) {
-            //TODO: add password stuff
-            loadFromDisk();
-            loginUser(loadUser(path));
+            IUser currentUser= loadUser(file.getPath());
+            if (currentUser.getPassword().equals(password)) {
+                loginUser(loadUser(path));
+            }
+            else {
+                showAlert("Wrong password", Alert.AlertType.ERROR);
+                return;
+            }
         } else {
             showAlert("Please register or type the correct username", Alert.AlertType.ERROR);
         }
@@ -130,7 +135,6 @@ public class ClientController {
     /**
      * Load the client object if there is one
      * @return the client object that is stored locally
-     *          otherwise null
      */
      private static IClient loadFromDisk() {
         IBoard board = BoardController.loadBoard();

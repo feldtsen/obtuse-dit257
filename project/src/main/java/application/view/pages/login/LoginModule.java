@@ -55,17 +55,14 @@ public class LoginModule extends VBox implements Page {
 
     public static LoginModule getInstance() {
         if (instance == null) instance = new LoginModule();
-
         return instance;
     }
 
     public String getPhoneInput() {
         return phoneInput.getText();
-
     }
 
     public String getPasswordInput() {
-
         return passwordInput.getText();
     }
 }
