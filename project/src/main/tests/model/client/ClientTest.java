@@ -20,7 +20,7 @@ public class ClientTest {
     @Before
     public void init() {
         try {
-            user = new User("TestName", "Teststreet", new PhoneNumber("00000000000"));
+            user = new User("TestName", "Teststreet", new PhoneNumber("00000000000"), "123");
         } catch (InvalidPhoneNumberException ignored) {
         }
         board = new Board();

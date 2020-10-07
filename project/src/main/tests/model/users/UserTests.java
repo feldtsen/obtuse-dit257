@@ -12,7 +12,7 @@ public class UserTests {
 
     {
         try {
-            ashor = new User("Ashor.k", "Where he lives", new PhoneNumber("0737266506"));
+            ashor = new User("Ashor.k", "Where he lives", new PhoneNumber("0737266506"), "123");
         } catch (InvalidPhoneNumberException e) {
             e.printStackTrace();
         }
@@ -31,5 +31,10 @@ public class UserTests {
     @Test
     public void getAddressTest() {
         assertEquals("Where he lives", ashor.getAddress());
+    }
+
+    @Test
+    public void getPasswordTest() {
+        assertEquals("123", ashor.getPassword());
     }
 }
