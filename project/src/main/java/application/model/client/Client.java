@@ -2,20 +2,23 @@ package application.model.client;
 
 import application.model.board.IBoard;
 import application.model.users.IUser;
+import application.model.util.TagParser;
 
 public class Client implements IClient{
     private static IClient INSTANCE;
 
     private IUser user;
     private final IBoard board;
+    private final TagParser tagParser;
 
-    private Client(IUser user, IBoard board) {
+    private Client(IUser user, IBoard board, TagParser tagParser) {
         this.user = user;
         this.board = board;
+        this.tagParser = tagParser;
     }
 
-    public static void init(IUser user, IBoard board) {
-        INSTANCE = new Client(user, board);
+    public static void init(IUser user, IBoard board, TagParser tagParser) {
+        INSTANCE = new Client(user, board, tagParser);
     }
 
     public static IClient getInstance() {

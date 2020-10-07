@@ -10,6 +10,7 @@ import application.model.util.FileIO;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
+import application.model.util.TagParser;
 import application.view.status.AlertBannerModule;
 import application.view.status.LoginBannerModule;
 import javafx.scene.control.Alert;
@@ -129,7 +130,14 @@ public class ClientController {
      */
      private static IClient loadFromDisk() {
         IBoard board = BoardController.loadBoard();
-        Client.init(null, board);
+         TagParser tagParser = null;
+         try {
+             tagParser = new TagParser(ResourceLoader.tagsFile, ResourceLoader.tagsDelimiter);
+         } catch (IOException e) {
+             // TODO: handle this
+             System.exit(0);
+         }
+         Client.init(null, board, tagParser);
         return Client.getInstance();
     }
 
