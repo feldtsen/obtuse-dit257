@@ -10,6 +10,7 @@ import javafx.scene.shape.SVGPath;
 
 public class LoginBannerModule extends HBox {
 
+    private static final String NOT_LOGGED_IN_MESSAGE = "Not logged in";
     private static LoginBannerModule instance = null;
    private final Label loginStatus;  //label that shows what user is currently logged in
 
@@ -23,7 +24,7 @@ public class LoginBannerModule extends HBox {
 
         Group icon = new Group(svgPath);
 
-        loginStatus = new Label("Not logged in");
+        loginStatus = new Label(NOT_LOGGED_IN_MESSAGE);
 
         this.setId("loginBanner");
         HBox.setHgrow(this, Priority.ALWAYS);
@@ -43,6 +44,9 @@ public class LoginBannerModule extends HBox {
         return instance;
     }
 
+    public void setNotLoggedIn(){
+        loginStatus.setText(NOT_LOGGED_IN_MESSAGE);
+    };
     /**
      * Set the passed in user as the currently logged in user
      * @param userName the user name
