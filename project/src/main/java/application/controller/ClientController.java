@@ -38,6 +38,10 @@ public class ClientController {
         showAlert("Login successful as " + user.getName(), Alert.AlertType.CONFIRMATION);
     }
 
+    public static void handleLogout() {
+        //TODO
+    }
+
     public static void handleRegisterButton(String name, String address, String phoneNumber) {
         if (name.equals("")) {
             showAlert( "Name field must be filled", Alert.AlertType.ERROR);
@@ -143,4 +147,5 @@ public class ClientController {
         AlertBannerModule myAlert = AlertBannerModule.getInstance();
         myAlert.setAlertMessage(message, alertType);
     }
+
 }

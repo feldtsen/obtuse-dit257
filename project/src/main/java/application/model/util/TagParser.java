@@ -7,19 +7,19 @@ import java.util.*;
 
 
 public class TagParser {
-    private final String filePath;    //Input file which needs to be parsed
+    private final String path;    //Input file which needs to be parsed
     private final String delimiter;
     private Map<String, List<String>> tagsByCategory;  //a map with category as key and tags as values
 
 
-    public TagParser(String filePath, String delimiter) throws IOException {
-        this.filePath=filePath;
+    public TagParser(String path, String delimiter) throws IOException {
+        this.path =path;
         this.delimiter=delimiter;
-        prepareData(filePath, delimiter);
+        prepareData(path, delimiter);
     }
 
-    public String getFilePath() {
-        return filePath;
+    public String getPath() {
+        return path;
     }
 
     public String getDelimiter() {
@@ -51,7 +51,7 @@ public class TagParser {
     }
 
     /**
-     * Gives a set of all categories in file tags.csv
+     * Gives a set of all categories from the tags file
      * @return a set of categories
      */
     public Set<String> getAllCategories(){
@@ -59,7 +59,7 @@ public class TagParser {
     }
 
     /**
-     * Gives a set of all tags in file tags.csv
+     * Gives a set of all tags from the tags file
      * @return a set of tags
      */
     public Set<String> getAllTags(){
@@ -70,7 +70,7 @@ public class TagParser {
     }
 
     /**
-     * Gives a set of all tags for the category specified below in file tags.csv
+     * Gives a set of all tags for the category specified below in the tags file
      * @param category the category for which the tags are returned
      * @return a set of tags for the specified category
      */
