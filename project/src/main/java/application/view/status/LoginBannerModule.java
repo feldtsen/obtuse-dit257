@@ -27,7 +27,6 @@ public class LoginBannerModule extends HBox {
         loginStatus = new Label(NOT_LOGGED_IN_MESSAGE);
 
         this.setId("loginBanner");
-        HBox.setHgrow(this, Priority.ALWAYS);
 
         loginStatus.setStyle("-fx-text-fill: #BBBBBB!important;");
 
