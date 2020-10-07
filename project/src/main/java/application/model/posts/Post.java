@@ -21,7 +21,6 @@ public class Post implements IPost {
     private final Set<String> tags;
     // TODO: implement private final ImageContainer image;
 
-    private static boolean isCreated = false;
 
     public Post(String title, String description, IUser author, List<IItem> items, String postType, Set<String> tags) {
         this.title = title;
@@ -31,8 +30,7 @@ public class Post implements IPost {
         this.uniqueID = UUID.randomUUID().toString();
         this.postType = postType;
         this.tags = new HashSet<>(tags);
-        if (!isCreated) this.tags.add(postType);
-        isCreated = true;
+        this.tags.add(postType);
     }
 
 
