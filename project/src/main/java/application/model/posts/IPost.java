@@ -5,6 +5,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 public interface IPost extends Serializable {
     String getUniqueID();
@@ -18,5 +19,5 @@ public interface IPost extends Serializable {
     void setUniqueID(String uniqueID);
     //ImageView getImage();
     //void setImage(ImageView image);
-    List<String> getTags();
+    Set<String> getTags();
 }

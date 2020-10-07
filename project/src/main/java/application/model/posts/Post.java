@@ -4,9 +4,10 @@ import application.model.tags.ITag;
 import application.model.users.IUser;
 import javafx.scene.image.ImageView;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.HashSet;
 
 public class Post implements IPost {
 
@@ -17,19 +18,19 @@ public class Post implements IPost {
     private final List<IItem> items;
     private final String postType;
     //private final Range Availabletime;
-    private final List<String> tags;
+    private final Set<String> tags;
     // TODO: implement private final ImageContainer image;
 
     private static boolean isCreated = false;
 
-    public Post(String title, String description, IUser author, List<IItem> items, String postType, List<String> tags) {
+    public Post(String title, String description, IUser author, List<IItem> items, String postType, Set<String> tags) {
         this.title = title;
         this.description = description;
         this.author = author;
         this.items = items;
         this.uniqueID = UUID.randomUUID().toString();
         this.postType = postType;
-        this.tags = new ArrayList<>(tags);
+        this.tags = new HashSet<>(tags);
         if (!isCreated) this.tags.add(postType);
         isCreated = true;
     }
@@ -87,7 +88,7 @@ public class Post implements IPost {
     }
 */
     @Override
-    public List<String> getTags() {
+    public Set<String> getTags() {
         return tags;
     }
 }
