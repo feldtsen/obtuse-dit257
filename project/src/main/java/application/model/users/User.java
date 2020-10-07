@@ -1,16 +1,19 @@
 package application.model.users;
 
 import application.model.util.PhoneNumber;
+import javafx.scene.control.PasswordField;
 
 public class User implements IUser{
     private final String name;
     private final String address;
     private final PhoneNumber phoneNumber;
+    private String password;
 
-    public User(String name, String address, PhoneNumber phoneNumber){
+    public User(String name, String address, PhoneNumber phoneNumber, String password){
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.password = password;
     }
 
     @Override
@@ -28,4 +31,6 @@ public class User implements IUser{
         return phoneNumber;
     }
 
+    @Override
+    public String getPassword() { return password; }
 }

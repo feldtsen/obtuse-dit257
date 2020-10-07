@@ -19,7 +19,7 @@
 /* BUTTON */
 #navigationButton,     #logoButton, #claimButton,  #submitPostButton,
 #submitRegisterButton, #editButton, #updateButton, #deleteButton,
-#submitLoginButton,    #active,            #inactive {
+#submitLoginButton, #logoutButton,    #active,            #inactive, #searchButton {
     -fx-focus-color:       transparent;
     -fx-background-radius: 0;
     -fx-border-style:      none;
@@ -29,15 +29,15 @@
 }
 
 #claimButton, #submitRegisterButton, #submitPostButton,
-#editButton,  #updateButton, #deleteButton, #submitLoginButton,
-#active, #inactive{ /*Adds contrast*/
+#editButton,  #updateButton, #deleteButton, #submitLoginButton, #logoutButton,
+#active, #inactive, #searchButton{ /*Adds contrast*/
      -fx-min-width:        100;
      -fx-background-color: #303030;
  }
 
 #navigationButton:hover, #submitPostButton:hover, #submitRegisterButton:hover,
-#editButton:hover,       #updateButton:hover, #submitLoginButton:hover,
-#active:hover,   #inactive:hover {
+#editButton:hover,       #updateButton:hover, #submitLoginButton:hover, #logoutButton:hover,
+#active:hover,   #inactive:hover, #searchButton:hover {
     -fx-background-color: #505050;
 }
 
@@ -162,5 +162,19 @@
     -fx-padding: 0 0 0 2;
 }
 
+/* Filter  */
+#searchBanner {
+
+}
+
+.text-field, .text-area {
+    -fx-background-color: #CCCCCC;
+    -fx-background-radius: 0;
+}
+
+.text-field {
+    -fx-min-height:20;
+    -fx-font-size: 17;
+}
 
 

@@ -26,8 +26,5 @@ public class SubmitLoginButton extends Button  {
                 loginModule.getPhoneInput(),
                 loginModule.getPasswordInput()
         );
-
-
     }
-
 }
