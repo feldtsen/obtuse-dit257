@@ -9,6 +9,7 @@ import application.model.posts.IPost;
 import application.model.util.FileIO;
 import application.view.pages.board.BoardPage;
 import application.view.pages.board.posts.PostCard;
+import application.view.pages.search.SearchBanner;
 import javafx.scene.control.Alert;
 
 import java.io.File;
@@ -44,8 +45,18 @@ public class BoardController {
 
             postCard = new PostCard(post);
 
+            if (rowIndex == 0) {
+                System.out.println("First");
+                SearchBanner searchBanner = new SearchBanner();
+                boardPage.setFullWidth(searchBanner);
+                boardPage.add(searchBanner, colIndex, rowIndex);
+                rowIndex++;
+                continue;
+            }
+
             // If there is only one card on a row, it will take occupy 100% of the width
             if (posts.size() - 1 == counter && colIndex == 0) boardPage.setFullWidth(postCard);
+
 
             //Appends the post to the board (grid pane) which need to know which cell to put it in
             boardPage.add(postCard, colIndex, rowIndex);
