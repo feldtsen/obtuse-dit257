@@ -19,7 +19,7 @@ public class App extends Application {
     private final static double MIN_HEIGHT     = 600;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
 
         Scene scene = new Scene(RootParent.getInstance(stage), INITIAL_WIDTH, INITIAL_HEIGHT);
 
@@ -31,7 +31,6 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
 
-        TagDropdown.getInstance().setTags();
     }
 
     public static void main(String[] args) {
