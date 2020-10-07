@@ -9,8 +9,6 @@ public class LogoutButton extends Button {
     private LogoutButton() {
         this.setId("logoutButton");
 
-        this.setText("Log Out");
-
         this.setOnMouseClicked(e -> mouseClickAction());
     }
 
@@ -21,5 +19,13 @@ public class LogoutButton extends Button {
 
     private void mouseClickAction() {
         ClientController.handleLogout();
+    }
+
+    public void setWhenLoggedOutText() {
+        this.setText("");
+    }
+
+    public void setWhenLoggedInText(){
+        this.setText("(log out)");
     }
 }

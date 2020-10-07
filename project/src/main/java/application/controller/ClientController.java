@@ -10,8 +10,11 @@ import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
 import application.model.util.TagParser;
+import application.view.pages.PageParent;
+import application.view.pages.login.RegisterPage;
 import application.view.status.AlertBannerModule;
 import application.view.status.LoginBannerModule;
+import application.view.status.LogoutButton;
 import javafx.scene.control.Alert;
 
 import java.io.*;
@@ -42,6 +45,7 @@ public class ClientController {
         Client.getInstance().setUser(user);
         LoginBannerModule.getInstance().setLoggedInAs(user.getName());
         showAlert("Login successful as " + user.getName(), Alert.AlertType.CONFIRMATION);
+        LogoutButton.getInstance().setWhenLoggedInText();
     }
 
     public static void handleLogout() {
@@ -55,6 +59,8 @@ public class ClientController {
         showAlert(user.getName()+" is logged out", Alert.AlertType.CONFIRMATION);
         client.setUser(null);
         LoginBannerModule.getInstance().setNotLoggedIn();
+        LogoutButton.getInstance().setWhenLoggedOutText();
+        PageParent.loadPage(RegisterPage.getInstance());
 
     }
 

@@ -37,6 +37,5 @@ public class BoardPage extends GridPane implements Page {
 
     public void setFullWidth(SearchBanner searchBanner) {
         GridPane.setColumnSpan(searchBanner, 2);
-        System.out.println("awkdowadoawk");
     }
 }

@@ -25,13 +25,7 @@ public class TagDropdown extends ComboBox<String> {
     private static ObservableList<String> setTags()  {
 
         TagParser tagParser = Client.getInstance().getTagParser();
-        ObservableList<String> tags = FXCollections.observableArrayList(tagParser.getAllTags()).sorted();
 
-
-        for (String tag : tags){
-            System.out.println(tag);
-        }
-
-        return tags;
+        return FXCollections.observableArrayList(tagParser.getAllTags()).sorted();
     }
 }
