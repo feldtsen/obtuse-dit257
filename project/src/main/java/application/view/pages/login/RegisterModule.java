@@ -2,6 +2,7 @@ package application.view.pages.login;
 
 import application.view.pages.Page;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -14,22 +15,27 @@ public class RegisterModule extends VBox implements Page {
     private final TextField nameInput;
     private final TextField addressInput;
     private final TextField phoneInput;
+    private final PasswordField passwordInput;
 
     private RegisterModule() {
         Label registerLabel = new Label("Register");
         Label nameLabel = new Label("Name");
         Label addressLabel = new Label("Address");
         Label phoneLabel = new Label("Phone Number");
+        Label passwordLabel = new Label("Password");
 
         nameInput = new TextField();
         addressInput = new TextField();
         phoneInput = new TextField();
+        passwordInput = new PasswordField();
 
         this.setId("registerModule");
         registerLabel.setId("registerLabel");
         nameLabel.setId("nameLabel");
         addressLabel.setId("addressLabel");
         phoneLabel.setId("phoneLabel");
+        passwordLabel.setId("passwordLabel");
+        passwordInput.setPromptText("Enter Password");
 
         HBox.setHgrow(this, Priority.ALWAYS);
 
@@ -48,6 +54,9 @@ public class RegisterModule extends VBox implements Page {
 
                 phoneLabel,
                 phoneInput,
+
+                passwordLabel,
+                passwordInput,
 
                 spacing,
                 SubmitRegisterButton.getInstance()
@@ -69,8 +78,9 @@ public class RegisterModule extends VBox implements Page {
     public String getAddressInput() {
         return addressInput.getText();
     }
-
     public String getPhoneInput() {
         return phoneInput.getText();
+    }
+    public String getPasswordInput() { return passwordInput.getText();
     }
 }

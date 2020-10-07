@@ -25,7 +25,8 @@ public class SubmitRegisterButton extends Button  {
         ClientController.handleRegisterButton(
                 registerModule.getNameInput(),
                 registerModule.getAddressInput(),
-                registerModule.getPhoneInput()
+                registerModule.getPhoneInput(),
+                registerModule.getPasswordInput()
         );
     }
 
