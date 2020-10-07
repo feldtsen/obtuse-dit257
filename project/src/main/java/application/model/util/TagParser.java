@@ -7,9 +7,9 @@ import java.util.*;
 
 
 public class TagParser {
-    private String filePath;    //Input file which needs to be parsed
-    private String delimiter;
-    private Map<String, List<String>> fileMap;  //a map with category as key and tags as values
+    private final String filePath;    //Input file which needs to be parsed
+    private final String delimiter;
+    private Map<String, List<String>> tagsByCategory;  //a map with category as key and tags as values
 
 
     public TagParser(String filePath, String delimiter) throws IOException {
@@ -35,44 +35,38 @@ public class TagParser {
      * @throws IOException if file not found or other reading errors occur
      */
     private void prepareData(String filePath, String delimiter) throws IOException {
-        BufferedReader myReader = new BufferedReader(new FileReader(filePath));
-        String aLine = "";
-        ArrayList<String> anArray = new ArrayList<>();
-        fileMap = new HashMap<>();
-        while( (aLine = myReader.readLine()) != null) {
-            String[] arrayLine = aLine.split(delimiter);   //convert a string line to an array of strings
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        tagsByCategory = new HashMap<>();
+        String line = "";
+        while( (line = reader.readLine()) != null) {
+            String[] words = line.split(delimiter);   //convert a string line to an array of strings
 
             // index 1 is the category name and index 3 is the start of the tags in the line
-            fileMap.put(arrayLine[1], new ArrayList<>());   // set category as key
+            tagsByCategory.put(words[1], new ArrayList<>());   // set category as key
 
-            for(int i=3; i<arrayLine.length; i++)
-                fileMap.get(arrayLine[1]).add(arrayLine[i]);    //add the rest of line as HashMap value for category key
+            for(int i = 3; i < words.length; i++)
+                tagsByCategory.get(words[1]).add(words[i]);    //add the rest of line as HashMap value for category key
         }
-        myReader.close();
+        reader.close();
     }
 
     /**
      * Gives a set of all categories in file tags.csv
      * @return a set of categories
      */
-    public HashSet<String> getAllCategories(){
-        HashSet<String> mySet = new HashSet<>();
-        for(String aCategory: fileMap.keySet())
-            mySet.add(aCategory);
-        return mySet;
+    public Set<String> getAllCategories(){
+        return new HashSet<>(tagsByCategory.keySet());
     }
 
     /**
      * Gives a set of all tags in file tags.csv
      * @return a set of tags
      */
-    public HashSet<String> getAllTags(){
-        Collection<List<String>> values = fileMap.values();
-        HashSet<String> mySet = new HashSet<>();
-        for(List aList: values)
-            for(Object aTag: aList)
-                mySet.add((String)aTag);
-        return mySet;
+    public Set<String> getAllTags(){
+        HashSet<String> allTags = new HashSet<>();
+        for(List<String> tagList: tagsByCategory.values())
+            allTags.addAll(tagList);
+        return allTags;
     }
 
     /**
@@ -80,10 +74,7 @@ public class TagParser {
      * @param category the category for which the tags are returned
      * @return a set of tags for the specified category
      */
-    public HashSet<String> getTagsForCategory (String category) {
-        HashSet<String> mySet = new HashSet<>();
-        for(String aTag: fileMap.get(category))
-            mySet.add(aTag);
-        return mySet;
+    public Set<String> getTagsForCategory (String category) {
+        return new HashSet<>(tagsByCategory.get(category));
     }
 }

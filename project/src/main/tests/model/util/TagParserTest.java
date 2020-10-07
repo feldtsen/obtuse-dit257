@@ -45,8 +45,8 @@ public class TagParserTest {
 
     @Test
     public void getAllCategoriesTest(){
-        HashSet<String> actualCategories = myParser.getAllCategories();
-        HashSet<String> expectedCategories = new HashSet<>();
+        Set<String> actualCategories = myParser.getAllCategories();
+        Set<String> expectedCategories = new HashSet<>();
         expectedCategories.add("kött");
         expectedCategories.add("fryst");
         assertEquals(expectedCategories, actualCategories);
@@ -54,7 +54,7 @@ public class TagParserTest {
 
     @Test
     public void getAllTagsTest(){
-        HashSet<String> actualTags = myParser.getAllTags();
+        Set<String> actualTags = myParser.getAllTags();
         String expectedTag1 = "köttfärs";
         String expectedTag2 = "övrigt kött";
         String expectedTag3 = "köttbullar";
@@ -67,8 +67,8 @@ public class TagParserTest {
 
     @Test
     public void getTagsForCategory(){
-        HashSet<String> actualCategoryTags = myParser.getTagsForCategory("fryst");
-        HashSet<String> expectedCategoryTags = new HashSet<>();
+        Set<String> actualCategoryTags = myParser.getTagsForCategory("fryst");
+        Set<String> expectedCategoryTags = new HashSet<>();
         expectedCategoryTags.add("köttbullar");
         expectedCategoryTags.add("fiskpinnar");
         expectedCategoryTags.add("frysta grönsaker");
