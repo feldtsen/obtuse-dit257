@@ -38,12 +38,10 @@ public class BoardController {
         PostCard postCard;
         int counter = 0;
         int rowIndex = 0;
-        int colIndex;
+        int colIndex = 0;
         for (IPost post : posts) {
             // Restricts it to 2 columns
-            colIndex = (counter % 2);
 
-            postCard = new PostCard(post);
 
             if (rowIndex == 0) {
                 System.out.println("First");
@@ -51,8 +49,10 @@ public class BoardController {
                 boardPage.setFullWidth(searchBanner);
                 boardPage.add(searchBanner, colIndex, rowIndex);
                 rowIndex++;
-                continue;
             }
+
+            colIndex = (counter % 2);
+            postCard = new PostCard(post);
 
             // If there is only one card on a row, it will take occupy 100% of the width
             if (posts.size() - 1 == counter && colIndex == 0) boardPage.setFullWidth(postCard);
