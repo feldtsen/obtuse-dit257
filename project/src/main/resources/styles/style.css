@@ -25,7 +25,7 @@
     -fx-border-style:      none;
     -fx-background-color:  rgba(0, 0, 0, 0);
     -fx-text-fill:         BBBBBB;
-    -fx-font-size:         18;
+    -fx-font-size:         1.3em;
 }
 
 #claimButton, #submitRegisterButton, #submitPostButton,
@@ -189,4 +189,13 @@
     -fx-font-size: 17;
 }
 
+.tagSearcher {
+    -fx-background-color: #CCCCCC;
+}
 
+.searchField {
+    -fx-font-size: 1.3em;
+}
+.tagDropdown {
+    -fx-font-size: 1.2em;
+}

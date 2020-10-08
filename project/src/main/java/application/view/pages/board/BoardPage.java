@@ -1,9 +1,8 @@
 package application.view.pages.board;
 
-import application.model.posts.IPost;
 import application.view.pages.Page;
 import application.view.pages.board.posts.PostCard;
-import application.view.pages.search.SearchBanner;
+import application.view.pages.board.search.SearchModule;
 import javafx.scene.layout.*;
 
 public class BoardPage extends GridPane implements Page {
@@ -35,7 +34,7 @@ public class BoardPage extends GridPane implements Page {
         GridPane.setColumnSpan(postCard, 2);
     }
 
-    public void setFullWidth(SearchBanner searchBanner) {
-        GridPane.setColumnSpan(searchBanner, 2);
+    public void setFullWidth(SearchModule searchModule) {
+        GridPane.setColumnSpan(searchModule, 2);
     }
 }
