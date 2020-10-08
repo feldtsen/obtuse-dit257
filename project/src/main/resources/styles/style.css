@@ -204,7 +204,7 @@
     -fx-text-fill: #BBBBBB ;
 }
 .combo-box .combo-box-popup .list-cell:hover, .list-cell:filled:selected, .list-cell:filled:selected:hover{
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #FFFFFF !important;
     -fx-background-color: #507750 !important;
 }
 
