@@ -52,8 +52,5 @@ public class TagDropdown extends ComboBox<String> {
         if (input.equals("")) this.getItems().setAll(tagParser.getAllTags());
         else                  this.getItems().setAll(filteredTags);
 
-        // Forces the height of the dropdown
-        this.setVisibleRowCount(10);
-
     }
 }

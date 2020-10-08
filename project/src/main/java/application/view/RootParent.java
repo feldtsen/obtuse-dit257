@@ -5,6 +5,7 @@ import application.controller.ClientController;
 import application.view.navigation.NavigationParent;
 import application.view.pages.PageParent;
 import application.view.status.StatusBanner;
+import javafx.geometry.Insets;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -23,6 +24,8 @@ public class RootParent extends VBox {
 
         Region spacing = new Region();
         VBox.setVgrow(spacing, Priority.ALWAYS);
+
+
 
         this.getChildren().addAll(
                 pageParent,
@@ -47,7 +50,6 @@ public class RootParent extends VBox {
 
     private void setResponsiveSize(Region region, Stage primaryStage, double heightPercentage) {
         region.prefWidthProperty().bind(primaryStage.widthProperty());
-
         region.prefHeightProperty().bind(primaryStage.heightProperty().multiply(heightPercentage));
     }
 
