@@ -20,13 +20,24 @@ public class PostController {
         IClient client = Client.getInstance();
 
         if(client.getUser() == null) {
-            //TODO: alert?
             ClientController.showAlert("You cannot make a post unless you are logged in", Alert.AlertType.INFORMATION);
             return;
         }
 
         // Referencing the publish page to retrieve input from the user
         PublishPage publishPage = PublishPage.getInstance();
+
+        // Disallow publishing post with no title
+        if(publishPage.getTitleInput().isBlank()) {
+            ClientController.showAlert("A post must have a title", Alert.AlertType.ERROR);
+            return;
+        }
+        // Disallow publishing a post with no description
+        if(publishPage.getDescriptionInput().isBlank()) {
+            ClientController.showAlert("A post must have a description", Alert.AlertType.ERROR);
+            return;
+        }
+
         Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), null, publishPage.getPostType(), new HashSet<>(/*TODO: actually implement*/));
 
         // Adds the post to the board
