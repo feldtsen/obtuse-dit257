@@ -15,18 +15,16 @@ public class Post implements IPost {
     private final String title;
     private final String description;
     private final IUser author;
-    private final List<IItem> items;
     private final String postType;
     //private final Range Availabletime;
     private final Set<String> tags;
     // TODO: implement private final ImageContainer image;
 
 
-    public Post(String title, String description, IUser author, List<IItem> items, String postType, Set<String> tags) {
+    public Post(String title, String description, IUser author, String postType, Set<String> tags) {
         this.title = title;
         this.description = description;
         this.author = author;
-        this.items = items;
         this.uniqueID = UUID.randomUUID().toString();
         this.postType = postType;
         this.tags = new HashSet<>(tags);
@@ -47,11 +45,6 @@ public class Post implements IPost {
     @Override
     public String getDescription() {
         return description;
-    }
-
-    @Override
-    public List<IItem> getItems() {
-        return items;
     }
 
     @Override

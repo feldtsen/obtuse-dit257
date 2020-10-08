@@ -13,7 +13,6 @@ public interface IPost extends Serializable {
     String getDescription();
     String getPostType();
 
-    List<IItem> getItems();
     IUser getAuthor();
     //Range getAvailableTime();
     void setUniqueID(String uniqueID);
