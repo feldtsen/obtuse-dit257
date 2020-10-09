@@ -19,7 +19,10 @@ public class TagChoiceDropdown extends ComboBox<String> {
         this.setOnHidden(this::action);
     }
     private void action(Event e){
-        tags.add(this.getSelectionModel().getSelectedItem());
+        if(!this.getSelectionModel().isEmpty()) {
+            tags.add(this.getSelectionModel().getSelectedItem());
+            this.getSelectionModel().clearSelection();
+        }
     }
     public Set<String> getTags(){
         return tags;

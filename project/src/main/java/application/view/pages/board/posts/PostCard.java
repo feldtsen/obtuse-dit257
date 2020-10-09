@@ -6,6 +6,7 @@ import application.model.posts.IPost;
 import application.model.users.IUser;
 import application.ResourceLoader;
 
+import application.view.pages.util.TagDisplay;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -33,15 +34,7 @@ public class PostCard extends VBox {
        Button deleteButton           = new Button("Delete");
 
        // Create and initialize container for tags
-       HBox tagsContainer = new HBox();
-       tagsContainer.getChildren().add(new Label("Tags: ")); // Initial text
-       int i = 0; // Counter used to determine when last tag is reached
-       for(String tag : post.getTags()) {
-          // Add delimiter, comma between tags and nothing when the last tag is reached
-          String delimiter = i != post.getTags().size() - 1 ? ", " : "";
-          tagsContainer.getChildren().add(new Label(tag + delimiter));
-          i++;
-       }
+       TagDisplay tagDisplay = new TagDisplay(post.getTags());
 
        //List of buttons to be wrapped in a HBox
        List<Button> buttons = new ArrayList<>();
@@ -79,7 +72,7 @@ public class PostCard extends VBox {
                phoneNumberLabel,
                nameAndAddressLabel,
                new ButtonContainer(buttons),
-               tagsContainer
+               tagDisplay
        );
     }
 }
