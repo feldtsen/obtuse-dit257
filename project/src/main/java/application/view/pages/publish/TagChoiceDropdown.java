@@ -22,11 +22,13 @@ public class TagChoiceDropdown extends HBox {
         tagChoices.getStyleClass().add("tagDropdown");
         tagChoices.setOnHidden(this::action);
         tagDisplay = new TagDisplay(tags);
+        this.getChildren().addAll(tagChoices, tagDisplay);
     }
     private void action(Event e){
         if(!tagChoices.getSelectionModel().isEmpty()) {
             tags.add(tagChoices.getSelectionModel().getSelectedItem());
             tagChoices.getSelectionModel().clearSelection();
+            tagDisplay.setTags(tags);
         }
     }
     public Set<String> getTags(){
