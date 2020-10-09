@@ -62,8 +62,7 @@ public class PublishPage extends VBox implements Page {
         this.type = type;
     }
 
-    public Set<String> getSelectedTags (){ return tagChoice.getTags();
-    }
+    public Set<String> getSelectedTags (){ return tagChoice.getTags(); }
 
     public static PublishPage getInstance() {
         if (instance == null) instance = new PublishPage();
