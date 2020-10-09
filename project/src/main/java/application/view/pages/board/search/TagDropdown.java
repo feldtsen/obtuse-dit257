@@ -21,8 +21,6 @@ public class TagDropdown extends ComboBox<String> {
     public TagDropdown(){
         super(FXCollections.observableArrayList(tagParser.getAllTags()));
         this.setOnHiding(e -> action(searchInput));
-        this.setVisibleRowCount(10);
-
 
         this.getStyleClass().add("tagDropdown");
     }

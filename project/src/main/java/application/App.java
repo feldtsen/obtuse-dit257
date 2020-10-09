@@ -15,7 +15,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-
         Scene scene = new Scene(RootParent.getInstance(stage), INITIAL_WIDTH, INITIAL_HEIGHT);
 
         stage.setMinHeight(MIN_HEIGHT);
