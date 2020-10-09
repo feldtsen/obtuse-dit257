@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class PublishPage extends VBox implements Page {
     private static PublishPage instance = null;
@@ -18,6 +19,7 @@ public class PublishPage extends VBox implements Page {
     private final TextField titleInput;
     private final TextArea descriptionInput;
     private String type = "Donation";
+    private TagChoiceDropdown tagChoice= new TagChoiceDropdown();
 
     private PublishPage() {
         this.setId("publishPage");
@@ -39,6 +41,7 @@ public class PublishPage extends VBox implements Page {
                 titleInput,
                 new Label("Description"),
                 descriptionInput,
+                tagChoice,
                 SubmitPostButton.getInstance()
         );
     }
@@ -57,6 +60,9 @@ public class PublishPage extends VBox implements Page {
 
     public void setPostType(String type) {
         this.type = type;
+    }
+
+    public Set<String> getSelectedTags (){ return tagChoice.getTags();
     }
 
     public static PublishPage getInstance() {

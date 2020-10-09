@@ -38,7 +38,7 @@ public class PostController {
             return;
         }
 
-        Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), publishPage.getPostType(), new HashSet<>(/*TODO: actually implement*/));
+        Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), publishPage.getPostType(), publishPage.getSelectedTags());
 
         // Adds the post to the board
         client.getBoard().addPost(newPost);
