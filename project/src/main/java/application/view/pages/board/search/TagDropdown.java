@@ -41,25 +41,25 @@ public class TagDropdown extends ComboBox<String> {
     }
 
     public void filter(String input) {
-        ArrayList<String> filteredTags = new ArrayList<>();
-
-        // Make the dropdown visible
-
         if (input.equals("")) {
             this.getItems().setAll(tagParser.getAllTags());
             this.show();
             this.updateVisibleRowCount(ROW_COUNT);
-            return;
-        }
-        // If some element in the original list of tags contains the input text, add it to the filtered list
-        tagParser.getAllTags().stream().filter(
-                tag -> tag.toLowerCase().contains(input.toLowerCase())
-        ).forEach(
-                filteredTags::add
-        );
+        } else if (!input.isEmpty()) {
+            // Make the dropdown visible
+            ArrayList<String> filteredTags = new ArrayList<>();
 
-        // Replace the existing items in the combobox, if there is no items we retrieve the original list
-        this.getItems().setAll(filteredTags);
-        this.show();
+            // If some element in the original list of tags contains the input text, add it to the filtered list
+            tagParser.getAllTags().stream().filter(
+                    tag -> tag.toLowerCase().contains(input.toLowerCase())
+            ).forEach(
+                    filteredTags::add
+            );
+
+            // Replace the existing items in the combobox, if there is no items we retrieve the original list
+            this.getItems().setAll(filteredTags);
+            this.show();
+        }
+
     }
 }
