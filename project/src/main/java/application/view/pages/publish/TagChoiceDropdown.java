@@ -22,6 +22,7 @@ public class TagChoiceDropdown extends HBox {
         tagChoices.getStyleClass().add("tagDropdown");
         tagChoices.setOnHidden(this::action);
         tagDisplay = new TagDisplay(tags);
+        this.setSpacing(10); //TODO: do with CSS instead?
         this.getChildren().addAll(tagChoices, tagDisplay);
     }
     private void action(Event e){
