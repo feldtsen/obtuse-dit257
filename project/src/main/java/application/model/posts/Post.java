@@ -1,10 +1,7 @@
 package application.model.posts;
 
-import application.model.tags.ITag;
 import application.model.users.IUser;
-import javafx.scene.image.ImageView;
 
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 import java.util.HashSet;
@@ -28,7 +25,7 @@ public class Post implements IPost {
         this.uniqueID = UUID.randomUUID().toString();
         this.postType = postType;
         this.tags = new HashSet<>(tags);
-        this.tags.add(postType);
+        //this.tags.add(postType);
     }
 
 
