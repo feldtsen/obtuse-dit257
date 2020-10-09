@@ -1,5 +1,6 @@
 package application.view.pages.publish;
 
+import application.controller.ImageChooser;
 import application.view.pages.Page;
 import application.view.pages.board.posts.ButtonContainer;
 import application.view.pages.board.posts.SubmitPostButton;
@@ -41,6 +42,7 @@ public class PublishPage extends VBox implements Page {
                 titleInput,
                 new Label("Description"),
                 descriptionInput,
+                new ImageChooser(),
                 tagChoice,
                 SubmitPostButton.getInstance()
         );
