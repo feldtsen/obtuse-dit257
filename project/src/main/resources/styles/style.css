@@ -12,7 +12,7 @@
 
 #rootParent {
     -fx-background-color: #1A1A1A;
-    -fx-padding:          15;
+    -fx-padding:          20;
     -fx-font-size:        15;
     -fx-font-family:      Arial;
 }
@@ -25,11 +25,11 @@
     -fx-border-style:      none;
     -fx-background-color:  rgba(0, 0, 0, 0);
     -fx-text-fill:         BBBBBB;
-    -fx-font-size:         18;
+    -fx-font-size:         1.3em;
 }
 
 #claimButton, #submitRegisterButton, #submitPostButton,
-#editButton,  #updateButton, #deleteButton, #submitLoginButton, #logoutButton,
+#editButton,  #updateButton, #deleteButton, #submitLoginButton,
 #active, #inactive, #searchButton{ /*Adds contrast*/
      -fx-min-width:        100;
      -fx-background-color: #303030;
@@ -53,6 +53,18 @@
 
 #inactive {
     -fx-background-color: #303030;
+}
+
+#logoutButton {
+    -fx-text-fill: #505050;
+    -fx-font-size: 14;
+    -fx-padding: 10 0 10 0;
+    -fx-text-alignment: right;
+}
+
+#logoutButton:hover {
+    -fx-background-color: none;
+    -fx-text-fill: #FFFFFF;
 }
 
 #buttonContainer {
@@ -128,7 +140,7 @@
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical   .thumb {
-    -fx-background-color:  #2A2A2A;
+    -fx-background-color:  #2D2D2D;
     -fx-background-radius: 0em;
 }
 
@@ -177,4 +189,23 @@
     -fx-font-size: 17;
 }
 
+.tagSearcher {
+    -fx-background-color: #CCCCCC;
+}
+
+.searchField {
+    -fx-font-size: 1.3em;
+}
+.tagDropdown {
+    -fx-font-size: 1.2em;
+}
+.combo-box .combo-box-popup .list-view, .combo-box .combo-box-popup .list-cell {
+    -fx-background-color: #AAAAAA ;
+    -fx-text-fill: #000000 ;
+    -fx-background-radius: 0;
+}
+.combo-box .combo-box-popup .list-cell:hover, .list-cell:filled:selected, .list-cell:filled:selected:hover{
+    -fx-text-fill: #000000 !important;
+    -fx-background-color: #507750 !important;
+}
 

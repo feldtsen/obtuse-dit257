@@ -1,6 +1,7 @@
 package application.model.util;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
@@ -13,8 +14,8 @@ public class TagParser {
 
 
     public TagParser(String path, String delimiter) throws IOException {
-        this.path =path;
-        this.delimiter=delimiter;
+        this.path = path;
+        this.delimiter = delimiter;
         prepareData(path, delimiter);
     }
 
@@ -35,7 +36,9 @@ public class TagParser {
      * @throws IOException if file not found or other reading errors occur
      */
     private void prepareData(String filePath, String delimiter) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        File file = new File(filePath);
+        FileReader fileReader = new FileReader(file);
+        BufferedReader reader = new BufferedReader(fileReader);
         tagsByCategory = new HashMap<>();
         String line = "";
         while( (line = reader.readLine()) != null) {

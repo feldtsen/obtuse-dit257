@@ -8,6 +8,7 @@ import application.ResourceLoader;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -30,6 +31,17 @@ public class PostCard extends VBox {
        TextFlow descriptionContainer = new TextFlow(descriptionText);
        Button editButton             = new Button("Edit");
        Button deleteButton           = new Button("Delete");
+
+       // Create and initialize container for tags
+       HBox tagsContainer = new HBox();
+       tagsContainer.getChildren().add(new Label("Tags: ")); // Initial text
+       int i = 0; // Counter used to determine when last tag is reached
+       for(String tag : post.getTags()) {
+          // Add delimiter, comma between tags and nothing when the last tag is reached
+          String delimiter = i != post.getTags().size() - 1 ? ", " : "";
+          tagsContainer.getChildren().add(new Label(tag + delimiter));
+          i++;
+       }
 
        //List of buttons to be wrapped in a HBox
        List<Button> buttons = new ArrayList<>();
@@ -59,8 +71,6 @@ public class PostCard extends VBox {
           }
        }
 
-
-
        //Adds the GUI components to the post
        this.getChildren().setAll(
                postTypeLabel,
@@ -68,10 +78,9 @@ public class PostCard extends VBox {
                descriptionContainer,
                phoneNumberLabel,
                nameAndAddressLabel,
-               new ButtonContainer(buttons)
+               new ButtonContainer(buttons),
+               tagsContainer
        );
-
     }
-
 }
 

@@ -4,7 +4,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 
@@ -27,14 +26,14 @@ public class LoginBannerModule extends HBox {
         loginStatus = new Label(NOT_LOGGED_IN_MESSAGE);
 
         this.setId("loginBanner");
-        HBox.setHgrow(this, Priority.ALWAYS);
 
         loginStatus.setStyle("-fx-text-fill: #BBBBBB!important;");
 
-        this.setAlignment(Pos.CENTER_LEFT);
+        this.setAlignment(Pos.CENTER_RIGHT);
         this.getChildren().addAll(
-                icon,
-                loginStatus
+                loginStatus,
+                LogoutButton.getInstance(),
+                icon
         );
     }
 

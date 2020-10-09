@@ -20,14 +20,25 @@ public class PostController {
         IClient client = Client.getInstance();
 
         if(client.getUser() == null) {
-            //TODO: alert?
             ClientController.showAlert("You cannot make a post unless you are logged in", Alert.AlertType.INFORMATION);
             return;
         }
 
         // Referencing the publish page to retrieve input from the user
         PublishPage publishPage = PublishPage.getInstance();
-        Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), null, publishPage.getPostType(), new HashSet<>(/*TODO: actually implement*/));
+
+        // Disallow publishing post with no title
+        if(publishPage.getTitleInput().isBlank()) {
+            ClientController.showAlert("A post must have a title", Alert.AlertType.ERROR);
+            return;
+        }
+        // Disallow publishing a post with no description
+        if(publishPage.getDescriptionInput().isBlank()) {
+            ClientController.showAlert("A post must have a description", Alert.AlertType.ERROR);
+            return;
+        }
+
+        Post newPost = new Post(publishPage.getTitleInput(), publishPage.getDescriptionInput(), client.getUser(), publishPage.getPostType(), new HashSet<>(/*TODO: actually implement*/));
 
         // Adds the post to the board
         client.getBoard().addPost(newPost);
@@ -63,7 +74,7 @@ public class PostController {
         IClient client = Client.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
-        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), null, EditPage.getPostType(), new HashSet<>(/*TODO: actually implement*/));
+        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), EditPage.getPostType(), new HashSet<>(/*TODO: actually implement*/));
         newPost.setUniqueID(EditPage.getUUID());
         client.getBoard().replacePost(EditPage.getUUID(), newPost);
 

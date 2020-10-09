@@ -9,7 +9,7 @@ import application.model.posts.IPost;
 import application.model.util.FileIO;
 import application.view.pages.board.BoardPage;
 import application.view.pages.board.posts.PostCard;
-import application.view.pages.search.SearchBanner;
+import application.view.pages.board.search.SearchModule;
 import javafx.scene.control.Alert;
 
 import java.io.File;
@@ -44,10 +44,9 @@ public class BoardController {
 
 
             if (rowIndex == 0) {
-                System.out.println("First");
-                SearchBanner searchBanner = new SearchBanner();
-                boardPage.setFullWidth(searchBanner);
-                boardPage.add(searchBanner, colIndex, rowIndex);
+                SearchModule searchModule = new SearchModule();
+                boardPage.setFullWidth(searchModule);
+                boardPage.add(searchModule, colIndex, rowIndex);
                 rowIndex++;
             }
 

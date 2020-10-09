@@ -23,8 +23,8 @@ public class AlertBannerModule extends HBox {
         // If this is set on all components in a HBox, it will split the space evenly
         HBox.setHgrow(this, Priority.ALWAYS);
 
-        // The message will be shown to the far right of the given space
-        this.setAlignment(Pos.CENTER_RIGHT);
+        // The message will be shown to the far left of the given space
+        this.setAlignment(Pos.CENTER_LEFT);
     }
 
     // Singleton
@@ -36,7 +36,8 @@ public class AlertBannerModule extends HBox {
 
     public void setAlertMessage(String alertMessage, Alert.AlertType alertType) {
         alertIndex++;
-        Label alertMessageLabel = new Label(" (" + alertIndex + ") " + alertMessage);
+        Label alertMessageLabel = new Label(alertMessage + " (" + alertIndex + ") ");
+
 
         // We gibe the message different colors based on what type of alert it is
         if (alertType == Alert.AlertType.ERROR)alertMessageLabel.setStyle("-fx-text-fill: #CC5050");

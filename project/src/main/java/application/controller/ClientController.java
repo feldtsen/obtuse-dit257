@@ -9,8 +9,12 @@ import application.model.util.FileIO;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
+import application.model.util.TagParser;
+import application.view.pages.PageParent;
+import application.view.pages.login.RegisterPage;
 import application.view.status.AlertBannerModule;
 import application.view.status.LoginBannerModule;
+import application.view.status.LogoutButton;
 import javafx.scene.control.Alert;
 
 import java.io.*;
@@ -41,6 +45,7 @@ public class ClientController {
         Client.getInstance().setUser(user);
         LoginBannerModule.getInstance().setLoggedInAs(user.getName());
         showAlert("Login successful as " + user.getName(), Alert.AlertType.CONFIRMATION);
+        LogoutButton.getInstance().setWhenLoggedInText();
     }
 
     public static void handleLogout() {
@@ -54,6 +59,8 @@ public class ClientController {
         showAlert(user.getName()+" is logged out", Alert.AlertType.CONFIRMATION);
         client.setUser(null);
         LoginBannerModule.getInstance().setNotLoggedIn();
+        LogoutButton.getInstance().setWhenLoggedOutText();
+        PageParent.loadPage(RegisterPage.getInstance());
 
     }
 
@@ -151,7 +158,14 @@ public class ClientController {
      */
      private static IClient loadFromDisk() {
         IBoard board = BoardController.loadBoard();
-        Client.init(null, board);
+         TagParser tagParser = null;
+         try {
+             tagParser = new TagParser(ResourceLoader.tagsFile, ResourceLoader.tagsDelimiter);
+         } catch (IOException e) {
+             // TODO: handle this
+
+         }
+         Client.init(null, board, tagParser);
         return Client.getInstance();
     }
 

@@ -9,6 +9,7 @@ import application.model.users.IUser;
 import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
+import application.model.util.TagParser;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,7 +26,7 @@ public class ClientTest {
         }
         board = new Board();
         //client = new Client(user,board);
-        Client.init(user, board);
+        Client.init(user, board, null);
         client = Client.getInstance();
 
     }
