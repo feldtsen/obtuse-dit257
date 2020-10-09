@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class TagDropdown extends ComboBox<String> {
     private final static TagParser tagParser = Client.getInstance().getTagParser();
     private final SearchInput searchInput = new SearchInput(this);
+    private final int ROW_COUNT = 11;
 
 
     public TagDropdown(){
@@ -35,12 +36,21 @@ public class TagDropdown extends ComboBox<String> {
         return this.searchInput;
     }
 
+    public void updateVisibleRowCount (int nr) {
+        this.setVisibleRowCount(nr);
+    }
+
     public void filter(String input) {
         ArrayList<String> filteredTags = new ArrayList<>();
 
         // Make the dropdown visible
-        this.show();
 
+        if (input.equals("")) {
+            this.getItems().setAll(tagParser.getAllTags());
+            this.show();
+            this.updateVisibleRowCount(ROW_COUNT);
+            return;
+        }
         // If some element in the original list of tags contains the input text, add it to the filtered list
         tagParser.getAllTags().stream().filter(
                 tag -> tag.toLowerCase().contains(input.toLowerCase())
@@ -49,8 +59,7 @@ public class TagDropdown extends ComboBox<String> {
         );
 
         // Replace the existing items in the combobox, if there is no items we retrieve the original list
-        if (input.equals("")) this.getItems().setAll(tagParser.getAllTags());
-        else                  this.getItems().setAll(filteredTags);
-
+        this.getItems().setAll(filteredTags);
+        this.show();
     }
 }

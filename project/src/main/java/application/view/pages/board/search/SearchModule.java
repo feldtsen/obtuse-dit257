@@ -10,6 +10,7 @@ public class SearchModule extends GridPane {
         TagDropdown tagDropdown = new TagDropdown();
         Button searchButton = new Button("Search");
 
+
         this.prefWidthProperty().bind(BoardPage.getInstance().widthProperty());
 
         tagDropdown.prefWidthProperty().bind(this.widthProperty());
