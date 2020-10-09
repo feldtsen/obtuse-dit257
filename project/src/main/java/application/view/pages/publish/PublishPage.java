@@ -19,7 +19,7 @@ public class PublishPage extends VBox implements Page {
     private final TextField titleInput;
     private final TextArea descriptionInput;
     private String type = "Donation";
-    private TagChoiceDropdown tagChoice= new TagChoiceDropdown();
+    private final TagChoiceDropdown tagChoice= new TagChoiceDropdown();
 
     private PublishPage() {
         this.setId("publishPage");
@@ -62,8 +62,7 @@ public class PublishPage extends VBox implements Page {
         this.type = type;
     }
 
-    public Set<String> getSelectedTags (){ return tagChoice.getTags();
-    }
+    public Set<String> getSelectedTags (){ return tagChoice.getTags(); }
 
     public static PublishPage getInstance() {
         if (instance == null) instance = new PublishPage();
