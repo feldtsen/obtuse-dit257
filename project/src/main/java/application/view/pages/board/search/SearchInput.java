@@ -17,9 +17,10 @@ public class SearchInput extends TextField {
         }
 
         private void keyTyped(KeyEvent keyEvent){
-            // Hitting escape results in getText() returning null
+                    // Hitting escape results in getText() returning null
                 if (this.getText() != null) {
                         tagDropdown.filter(this.getText());
+                        tagDropdown.show();
                 }
         }
 

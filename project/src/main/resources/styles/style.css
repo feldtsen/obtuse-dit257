@@ -209,3 +209,7 @@
     -fx-background-color: #507750 !important;
 }
 
+.combo-box-popup, .list-view {
+    -fx-min-height: 300;
+}
+
