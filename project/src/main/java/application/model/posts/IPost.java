@@ -11,12 +11,11 @@ public interface IPost extends Serializable {
     String getUniqueID();
     String getTitle();
     String getDescription();
-    String getPostType();
+    String getType();
+
+    String getImagePath();
 
     IUser getAuthor();
-    //Range getAvailableTime();
     void setUniqueID(String uniqueID);
-    //ImageView getImage();
-    //void setImage(ImageView image);
     Set<String> getTags();
 }

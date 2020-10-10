@@ -9,7 +9,6 @@ import application.ResourceLoader;
 import application.view.pages.util.TagDisplay;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -24,7 +23,7 @@ public class PostCard extends VBox {
        IUser author = post.getAuthor();
 
        //Creates the GUI elements
-       Label  postTypeLabel          = new Label(post.getPostType());
+       Label  postTypeLabel          = new Label(post.getType());
        Label  titleLabel             = new Label(post.getTitle());
        Label  nameAndAddressLabel    = new Label(author.getName() + ", " + author.getAddress());
        Label  phoneNumberLabel       = new Label("Contact " + author.getPhoneNumber().getNumber());

@@ -12,19 +12,23 @@ public class Post implements IPost {
     private final String title;
     private final String description;
     private final IUser author;
-    private final String postType;
+    private final String type;
     private final Set<String> tags;
-    //private final String imagePath;
+    private final String imagePath;
     // TODO: implement private final ImageContainer image;
 
+    public Post(String title, String description, IUser author, String type, Set<String> tags) {
+        this(title, description, author, type, tags, null);
+    }
 
-    public Post(String title, String description, IUser author, String postType, Set<String> tags) {
+    public Post(String title, String description, IUser author, String type, Set<String> tags, String imagePath) {
         this.title = title;
         this.description = description;
         this.author = author;
         this.uniqueID = UUID.randomUUID().toString();
-        this.postType = postType;
+        this.type = type;
         this.tags = new HashSet<>(tags);
+        this.imagePath = imagePath;
     }
 
 
@@ -49,31 +53,20 @@ public class Post implements IPost {
     }
 
     @Override
-    public String getPostType() {
-        return postType;
+    public String getType() {
+        return type;
     }
-/*
-    @Override
-    public Range getAvailableTime() {
-        return null;
-    }
-*/
 
     @Override
     public void setUniqueID(String uniqueID) {
         this.uniqueID = uniqueID;
     }
 
-  /*  @Override
-    public ImageView getImage() {
-        return image;
-    }
-
     @Override
-    public void setImage(ImageView image) {
-
+    public String getImagePath() {
+        return imagePath;
     }
-*/
+
     @Override
     public Set<String> getTags() {
         return tags;
