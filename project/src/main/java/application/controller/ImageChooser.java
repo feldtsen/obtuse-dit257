@@ -28,6 +28,7 @@ public class ImageChooser extends HBox {
 
     private final FileChooser chooser;
     private File selectedFile = null;
+    private String relativePath = null;
     private File copiedFile = null;
 
     public ImageChooser() {
@@ -48,13 +49,16 @@ public class ImageChooser extends HBox {
 
     private void selectImage() {
         selectedFile = chooser.showOpenDialog(null);
-        choiceLabel.setText(selectedFile.getName());
+        if(selectedFile != null) {
+            choiceLabel.setText(selectedFile.getName());
+        }
     }
 
     private void copyFile() {
         if(isSelected()) {
             //TODO ugly semi-hard coded relative path!??
-            File copyFile = new File(Paths.get("").toAbsolutePath().toString() + "/src/main/resources/" + selectedFile.getName());
+            relativePath = "/src/main/resources/" + selectedFile.getName();
+            File copyFile = new File(Paths.get("").toAbsolutePath().toString() + relativePath);
             System.out.println(copyFile.getPath());
             //TODO: fix to not overwrite existing files
             /*while(copyFile.exists()) {
@@ -66,6 +70,7 @@ public class ImageChooser extends HBox {
                 ClientController.showAlert("Unable to copy images", Alert.AlertType.ERROR);
                 selectedFile = null;
                 copiedFile = null;
+                relativePath = null;
             }
             copiedFile = copyFile;
         }
@@ -75,10 +80,10 @@ public class ImageChooser extends HBox {
         return selectedFile != null;
     }
 
-    public Image getSelectedImage() {
+    public String getSelectedPath() {
         if(selectedFile != null) {
             copyFile();
         }
-        return new Image(copiedFile.toURI().toString());
+        return relativePath;
     }
 }

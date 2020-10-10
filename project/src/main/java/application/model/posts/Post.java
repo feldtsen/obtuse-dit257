@@ -13,8 +13,8 @@ public class Post implements IPost {
     private final String description;
     private final IUser author;
     private final String postType;
-    //private final Range Availabletime;
     private final Set<String> tags;
+    //private final String imagePath;
     // TODO: implement private final ImageContainer image;
 
 
@@ -25,7 +25,6 @@ public class Post implements IPost {
         this.uniqueID = UUID.randomUUID().toString();
         this.postType = postType;
         this.tags = new HashSet<>(tags);
-        //this.tags.add(postType);
     }
 
 
