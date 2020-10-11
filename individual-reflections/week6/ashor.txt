@@ -1,9 +1,19 @@
 A:
-This sprint I have accomplished working on the model of our application and that by refactring the TagParser that
-we had written it in c style to a java version of it by using the HashMap for storing data instead of arrays.
-
+This sprint I have accomplished working on the model of our application and that by refactring the TagParser 
+that we had written it in c style to a java version of it by using the HashMap for storing data instead of 
+arrays.
+Further more, I have been able to complete impelementing being able to login with a password in 
+plain text to start with.
+I have get used to the agile mythodology and i find it a very good way to change what needed to be 
+change rapidly during the development stage.
+There has been improvments in our estimations of time required for completing our tasks.
+I was busy abit this sprint with other things in life and felt I could contribute more if I didn't have that but
+I did what I promised to do.
 
 B:
-
+I think we have to work on refactory what needed to be refactored in our source code and do more testing on our
+application to find any bugs if possible. In my opinion we don't have much time to implement new big features but
+we could do small ones.
 
 A->B:
+I need to discuss the changes I am have in mind with the rest of team and decide including them in our scrum board.
