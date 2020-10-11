@@ -1,0 +1,9 @@
+A:
+This sprint I have accomplished working on the model of our application and that by refactring the TagParser that
+we had written it in c style to a java version of it by using the HashMap for storing data instead of arrays.
+
+
+B:
+
+
+A->B:
