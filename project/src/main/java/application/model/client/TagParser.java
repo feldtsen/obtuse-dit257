@@ -1,4 +1,4 @@
-package application.model.util;
+package application.model.client;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -54,7 +54,7 @@ public class TagParser {
     }
 
     /**
-     * Gives a set of all categories from the tags file
+     * Gives a sorted set of all categories from the tags file
      * @return a set of categories
      */
     public SortedSet<String> getAllCategories(){
@@ -62,7 +62,7 @@ public class TagParser {
     }
 
     /**
-     * Gives a set of all tags from the tags file
+     * Gives a sorted set of all tags from the tags file
      * @return a set of tags
      */
     public SortedSet<String> getAllTags(){
@@ -73,7 +73,7 @@ public class TagParser {
     }
 
     /**
-     * Gives a set of all tags for the category specified below in the tags file
+     * Gives a sorted set of all tags for the category specified below in the tags file
      * @param category the category for which the tags are returned
      * @return a set of tags for the specified category
      */

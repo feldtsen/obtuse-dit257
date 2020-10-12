@@ -9,7 +9,6 @@ import application.model.users.IUser;
 import application.model.users.User;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
-import application.model.util.TagParser;
 import org.junit.Before;
 import org.junit.Test;
 

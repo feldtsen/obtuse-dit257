@@ -1,14 +1,9 @@
 package application.view.pages.board.search;
 
 import application.model.client.Client;
-import application.model.util.TagParser;
-import application.view.pages.board.search.SearchInput;
+import application.model.client.TagParser;
 import javafx.collections.FXCollections;
-import javafx.geometry.HPos;
 import javafx.scene.control.ComboBox;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 import java.util.ArrayList;
 

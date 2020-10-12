@@ -2,7 +2,6 @@ package application.model.client;
 
 import application.model.board.IBoard;
 import application.model.users.IUser;
-import application.model.util.TagParser;
 
 public class Client implements IClient{
     private static IClient INSTANCE;
