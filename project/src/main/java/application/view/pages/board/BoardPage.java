@@ -3,6 +3,7 @@ package application.view.pages.board;
 import application.view.pages.Page;
 import application.view.pages.board.posts.PostCard;
 import application.view.pages.board.search.SearchModule;
+import javafx.geometry.Pos;
 import javafx.scene.layout.*;
 
 public class BoardPage extends GridPane implements Page {
@@ -11,6 +12,9 @@ public class BoardPage extends GridPane implements Page {
     private BoardPage () {
         // Id used for styling
         this.setId("boardPage");
+
+        // Force the board to start at the top
+        this.setAlignment(Pos.TOP_CENTER);
 
         //Used to make the cards the correct size
         ColumnConstraints columnConstraints = new ColumnConstraints();

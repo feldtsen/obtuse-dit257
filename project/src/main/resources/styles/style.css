@@ -92,7 +92,7 @@
 /*NAVIGATION*/
 #navigationParent {
     -fx-background-color: #2A2A2A;
-    -fx-max-height: 120!important;
+    -fx-max-height: 100!important;
 }
 
 #logoButton {
