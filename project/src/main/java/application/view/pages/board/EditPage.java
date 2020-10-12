@@ -32,7 +32,7 @@ public class EditPage extends VBox implements Page {
         newDescription.setId("newDescription");
         update.setId("updateButton");
 
-        descriptionInput.setMinHeight(150);
+        descriptionInput.setMinHeight(50);
         descriptionInput.setWrapText(true);
         // Connect button to controller
         update.setOnMouseClicked(e -> PostController.updatePost());
