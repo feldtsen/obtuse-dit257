@@ -8,6 +8,7 @@ import application.model.client.IClient;
 import application.model.posts.IPost;
 import application.model.util.FileIO;
 import application.view.pages.board.BoardPage;
+import application.view.pages.board.categories.CategoryButtonContainer;
 import application.view.pages.board.posts.PostCard;
 import application.view.pages.board.search.SearchModule;
 import javafx.scene.control.Alert;
@@ -49,6 +50,14 @@ public class BoardController {
                 boardPage.add(searchModule, colIndex, rowIndex);
                 rowIndex++;
             }
+
+            if (rowIndex == 1) {
+                CategoryButtonContainer categoryButtonContainer = new CategoryButtonContainer();
+                boardPage.setFullWidth(categoryButtonContainer);
+                boardPage.add(categoryButtonContainer, colIndex, rowIndex);
+                rowIndex++;
+            }
+
 
             colIndex = (counter % 2);
             postCard = new PostCard(post);

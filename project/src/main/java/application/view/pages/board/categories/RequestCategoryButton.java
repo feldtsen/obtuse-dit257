@@ -7,9 +7,9 @@ public class RequestCategoryButton extends Button implements OnClickAction {
     private static RequestCategoryButton instance = null;
 
     private RequestCategoryButton() {
-        this.setText("Donations");
+        this.setText("Requests");
         this.setOnMouseClicked(e -> this.action());
-        this.setId("donationCategoryButton");
+        this.setId("requestCategoryButton");
     }
 
     public static RequestCategoryButton getInstance(){

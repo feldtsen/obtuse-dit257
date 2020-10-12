@@ -17,27 +17,30 @@
     -fx-font-family:      Arial;
 }
 /* BUTTON */
-#navigationButton,     #logoButton, #claimButton,  #submitPostButton,
+#navigationButton, #logoButton, #claimButton, #submitPostButton,
 #submitRegisterButton, #editButton, #updateButton, #deleteButton,
-#submitLoginButton, #logoutButton,    #active,            #inactive, #searchButton {
-    -fx-focus-color:       transparent;
+#submitLoginButton, #logoutButton, #active, #inactive,
+#searchButton, #donationCategoryButton, #requestCategoryButton {
+    -fx-focus-color: transparent;
     -fx-background-radius: 0;
-    -fx-border-style:      none;
-    -fx-background-color:  rgba(0, 0, 0, 0);
-    -fx-text-fill:         BBBBBB;
-    -fx-font-size:         1.3em;
+    -fx-border-style: none;
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-text-fill: BBBBBB;
+    -fx-font-size: 1.3em;
 }
 
 #claimButton, #submitRegisterButton, #submitPostButton,
-#editButton,  #updateButton, #deleteButton, #submitLoginButton,
-#active, #inactive, #searchButton{ /*Adds contrast*/
-     -fx-min-width:        100;
-     -fx-background-color: #303030;
- }
+#editButton, #updateButton, #deleteButton, #submitLoginButton,
+#active, #inactive, #searchButton, #donationCategoryButton,
+#requestCategoryButton { /*Adds contrast*/
+    -fx-min-width: 100;
+    -fx-background-color: #303030;
+}
 
 #navigationButton:hover, #submitPostButton:hover, #submitRegisterButton:hover,
-#editButton:hover,       #updateButton:hover, #submitLoginButton:hover, #logoutButton:hover,
-#active:hover,   #inactive:hover, #searchButton:hover {
+#editButton:hover, #updateButton:hover, #submitLoginButton:hover,
+#logoutButton:hover, #active:hover, #inactive:hover,
+#searchButton:hover, #donationCategoryButton:hover, #requestCategoryButton:hover {
     -fx-background-color: #505050;
 }
 
@@ -81,7 +84,7 @@
 }
 
 #deleteButton {
-    -fx-text-fill:        #FFFFFF;
+    -fx-text-fill: #FFFFFF;
     -fx-background-color: #B22222;
 }
 
@@ -89,10 +92,14 @@
     -fx-background-color: #F26262;
 }
 
+#categoryButtonContainer {
+    -fx-spacing: 10;
+}
+
 /*NAVIGATION*/
 #navigationParent {
     -fx-background-color: #2A2A2A;
-    -fx-max-height: 100!important;
+    -fx-max-height: 100 !important;
 }
 
 #logoButton {
