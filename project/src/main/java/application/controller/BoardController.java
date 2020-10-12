@@ -52,7 +52,7 @@ public class BoardController {
             }
 
             if (rowIndex == 1) {
-                CategoryButtonContainer categoryButtonContainer = new CategoryButtonContainer();
+                CategoryButtonContainer categoryButtonContainer = CategoryButtonContainer.getInstance();
                 boardPage.setFullWidth(categoryButtonContainer);
                 boardPage.add(categoryButtonContainer, colIndex, rowIndex);
                 rowIndex++;
