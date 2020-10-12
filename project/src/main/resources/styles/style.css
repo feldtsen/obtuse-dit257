@@ -86,7 +86,6 @@
 }
 
 #deleteButton:hover {
-
     -fx-background-color: #F26262;
 }
 
@@ -199,7 +198,7 @@
 .tagDropdown {
     -fx-font-size: 1.2em;
 }
-.combo-box .combo-box-popup .list-view, .combo-box .combo-box-popup .list-cell {
+.combo-box .combo-box-popup .list-view, .list-cell {
     -fx-background-color: #AAAAAA ;
     -fx-text-fill: #000000 ;
     -fx-background-radius: 0;
@@ -207,5 +206,10 @@
 .combo-box .combo-box-popup .list-cell:hover, .list-cell:filled:selected, .list-cell:filled:selected:hover{
     -fx-text-fill: #000000 !important;
     -fx-background-color: #507750 !important;
+}
+
+.combo-box-popup, .list-view {
+    -fx-min-height: 13em;
+
 }
 

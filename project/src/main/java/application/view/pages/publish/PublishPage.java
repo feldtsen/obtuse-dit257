@@ -1,5 +1,6 @@
 package application.view.pages.publish;
 
+import application.controller.ImageChooser;
 import application.view.pages.Page;
 import application.view.pages.board.posts.ButtonContainer;
 import application.view.pages.board.posts.SubmitPostButton;
@@ -11,6 +12,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class PublishPage extends VBox implements Page {
     private static PublishPage instance = null;
@@ -18,6 +20,8 @@ public class PublishPage extends VBox implements Page {
     private final TextField titleInput;
     private final TextArea descriptionInput;
     private String type = "Donation";
+    private final TagChoiceDropdown tagChoice = new TagChoiceDropdown();
+    private final ImageChooser imageChooser = new ImageChooser();
 
     private PublishPage() {
         this.setId("publishPage");
@@ -39,6 +43,8 @@ public class PublishPage extends VBox implements Page {
                 titleInput,
                 new Label("Description"),
                 descriptionInput,
+                imageChooser,
+                tagChoice,
                 SubmitPostButton.getInstance()
         );
     }
@@ -57,6 +63,15 @@ public class PublishPage extends VBox implements Page {
 
     public void setPostType(String type) {
         this.type = type;
+    }
+
+    public Set<String> getSelectedTags (){ return tagChoice.getTags(); }
+
+    public String getImagePath() {
+        if(imageChooser.isSelected()) {
+            return imageChooser.getSelectedPath();
+        }
+        return null;
     }
 
     public static PublishPage getInstance() {

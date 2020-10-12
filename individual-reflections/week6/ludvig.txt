@@ -1,0 +1,8 @@
+A:
+This sprint we made use of our tags so we could add tags with a dropdown menu to our posts, also a way to display the tags.
+I got to use the JavaFX parts of our system more and a better understanding of it.
+B:
+I still feel i need more practice with the GUI elements of our project to be able to sit down by myself to work on it.
+I also want to make the current code we have now more understandable for me.
+A->B:
+To achieve this i think i need to sit down and look up stuff in our codebase and also comment more on the things i've done myself.
