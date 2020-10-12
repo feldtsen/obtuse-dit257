@@ -20,7 +20,7 @@
 #navigationButton, #logoButton, #claimButton, #submitPostButton,
 #submitRegisterButton, #editButton, #updateButton, #deleteButton,
 #submitLoginButton, #logoutButton, #active, #inactive,
-#searchButton, #donationCategoryButton, #requestCategoryButton {
+#searchButton {
     -fx-focus-color: transparent;
     -fx-background-radius: 0;
     -fx-border-style: none;
@@ -31,8 +31,7 @@
 
 #claimButton, #submitRegisterButton, #submitPostButton,
 #editButton, #updateButton, #deleteButton, #submitLoginButton,
-#active, #inactive, #searchButton, #donationCategoryButton,
-#requestCategoryButton { /*Adds contrast*/
+#active, #inactive, #searchButton { /*Adds contrast*/
     -fx-min-width: 100;
     -fx-background-color: #303030;
 }
@@ -40,7 +39,7 @@
 #navigationButton:hover, #submitPostButton:hover, #submitRegisterButton:hover,
 #editButton:hover, #updateButton:hover, #submitLoginButton:hover,
 #logoutButton:hover, #active:hover, #inactive:hover,
-#searchButton:hover, #donationCategoryButton:hover, #requestCategoryButton:hover {
+#searchButton:hover {
     -fx-background-color: #505050;
 }
 
@@ -90,10 +89,6 @@
 
 #deleteButton:hover {
     -fx-background-color: #F26262;
-}
-
-#categoryButtonContainer {
-    -fx-spacing: 10;
 }
 
 /*NAVIGATION*/

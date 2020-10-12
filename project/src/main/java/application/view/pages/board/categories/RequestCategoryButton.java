@@ -9,16 +9,26 @@ public class RequestCategoryButton extends Button implements OnClickAction {
     private RequestCategoryButton() {
         this.setText("Requests");
         this.setOnMouseClicked(e -> this.action());
-        this.setId("requestCategoryButton");
+        this.setId("inactive");
     }
 
-    public static RequestCategoryButton getInstance(){
+    public static RequestCategoryButton getInstance() {
         if (instance == null) instance = new RequestCategoryButton();
         return instance;
     }
 
+    private void toggleActiveStatus() {
+        if (this.getId().equals("inactive"))
+            this.setId("active");
+        else
+            this.setId("inactive");
+    }
+
     @Override
     public void action() {
+        this.toggleActiveStatus();
+        DonationCategoryButton.getInstance().setId("inactive");
+
         // TODO add functionality
     }
 }
