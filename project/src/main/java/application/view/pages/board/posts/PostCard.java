@@ -68,10 +68,16 @@ public class PostCard extends VBox {
        }
 
        // Load image
-       ImageView imageView = null;
+       /*ImageView imageView = null;
        if(post.getImagePath() != null) {
-          imageView = new ImageView(new Image(ImageChooser.toFullPath(post.getImagePath())));
-       }
+          String path = "file:" + post.getImagePath();
+          System.out.println(path);
+          imageView = new ImageView(path);
+          imageView.setFitWidth(100);
+          imageView.setPreserveRatio(true);
+          imageView.setSmooth(true);
+          imageView.setCache(true);
+       }*/
 
        //Adds the GUI components to the post
        this.getChildren().setAll(
@@ -82,11 +88,12 @@ public class PostCard extends VBox {
                nameAndAddressLabel,
                new ButtonContainer(buttons),
                tagDisplay
+               //imageView
        );
 
-       if(imageView != null) {
+       /*if(imageView != null) {
           this.getChildren().add(imageView);
-       }
+       }*/
     }
 }
 
