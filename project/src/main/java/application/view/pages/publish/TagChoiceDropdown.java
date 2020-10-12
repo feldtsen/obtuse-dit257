@@ -1,7 +1,7 @@
 package application.view.pages.publish;
 
 import application.model.client.Client;
-import application.model.util.TagParser;
+import application.model.client.TagParser;
 import application.view.pages.util.TagDisplay;
 import javafx.collections.FXCollections;
 import javafx.event.Event;

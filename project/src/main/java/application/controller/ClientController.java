@@ -9,7 +9,7 @@ import application.model.util.FileIO;
 import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
-import application.model.util.TagParser;
+import application.model.client.TagParser;
 import application.view.pages.PageParent;
 import application.view.pages.login.RegisterPage;
 import application.view.status.AlertBannerModule;

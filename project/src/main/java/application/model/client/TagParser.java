@@ -1,4 +1,4 @@
-package application.model.util;
+package application.model.client;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -54,30 +54,30 @@ public class TagParser {
     }
 
     /**
-     * Gives a set of all categories from the tags file
+     * Gives a sorted set of all categories from the tags file
      * @return a set of categories
      */
-    public Set<String> getAllCategories(){
-        return new HashSet<>(tagsByCategory.keySet());
+    public SortedSet<String> getAllCategories(){
+        return new TreeSet<>(tagsByCategory.keySet());
     }
 
     /**
-     * Gives a set of all tags from the tags file
+     * Gives a sorted set of all tags from the tags file
      * @return a set of tags
      */
-    public Set<String> getAllTags(){
-        HashSet<String> allTags = new HashSet<>();
+    public SortedSet<String> getAllTags(){
+        TreeSet<String> allTags = new TreeSet<>();
         for(List<String> tagList: tagsByCategory.values())
             allTags.addAll(tagList);
         return allTags;
     }
 
     /**
-     * Gives a set of all tags for the category specified below in the tags file
+     * Gives a sorted set of all tags for the category specified below in the tags file
      * @param category the category for which the tags are returned
      * @return a set of tags for the specified category
      */
-    public Set<String> getTagsForCategory (String category) {
-        return new HashSet<>(tagsByCategory.get(category));
+    public SortedSet<String> getTagsForCategory (String category) {
+        return new TreeSet<>(tagsByCategory.get(category));
     }
 }

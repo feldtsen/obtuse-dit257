@@ -1,7 +1,7 @@
 package model.util;
 
 import application.ResourceLoader;
-import application.model.util.TagParser;
+import application.model.client.TagParser;
 import org.junit.Test;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
