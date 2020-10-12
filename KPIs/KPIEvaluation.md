@@ -14,6 +14,8 @@
 
 ### Week 4:
 
+* 12/13 92%
+
 ## Personal well-being (daily) (1-5)
 
 ### Week 1:

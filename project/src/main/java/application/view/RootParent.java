@@ -5,7 +5,6 @@ import application.controller.ClientController;
 import application.view.navigation.NavigationParent;
 import application.view.pages.PageParent;
 import application.view.status.StatusBanner;
-import javafx.geometry.Insets;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -36,8 +35,8 @@ public class RootParent extends VBox {
         );
 
 
-        this.setResponsiveSize(pageParent, primaryStage, .78);
-        this.setResponsiveSize(navigationParent, primaryStage, .22);
+        //this.setResponsiveSize(pageParent, primaryStage, .78);
+        //this.setResponsiveSize(navigationParent, primaryStage, .22);
 
     }
 

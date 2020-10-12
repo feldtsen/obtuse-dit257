@@ -28,7 +28,7 @@ public class PublishPage extends VBox implements Page {
         titleInput = new TextField();
         descriptionInput = new TextArea();
 
-        descriptionInput.setMinHeight(150);
+        descriptionInput.setMinHeight(50);
         descriptionInput.setWrapText(true);
 
 
