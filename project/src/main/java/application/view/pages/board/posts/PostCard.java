@@ -1,5 +1,6 @@
 package application.view.pages.board.posts;
 
+import application.controller.ImageChooser;
 import application.controller.PostController;
 import application.model.client.Client;
 import application.model.posts.IPost;
@@ -9,11 +10,13 @@ import application.ResourceLoader;
 import application.view.pages.util.TagDisplay;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +27,7 @@ public class PostCard extends VBox {
        IUser author = post.getAuthor();
 
        //Creates the GUI elements
-       Label  postTypeLabel          = new Label(post.getPostType());
+       Label  postTypeLabel          = new Label(post.getType());
        Label  titleLabel             = new Label(post.getTitle());
        Label  nameAndAddressLabel    = new Label(author.getName() + ", " + author.getAddress());
        Label  phoneNumberLabel       = new Label("Contact " + author.getPhoneNumber().getNumber());
@@ -64,6 +67,18 @@ public class PostCard extends VBox {
           }
        }
 
+       // Load image
+       /*ImageView imageView = null;
+       if(post.getImagePath() != null) {
+          String path = "file:" + post.getImagePath();
+          System.out.println(path);
+          imageView = new ImageView(path);
+          imageView.setFitWidth(100);
+          imageView.setPreserveRatio(true);
+          imageView.setSmooth(true);
+          imageView.setCache(true);
+       }*/
+
        //Adds the GUI components to the post
        this.getChildren().setAll(
                postTypeLabel,
@@ -73,7 +88,12 @@ public class PostCard extends VBox {
                nameAndAddressLabel,
                new ButtonContainer(buttons),
                tagDisplay
+               //imageView
        );
+
+       /*if(imageView != null) {
+          this.getChildren().add(imageView);
+       }*/
     }
 }
 

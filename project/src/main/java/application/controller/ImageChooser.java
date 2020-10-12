@@ -28,7 +28,7 @@ public class ImageChooser extends HBox {
 
     private final FileChooser chooser;
     private File selectedFile = null;
-    private File copiedFile = null;
+    private String relativePath = null;
 
     public ImageChooser() {
         super();
@@ -48,13 +48,16 @@ public class ImageChooser extends HBox {
 
     private void selectImage() {
         selectedFile = chooser.showOpenDialog(null);
-        choiceLabel.setText(selectedFile.getName());
+        if(selectedFile != null) {
+            choiceLabel.setText(selectedFile.getName());
+        }
     }
 
     private void copyFile() {
         if(isSelected()) {
             //TODO ugly semi-hard coded relative path!??
-            File copyFile = new File(Paths.get("").toAbsolutePath().toString() + "/src/main/resources/" + selectedFile.getName());
+            relativePath = "/src/main/resources/" + selectedFile.getName();
+            File copyFile = new File(toFullPath(relativePath));
             System.out.println(copyFile.getPath());
             //TODO: fix to not overwrite existing files
             /*while(copyFile.exists()) {
@@ -65,9 +68,8 @@ public class ImageChooser extends HBox {
             } catch (IOException e) {
                 ClientController.showAlert("Unable to copy images", Alert.AlertType.ERROR);
                 selectedFile = null;
-                copiedFile = null;
+                relativePath = null;
             }
-            copiedFile = copyFile;
         }
     }
 
@@ -75,10 +77,15 @@ public class ImageChooser extends HBox {
         return selectedFile != null;
     }
 
-    public Image getSelectedImage() {
+    public static String toFullPath(String relativePath) {
+        return Paths.get("").toAbsolutePath().toString() + relativePath;
+    }
+
+    public String getSelectedPath() {
+        //TODO: currently does two things... :(
         if(selectedFile != null) {
             copyFile();
         }
-        return new Image(copiedFile.toURI().toString());
+        return relativePath;
     }
 }

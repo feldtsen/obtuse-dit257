@@ -59,7 +59,7 @@ public class EditPage extends VBox implements Page {
         titleInput.setText(oldPost.getTitle());
         descriptionInput.setText(oldPost.getDescription());
         uuidField = oldPost.getUniqueID();
-        postType = oldPost.getPostType();
+        postType = oldPost.getType();
     }
 
     public static String getTitleInput () {
