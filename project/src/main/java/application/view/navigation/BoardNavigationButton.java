@@ -2,8 +2,8 @@ package application.view.navigation;
 
 
 import application.controller.BoardController;
-import application.view.pages.board.BoardPage;
 import application.view.pages.PageParent;
+import application.view.pages.board.BoardPage;
 
 public class BoardNavigationButton extends NavigationButton {
     private static BoardNavigationButton instance = null;
@@ -22,9 +22,6 @@ public class BoardNavigationButton extends NavigationButton {
 
     @Override
     public void action() {
-        // Clears the posts on the board
-        BoardPage.getInstance().getChildren().setAll();
-
         // Gets all the posts for the current client
         BoardController.retrievePosts();
 

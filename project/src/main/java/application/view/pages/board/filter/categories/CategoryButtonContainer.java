@@ -39,8 +39,10 @@ public class CategoryButtonContainer extends HBox {
 
         if (donationCategoryButton.getId().equals("active")) {
             filter = new Filter("Donation", Set.of());
+            System.out.println("adwadwada");
         } else if (requestCategoryButton.getId().equals("active")) {
             filter = new Filter("Request", Set.of());
+            System.out.println("bbbb");
         }
 
         BoardController.setFilter(filter);

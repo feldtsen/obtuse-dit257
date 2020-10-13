@@ -4,14 +4,12 @@ import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.posts.IPost;
 import application.model.posts.Post;
-import application.view.navigation.BoardNavigationButton;
-import application.view.pages.board.EditPage;
 import application.view.pages.PageParent;
+import application.view.pages.board.EditPage;
 import application.view.pages.publish.PublishPage;
 import javafx.scene.control.Alert;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class PostController {
@@ -94,7 +92,7 @@ public class PostController {
         }
 
         //Simulating clicking the "board" button, loading the board page and refreshing all the post cards
-        BoardNavigationButton.getInstance().action();
+        BoardController.retrievePosts();
     }
 
     public static void deletePost(String postUUID) {
@@ -113,7 +111,7 @@ public class PostController {
         }
 
         //Simulating clicking the "board" button, loading the board page and refreshing all the post cards
-        BoardNavigationButton.getInstance().action();
+        BoardController.retrievePosts();
     }
 
 }

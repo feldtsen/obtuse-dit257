@@ -9,15 +9,14 @@ import java.util.Map;
 
 public class Board implements IBoard {
     private final List<IPost> posts;
-    private final Map<String,IPost> postMap;
-    private IFilter filter;
+    private final Map<String, IPost> postMap;
+    private transient IFilter filter = null;
 
     private List<IPost> filteredPosts;
 
     public Board() {
         this.posts = new ArrayList<>();
         this.postMap = new HashMap<>();
-        this.filter = null;
         this.filteredPosts = new ArrayList<>();
     }
 
@@ -30,14 +29,13 @@ public class Board implements IBoard {
     public List<IPost> getVisiblePosts() {
         if(filter == null) return posts;
 
-        if(filteredPosts == null) {
             filteredPosts = new ArrayList<>();
             for(IPost post : posts) {
                 if(filter.looseMatch(post)) { //TODO: loose match??
                     filteredPosts.add(post);
                 }
             }
-        }
+
         return filteredPosts;
     }
 
@@ -56,6 +54,7 @@ public class Board implements IBoard {
     public void replacePost(String id, IPost newPost) {
         if (postMap.containsKey(id)) {
             posts.set(posts.indexOf(postMap.get(id)),newPost);
+            //if (filteredPosts != null) filteredPosts.set(posts.indexOf(postMap.get(id)), newPost);
             postMap.replace(id,newPost);
         }
 
@@ -64,6 +63,7 @@ public class Board implements IBoard {
     @Override
     public boolean deletePost(String id) {
         boolean success = posts.remove(postMap.get(id));
+        //if (filteredPosts != null) filteredPosts.remove(postMap.get(id));
         postMap.remove(id);
         return success;
     }

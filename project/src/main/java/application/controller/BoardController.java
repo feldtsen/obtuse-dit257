@@ -10,10 +10,7 @@ import application.model.posts.IPost;
 import application.model.util.FileIO;
 import application.view.pages.board.BoardPage;
 import application.view.pages.board.filter.FilterBanner;
-import application.view.pages.board.filter.categories.CategoryButtonContainer;
 import application.view.pages.board.posts.PostCard;
-import application.view.pages.board.filter.search.SearchModule;
-import application.view.status.AlertBannerModule;
 import javafx.scene.control.Alert;
 
 import java.io.File;
@@ -42,6 +39,8 @@ public class BoardController {
 
         if (client.getBoard() == null)
             return;
+
+        BoardPage.getInstance().getChildren().setAll();
 
 
         BoardPage boardPage = BoardPage.getInstance();
