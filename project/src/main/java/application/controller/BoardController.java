@@ -42,17 +42,17 @@ public class BoardController {
         int counter = 0;
         int rowIndex = 0;
         int colIndex = 0;
+
+        FilterBanner filterBanner = new FilterBanner();
+        boardPage.setFullWidth(filterBanner);
+        boardPage.add(filterBanner, colIndex, rowIndex);
+        rowIndex++;
+
         for (IPost post : posts) {
             // Restricts it to 2 columns
 
 
-            if (rowIndex == 0) {
-                FilterBanner filterBanner = new FilterBanner();
-                boardPage.setFullWidth(filterBanner);
-                boardPage.add(filterBanner, colIndex, rowIndex);
 
-                rowIndex++;
-            }
 
 
             colIndex = (counter % 2);
