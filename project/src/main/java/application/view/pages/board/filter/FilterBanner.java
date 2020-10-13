@@ -5,7 +5,8 @@ import application.view.pages.board.filter.search.SearchModule;
 import javafx.scene.layout.HBox;
 
 public class FilterBanner extends HBox {
-    public FilterBanner (){
+    private static FilterBanner instance = null;
+    private FilterBanner (){
         SearchModule searchModule = new SearchModule();
         CategoryButtonContainer categoryButtonContainer = new CategoryButtonContainer();
 
@@ -13,5 +14,9 @@ public class FilterBanner extends HBox {
                 categoryButtonContainer,
                 searchModule
         );
+    }
+    public static FilterBanner getInstance() {
+        if (instance == null) instance = new FilterBanner();
+        return instance;
     }
 }

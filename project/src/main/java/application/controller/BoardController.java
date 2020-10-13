@@ -3,6 +3,7 @@ package application.controller;
 import application.ResourceLoader;
 import application.model.board.Board;
 import application.model.board.IBoard;
+import application.model.board.IFilter;
 import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.posts.IPost;
@@ -21,6 +22,12 @@ import java.util.Collection;
 
 public class BoardController {
 
+    public static void setFilter(IFilter filter) {
+        Client.getInstance().getBoard().setFilter(filter);
+        BoardPage.getInstance().getChildren().setAll();
+        retrievePosts();
+    }
+
     public static void retrievePosts() {
         IClient client = Client.getInstance();
 
@@ -38,13 +45,16 @@ public class BoardController {
 
 
         BoardPage boardPage = BoardPage.getInstance();
-        Collection<IPost> posts = client.getBoard().getAllPosts();
+        Collection<IPost> posts = client.getBoard().getVisiblePosts();
         PostCard postCard;
         int counter = 0;
         int rowIndex = 0;
         int colIndex = 0;
 
-        FilterBanner filterBanner = new FilterBanner();
+
+        FilterBanner filterBanner = FilterBanner.getInstance();
+        boardPage.getChildren().remove(filterBanner);
+
         boardPage.setFullWidth(filterBanner);
         boardPage.add(filterBanner, colIndex, rowIndex);
         rowIndex++;

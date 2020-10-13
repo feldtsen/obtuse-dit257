@@ -2,10 +2,11 @@ package application.model.board;
 
 import application.model.posts.IPost;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.Set;
 
-public class Filter implements IFilter {
+public class Filter implements IFilter, Serializable {
     public final static String ALL = "ALL";
     private final String postType;
     private final Set<String> tags;

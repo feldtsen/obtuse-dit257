@@ -2,8 +2,10 @@ package application.view;
 
 import application.ResourceLoader;
 import application.controller.ClientController;
+import application.model.board.Filter;
 import application.view.navigation.NavigationParent;
 import application.view.pages.PageParent;
+import application.view.pages.board.filter.FilterBanner;
 import application.view.status.StatusBanner;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;

@@ -1,6 +1,10 @@
 package application.view.pages.board.filter.categories;
 
+import application.controller.BoardController;
+import application.model.board.Filter;
 import javafx.scene.layout.HBox;
+
+import java.util.Set;
 
 public class CategoryButtonContainer extends HBox {
     CategoryButton donationCategoryButton;
@@ -23,6 +27,7 @@ public class CategoryButtonContainer extends HBox {
     }
 
     public void toggleActiveButtons(String category) {
+        Filter filter = null;
         if (category.equals("Donations")) {
             this.donationCategoryButton.toggleActiveStatus();
             this.requestCategoryButton.setId("inactive");
@@ -31,5 +36,13 @@ public class CategoryButtonContainer extends HBox {
             this.requestCategoryButton.toggleActiveStatus();
             this.donationCategoryButton.setId("inactive");
         }
+
+        if (donationCategoryButton.getId().equals("active")) {
+            filter = new Filter("Donation", Set.of());
+        } else if (requestCategoryButton.getId().equals("active")) {
+            filter = new Filter("Request", Set.of());
+        }
+
+        BoardController.setFilter(filter);
     }
 }

@@ -30,6 +30,7 @@ public class BoardPage extends GridPane implements Page {
 
         this.setVgap(10);
         this.setHgap(10);
+
     }
 
     public static BoardPage getInstance() {
