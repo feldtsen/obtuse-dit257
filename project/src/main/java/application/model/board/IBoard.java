@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IBoard extends Serializable {
     List<IPost> getVisiblePosts();
-    Collection<IPost> getAllPosts();
+    List<IPost> getAllPosts();
 
     IPost getSpecificPost(String id);
 
@@ -17,5 +17,5 @@ public interface IBoard extends Serializable {
     void replacePost(String id, IPost newPost);
 
     boolean deletePost(String id);
-    //void setFilter(IFilter);
+    void setFilter(IFilter filter);
 }
