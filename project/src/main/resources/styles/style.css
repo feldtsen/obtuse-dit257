@@ -28,14 +28,14 @@
 
 #claimButton, #submitRegisterButton, #submitPostButton,
 #editButton,  #updateButton, #deleteButton, #submitLoginButton,
-#active, #inactive, #searchButton{ /*Adds contrast*/
+#active, #inactive, #searchButton, .contrastButton{ /*Adds contrast*/
      -fx-min-width:        100;
      -fx-background-color: #303030;
  }
 
 #navigationButton:hover, #submitPostButton:hover, #submitRegisterButton:hover,
 #editButton:hover,       #updateButton:hover, #submitLoginButton:hover, #logoutButton:hover,
-#active:hover,   #inactive:hover, #searchButton:hover {
+#active:hover,   #inactive:hover, #searchButton:hover, .contrastButton:hover {
     -fx-background-color: #505050;
 }
 
@@ -117,7 +117,6 @@
 }
 
 #publishPage, #editPage {
-    -fx-background-color: #202020;
     -fx-spacing:          10;
     -fx-padding:          10;
 }
@@ -126,7 +125,7 @@
 #registerPage {
     -fx-spacing: 10;
 }
-#loginModule, #registerModule {
+#loginModule, #registerModule, .publishModule {
     -fx-background-color: #202020;
     -fx-padding:          10;
     -fx-spacing:          10;

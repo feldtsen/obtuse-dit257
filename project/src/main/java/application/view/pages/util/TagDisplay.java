@@ -2,10 +2,11 @@ package application.view.pages.util;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.util.Set;
 
-public class TagDisplay extends HBox {
+public class TagDisplay extends VBox {
 
     public TagDisplay(Set<String> tags) {
         setTags(tags);
@@ -14,7 +15,7 @@ public class TagDisplay extends HBox {
     public void setTags(Set<String> tags) {
         this.getChildren().clear();
         // Create and initialize container for tags
-        this.getChildren().add(new Label("Tags: ")); // Initial text
+        //this.getChildren().add(new Label("Tags: ")); // Initial text
         int i = 0; // Counter used to determine when last tag is reached
 
         for(String tag : tags) {

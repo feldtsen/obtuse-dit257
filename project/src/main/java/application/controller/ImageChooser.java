@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -12,7 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-public class ImageChooser extends HBox {
+public class ImageChooser extends VBox {
     private final Button chooseButton;
     private final Label choiceLabel;
 
@@ -30,8 +31,10 @@ public class ImageChooser extends HBox {
         super();
 
         chooseButton = new Button();
-        chooseButton.setText("Select image");
+        chooseButton.setText("Upload Image");
         chooseButton.setOnAction(e -> selectImage());
+
+        chooseButton.getStyleClass().add("contrastButton");
 
         choiceLabel = new Label("");
 

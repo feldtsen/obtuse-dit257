@@ -1,77 +1,52 @@
 package application.view.pages.publish;
 
-import application.controller.ImageChooser;
 import application.view.pages.Page;
-import application.view.pages.board.posts.ButtonContainer;
-import application.view.pages.board.posts.SubmitPostButton;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
-public class PublishPage extends VBox implements Page {
+public class PublishPage extends HBox implements Page {
     private static PublishPage instance = null;
 
-    private final TextField titleInput;
-    private final TextArea descriptionInput;
-    private String type = "Donation";
-    private final TagChoiceDropdown tagChoice = new TagChoiceDropdown();
-    private final ImageChooser imageChooser = new ImageChooser();
+    private final InputModule inputModule;
+    private final MetaModule metaModule;
 
     private PublishPage() {
         this.setId("publishPage");
-        titleInput = new TextField();
-        descriptionInput = new TextArea();
+        this.getStyleClass().add("publishPage");
 
-        descriptionInput.setMinHeight(100);
-        descriptionInput.setWrapText(true);
+        inputModule = new InputModule();
+        metaModule = new MetaModule();
 
+        HBox.setHgrow(inputModule, Priority.ALWAYS);
 
-        List<Button> buttons = new ArrayList<>();
-        buttons.add(DonationButton.getInstance());
-        buttons.add(RequestButton.getInstance());
-
-        ButtonContainer buttonContainer = new ButtonContainer(buttons);
         this.getChildren().addAll(
-                new Label("Title"),
-                buttonContainer,
-                titleInput,
-                new Label("Description"),
-                descriptionInput,
-                imageChooser,
-                tagChoice,
-                SubmitPostButton.getInstance()
+                inputModule ,
+                metaModule
         );
     }
 
     public String getTitleInput () {
-        return titleInput.getText();
+        return inputModule.getTitleInputField().getText();
     }
 
     public String getDescriptionInput() {
-       return descriptionInput.getText();
+       return inputModule.getDescriptionInputArea().getText();
     }
 
     public String getPostType() {
-        return type;
+        return metaModule.getType();
     }
 
     public void setPostType(String type) {
-        this.type = type;
+        metaModule.setType(type);
     }
 
-    public Set<String> getSelectedTags (){ return tagChoice.getTags(); }
+    public Set<String> getSelectedTags (){ return metaModule.getSelectedTags(); }
 
     public String getImagePath() {
-        if(imageChooser.isSelected()) {
-            return imageChooser.getSelectedPath();
-        }
-        return null;
+        return metaModule.getImagePath();
     }
 
     public static PublishPage getInstance() {

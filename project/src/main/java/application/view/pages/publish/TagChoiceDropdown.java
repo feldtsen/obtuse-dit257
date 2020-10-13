@@ -7,11 +7,12 @@ import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class TagChoiceDropdown extends HBox {
+public class TagChoiceDropdown extends VBox {
     private final static TagParser tagParser = Client.getInstance().getTagParser();
     private final Set<String> tags = new HashSet<>();
     private final ComboBox<String> tagChoices;
