@@ -8,9 +8,10 @@ import application.model.client.IClient;
 import application.model.posts.IPost;
 import application.model.util.FileIO;
 import application.view.pages.board.BoardPage;
-import application.view.pages.board.categories.CategoryButtonContainer;
+import application.view.pages.board.filter.FilterBanner;
+import application.view.pages.board.filter.categories.CategoryButtonContainer;
 import application.view.pages.board.posts.PostCard;
-import application.view.pages.board.search.SearchModule;
+import application.view.pages.board.filter.search.SearchModule;
 import javafx.scene.control.Alert;
 
 import java.io.File;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.util.Collection;
 
 public class BoardController {
+
     public static void retrievePosts() {
         IClient client = Client.getInstance();
 
@@ -45,16 +47,10 @@ public class BoardController {
 
 
             if (rowIndex == 0) {
-                SearchModule searchModule = new SearchModule();
-                boardPage.setFullWidth(searchModule);
-                boardPage.add(searchModule, colIndex, rowIndex);
-                rowIndex++;
-            }
+                FilterBanner filterBanner = new FilterBanner();
+                boardPage.setFullWidth(filterBanner);
+                boardPage.add(filterBanner, colIndex, rowIndex);
 
-            if (rowIndex == 1) {
-                CategoryButtonContainer categoryButtonContainer = CategoryButtonContainer.getInstance();
-                boardPage.setFullWidth(categoryButtonContainer);
-                boardPage.add(categoryButtonContainer, colIndex, rowIndex);
                 rowIndex++;
             }
 

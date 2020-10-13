@@ -1,31 +1,29 @@
 @font-face {
-    -fx-font-family: Awesome;
+    -fx-font-family: 'IBM Plex Sans';
 }
 
 #icon {
     -fx-text-fill: #BBBBBB;
-    -fx-font-size: 18;
-    -fx-max-height: 10;
-    -fx-max-width: 10;
+    -fx-font-size: 2em;
+    -fx-max-height: 2em;
+    -fx-max-width: 2em;
 }
 
 
 #rootParent {
     -fx-background-color: #1A1A1A;
-    -fx-padding:          20;
-    -fx-font-size:        15;
+    -fx-padding:          2em;
+    -fx-font-size:        1.3em;
     -fx-font-family:      Arial;
 }
 /* BUTTON */
-#navigationButton,     #logoButton, #claimButton,  #submitPostButton,
-#submitRegisterButton, #editButton, #updateButton, #deleteButton,
-#submitLoginButton, #logoutButton,    #active,            #inactive, #searchButton {
+.button {
     -fx-focus-color:       transparent;
     -fx-background-radius: 0;
     -fx-border-style:      none;
     -fx-background-color:  rgba(0, 0, 0, 0);
     -fx-text-fill:         BBBBBB;
-    -fx-font-size:         1.3em;
+    -fx-font-size:         1.15em;
 }
 
 #claimButton, #submitRegisterButton, #submitPostButton,
@@ -51,7 +49,20 @@
     -fx-background-color: #50AA50;
 }
 
+.active {
+    -fx-background-color: #50AA50;
+    -fx-text-fill: white;
+}
+
+.active:hover {
+    -fx-background-color: #50AA50;
+}
+
 #inactive {
+    -fx-background-color: #303030;
+}
+
+.inactive {
     -fx-background-color: #303030;
 }
 
@@ -184,8 +195,8 @@
 }
 
 .text-field {
-    -fx-min-height:20;
-    -fx-font-size: 17;
+    -fx-min-height:1.5em;
+    -fx-font-size: 1.3em;
 }
 
 .tagSearcher {

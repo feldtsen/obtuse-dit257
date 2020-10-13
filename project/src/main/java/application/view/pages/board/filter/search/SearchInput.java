@@ -1,7 +1,6 @@
-package application.view.pages.board.search;
+package application.view.pages.board.filter.search;
 
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class SearchInput extends TextField {

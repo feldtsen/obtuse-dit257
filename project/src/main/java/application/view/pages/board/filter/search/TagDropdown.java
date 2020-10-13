@@ -1,4 +1,4 @@
-package application.view.pages.board.search;
+package application.view.pages.board.filter.search;
 
 import application.model.client.Client;
 import application.model.client.TagParser;

@@ -1,9 +1,10 @@
 package application.view.pages.board;
 
 import application.view.pages.Page;
-import application.view.pages.board.categories.CategoryButtonContainer;
+import application.view.pages.board.filter.FilterBanner;
+import application.view.pages.board.filter.categories.CategoryButtonContainer;
 import application.view.pages.board.posts.PostCard;
-import application.view.pages.board.search.SearchModule;
+import application.view.pages.board.filter.search.SearchModule;
 import javafx.geometry.Pos;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -40,11 +41,8 @@ public class BoardPage extends GridPane implements Page {
         GridPane.setColumnSpan(postCard, 2);
     }
 
-    public void setFullWidth(SearchModule searchModule) {
-        GridPane.setColumnSpan(searchModule, 2);
+    public void setFullWidth(FilterBanner filterBanner) {
+        GridPane.setColumnSpan(filterBanner, 2);
     }
 
-    public void setFullWidth(CategoryButtonContainer categoryButtonContainer) {
-        GridPane.setColumnSpan(categoryButtonContainer, 2);
-    }
 }
