@@ -12,6 +12,7 @@ import application.view.pages.board.filter.FilterBanner;
 import application.view.pages.board.filter.categories.CategoryButtonContainer;
 import application.view.pages.board.posts.PostCard;
 import application.view.pages.board.filter.search.SearchModule;
+import application.view.status.AlertBannerModule;
 import javafx.scene.control.Alert;
 
 import java.io.File;
@@ -48,13 +49,12 @@ public class BoardController {
         boardPage.add(filterBanner, colIndex, rowIndex);
         rowIndex++;
 
+        if (posts.isEmpty()) {
+            ClientController.showAlert("The board is empty", Alert.AlertType.INFORMATION);
+        }
+
         for (IPost post : posts) {
             // Restricts it to 2 columns
-
-
-
-
-
             colIndex = (counter % 2);
             postCard = new PostCard(post);
 
