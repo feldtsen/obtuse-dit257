@@ -27,10 +27,14 @@ public class EditPage extends VBox implements Page {
         descriptionInput     = new TextArea();
 
         // Set id for reference
-        this.setId("editPage");
+        this.getStyleClass().add("padding");
+        this.getStyleClass().add("spacing");
+        this.getStyleClass().add("cardBackground");
+
         newTitle.setId("newTitle");
         newDescription.setId("newDescription");
-        update.setId("updateButton");
+
+        this.getStyleClass().add("spacing");
 
         descriptionInput.setMinHeight(100);
         descriptionInput.setWrapText(true);

@@ -28,6 +28,10 @@ public class LoginModule extends VBox implements Page {
         phoneLabel.setId("phoneLabel");
         passwordLabel.setId("passwordLabel");
 
+        this.getStyleClass().add("padding");
+        this.getStyleClass().add("spacing");
+        this.getStyleClass().add("cardBackground");
+
         Region buttonSpacing = new Region();
         VBox.setVgrow(buttonSpacing, Priority.ALWAYS);
 

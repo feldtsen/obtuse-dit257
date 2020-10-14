@@ -37,6 +37,10 @@ public class RegisterModule extends VBox implements Page {
         passwordLabel.setId("passwordLabel");
         passwordInput.setPromptText("Enter Password");
 
+        this.getStyleClass().add("padding");
+        this.getStyleClass().add("spacing");
+        this.getStyleClass().add("cardBackground");
+
         HBox.setHgrow(this, Priority.ALWAYS);
 
         //Forces buttons to bottom

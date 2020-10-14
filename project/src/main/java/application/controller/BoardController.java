@@ -52,10 +52,13 @@ public class BoardController {
 
 
         FilterBanner filterBanner = FilterBanner.getInstance();
-        boardPage.getChildren().remove(filterBanner);
 
-        boardPage.setFullWidth(filterBanner);
-        boardPage.add(filterBanner, colIndex, rowIndex);
+        
+        if (!boardPage.getChildren().contains(filterBanner)) {
+            boardPage.setFullWidth(filterBanner);
+            boardPage.add(filterBanner, colIndex, rowIndex);
+        }
+
         rowIndex++;
 
         if (posts.isEmpty()) {

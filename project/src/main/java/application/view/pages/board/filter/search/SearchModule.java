@@ -21,8 +21,6 @@ public class SearchModule extends GridPane {
 
         searchButton.prefHeightProperty().bind(this.heightProperty());
 
-        searchButton.setId("searchButton");
-
         GridPane.setHalignment(searchButton, HPos.RIGHT);
 
         this.getChildren().addAll(

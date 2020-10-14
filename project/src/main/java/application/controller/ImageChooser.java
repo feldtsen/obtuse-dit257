@@ -34,7 +34,6 @@ public class ImageChooser extends VBox {
         chooseButton.setText("Upload Image");
         chooseButton.setOnAction(e -> selectImage());
 
-        chooseButton.getStyleClass().add("contrastButton");
 
         choiceLabel = new Label("");
 

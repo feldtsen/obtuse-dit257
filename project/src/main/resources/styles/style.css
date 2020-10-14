@@ -21,82 +21,58 @@
     -fx-focus-color:       transparent;
     -fx-background-radius: 0;
     -fx-border-style:      none;
-    -fx-background-color:  rgba(0, 0, 0, 0);
+    -fx-background-color: #303030;
     -fx-text-fill:         BBBBBB;
-    -fx-font-size:         1.15em;
+    -fx-min-width: 100;
 }
 
-#claimButton, #submitRegisterButton, #submitPostButton,
-#editButton,  #updateButton, #deleteButton, #submitLoginButton,
-#active, #inactive, #searchButton, .contrastButton{ /*Adds contrast*/
-     -fx-min-width:        100;
-     -fx-background-color: #303030;
- }
 
-#navigationButton:hover, #submitPostButton:hover, #submitRegisterButton:hover,
-#editButton:hover,       #updateButton:hover, #submitLoginButton:hover, #logoutButton:hover,
-#active:hover,   #inactive:hover, #searchButton:hover, .contrastButton:hover {
+.button:hover, .navigationButton:hover {
     -fx-background-color: #505050;
 }
 
 
-#active {
+#active, #active:hover {
     -fx-background-color: #50AA50;
     -fx-text-fill: white;
 }
 
-#active:hover {
-    -fx-background-color: #50AA50;
-}
-
-.active {
-    -fx-background-color: #50AA50;
-    -fx-text-fill: white;
-}
-
-.active:hover {
-    -fx-background-color: #50AA50;
-}
-
-#inactive {
-    -fx-background-color: #303030;
-}
-
-.inactive {
-    -fx-background-color: #303030;
-}
-
-#logoutButton {
+.logoutButton {
     -fx-text-fill: #505050;
+    -fx-background-color: transparent;
     -fx-font-size: 14;
-    -fx-padding: 10 0 10 0;
+    -fx-padding: .3em 0 .3em 0;
     -fx-text-alignment: right;
+    -fx-min-width: 0;
 }
 
-#logoutButton:hover {
+.logoutButton:hover {
     -fx-background-color: none;
     -fx-text-fill: #FFFFFF;
 }
 
-#buttonContainer {
-    -fx-spacing: 10;
+.logoButton, .logoButton:hover {
+    -fx-background-color: #202020;
 }
 
-#claimButton {
-    -fx-text-fill:        #FFFFFF;
-    -fx-background-color: #046c0c;
+.spacing {
+    -fx-spacing: 1em;
 }
 
-#claimButton:hover {
-    -fx-background-color: #349c3c;
+.padding {
+    -fx-padding: 1em;
 }
 
-#deleteButton {
+.cardBackground {
+    -fx-background-color: #202020;
+}
+
+.deleteButton {
     -fx-text-fill:        #FFFFFF;
     -fx-background-color: #B22222;
 }
 
-#deleteButton:hover {
+.deleteButton:hover {
     -fx-background-color: #F26262;
 }
 
@@ -106,9 +82,6 @@
     -fx-max-height: 100!important;
 }
 
-#logoButton {
-    -fx-background-color: #252525;
-}
 
 /*PAGES*/
 #pageParent{
@@ -116,20 +89,6 @@
     -fx-background-color: rgba(0, 0, 0, 0);
 }
 
-#publishPage, #editPage {
-    -fx-spacing:          10;
-    -fx-padding:          10;
-}
-
-
-#registerPage {
-    -fx-spacing: 10;
-}
-#loginModule, #registerModule, .publishModule {
-    -fx-background-color: #202020;
-    -fx-padding:          10;
-    -fx-spacing:          10;
-}
 
 .scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color: transparent;
@@ -154,12 +113,6 @@
 }
 
 /*POSTS*/
-#postCard {
-    -fx-background-color: #252525;
-    -fx-padding:          10;
-    -fx-spacing:          5;
-}
-
 #description{
     -fx-fill: #CCCCCC;
 }
@@ -220,5 +173,6 @@
 
 .combo-box-popup, .list-view {
     -fx-min-height: 13em;
+    -fx-max-height: 13em;
 
 }

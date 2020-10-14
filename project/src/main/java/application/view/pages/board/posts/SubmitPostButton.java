@@ -7,7 +7,6 @@ public class SubmitPostButton extends Button  {
     private static SubmitPostButton instance = null;
 
     private SubmitPostButton() {
-        this.setId("submitPostButton");
 
         this.setText("Submit post");
         this.setOnMouseClicked(e -> mouseClickAction());

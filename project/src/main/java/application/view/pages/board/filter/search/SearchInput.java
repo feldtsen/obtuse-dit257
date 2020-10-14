@@ -1,7 +1,9 @@
 package application.view.pages.board.filter.search;
 
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+
 
 public class SearchInput extends TextField {
         TagDropdown tagDropdown;
@@ -15,12 +17,22 @@ public class SearchInput extends TextField {
                 this.setOnKeyReleased(this::keyTyped);
         }
 
-        private void keyTyped(KeyEvent keyEvent){
-                    // Hitting escape results in getText() returning null
-                if (this.getText() != null) {
-                        tagDropdown.filter(this.getText());
+        private void keyTyped(KeyEvent keyEvent) {
+                KeyCode keyCode = keyEvent.getCode();
+
+                if (keyCode.equals(KeyCode.ENTER) || keyCode.equals(KeyCode.ESCAPE)) {
+                        tagDropdown.hide();
+                } else {
                         tagDropdown.show();
                 }
+
+                if(this.getText() == null || keyCode.equals(KeyCode.ESCAPE) || keyCode.equals(KeyCode.UP) || keyCode.equals(KeyCode.DOWN)) {
+                        return;
+                }
+
+                // Hitting escape results in getText() returning null
+                tagDropdown.filter(this.getText());
+
         }
 
 }

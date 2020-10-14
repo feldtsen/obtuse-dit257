@@ -12,7 +12,8 @@ public class LogoNavigationButton extends NavigationButton {
 
     private LogoNavigationButton() {
         super();
-        this.setId("logoButton");
+
+        this.getStyleClass().add("logoButton");
 
         Image image = new Image(ResourceLoader.logo);
         ImageView imageView = new ImageView(image);

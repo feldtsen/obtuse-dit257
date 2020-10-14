@@ -8,7 +8,7 @@ import java.util.List;
 public class ButtonContainer extends HBox {
 
     public ButtonContainer(List<Button> buttons){
-        this.setId("buttonContainer");
+        this.getStyleClass().add("spacing");
         //Adds all the buttons to the container
         for (Button button : buttons) {
             this.getChildren().add(

@@ -16,7 +16,7 @@ public class MetaModule extends VBox {
     private final ImageChooser imageChooser = new ImageChooser();
 
     public MetaModule() {
-        this.getStyleClass().add("publishModule");
+        this.getStyleClass().add("spacing");
 
         List<Button> buttons = new ArrayList<>();
         buttons.add(DonationButton.getInstance());

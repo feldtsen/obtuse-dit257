@@ -13,8 +13,9 @@ public class PublishPage extends HBox implements Page {
     private final MetaModule metaModule;
 
     private PublishPage() {
-        this.setId("publishPage");
-        this.getStyleClass().add("publishPage");
+        this.getStyleClass().add("spacing");
+        this.getStyleClass().add("padding");
+        this.getStyleClass().add("cardBackground");
 
         inputModule = new InputModule();
         metaModule = new MetaModule();

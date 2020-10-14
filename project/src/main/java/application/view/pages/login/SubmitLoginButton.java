@@ -7,7 +7,6 @@ public class SubmitLoginButton extends Button  {
     private static SubmitLoginButton instance = null;
 
     private SubmitLoginButton() {
-        this.setId("submitLoginButton");
 
         this.setText("Log In");
 

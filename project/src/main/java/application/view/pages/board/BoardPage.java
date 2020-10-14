@@ -13,9 +13,6 @@ public class BoardPage extends GridPane implements Page {
     private static BoardPage instance = null;
 
     private BoardPage () {
-        // Id used for styling
-        this.setId("boardPage");
-
         // Force the board to start at the top
         this.setAlignment(Pos.TOP_CENTER);
 

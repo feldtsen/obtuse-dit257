@@ -7,6 +7,7 @@ public class CategoryButton extends Button {
     public CategoryButton(String text) {
         this.setText(text);
         this.setId("inactive");
+
     }
 
     public void toggleActiveStatus() {

@@ -7,7 +7,6 @@ public class SubmitRegisterButton extends Button  {
     private static SubmitRegisterButton instance = null;
 
     private SubmitRegisterButton() {
-        this.setId("submitRegisterButton");
 
         this.setText("Register");
 

@@ -7,7 +7,7 @@ public class LogoutButton extends Button {
     private static LogoutButton instance = null;
 
     private LogoutButton() {
-        this.setId("logoutButton");
+        this.getStyleClass().add("logoutButton");
 
         this.setOnMouseClicked(e -> mouseClickAction());
     }

@@ -1,6 +1,5 @@
 package application.view.pages.board.posts;
 
-import application.controller.ImageChooser;
 import application.controller.PostController;
 import application.model.client.Client;
 import application.model.posts.IPost;
@@ -10,13 +9,10 @@ import application.ResourceLoader;
 import application.view.pages.util.TagDisplay;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,11 +39,16 @@ public class PostCard extends VBox {
        List<Button> buttons = new ArrayList<>();
 
        //Id used for styling and reference
-       this.setId("postCard");
+       this.getStyleClass().add("cardBackground");
+       this.getStyleClass().add("spacing");
+       this.getStyleClass().add("padding");
+
+
        titleLabel.setId("title");
        descriptionText.setId("description");
-       editButton.setId("editButton");
-       deleteButton.setId("deleteButton");
+
+       deleteButton.getStyleClass().add("deleteButton");
+
 
 
        //Adds margin between the posts
