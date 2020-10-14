@@ -23,11 +23,6 @@ public class LoginModule extends VBox implements Page {
         phoneInput = new TextField();
         passwordInput = new PasswordField();
 
-        this.setId("loginModule");
-        loginLabel.setId("loginLabel");
-        phoneLabel.setId("phoneLabel");
-        passwordLabel.setId("passwordLabel");
-
         this.getStyleClass().add("padding");
         this.getStyleClass().add("spacing");
         this.getStyleClass().add("cardBackground");

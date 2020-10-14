@@ -6,7 +6,6 @@ import application.view.pages.util.TagDisplay;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.scene.control.ComboBox;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.HashSet;
@@ -23,7 +22,6 @@ public class TagChoiceDropdown extends VBox {
         tagChoices.getStyleClass().add("tagDropdown");
         tagChoices.setOnHidden(this::action);
         tagDisplay = new TagDisplay(tags);
-        this.setSpacing(10); //TODO: do with CSS instead?
         this.getChildren().addAll(tagChoices, tagDisplay);
     }
     private void action(Event e){

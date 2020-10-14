@@ -1,7 +1,6 @@
 package application.view.pages.publish;
 
 
-import application.controller.ImageChooser;
 import application.view.navigation.OnClickAction;
 import javafx.scene.control.Button;
 

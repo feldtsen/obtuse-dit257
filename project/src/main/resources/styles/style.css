@@ -12,7 +12,6 @@
 
 #rootParent {
     -fx-background-color: #1A1A1A;
-    -fx-padding:          2em;
     -fx-font-size:        1.3em;
     -fx-font-family:      Arial;
 }
@@ -21,9 +20,9 @@
     -fx-focus-color:       transparent;
     -fx-background-radius: 0;
     -fx-border-style:      none;
-    -fx-background-color: #303030;
+    -fx-background-color:  #303030;
     -fx-text-fill:         BBBBBB;
-    -fx-min-width: 100;
+    -fx-min-width:         10em;
 }
 
 
@@ -38,12 +37,12 @@
 }
 
 .logoutButton {
-    -fx-text-fill: #505050;
+    -fx-text-fill:        #505050;
     -fx-background-color: transparent;
-    -fx-font-size: 14;
-    -fx-padding: .3em 0 .3em 0;
-    -fx-text-alignment: right;
-    -fx-min-width: 0;
+    -fx-font-size:        .8em;
+    -fx-padding:          .3em 0 .3em 0;
+    -fx-text-alignment:   right;
+    -fx-min-width:        0;
 }
 
 .logoutButton:hover {
@@ -76,17 +75,19 @@
     -fx-background-color: #F26262;
 }
 
+.descriptionInput {
+    -fx-min-height: 10em;
+}
+
 /*NAVIGATION*/
 #navigationParent {
     -fx-background-color: #2A2A2A;
-    -fx-max-height: 100!important;
 }
-
 
 /*PAGES*/
 #pageParent{
-    -fx-background:       rgba(0, 0, 0, 0);
-    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background:       transparent!important;
+    -fx-background-color: transparent!important;
 }
 
 
@@ -113,61 +114,25 @@
 }
 
 /*POSTS*/
-#description{
+.description {
     -fx-fill: #CCCCCC;
 }
 
-#title, #newTitle, #newDescription {
-    -fx-font-size: 20;
-}
-
-
-/*Status*/
-#statusBanner {
-    -fx-padding: 2 0 2 0;
-}
-
-#alertBanner {
-    -fx-font-size: 18;
-}
-
-#loginBanner {
-    -fx-spacing: 5;
-    -fx-padding: 0 0 0 2;
-}
-
 /* Filter  */
-#searchBanner {
-
-}
 
 .text-field, .text-area {
     -fx-background-color: #CCCCCC;
     -fx-background-radius: 0;
+
 }
 
-.text-field {
-    -fx-min-height:1.5em;
-    -fx-font-size: 1.3em;
-}
-
-.tagSearcher {
-    -fx-background-color: #CCCCCC;
-}
-
-.searchField {
-    -fx-font-size: 1.3em;
-}
-.tagDropdown {
-    -fx-font-size: 1.2em;
-}
 .combo-box .combo-box-popup .list-view, .list-cell {
-    -fx-background-color: #AAAAAA ;
-    -fx-text-fill: #000000 ;
+    -fx-background-color:  #CCCCCC ;
+    -fx-text-fill:         #000000 ;
     -fx-background-radius: 0;
 }
 .combo-box .combo-box-popup .list-cell:hover, .list-cell:filled:selected, .list-cell:filled:selected:hover{
-    -fx-text-fill: #000000 !important;
+    -fx-text-fill:        #000000 !important;
     -fx-background-color: #507750 !important;
 }
 

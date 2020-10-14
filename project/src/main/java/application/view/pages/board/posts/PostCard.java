@@ -4,8 +4,6 @@ import application.controller.PostController;
 import application.model.client.Client;
 import application.model.posts.IPost;
 import application.model.users.IUser;
-import application.ResourceLoader;
-
 import application.view.pages.util.TagDisplay;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -43,16 +41,9 @@ public class PostCard extends VBox {
        this.getStyleClass().add("spacing");
        this.getStyleClass().add("padding");
 
-
-       titleLabel.setId("title");
-       descriptionText.setId("description");
+       descriptionText.getStyleClass().add("description");
 
        deleteButton.getStyleClass().add("deleteButton");
-
-
-
-       //Adds margin between the posts
-       VBox.setMargin(this, ResourceLoader.margin);
 
        //Connect button clicks with a controller
        editButton.setOnMouseClicked(e-> PostController.editPost(post.getUniqueID()));

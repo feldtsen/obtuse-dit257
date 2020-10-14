@@ -17,8 +17,9 @@ public class InputModule extends VBox {
         titleInput = new TextField();
         descriptionInput = new TextArea();
 
-        descriptionInput.setMinHeight(100);
         descriptionInput.setWrapText(true);
+
+        descriptionInput.getStyleClass().add("descriptionInput");
 
         this.getChildren().addAll(
                 new Label("Title"),

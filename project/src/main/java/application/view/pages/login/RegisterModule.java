@@ -29,12 +29,6 @@ public class RegisterModule extends VBox implements Page {
         phoneInput = new TextField();
         passwordInput = new PasswordField();
 
-        this.setId("registerModule");
-        registerLabel.setId("registerLabel");
-        nameLabel.setId("nameLabel");
-        addressLabel.setId("addressLabel");
-        phoneLabel.setId("phoneLabel");
-        passwordLabel.setId("passwordLabel");
         passwordInput.setPromptText("Enter Password");
 
         this.getStyleClass().add("padding");

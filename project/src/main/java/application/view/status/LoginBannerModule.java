@@ -8,10 +8,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 
 public class LoginBannerModule extends HBox {
-
-    private static final String NOT_LOGGED_IN_MESSAGE = "Not logged in";
     private static LoginBannerModule instance = null;
-   private final Label loginStatus;  //label that shows what user is currently logged in
+    private static final String NOT_LOGGED_IN_MESSAGE = "Not logged in ";
+    private final Label loginStatus;  //label that shows what user is currently logged in
 
     private LoginBannerModule() {
 
@@ -24,8 +23,6 @@ public class LoginBannerModule extends HBox {
         Group icon = new Group(svgPath);
 
         loginStatus = new Label(NOT_LOGGED_IN_MESSAGE);
-
-        this.setId("loginBanner");
 
         loginStatus.setStyle("-fx-text-fill: #BBBBBB!important;");
 

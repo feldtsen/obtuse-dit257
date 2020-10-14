@@ -11,9 +11,6 @@ public class SearchInput extends TextField {
         public SearchInput(TagDropdown tagDropdown){
                 this.tagDropdown = tagDropdown;
 
-                this.getStyleClass().add("tagSearcher");
-                this.getStyleClass().add("searchField");
-
                 this.setOnKeyReleased(this::keyTyped);
         }
 

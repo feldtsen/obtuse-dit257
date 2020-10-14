@@ -30,13 +30,8 @@ public class EditPage extends VBox implements Page {
         this.getStyleClass().add("padding");
         this.getStyleClass().add("spacing");
         this.getStyleClass().add("cardBackground");
+        this.getStyleClass().add("descriptionInput");
 
-        newTitle.setId("newTitle");
-        newDescription.setId("newDescription");
-
-        this.getStyleClass().add("spacing");
-
-        descriptionInput.setMinHeight(100);
         descriptionInput.setWrapText(true);
         // Connect button to controller
         update.setOnMouseClicked(e -> PostController.updatePost());

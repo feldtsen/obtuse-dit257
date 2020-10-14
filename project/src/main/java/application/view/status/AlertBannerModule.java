@@ -9,17 +9,10 @@ import javafx.scene.layout.Priority;
 
 public class AlertBannerModule extends HBox {
     private static AlertBannerModule instance = null;
-
-    // How many alert messages currently running
-    private static int alertIndex = 0;
-
     // How long the alert message will be visible
     private static final int DURATION_IN_MILLISECONDS = 5000;
 
     private AlertBannerModule() {
-        this.setId("alertBanner");
-
-
         // If this is set on all components in a HBox, it will split the space evenly
         HBox.setHgrow(this, Priority.ALWAYS);
 
@@ -35,8 +28,7 @@ public class AlertBannerModule extends HBox {
     }
 
     public void setAlertMessage(String alertMessage, Alert.AlertType alertType) {
-        alertIndex++;
-        Label alertMessageLabel = new Label(alertMessage + " (" + alertIndex + ") ");
+        Label alertMessageLabel = new Label(alertMessage);
 
 
         // We gibe the message different colors based on what type of alert it is
@@ -52,7 +44,6 @@ public class AlertBannerModule extends HBox {
             try {
                 // We wait for given time before removing the message
                 Thread.sleep(DURATION_IN_MILLISECONDS);
-                alertIndex--;
                 // Since we use setAll previously, only the last message gets removed by us. The rest will get
                 // picked up by the garbage collector
                 Platform.runLater(() -> this.getChildren().remove(alertMessageLabel));

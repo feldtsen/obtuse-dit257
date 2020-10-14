@@ -26,6 +26,6 @@ public class LogoutButton extends Button {
     }
 
     public void setWhenLoggedInText(){
-        this.setText("(log out)");
+        this.setText(" (log out) ");
     }
 }
