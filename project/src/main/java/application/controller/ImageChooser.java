@@ -54,18 +54,20 @@ public class ImageChooser extends VBox {
     private void copyFile() {
         if(isSelected()) {
             //TODO ugly semi-hard coded relative path!??
-            relativePath = IMAGE_PATH + selectedFile.getName();
-
             new File(toFullPath(IMAGE_PATH)).mkdir();
 
+            relativePath = IMAGE_PATH + selectedFile.getName();
             File copyFile = new File(toFullPath(relativePath));
 
+            int index = 1;
+            String extension = relativePath.substring(relativePath.lastIndexOf('.'));
+            String name = relativePath.substring(0, relativePath.lastIndexOf('.'));
 
-
-            //TODO: fix to not overwrite existing files
-            /*while(copyFile.exists()) {
-                copyFile = new File(copyFile.toPath().toString() )
-            }*/
+            while(copyFile.exists()) {
+                relativePath = name + "(" + index + ")" + extension;
+                copyFile = new File(toFullPath(relativePath));
+                index++;
+            }
             try {
                 Files.copy(selectedFile.toPath(), copyFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
