@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -18,8 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PostCard extends VBox {
+   private VBox infoContainer;
+   private HBox contentContainer;
 
     public PostCard(IPost post) {
+       infoContainer = new VBox();
+       contentContainer = new HBox();
        //The author of the current post
        IUser author = post.getAuthor();
 
@@ -70,27 +75,33 @@ public class PostCard extends VBox {
           Image image = new Image(new File(path).toURI().toString());
           //imageView = new ImageView(image);
           imageView.setImage(image);
-          imageView.setFitWidth(100);
+          imageView.setFitWidth(250);
           imageView.setPreserveRatio(true);
           imageView.setSmooth(true);
           imageView.setCache(true);
        }
 
+       this.getStyleClass().add("cardBackground");
+       infoContainer.getStyleClass().add("spacing");
+       infoContainer.getStyleClass().add("padding");
+
        //Adds the GUI components to the post
-       this.getChildren().setAll(
+       infoContainer.getChildren().setAll(
                postTypeLabel,
                tagDisplay,
                titleLabel,
-               imageView,
                descriptionContainer,
                phoneNumberLabel,
-               nameAndAddressLabel,
+               nameAndAddressLabel
+       );
+       contentContainer.getChildren().setAll(
+               imageView,
+               infoContainer
+       );
+       this.getChildren().setAll(
+               contentContainer,
                new ButtonContainer(buttons)
        );
-
-       /*if (imageView != null) {
-          this.getChildren().add(imageView);
-       }*/
     }
 }
 
