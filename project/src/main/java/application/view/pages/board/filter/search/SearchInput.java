@@ -29,12 +29,11 @@ public class SearchInput extends TextField {
                 }
 
                 if(this.getText().equals("")) {
-                        BoardController.setFilter(new Filter(CategoryButtonContainer.getCurrentlySelectedCategoryTag()got, Set.of()));
+                        BoardController.setFilter(new Filter(CategoryButtonContainer.getCurrentlySelectedCategoryTag(), Set.of()));
                         return;
                 }
 
                 if (keyCode.equals(KeyCode.ENTER)){
-                        System.out.println(CategoryButtonContainer.getCurrentlySelectedCategoryTag());
                         tagDropdown.hide();
                         IFilter f1 = new Filter(CategoryButtonContainer.getCurrentlySelectedCategoryTag(), Set.of(this.getText()));
                         BoardController.setFilter(new Filter(CategoryButtonContainer.getCurrentlySelectedCategoryTag(), f1.getTags()));
