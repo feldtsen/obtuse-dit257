@@ -2,15 +2,12 @@ package application.model.board;
 
 import application.model.posts.IPost;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Board implements IBoard {
     private final List<IPost> posts;
     private final Map<String, IPost> postMap;
-    private transient IFilter filter = null;
+    private transient IFilter filter = new Filter(Filter.ALL, Set.of());
 
     private List<IPost> filteredPosts;
 
@@ -73,5 +70,10 @@ public class Board implements IBoard {
         if(this.filter != null && this.filter.equals(filter)) return;
         this.filter = filter;
         filteredPosts = null;
+    }
+
+    @Override
+    public IFilter getFilter() {
+        return filter;
     }
 }

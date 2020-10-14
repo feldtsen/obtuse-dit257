@@ -2,14 +2,15 @@ package application.view.pages.board.filter.categories;
 
 import application.controller.BoardController;
 import application.model.board.Filter;
+import application.model.client.Client;
 import javafx.scene.layout.HBox;
 
 import java.util.Set;
 
 public class CategoryButtonContainer extends HBox {
-    CategoryButton donationCategoryButton;
-    CategoryButton requestCategoryButton;
-
+    private final CategoryButton donationCategoryButton;
+    private final CategoryButton requestCategoryButton;
+    private static String currentlySelectedPostType = Filter.ALL;
     public CategoryButtonContainer() {
 
         this.donationCategoryButton = new CategoryButton("Donations");
@@ -27,22 +28,23 @@ public class CategoryButtonContainer extends HBox {
     }
 
     public void toggleActiveButtons(String category) {
-        Filter filter = null;
+        Filter filter;
         if (category.equals("Donations")) {
             this.donationCategoryButton.toggleActiveStatus();
             this.requestCategoryButton.setId("inactive");
-        }
-        if (category.equals("Requests")) {
+            currentlySelectedPostType = currentlySelectedPostType.equals("Donation") ? Filter.ALL : "Donation";
+        } else if (category.equals("Requests")) {
             this.requestCategoryButton.toggleActiveStatus();
             this.donationCategoryButton.setId("inactive");
+            currentlySelectedPostType = currentlySelectedPostType.equals("Request") ? Filter.ALL : "Request";
         }
 
-        if (donationCategoryButton.getId().equals("active")) {
-            filter = new Filter("Donation", Set.of());
-        } else if (requestCategoryButton.getId().equals("active")) {
-            filter = new Filter("Request", Set.of());
-        }
+        filter = new Filter(currentlySelectedPostType, Client.getInstance().getBoard().getFilter().getTags());
 
         BoardController.setFilter(filter);
+    }
+
+    public static String getCurrentlySelectedCategoryTag(){
+        return currentlySelectedPostType;
     }
 }

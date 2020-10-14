@@ -18,4 +18,5 @@ public interface IBoard extends Serializable {
 
     boolean deletePost(String id);
     void setFilter(IFilter filter);
+    IFilter getFilter();
 }
