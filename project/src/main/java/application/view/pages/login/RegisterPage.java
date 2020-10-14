@@ -8,6 +8,7 @@ public class RegisterPage extends HBox implements Page {
 
     private RegisterPage() {
         this.getStyleClass().add("spacing");
+        this.getStyleClass().add("padding");
 
         this.getChildren().addAll(
                 LoginModule.getInstance(),

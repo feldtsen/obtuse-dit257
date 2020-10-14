@@ -23,9 +23,7 @@ public class LoginModule extends VBox implements Page {
         phoneInput = new TextField();
         passwordInput = new PasswordField();
 
-        this.getStyleClass().add("padding");
         this.getStyleClass().add("spacing");
-        this.getStyleClass().add("cardBackground");
 
         Region buttonSpacing = new Region();
         VBox.setVgrow(buttonSpacing, Priority.ALWAYS);
@@ -33,8 +31,8 @@ public class LoginModule extends VBox implements Page {
         HBox.setHgrow(this, Priority.ALWAYS);
 
         //Forces the button to the bottom
-        Region spacing = new Region();
-        VBox.setVgrow(spacing, Priority.ALWAYS);
+        //Region spacing = new Region();
+        //VBox.setVgrow(spacing, Priority.ALWAYS);
 
         this.getChildren().addAll(
                 loginLabel,
@@ -45,7 +43,6 @@ public class LoginModule extends VBox implements Page {
                 passwordLabel,
                 passwordInput,
 
-                spacing,
                 SubmitLoginButton.getInstance()
 
         );

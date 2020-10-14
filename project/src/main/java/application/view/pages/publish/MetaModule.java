@@ -17,8 +17,6 @@ public class MetaModule extends VBox {
 
     public MetaModule() {
         this.getStyleClass().add("spacing");
-        this.getStyleClass().add("padding");
-        this.getStyleClass().add("cardBackground");
 
         List<Button> buttons = new ArrayList<>();
         buttons.add(DonationButton.getInstance());

@@ -14,6 +14,7 @@ public class PublishPage extends HBox implements Page {
 
     private PublishPage() {
         this.getStyleClass().add("spacing");
+        this.getStyleClass().add("padding");
 
         inputModule = new InputModule();
         metaModule = new MetaModule();

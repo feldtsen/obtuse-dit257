@@ -5,8 +5,6 @@ import application.model.board.Filter;
 import application.model.client.Client;
 import javafx.scene.layout.HBox;
 
-import java.util.Set;
-
 public class CategoryButtonContainer extends HBox {
     private final CategoryButton donationCategoryButton;
     private final CategoryButton requestCategoryButton;
@@ -19,6 +17,8 @@ public class CategoryButtonContainer extends HBox {
 
         this.donationCategoryButton.setOnMouseClicked(e -> this.toggleActiveButtons(donationCategoryButton.getText()));
         this.requestCategoryButton.setOnMouseClicked(e -> this.toggleActiveButtons(requestCategoryButton.getText()));
+
+        this.getStyleClass().add("spacing");
 
 
         this.getChildren().addAll(

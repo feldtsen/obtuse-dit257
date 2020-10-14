@@ -1,11 +1,16 @@
 package application.view.pages;
 
+import application.view.navigation.LoginNavigationButton;
+import application.view.navigation.NavigationParent;
 import application.view.pages.login.RegisterPage;
+import application.view.status.StatusBanner;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
 
 public class PageParent extends ScrollPane {
     private static PageParent instance = null;
+    private static final VBox pageContainer = new VBox();
 
     private PageParent() {
         this.setId("pageParent");
@@ -15,8 +20,10 @@ public class PageParent extends ScrollPane {
         //this.fitToHeightProperty().set(true);
 
         // Add pages to the scroll pane
-        // The one set here will be the initial page
-        this.setContent(RegisterPage.getInstance());
+        // The one set here will be the initial page.setContent(RegisterPage.getInstance());
+        this.setContent(pageContainer);
+        loadPage(RegisterPage.getInstance());
+        NavigationParent.getInstance().applyActiveClass(LoginNavigationButton.getInstance());
     }
 
     // Singleton
@@ -27,7 +34,10 @@ public class PageParent extends ScrollPane {
 
     // Changes the active page
     public static void loadPage (Node page) {
-        instance.setContent(page);
+        pageContainer.getChildren().setAll(
+                StatusBanner.getInstance(),
+                page
+        );
     }
 
 }

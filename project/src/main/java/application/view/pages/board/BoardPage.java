@@ -26,6 +26,8 @@ public class BoardPage extends GridPane implements Page {
         this.setVgap(10);
         this.setHgap(10);
 
+        this.getStyleClass().add("padding");
+
     }
 
     public static BoardPage getInstance() {

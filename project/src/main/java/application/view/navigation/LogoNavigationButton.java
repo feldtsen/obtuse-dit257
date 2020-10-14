@@ -18,7 +18,7 @@ public class LogoNavigationButton extends NavigationButton {
         Image image = new Image(ResourceLoader.logo);
         ImageView imageView = new ImageView(image);
 
-        imageView.setFitHeight(100);
+        imageView.setFitHeight(60);
         imageView.setPreserveRatio(true);
 
         this.setGraphic(imageView);
@@ -35,5 +35,6 @@ public class LogoNavigationButton extends NavigationButton {
     @Override
     public void action() {
         PageParent.loadPage(BoardPage.getInstance());
+        NavigationParent.getInstance().applyActiveClass(this);
     }
 }

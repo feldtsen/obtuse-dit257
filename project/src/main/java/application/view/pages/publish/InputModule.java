@@ -13,7 +13,6 @@ public class InputModule extends VBox {
 
     public InputModule (){
         this.getStyleClass().add("spacing");
-        this.getStyleClass().add("padding");
 
         titleInput = new TextField();
         descriptionInput = new TextArea();
@@ -21,7 +20,6 @@ public class InputModule extends VBox {
         descriptionInput.setWrapText(true);
 
         descriptionInput.getStyleClass().add("descriptionInput");
-        this.getStyleClass().add("cardBackground");
 
         this.getChildren().addAll(
                 new Label("Title"),

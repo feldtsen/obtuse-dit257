@@ -17,7 +17,7 @@ public class AlertBannerModule extends HBox {
         HBox.setHgrow(this, Priority.ALWAYS);
 
         // The message will be shown to the far left of the given space
-        this.setAlignment(Pos.CENTER_LEFT);
+        this.setAlignment(Pos.CENTER);
     }
 
     // Singleton

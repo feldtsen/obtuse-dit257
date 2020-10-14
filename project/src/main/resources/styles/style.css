@@ -7,6 +7,13 @@
     -fx-font-size: 16px;
 }
 
+*, *:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+
+    -fx-background-insets: 0, 0, 0;
+    -fx-background-radius: 0, 0, 0;
+}
 
 #rootParent {
     -fx-background-color: #151515;
@@ -16,19 +23,34 @@
 /* BUTTON */
 .button {
     -fx-focus-color:       transparent;
-    -fx-background-radius: 0;
+    -fx-background-radius: 10;
     -fx-border-style:      none;
     -fx-background-color:  rgb(50, 50, 50);
     -fx-text-fill:         #BBBBBB;
     -fx-min-width:         100;
     -fx-background-insets: 0 0 0 0, 0, 0, 0;
 }
-.navigationButton {
-    -fx-background-color: transparent;
+
+
+
+.button:hover {
+    -fx-background-color: #505050;
 }
 
-.button:hover, .navigationButton:hover {
-    -fx-background-color: #505050;
+
+.navigationButton, .navigationButton SVGPath{
+    -fx-background-color: transparent!important;
+    -fx-fill:         #BBBBBB;
+}
+
+.navigationButton:hover, .navigationButton:hover SVGPath, .activeNavigation SVGPath {
+    -fx-background-color: transparent!important;
+    -fx-fill: #50AA50!important;
+ }
+
+.search, .search SVGPath {
+    -fx-min-width: 30!important;
+    -fx-fill: white;
 }
 
 #active, #active:hover {
@@ -51,7 +73,6 @@
 }
 
 .logoButton, .logoButton:hover {
-    -fx-background-color: #202020;
 }
 
 .spacing {
@@ -59,11 +80,11 @@
 }
 
 .padding {
-    -fx-padding: 14;
+    -fx-padding: 5 14 5 14;
 }
 
 .cardBackground {
-    -fx-background-color: rgba(40, 40, 40, .8);
+    -fx-background-color: #21242d;
     -fx-background-radius: 5;
 }
 
@@ -82,13 +103,13 @@
 
 /*NAVIGATION*/
 #navigationParent {
-    -fx-background-color: #2A2A2A;
+    -fx-background-color: #21242d;
 }
 
 /*PAGES*/
 #pageParent{
     -fx-background:       transparent!important;
-    -fx-background-color: transparent!important;
+    -fx-background-color:  #111117;
 }
 
 
@@ -113,23 +134,26 @@
 /* Filter  */
 .text-field, .text-area {
     -fx-background-color: #CCCCCC;
-    -fx-background-radius: 0;
+    -fx-background-radius: 10;
 
 }
+
 
 .combo-box .combo-box-popup .list-view, .list-cell {
     -fx-background-color:  #CCCCCC ;
     -fx-text-fill:         #000000 ;
-    -fx-background-radius: 0;
+    -fx-background-radius: 10;
 }
 .combo-box .combo-box-popup .list-cell:hover, .list-cell:filled:selected, .list-cell:filled:selected:hover{
     -fx-text-fill:        #000000 !important;
     -fx-background-color: #507750 !important;
+    -fx-background-radius: 10;
 }
 
 .combo-box-popup, .list-view {
     -fx-min-height: 100;
     -fx-max-height: 100;
+    -fx-background-radius: 10;
 
 }
 

@@ -29,7 +29,6 @@ public class EditPage extends VBox implements Page {
         // Set id for reference
         this.getStyleClass().add("padding");
         this.getStyleClass().add("spacing");
-        this.getStyleClass().add("cardBackground");
         this.getStyleClass().add("descriptionInput");
 
         descriptionInput.setWrapText(true);

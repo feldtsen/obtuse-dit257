@@ -10,6 +10,8 @@ public class FilterBanner extends HBox {
         SearchModule searchModule = new SearchModule();
         CategoryButtonContainer categoryButtonContainer = new CategoryButtonContainer();
 
+        this.getStyleClass().add("spacing");
+
         this.getChildren().addAll(
                 categoryButtonContainer,
                 searchModule

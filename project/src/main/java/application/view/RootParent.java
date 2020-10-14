@@ -3,13 +3,13 @@ package application.view;
 import application.ResourceLoader;
 import application.view.navigation.NavigationParent;
 import application.view.pages.PageParent;
-import application.view.status.StatusBanner;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class RootParent extends VBox {
+public class RootParent extends HBox {
     private static RootParent instance = null;
 
     private RootParent(Stage stage) {
@@ -19,7 +19,6 @@ public class RootParent extends VBox {
         this.getStylesheets().add(ResourceLoader.stylesheet);
 
         this.setId("rootParent");
-        this.getStyleClass().add("padding");
 
         Region spacing = new Region();
         VBox.setVgrow(spacing, Priority.ALWAYS);
@@ -27,11 +26,8 @@ public class RootParent extends VBox {
 
 
         this.getChildren().addAll(
-                pageParent,
-
-                spacing,
-                StatusBanner.getInstance(),
-                navigationParent
+                navigationParent,
+                pageParent
         );
 
 
@@ -50,7 +46,8 @@ public class RootParent extends VBox {
     }
 
     private void setResponsiveSize(Region region, Stage primaryStage, double heightPercentage) {
-        region.prefHeightProperty().bind(primaryStage.heightProperty().multiply(heightPercentage));
+        region.prefWidthProperty().bind(primaryStage.widthProperty().multiply(heightPercentage));
+        //region.prefHeightProperty().bind(primaryStage.heightProperty().multiply(heightPercentage));
     }
 
 }
