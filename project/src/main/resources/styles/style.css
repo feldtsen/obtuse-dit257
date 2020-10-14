@@ -91,27 +91,6 @@
 }
 
 
-.scroll-bar:horizontal, .scroll-bar:vertical{
-    -fx-background-color: transparent;
-}
-
-.increment-button, .decrement-button {
-    -fx-background-color: transparent;
-    -fx-border-color:     transparent;
-}
-
-.scroll-bar:horizontal .track,
-.scroll-bar:vertical   .track{
-    -fx-background-color:  transparent;
-    -fx-border-color:      transparent;
-    -fx-background-radius: 0;
-}
-
-.scroll-bar:horizontal .thumb,
-.scroll-bar:vertical   .thumb {
-    -fx-background-color:  #2D2D2D;
-    -fx-background-radius: 0;
-}
 
 /*POSTS*/
 .description {
@@ -151,4 +130,29 @@
     -fx-min-height: 100;
     -fx-max-height: 100;
 
+}
+
+
+
+/*THE SCROLL BAR*/
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color: transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color:     transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical   .track{
+    -fx-background-color:  transparent;
+    -fx-border-color:      transparent;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical   .thumb {
+    -fx-background-color:  #2D2D2D;
+    -fx-background-radius: 0;
 }
