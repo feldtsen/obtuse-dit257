@@ -15,4 +15,7 @@ public interface IFilter {
     boolean strictMatch(IPost post);
     // Returns true if a post matches type and at least one tag
     boolean looseMatch(IPost post);
+
+    void addTag(String tag);
+
 }
