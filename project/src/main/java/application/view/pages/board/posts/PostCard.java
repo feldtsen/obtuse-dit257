@@ -74,12 +74,12 @@ public class PostCard extends VBox {
        //Adds the GUI components to the post
        this.getChildren().setAll(
                postTypeLabel,
+               tagDisplay,
                titleLabel,
                descriptionContainer,
                phoneNumberLabel,
                nameAndAddressLabel,
-               new ButtonContainer(buttons),
-               tagDisplay
+               new ButtonContainer(buttons)
                //imageView
        );
 

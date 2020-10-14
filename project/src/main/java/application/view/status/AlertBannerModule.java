@@ -32,9 +32,9 @@ public class AlertBannerModule extends HBox {
 
 
         // We gibe the message different colors based on what type of alert it is
-        if (alertType == Alert.AlertType.ERROR)alertMessageLabel.setStyle("-fx-text-fill: #CC5050");
-        else if (alertType == Alert.AlertType.INFORMATION)alertMessageLabel.setStyle("-fx-text-fill: #5050CC");
-        else alertMessageLabel.setStyle("-fx-text-fill: #50CC50!important;");
+        if (alertType == Alert.AlertType.ERROR)           alertMessageLabel.setStyle("-fx-text-fill: #CC5050;");
+        else if (alertType == Alert.AlertType.INFORMATION)alertMessageLabel.setStyle("-fx-text-fill: #BBBBBB;");
+        else                                              alertMessageLabel.setStyle("-fx-text-fill: #50CC50;");
 
         // We visually override the last message
         this.getChildren().setAll(alertMessageLabel);

@@ -55,7 +55,7 @@
 }
 
 .spacing {
-    -fx-spacing: 14;
+    -fx-spacing: 10;
 }
 
 .padding {
@@ -116,6 +116,17 @@
 /*POSTS*/
 .description {
     -fx-fill: #CCCCCC;
+}
+
+.tagContainer {
+    -fx-spacing: 5;
+    -fx-padding: 3 0 3 0;
+}
+
+.tag {
+    -fx-background-color:  #303030;
+    -fx-background-radius: 5;
+    -fx-padding:           2 10 2 10;
 }
 
 /* Filter  */
