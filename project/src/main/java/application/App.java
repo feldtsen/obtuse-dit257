@@ -2,10 +2,13 @@
 package application;
 
 import application.controller.ClientController;
+import application.model.util.ResizeHelper;
 import application.view.RootParent;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class App extends Application {
     private final static double INITIAL_WIDTH  = 1200;
@@ -15,6 +18,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
+        stage.initStyle(StageStyle.UNDECORATED);
+
+        stage.getIcons().add(new Image(ResourceLoader.logoSymbol));
+
         Scene scene = new Scene(RootParent.getInstance(stage), INITIAL_WIDTH, INITIAL_HEIGHT);
 
         stage.setMinHeight(MIN_HEIGHT);
@@ -25,9 +32,15 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
 
+        ResizeHelper.draggable(stage);
+        ResizeHelper.addResizeListener(stage);
+
+
     }
 
     public static void main(String[] args) {
         launch();
     }
+
+
 }

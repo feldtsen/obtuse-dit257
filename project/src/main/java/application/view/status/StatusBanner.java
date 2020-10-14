@@ -1,6 +1,7 @@
 package application.view.status;
 
 import application.ResourceLoader;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -14,12 +15,24 @@ public class StatusBanner extends HBox {
         Image image = new Image(ResourceLoader.logoText);
         ImageView imageView = new ImageView(image);
         imageView.setPreserveRatio(true);
-        imageView.setFitHeight(34);
+        imageView.setFitHeight(25);
+
+        Button exit = new Button("X");
+        Button minimize = new Button("-");
+
+        HBox toolbar = new HBox();
+        toolbar.getChildren().addAll(
+                minimize,
+                exit
+        );
+
+        toolbar.getStyleClass().add("toolbar");
 
         this.getChildren().addAll(
                 imageView,
                 AlertBannerModule.getInstance(),
-                LoginBannerModule.getInstance()
+                LoginBannerModule.getInstance(),
+                toolbar
         );
     }
 

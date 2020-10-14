@@ -25,7 +25,7 @@
     -fx-focus-color:       transparent;
     -fx-background-radius: 10;
     -fx-border-style:      none;
-    -fx-background-color:  rgb(50, 50, 50);
+    -fx-background-color:  #3c3f47;
     -fx-text-fill:         #BBBBBB;
     -fx-min-width:         100;
     -fx-background-insets: 0 0 0 0, 0, 0, 0;
@@ -112,6 +112,10 @@
     -fx-background-color:  #111117;
 }
 
+.toolbar > .button {
+    -fx-background-color: transparent!important;
+    -fx-min-width: 20!important;
+}
 
 
 /*POSTS*/
@@ -129,6 +133,7 @@
     -fx-background-radius: 5;
     -fx-padding:           2 10 2 10;
 }
+
 
 
 /* Filter  */
