@@ -1,16 +1,15 @@
-kategori#kött#tags#köttfärs#korv#kyckling#övrigt kött
-kategori#fisk & skaldjur#tags#lax#torsk#räkor#övrigt fisk & skaldjur
-kategori#mejeri & ägg#tags#mjölk#grädde#ägg#övrigt mejeri
-kategori#vegetariskt#tags#vegofärs#vegobiffar#vegetariskt pålägg#övrigt vegetariskt
-kategori#frukt#tags#äpple#päron#banan#övrigt frukt
-kategori#grönsaker#tags#gurka#potatis#sallad#övrigt grönsaker
-kategori#bröd#tags#surdegsbröd#rågbröd#knäckebröd#övrigt bröd
-kategori#kakor#tags#bullar#mjuka kakor#småkakor#övrigt kakor
-kategori#fryst#tags#köttbullar#fiskpinnar#frysta grönsaker#övrigt fryst
-kategori#skafferi#tags#ris#konserver#pasta#övrigt skafferi
-kategori#färdigmat#tags#hemlagat#hembakat#färdigrätter#övrigt färdigmat
-kategori#dryck#tags#juice#läsk#vatten#övrigt dryck
-kategori#godis#tags#ckoklad#smågodis#lakrits#övrigt godis
-kategori#snacks#tags#chips#ostbågar#nötter#övrigt snacks
-kategori#glass#tags#glasspaket#glasspinnar#glasstrutar#övrigt glass
-kategori#hushåll#tags#toalettpapper#tvål#tandkräm#övrigt hushåll
+category#meals#tags#home cooked#ready meals#baby food#other meals
+category#meat#tags#minced meat#sausage#chicken#other meat
+category#seafood#tags#salmon#cod#shrimps#other fish & seafood
+category#dairy & eggs#tags#milk#cheese#eggs#other dairy & eggs
+category#vegetarian#tags#soy products#quorn#vegetarian meals#other vegetarian
+category#fruit#tags#apple#pear#banana#other fruit
+category#vegetable#tags#cucumber#potato#salad#other vegetable
+category#bakery#tags#bread#cake#cookies#other bakery
+category#frozen#tags#meat balls#fish fingers#frozen vegetables#other frozen
+category#food cupboard#tags#rice#canned food#pasta#other food cupboard
+category#drinks#tags#juice#soda#water#other drinks
+category#candy#tags#chocolate#candy#liqourice#other candy
+category#snacks#tags#chips#cheese doodles#nuts#other snacks
+category#ice cream#tags#ice cream tubs#ice cream cones#ice pops#other ice cream
+category#household#tags#toilet paper#soap#tooth paste#other household
