@@ -4,15 +4,13 @@
 
 #icon {
     -fx-text-fill: #BBBBBB;
-    -fx-font-size: 2em;
-    -fx-max-height: 2em;
-    -fx-max-width: 2em;
+    -fx-font-size: 16px;
 }
 
 
 #rootParent {
     -fx-background-color: #1A1A1A;
-    -fx-font-size:        1.3em;
+    -fx-font-size:        14px;
     -fx-font-family:      Arial;
 }
 /* BUTTON */
@@ -22,7 +20,12 @@
     -fx-border-style:      none;
     -fx-background-color:  #303030;
     -fx-text-fill:         BBBBBB;
-    -fx-min-width:         10em;
+    -fx-min-width:         100;
+}
+
+.button:selected {
+    -fx-background-radius: 0;
+    -fx-border-style:      none;
 }
 
 
@@ -39,8 +42,8 @@
 .logoutButton {
     -fx-text-fill:        #505050;
     -fx-background-color: transparent;
-    -fx-font-size:        .8em;
-    -fx-padding:          .3em 0 .3em 0;
+    -fx-font-size:        12;
+    -fx-padding:          0;
     -fx-text-alignment:   right;
     -fx-min-width:        0;
 }
@@ -55,11 +58,11 @@
 }
 
 .spacing {
-    -fx-spacing: 1em;
+    -fx-spacing: 14;
 }
 
 .padding {
-    -fx-padding: 1em;
+    -fx-padding: 14;
 }
 
 .cardBackground {
@@ -76,7 +79,7 @@
 }
 
 .descriptionInput {
-    -fx-min-height: 10em;
+    -fx-min-height: 100;
 }
 
 /*NAVIGATION*/
@@ -104,13 +107,13 @@
 .scroll-bar:vertical   .track{
     -fx-background-color:  transparent;
     -fx-border-color:      transparent;
-    -fx-background-radius: 0em;
+    -fx-background-radius: 0;
 }
 
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical   .thumb {
     -fx-background-color:  #2D2D2D;
-    -fx-background-radius: 0em;
+    -fx-background-radius: 0;
 }
 
 /*POSTS*/
@@ -137,7 +140,7 @@
 }
 
 .combo-box-popup, .list-view {
-    -fx-min-height: 13em;
-    -fx-max-height: 13em;
+    -fx-min-height: 100;
+    -fx-max-height: 100;
 
 }

@@ -2,9 +2,7 @@ package application.view.pages.board;
 
 import application.view.pages.Page;
 import application.view.pages.board.filter.FilterBanner;
-import application.view.pages.board.filter.categories.CategoryButtonContainer;
 import application.view.pages.board.posts.PostCard;
-import application.view.pages.board.filter.search.SearchModule;
 import javafx.geometry.Pos;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
