@@ -3,7 +3,6 @@ package application.controller;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 
@@ -34,7 +33,6 @@ public class ImageChooser extends VBox {
         chooseButton.setText("Upload Image");
         chooseButton.setOnAction(e -> selectImage());
 
-
         choiceLabel = new Label("");
 
         this.getChildren().addAll(chooseButton, choiceLabel);
@@ -54,9 +52,9 @@ public class ImageChooser extends VBox {
     private void copyFile() {
         if(isSelected()) {
             //TODO ugly semi-hard coded relative path!??
-            relativePath = "/src/main/resources/" + selectedFile.getName();
+            relativePath = "src/main/resources/images/" + selectedFile.getName();
             File copyFile = new File(toFullPath(relativePath));
-            System.out.println(copyFile.getPath());
+
             //TODO: fix to not overwrite existing files
             /*while(copyFile.exists()) {
                 copyFile = new File(copyFile.toPath().toString() )
@@ -76,7 +74,7 @@ public class ImageChooser extends VBox {
     }
 
     public static String toFullPath(String relativePath) {
-        return Paths.get("").toAbsolutePath().toString() + relativePath;
+        return Paths.get("").toAbsolutePath().toString() + "/" + relativePath;
     }
 
     public String getSelectedPath() {

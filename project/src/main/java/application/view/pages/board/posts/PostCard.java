@@ -7,10 +7,13 @@ import application.model.users.IUser;
 import application.view.pages.util.TagDisplay;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,30 +63,32 @@ public class PostCard extends VBox {
        }
 
        // Load image
-       /*ImageView imageView = null;
+       ImageView imageView = new ImageView();
        if(post.getImagePath() != null) {
-          String path = "file:" + post.getImagePath();
+          String path = post.getImagePath();
           System.out.println(path);
-          imageView = new ImageView(path);
+          Image image = new Image(new File(path).toURI().toString());
+          //imageView = new ImageView(image);
+          imageView.setImage(image);
           imageView.setFitWidth(100);
           imageView.setPreserveRatio(true);
           imageView.setSmooth(true);
           imageView.setCache(true);
-       }*/
+       }
 
        //Adds the GUI components to the post
        this.getChildren().setAll(
                postTypeLabel,
                tagDisplay,
                titleLabel,
+               imageView,
                descriptionContainer,
                phoneNumberLabel,
                nameAndAddressLabel,
                new ButtonContainer(buttons)
-               //imageView
        );
 
-       /*if(imageView != null) {
+       /*if (imageView != null) {
           this.getChildren().add(imageView);
        }*/
     }
