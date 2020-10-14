@@ -9,7 +9,7 @@
 
 
 #rootParent {
-    -fx-background-color: #1A1A1A;
+    -fx-background-color: #151515;
     -fx-font-size:        14px;
     -fx-font-family:      Arial;
 }
@@ -19,20 +19,17 @@
     -fx-background-radius: 0;
     -fx-border-style:      none;
     -fx-background-color:  #303030;
-    -fx-text-fill:         BBBBBB;
+    -fx-text-fill:         #BBBBBB;
     -fx-min-width:         100;
+    -fx-background-insets: 0 0 0 0, 0, 0, 0;
 }
-
-.button:selected {
-    -fx-background-radius: 0;
-    -fx-border-style:      none;
+.navigationButton {
+    -fx-background-color: transparent;
 }
-
 
 .button:hover, .navigationButton:hover {
     -fx-background-color: #505050;
 }
-
 
 #active, #active:hover {
     -fx-background-color: #50AA50;
