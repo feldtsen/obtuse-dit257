@@ -18,7 +18,7 @@
     -fx-focus-color:       transparent;
     -fx-background-radius: 0;
     -fx-border-style:      none;
-    -fx-background-color:  #303030;
+    -fx-background-color:  rgb(50, 50, 50);
     -fx-text-fill:         #BBBBBB;
     -fx-min-width:         100;
     -fx-background-insets: 0 0 0 0, 0, 0, 0;
@@ -63,7 +63,8 @@
 }
 
 .cardBackground {
-    -fx-background-color: #202020;
+    -fx-background-color: rgba(40, 40, 40, .8);
+    -fx-background-radius: 5;
 }
 
 .deleteButton {
@@ -108,8 +109,8 @@
     -fx-padding:           2 10 2 10;
 }
 
-/* Filter  */
 
+/* Filter  */
 .text-field, .text-area {
     -fx-background-color: #CCCCCC;
     -fx-background-radius: 0;
@@ -154,5 +155,5 @@
 .scroll-bar:horizontal .thumb,
 .scroll-bar:vertical   .thumb {
     -fx-background-color:  #2D2D2D;
-    -fx-background-radius: 0;
+    -fx-background-radius: 5;
 }
