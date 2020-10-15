@@ -81,10 +81,6 @@ public class PostCard extends VBox {
           imageView.setCache(true);
        }
 
-       this.getStyleClass().add("cardBackground");
-       infoContainer.getStyleClass().add("spacing");
-       infoContainer.getStyleClass().add("padding");
-
        //Adds the GUI components to the post
        infoContainer.getChildren().setAll(
                postTypeLabel,

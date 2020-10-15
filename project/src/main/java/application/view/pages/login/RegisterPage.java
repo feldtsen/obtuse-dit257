@@ -1,15 +1,21 @@
 package application.view.pages.login;
 
 import application.view.pages.Page;
-import javafx.scene.layout.HBox;
+import javafx.geometry.Pos;
+import javafx.scene.layout.VBox;
 
-public class RegisterPage extends HBox implements Page {
+public class RegisterPage extends VBox implements Page {
     private static RegisterPage instance = null;
 
     private RegisterPage() {
         this.getStyleClass().add("spacing");
         this.getStyleClass().add("padding");
         this.getStyleClass().add("registerPage");
+
+        LoginModule.getInstance().setMaxWidth(600);
+        RegisterModule.getInstance().setMaxWidth(600);
+
+        this.setAlignment(Pos.TOP_CENTER);
 
         this.getChildren().addAll(
                 LoginModule.getInstance(),

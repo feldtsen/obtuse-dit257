@@ -1,6 +1,7 @@
 package application.view.pages.login;
 
 import application.view.pages.Page;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -19,6 +20,12 @@ public class LoginModule extends VBox implements Page {
         Label loginLabel = new Label("Login");
         Label phoneLabel = new Label("Phone Number");
         Label passwordLabel = new Label("Password");
+
+        HBox titleContainer = new HBox();
+        titleContainer.getChildren().setAll(loginLabel);
+        titleContainer.setAlignment(Pos.TOP_CENTER);
+        HBox.setHgrow(titleContainer, Priority.ALWAYS);
+
 
 
         phoneInput = new TextField();
@@ -40,7 +47,7 @@ public class LoginModule extends VBox implements Page {
         //VBox.setVgrow(spacing, Priority.ALWAYS);
 
         this.getChildren().addAll(
-                loginLabel,
+                titleContainer,
 
                 phoneLabel,
                 phoneInput,
