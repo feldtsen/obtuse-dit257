@@ -25,6 +25,10 @@ public class SearchModule extends GridPane {
         searchButton.getStyleClass().add("search");
 
 
+        searchButton.setOnMouseClicked( e -> {
+            tagDropdown.filter(tagDropdown.getSearchInputField().getText());
+        });
+
 
 
         HBox.setHgrow(this, Priority.ALWAYS);

@@ -1,5 +1,5 @@
 @font-face {
-    -fx-font-family: 'Comfortaa-Bold';
+    -fx-font-family: Comfortaa-Bold;
     src:url('Comfortaa-Bold.ttf');
 }
 
@@ -8,20 +8,20 @@
     -fx-font-size: 16px;
 }
 
-* {
-    -fx-focus-color: transparent;
-    -fx-faint-focus-color: transparent;
-
+#navigationParent *, #pageParent{
+    -fx-border-insets: 0, 0, 0;
+    -fx-border-image-insets: 0, 0, 0;
     -fx-background-insets: 0, 0, 0;
-    -fx-background-radius: 0, 0, 0;
-    -fx-font-family: Monospaced;
-
 }
 
 #rootParent {
-    -fx-font-size:        16px;
+    -fx-font-size:        15px;
     -fx-text-fill:        #FFFFFF;
     -fx-background-color: #11111f;
+    -fx-font-family: Comfortaa-Bold;
+    -fx-border-insets: 0, 0, 0;
+    -fx-border-image-insets: 0, 0, 0;
+    -fx-background-insets: 0, 0, 0;
 }
 /* BUTTON */
 .button {
@@ -31,7 +31,6 @@
     -fx-background-color:  #3c3f47;
     -fx-text-fill:         #FFFFFF;
     -fx-min-width:         120;
-    -fx-background-insets: 0 0 0 0, 0, 0, 0;
 }
 
 

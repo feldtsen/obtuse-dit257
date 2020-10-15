@@ -22,6 +22,8 @@ public class SearchInput extends TextField {
 
         private void keyTyped(KeyEvent keyEvent) {
                 KeyCode keyCode = keyEvent.getCode();
+                if(keyCode == KeyCode.SPACE)
+                        return;
 
                 if(this.getText() == null || keyCode.equals(KeyCode.ESCAPE) || keyCode.equals(KeyCode.UP) || keyCode.equals(KeyCode.DOWN)) {
                         tagDropdown.hide();
@@ -40,9 +42,9 @@ public class SearchInput extends TextField {
                         return;
                 }
 
-                tagDropdown.show();
                 // Hitting escape results in getText() returning null
                 tagDropdown.filter(this.getText());
+                tagDropdown.show();
 
         }
 

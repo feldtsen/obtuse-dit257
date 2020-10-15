@@ -30,7 +30,6 @@ public class TagDropdown extends ComboBox<String> {
     }
 
     public void filter(String input) {
-
         if (input.equals("")) {
             this.getItems().setAll(tagParser.getAllTags());
             return;
