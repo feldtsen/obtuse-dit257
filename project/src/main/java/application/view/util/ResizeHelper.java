@@ -1,4 +1,4 @@
-package application.model.util;
+package application.view.util;
 
 import application.view.status.StatusBanner;
 import javafx.collections.ObservableList;
@@ -11,7 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+
+// IMPORTED
+// created by https://stackoverflow.com/users/325554/alexander-berg
+
+
 public class ResizeHelper {
+    private static boolean isDragging = false;
     public static void addResizeListener(Stage stage) {
         addResizeListener(stage, 0, 0, Double.MAX_VALUE, Double.MAX_VALUE);
     }
@@ -51,9 +57,8 @@ public class ResizeHelper {
     }
 
     static class ResizeListener implements EventHandler<MouseEvent> {
-        private Stage stage;
+        private final Stage stage;
         private Cursor cursorEvent = Cursor.DEFAULT;
-        private int border = 4;
         private double startX = 0;
         private double startY = 0;
 
@@ -93,6 +98,9 @@ public class ResizeHelper {
                     sceneWidth = scene.getWidth(),
                     sceneHeight = scene.getHeight();
 
+            int border = 4;
+
+            if(isDragging) return;
             if (MouseEvent.MOUSE_MOVED.equals(mouseEventType)) {
                 if (mouseEventX < border && mouseEventY < border) {
                     cursorEvent = Cursor.NW_RESIZE;
@@ -174,6 +182,7 @@ public class ResizeHelper {
 
             double[] xOffset = {0}, yOffset = {0};
             node.setOnMousePressed(event -> {
+                isDragging = true;
                 if (stage != null){
                     xOffset[0] = stage.getX() - event.getScreenX();
                     yOffset[0] = stage.getY() - event.getScreenY();
@@ -185,6 +194,10 @@ public class ResizeHelper {
                     stage.setX(event.getScreenX() + xOffset[0]);
                     stage.setY(event.getScreenY() + yOffset[0]);
                 }
+            });
+            
+            node.setOnMouseReleased(event -> {
+                isDragging = false;
             });
 
     }

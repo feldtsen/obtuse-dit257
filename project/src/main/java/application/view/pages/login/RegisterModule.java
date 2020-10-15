@@ -17,18 +17,23 @@ public class RegisterModule extends VBox implements Page {
     private final PasswordField passwordInput;
 
     private RegisterModule() {
-        Label registerLabel = new Label("Register");
+        Label registerLabel = new Label("Create Account");
         Label nameLabel = new Label("Name");
         Label addressLabel = new Label("Address");
         Label phoneLabel = new Label("Phone Number");
         Label passwordLabel = new Label("Password");
 
         nameInput = new TextField();
+        nameInput.setPromptText("enter your name");
         addressInput = new TextField();
+        addressInput.setPromptText("enter your address");
         phoneInput = new TextField();
+        phoneInput.setPromptText("enter you phone number");
         passwordInput = new PasswordField();
+        passwordInput.setPromptText("enter you password");
 
         this.getStyleClass().add("spacing");
+        registerLabel.getStyleClass().add("title");
 
         HBox.setHgrow(this, Priority.ALWAYS);
 

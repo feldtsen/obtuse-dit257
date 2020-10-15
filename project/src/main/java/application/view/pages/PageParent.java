@@ -15,6 +15,7 @@ public class PageParent extends ScrollPane {
     private PageParent() {
         this.setId("pageParent");
 
+
         // Pages min width and min height is as big as the scroll pane
         this.fitToWidthProperty().set(true);
         //this.fitToHeightProperty().set(true);

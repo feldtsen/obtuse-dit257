@@ -24,7 +24,9 @@ public class EditPage extends VBox implements Page {
         Label newDescription = new Label("New description");
         Button update        = new Button("Update");
         titleInput           = new TextField();
+        titleInput.setPromptText("enter your new post title");
         descriptionInput     = new TextArea();
+        descriptionInput.setPromptText("enter your new description");
 
         // Set id for reference
         this.getStyleClass().add("padding");

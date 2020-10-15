@@ -4,9 +4,7 @@ import application.ResourceLoader;
 import application.view.navigation.NavigationParent;
 import application.view.pages.PageParent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class RootParent extends HBox {
@@ -19,10 +17,6 @@ public class RootParent extends HBox {
         this.getStylesheets().add(ResourceLoader.stylesheet);
 
         this.setId("rootParent");
-
-        Region spacing = new Region();
-        VBox.setVgrow(spacing, Priority.ALWAYS);
-
 
 
         this.getChildren().addAll(
@@ -45,9 +39,8 @@ public class RootParent extends HBox {
         return instance;
     }
 
-    private void setResponsiveSize(Region region, Stage primaryStage, double heightPercentage) {
-        region.prefWidthProperty().bind(primaryStage.widthProperty().multiply(heightPercentage));
-        //region.prefHeightProperty().bind(primaryStage.heightProperty().multiply(heightPercentage));
+    private void setResponsiveSize(Region region, Stage primaryStage, double widthPercentage) {
+        region.prefWidthProperty().bind(primaryStage.widthProperty().multiply(widthPercentage));
     }
 
 }

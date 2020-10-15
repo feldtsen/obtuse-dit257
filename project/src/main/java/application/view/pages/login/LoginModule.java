@@ -20,10 +20,15 @@ public class LoginModule extends VBox implements Page {
         Label phoneLabel = new Label("Phone Number");
         Label passwordLabel = new Label("Password");
 
+
         phoneInput = new TextField();
         passwordInput = new PasswordField();
 
+        phoneInput.setPromptText("enter your phone number");
+        passwordInput.setPromptText("enter your password");
+
         this.getStyleClass().add("spacing");
+        loginLabel.getStyleClass().add("title");
 
         Region buttonSpacing = new Region();
         VBox.setVgrow(buttonSpacing, Priority.ALWAYS);

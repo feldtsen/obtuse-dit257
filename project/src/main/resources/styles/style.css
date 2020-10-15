@@ -1,5 +1,6 @@
 @font-face {
-    -fx-font-family: 'IBM Plex Sans';
+    -fx-font-family: 'Comfortaa-Bold';
+    src:url('Comfortaa-Bold.ttf');
 }
 
 #icon {
@@ -13,12 +14,12 @@
 
     -fx-background-insets: 0, 0, 0;
     -fx-background-radius: 0, 0, 0;
+    -fx-font-family: Comfortaa-Bold;
 }
 
 #rootParent {
     -fx-background-color: #151515;
     -fx-font-size:        14px;
-    -fx-font-family:      Arial;
 }
 /* BUTTON */
 .button {
@@ -26,7 +27,7 @@
     -fx-background-radius: 10;
     -fx-border-style:      none;
     -fx-background-color:  #3c3f47;
-    -fx-text-fill:         #BBBBBB;
+    -fx-text-fill:         #FFFFFF;
     -fx-min-width:         100;
     -fx-background-insets: 0 0 0 0, 0, 0, 0;
 }
@@ -34,7 +35,7 @@
 
 
 .button:hover {
-    -fx-background-color: #505050;
+    -fx-background-color:  #6c6f77;
 }
 
 
@@ -43,7 +44,8 @@
     -fx-fill:         #BBBBBB;
 }
 
-.navigationButton:hover, .navigationButton:hover SVGPath, .activeNavigation SVGPath {
+.navigationButton:hover, .navigationButton:hover SVGPath, .activeNavigation SVGPath,
+.toolbar > .button:hover SVGPath {
     -fx-background-color: transparent!important;
     -fx-fill: #50AA50!important;
  }
@@ -112,9 +114,10 @@
     -fx-background-color:  #111117;
 }
 
-.toolbar > .button {
+.toolbar > .button, .toolbar > .button SVGPath {
     -fx-background-color: transparent!important;
-    -fx-min-width: 20!important;
+    -fx-min-width: 15!important;
+    -fx-fill: white;
 }
 
 
@@ -129,36 +132,50 @@
 }
 
 .tag {
-    -fx-background-color:  #303030;
+    -fx-background-color:  #3c3f47;
+    -fx-text-fill:         #BBBBBB;
     -fx-background-radius: 5;
     -fx-padding:           2 10 2 10;
 }
 
+.title {
+    -fx-font-size: 24;
+    -fx-font-weight: 900;
+}
 
 
 /* Filter  */
-.text-field, .text-area {
-    -fx-background-color: #CCCCCC;
+.text-field, .text-area, .text-area .content {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-text-fill: #BBBBBB;
     -fx-background-radius: 10;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-prompt-text-fill: #909090;
 
+}
+.text-field, .text-area .content {
+    -fx-border-width: 0 0 .5 0;
 }
 
 
-.combo-box .combo-box-popup .list-view, .list-cell {
-    -fx-background-color:  #CCCCCC ;
+
+.combo-box, .combo-box-popup {
+    -fx-background-color: transparent!important;
+}
+
+
+.combo-box .list-view, .list-cell {
     -fx-text-fill:         #000000 ;
-    -fx-background-radius: 10;
 }
 .combo-box .combo-box-popup .list-cell:hover, .list-cell:filled:selected, .list-cell:filled:selected:hover{
     -fx-text-fill:        #000000 !important;
-    -fx-background-color: #507750 !important;
-    -fx-background-radius: 10;
 }
 
 .combo-box-popup, .list-view {
     -fx-min-height: 100;
     -fx-max-height: 100;
-    -fx-background-radius: 10;
 
 }
 
@@ -172,6 +189,10 @@
 .increment-button, .decrement-button {
     -fx-background-color: transparent;
     -fx-border-color:     transparent;
+}
+
+.scroll-bar, .increment-button, .decrement-button {
+    -fx-padding:2.25;
 }
 
 .scroll-bar:horizontal .track,
