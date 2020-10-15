@@ -2,6 +2,7 @@ package application.view.pages.publish;
 
 import application.controller.ImageChooser;
 import application.view.pages.board.posts.ButtonContainer;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -22,6 +23,9 @@ public class MetaModule extends VBox {
         buttons.add(DonationButton.getInstance());
         buttons.add(RequestButton.getInstance());
         ButtonContainer buttonContainer = new ButtonContainer(buttons);
+
+        this.setMaxWidth(250);
+
 
         this.getChildren().addAll(
                 new Label("Post type"),
