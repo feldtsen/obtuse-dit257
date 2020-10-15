@@ -15,8 +15,9 @@ public class InputModule extends VBox {
         this.getStyleClass().add("spacing");
 
         titleInput = new TextField();
-        titleInput.setPromptText("enter you post title");
         descriptionInput = new TextArea();
+        titleInput.setPromptText("enter your post title");
+        titleInput.setPromptText("enter your post title");
         descriptionInput.setPromptText("enter your description");
 
         descriptionInput.setWrapText(true);

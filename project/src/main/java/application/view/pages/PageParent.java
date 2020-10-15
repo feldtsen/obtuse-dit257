@@ -22,7 +22,9 @@ public class PageParent extends ScrollPane {
 
         // Add pages to the scroll pane
         // The one set here will be the initial page.setContent(RegisterPage.getInstance());
-        this.setContent(pageContainer);
+        this.setContent(
+                pageContainer
+        );
         loadPage(RegisterPage.getInstance());
         NavigationParent.getInstance().applyActiveClass(LoginNavigationButton.getInstance());
     }
@@ -36,7 +38,6 @@ public class PageParent extends ScrollPane {
     // Changes the active page
     public static void loadPage (Node page) {
         pageContainer.getChildren().setAll(
-                StatusBanner.getInstance(),
                 page
         );
     }
