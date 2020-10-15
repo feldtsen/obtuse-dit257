@@ -17,7 +17,7 @@ public class AlertBannerModule extends HBox {
         HBox.setHgrow(this, Priority.ALWAYS);
 
         // The message will be shown to the far left of the given space
-        this.setAlignment(Pos.CENTER);
+        this.setAlignment(Pos.CENTER_LEFT);
     }
 
     // Singleton
@@ -28,7 +28,7 @@ public class AlertBannerModule extends HBox {
     }
 
     public void setAlertMessage(String alertMessage, Alert.AlertType alertType) {
-        Label alertMessageLabel = new Label(alertMessage);
+        Label alertMessageLabel = new Label(" " + alertMessage);
 
 
         // We gibe the message different colors based on what type of alert it is

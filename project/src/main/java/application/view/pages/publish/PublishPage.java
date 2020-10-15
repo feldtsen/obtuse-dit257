@@ -1,6 +1,7 @@
 package application.view.pages.publish;
 
 import application.view.pages.Page;
+import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
@@ -21,8 +22,9 @@ public class PublishPage extends HBox implements Page {
 
         HBox.setHgrow(inputModule, Priority.ALWAYS);
 
+
         this.getChildren().addAll(
-                inputModule ,
+                inputModule,
                 metaModule
         );
     }
