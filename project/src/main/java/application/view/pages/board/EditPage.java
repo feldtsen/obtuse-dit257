@@ -1,5 +1,6 @@
 package application.view.pages.board;
 
+import application.controller.ImageChooser;
 import application.controller.PostController;
 import application.model.posts.IPost;
 import application.view.pages.Page;
@@ -22,6 +23,8 @@ public class EditPage extends VBox implements Page {
 
     private static TagChoiceDropdown tagChoiceDropdown;
 
+    private static ImageChooser imageChooser;
+
     public EditPage() {
         // Create the GUI elements
         Label newTitle       = new Label("New title");
@@ -32,6 +35,7 @@ public class EditPage extends VBox implements Page {
         descriptionInput     = new TextArea();
         descriptionInput.setPromptText("enter your new description");
         tagChoiceDropdown    = new TagChoiceDropdown();
+        imageChooser = new ImageChooser();
         // Set id for reference
         this.getStyleClass().add("padding");
         this.getStyleClass().add("spacing");
@@ -48,6 +52,7 @@ public class EditPage extends VBox implements Page {
                 newDescription,
                 descriptionInput,
                 tagChoiceDropdown,
+                imageChooser,
                 update
         );
 
@@ -65,6 +70,7 @@ public class EditPage extends VBox implements Page {
         uuidField = oldPost.getUniqueID();
         postType = oldPost.getType();
         tagChoiceDropdown.setChosenTags(oldPost.getTags());
+        imageChooser.setRelativePath(oldPost.getImagePath());
     }
 
     public static String getTitleInput () {
@@ -83,8 +89,13 @@ public class EditPage extends VBox implements Page {
         return postType;
     }
 
-    public static Set<String > getTags(){
+    public static Set<String> getTags(){
         return tagChoiceDropdown.getChosenTags();
+    }
+
+    public static String getImagePath() {
+        System.out.println(imageChooser.getSelectedPath());
+        return imageChooser.getSelectedPath();
     }
 
 

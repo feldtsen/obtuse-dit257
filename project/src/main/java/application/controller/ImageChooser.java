@@ -41,7 +41,6 @@ public class ImageChooser extends VBox {
 
         this.chooser = new FileChooser();
         this.chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image files", EXTENSIONS));
-
     }
 
     private void selectImage() {
@@ -92,5 +91,13 @@ public class ImageChooser extends VBox {
             copyFile();
         }
         return relativePath;
+    }
+
+    public void setRelativePath(String path) {
+        if(path == null) return;
+        this.relativePath = path;
+
+        String labelText = path.substring(path.lastIndexOf("/") + 1);
+        choiceLabel.setText(labelText);
     }
 }
