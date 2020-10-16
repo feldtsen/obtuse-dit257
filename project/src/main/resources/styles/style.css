@@ -160,20 +160,23 @@
 
 
 .combo-box, .combo-box-popup {
-   -fx-background-color: #21242d;  /*transparent!important;*/
+   -fx-background-color: #21242d!important;
 }
 
 
 .combo-box .list-view, .list-cell {
-    -fx-text-fill:        #151515!important;
-    -fx-padding: 0;
-}
-.combo-box .combo-box-popup .list-cell:hover, .list-cell:filled:selected, .list-cell:filled:selected:hover{
+    -fx-text-fill:       #BBBBBB!important;
+    -fx-background-color: #21242d;
     -fx-padding: 0;
 }
 
+.combo-box .combo-box-popup .list-cell:hover, .list-cell:filled:selected, .list-cell:filled:selected:hover{
+    -fx-padding: 0;
+    -fx-background-color:  #6c6f77
+}
+
 .combo-box-popup, .list-view {
-    -fx-text-fill:        #151515 !important;
+    -fx-text-fill:        #21242d !important;
     -fx-min-height: 100;
     -fx-max-height: 100;
     -fx-padding: 0;
