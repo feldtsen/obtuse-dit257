@@ -12,7 +12,7 @@ public class InputModule extends VBox {
     private final TextArea descriptionInput;
 
     public InputModule (){
-        this.getStyleClass().add("spacing");
+        this.setSpacing(10);
 
         titleInput = new TextField();
         descriptionInput = new TextArea();

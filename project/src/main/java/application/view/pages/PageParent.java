@@ -3,28 +3,40 @@ package application.view.pages;
 import application.view.navigation.LoginNavigationButton;
 import application.view.navigation.NavigationParent;
 import application.view.pages.login.RegisterPage;
-import application.view.status.StatusBanner;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
-public class PageParent extends ScrollPane {
+public class PageParent extends HBox {
     private static PageParent instance = null;
     private static final VBox pageContainer = new VBox();
 
     private PageParent() {
-        this.setId("pageParent");
+        ScrollPane content = new ScrollPane();
+
+        Region margin = new Region();
+        Region margin2 = new Region();
+
+        HBox.setHgrow(margin, Priority.ALWAYS);
+        HBox.setHgrow(margin2, Priority.ALWAYS);
+
+        HBox.setHgrow(this, Priority.ALWAYS);
+        HBox.setHgrow(pageContainer, Priority.ALWAYS);
+        HBox.setHgrow(content, Priority.ALWAYS);
+
+        content.setId("pageParent");
+        pageContainer.setId("maxWidth");
 
 
         // Pages min width and min height is as big as the scroll pane
-        this.fitToWidthProperty().set(true);
-        //this.fitToHeightProperty().set(true);
+        content.fitToWidthProperty().set(true);
 
-        // Add pages to the scroll pane
-        // The one set here will be the initial page.setContent(RegisterPage.getInstance());
-        this.setContent(
+        content.setContent(
                 pageContainer
         );
+
+        this.getChildren().addAll(margin, content, margin2);
+
         loadPage(RegisterPage.getInstance());
         NavigationParent.getInstance().applyActiveClass(LoginNavigationButton.getInstance());
     }

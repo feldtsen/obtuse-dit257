@@ -42,10 +42,6 @@ public class LoginModule extends VBox implements Page {
 
         HBox.setHgrow(this, Priority.ALWAYS);
 
-        //Forces the button to the bottom
-        //Region spacing = new Region();
-        //VBox.setVgrow(spacing, Priority.ALWAYS);
-
         this.getChildren().addAll(
                 titleContainer,
 

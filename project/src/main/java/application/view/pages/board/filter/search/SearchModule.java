@@ -1,17 +1,33 @@
 package application.view.pages.board.filter.search;
 
-import javafx.geometry.HPos;
+import application.controller.BoardController;
+import application.model.board.Filter;
+import application.model.board.IFilter;
+import application.view.pages.board.filter.categories.CategoryButtonContainer;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.skin.ComboBoxListViewSkin;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.shape.SVGPath;
 
-public class SearchModule extends GridPane {
-    public SearchModule() {
-        TagDropdown tagDropdown = new TagDropdown();
+import java.util.Set;
 
+public class SearchModule extends GridPane {
+    private final TagDropdown tagDropdown = new TagDropdown();
+    private final SearchInput searchInput = new SearchInput();
+
+    public SearchModule() {
+        ComboBoxListViewSkin<String> tagDropdownSkin = new ComboBoxListViewSkin<>(tagDropdown);
+        tagDropdownSkin.getPopupContent().addEventFilter(KeyEvent.ANY, (event) -> {
+            if( event.getCode() == KeyCode.SPACE || event.getCode()== KeyCode.ESCAPE) {
+                event.consume();
+            }
+        });
+        tagDropdown.setSkin(tagDropdownSkin);
 
 
         Button searchButton = new Button();
@@ -25,21 +41,54 @@ public class SearchModule extends GridPane {
         searchButton.getStyleClass().add("search");
 
 
+        searchButton.setOnMouseClicked( e -> tagDropdown.filter(searchInput.getText()));
+
+
+        searchInput.setPromptText("search");
+        searchInput.setOnKeyReleased(this::keyTyped);
+
+
+        tagDropdown.setOnHiding(e -> searchInput.setText(tagDropdown.getSelectionModel().getSelectedItem()));
+        tagDropdown.getStyleClass().add("tagDropdown");
 
 
         HBox.setHgrow(this, Priority.ALWAYS);
+
         this.setHgap(10);
 
 
-        tagDropdown.prefWidthProperty().bind(this.widthProperty());
-        tagDropdown.getSearchInputField().prefWidthProperty().bind(this.widthProperty());
-
-        searchButton.prefHeightProperty().bind(this.heightProperty());
-
-        GridPane.setHalignment(searchButton, HPos.RIGHT);
+        GridPane.setHgrow(searchInput, Priority.ALWAYS);
+        GridPane.setHgrow(tagDropdown, Priority.ALWAYS);
 
         this.add(tagDropdown, 0, 0);
-        this.add(tagDropdown.getSearchInputField(), 0, 0);
+        this.add(searchInput, 0, 0);
         this.add(searchButton, 1, 0);
+    }
+
+    private void keyTyped(KeyEvent keyEvent) {
+
+        KeyCode keyCode = keyEvent.getCode();
+
+        if(searchInput.getText() == null) {
+            tagDropdown.hide();
+            return;
+        }
+
+        if(searchInput.getText().equals("")) {
+            BoardController.setFilter(new Filter(CategoryButtonContainer.getCurrentlySelectedCategoryTag(), Set.of()));
+            return;
+        }
+
+        if (keyCode.equals(KeyCode.ENTER)){
+            tagDropdown.hide();
+            IFilter f1 = new Filter(CategoryButtonContainer.getCurrentlySelectedCategoryTag(), Set.of(searchInput.getText()));
+            BoardController.setFilter(new Filter(CategoryButtonContainer.getCurrentlySelectedCategoryTag(), f1.getTags()));
+            searchInput.selectEnd();
+            return;
+        }
+
+        tagDropdown.filter(searchInput.getText());
+
+        tagDropdown.show();
     }
 }
