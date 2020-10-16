@@ -12,26 +12,27 @@ import javafx.stage.Stage;
 
 public class RootParent extends HBox {
     private static RootParent instance = null;
-    private static final VBox contentContainer = new VBox();
+    private static final VBox pageContainer = new VBox();
 
     private RootParent(Stage stage) {
         NavigationParent navigationParent = NavigationParent.getInstance();
         PageParent pageParent = PageParent.getInstance();
-        HBox.setHgrow(pageParent, Priority.ALWAYS);
-        HBox.setHgrow(contentContainer, Priority.ALWAYS);
+
+        HBox.setHgrow(pageContainer, Priority.ALWAYS);
 
         this.getStylesheets().add(ResourceLoader.stylesheet);
 
         this.setId("rootParent");
 
-        contentContainer.getChildren().setAll(
+
+        pageContainer.getChildren().setAll(
                 StatusBanner.getInstance(),
                 pageParent
         );
 
         this.getChildren().addAll(
                 navigationParent,
-                contentContainer
+                pageContainer
         );
 
 

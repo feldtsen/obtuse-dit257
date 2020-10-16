@@ -4,7 +4,6 @@ import application.controller.BoardController;
 import application.model.board.Filter;
 import application.model.board.IFilter;
 import application.view.pages.board.filter.categories.CategoryButtonContainer;
-import javafx.geometry.HPos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.skin.ComboBoxListViewSkin;
@@ -22,13 +21,14 @@ public class SearchModule extends GridPane {
     private final SearchInput searchInput = new SearchInput();
 
     public SearchModule() {
-        ComboBoxListViewSkin<String> tagParserSkin = new ComboBoxListViewSkin<>(tagDropdown);
-        tagParserSkin.getPopupContent().addEventFilter(KeyEvent.ANY, (event) -> {
+        ComboBoxListViewSkin<String> tagDropdownSkin = new ComboBoxListViewSkin<>(tagDropdown);
+        tagDropdownSkin.getPopupContent().addEventFilter(KeyEvent.ANY, (event) -> {
             if( event.getCode() == KeyCode.SPACE || event.getCode()== KeyCode.ESCAPE) {
                 event.consume();
             }
         });
-        tagDropdown.setSkin(tagParserSkin);
+        tagDropdown.setSkin(tagDropdownSkin);
+
 
         Button searchButton = new Button();
         SVGPath svgPath = new SVGPath();
@@ -46,7 +46,6 @@ public class SearchModule extends GridPane {
 
         searchInput.setPromptText("search");
         searchInput.setOnKeyReleased(this::keyTyped);
-        searchInput.getStyleClass().add("searchInput");
 
 
         tagDropdown.setOnHiding(e -> searchInput.setText(tagDropdown.getSelectionModel().getSelectedItem()));
@@ -54,15 +53,12 @@ public class SearchModule extends GridPane {
 
 
         HBox.setHgrow(this, Priority.ALWAYS);
+
         this.setHgap(10);
 
 
-        tagDropdown.prefWidthProperty().bind(this.widthProperty());
-        searchInput.prefWidthProperty().bind(this.widthProperty());
-
-        searchButton.prefHeightProperty().bind(this.heightProperty());
-
-        GridPane.setHalignment(searchButton, HPos.RIGHT);
+        GridPane.setHgrow(searchInput, Priority.ALWAYS);
+        GridPane.setHgrow(tagDropdown, Priority.ALWAYS);
 
         this.add(tagDropdown, 0, 0);
         this.add(searchInput, 0, 0);

@@ -113,6 +113,10 @@
     -fx-background-color: #11111f;
 }
 
+#maxWidth {
+    -fx-max-width: 1200;
+}
+
 .toolbar > .button, .toolbar > .button SVGPath {
     -fx-background-color: transparent!important;
     -fx-min-width: 15!important;
@@ -152,17 +156,18 @@
 
 }
 .text-field, .text-area .content {
+    -fx-background-insets: 0 0 0 0, 0, 0, 0;
+
 }
 
 
 .combo-box {
     -fx-background-color: #21242d;
     -fx-background-radius: 10;
+    -fx-padding: 0;
+
 }
 
-.searchInput {
-    -fx-border-width: 0;
-}
 
 
 
