@@ -78,7 +78,7 @@ public class PostController {
         IClient client = Client.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
-        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), EditPage.getPostType(), new HashSet<>(/*TODO: actually implement*/));
+        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), EditPage.getPostType(), EditPage.getTags());
         newPost.setUniqueID(EditPage.getUUID());
         client.getBoard().replacePost(EditPage.getUUID(), newPost);
 

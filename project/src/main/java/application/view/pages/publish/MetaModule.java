@@ -2,7 +2,6 @@ package application.view.pages.publish;
 
 import application.controller.ImageChooser;
 import application.view.pages.board.posts.ButtonContainer;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -47,7 +46,7 @@ public class MetaModule extends VBox {
     }
 
     public Set<String> getSelectedTags(){
-        return tagChoice.getTags();
+        return tagChoice.getChosenTags();
     }
 
     public String getImagePath() {
