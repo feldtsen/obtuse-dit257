@@ -6,6 +6,7 @@ import application.view.pages.PageParent;
 import application.view.pages.board.BoardPage;
 import application.view.util.SVGHelper;
 import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 
 public class BoardNavigationButton extends NavigationButton {
     private static BoardNavigationButton instance = null;
@@ -20,7 +21,7 @@ public class BoardNavigationButton extends NavigationButton {
                 "24zm296 184h192c13.255 0 24-10.745 24-24V296c0-13.255-10.745-24-24-24H296c-13.255 0-24 10.745-24 " +
                 "24v160c0 13.255 10.745 24 24 24z", 0.05));
 
-        this.setOnMouseClicked(e->this.action());
+        this.setOnMouseClicked(this::action);
 
         this.setTooltip(new Tooltip("Takes you to all the published posts"));
 
@@ -32,11 +33,10 @@ public class BoardNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action() {
+    public void action(MouseEvent e) {
         // Gets all the posts for the current client
         BoardController.retrievePosts();
 
-        PageParent.loadPage(BoardPage.getInstance());
-        NavigationParent.getInstance().applyActiveClass(this);
+        PageParent.loadPage(BoardPage.getInstance(), this);
     }
 }

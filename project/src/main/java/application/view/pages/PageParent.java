@@ -1,11 +1,15 @@
 package application.view.pages;
 
-import application.view.navigation.LoginNavigationButton;
+import application.view.navigation.RegisterNavigationButton;
+import application.view.navigation.NavigationButton;
 import application.view.navigation.NavigationParent;
 import application.view.pages.login.RegisterPage;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 
 public class PageParent extends HBox {
     private static PageParent instance = null;
@@ -37,8 +41,8 @@ public class PageParent extends HBox {
 
         this.getChildren().addAll(margin, content, margin2);
 
-        loadPage(RegisterPage.getInstance());
-        NavigationParent.getInstance().applyActiveClass(LoginNavigationButton.getInstance());
+        loadPage(RegisterPage.getInstance(), RegisterNavigationButton.getInstance());
+
     }
 
     // Singleton
@@ -48,7 +52,8 @@ public class PageParent extends HBox {
     }
 
     // Changes the active page
-    public static void loadPage (Node page) {
+    public static void loadPage (Node page, NavigationButton button) {
+        NavigationParent.getInstance().applyActiveClass(button);
         pageContainer.getChildren().setAll(
                 page
         );

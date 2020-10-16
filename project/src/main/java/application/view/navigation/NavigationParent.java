@@ -20,7 +20,7 @@ public class NavigationParent extends VBox {
                 spacing,
                 BoardNavigationButton.getInstance(),
                 PublishNavigationButton.getInstance(),
-                LoginNavigationButton.getInstance(),
+                RegisterNavigationButton.getInstance(),
                 ExitNavigationButton.getInstance(),
                 spacing2
         );

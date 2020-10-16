@@ -4,13 +4,13 @@ import application.model.client.Client;
 import application.model.client.IClient;
 import application.model.posts.IPost;
 import application.model.posts.Post;
+import application.view.navigation.PublishNavigationButton;
 import application.view.pages.PageParent;
 import application.view.pages.board.EditPage;
 import application.view.pages.publish.PublishPage;
 import javafx.scene.control.Alert;
 
 import java.io.IOException;
-import java.util.HashSet;
 
 public class PostController {
 
@@ -70,7 +70,7 @@ public class PostController {
 
 
         // Makes the edit page visible
-        PageParent.loadPage(EditPage.getInstance());
+        PageParent.loadPage(EditPage.getInstance(), PublishNavigationButton.getInstance());
 
     }
 

@@ -4,6 +4,7 @@ import application.view.pages.PageParent;
 import application.view.pages.publish.PublishPage;
 import application.view.util.SVGHelper;
 import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 
 public class PublishNavigationButton extends NavigationButton {
     private static PublishNavigationButton instance = null;
@@ -18,7 +19,7 @@ public class PublishNavigationButton extends NavigationButton {
                 "8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 " +
                 "48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z", 0.05));
 
-        this.setOnMouseClicked(e->this.action());
+        this.setOnMouseClicked(this::action);
 
         this.setTooltip(new Tooltip("Here you can publish posts"));
     }
@@ -29,8 +30,7 @@ public class PublishNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action() {
-        PageParent.loadPage(PublishPage.getInstance());
-        NavigationParent.getInstance().applyActiveClass(this);
+    public void action(MouseEvent e) {
+        PageParent.loadPage(PublishPage.getInstance(), this);
     }
 }

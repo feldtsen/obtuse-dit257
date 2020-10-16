@@ -10,6 +10,7 @@ import application.model.util.InvalidPhoneNumberException;
 import application.model.util.PhoneNumber;
 import application.ResourceLoader;
 import application.model.client.TagParser;
+import application.view.navigation.RegisterNavigationButton;
 import application.view.pages.PageParent;
 import application.view.pages.login.RegisterPage;
 import application.view.status.AlertBannerModule;
@@ -60,7 +61,7 @@ public class ClientController {
         client.setUser(null);
         LoginBannerModule.getInstance().setNotLoggedIn();
         LogoutButton.getInstance().setWhenLoggedOutText();
-        PageParent.loadPage(RegisterPage.getInstance());
+        PageParent.loadPage(RegisterPage.getInstance(), RegisterNavigationButton.getInstance());
 
     }
 

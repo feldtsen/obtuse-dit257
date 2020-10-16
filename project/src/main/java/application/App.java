@@ -12,9 +12,9 @@ import javafx.stage.StageStyle;
 
 public class App extends Application {
     private final static double INITIAL_WIDTH  = 1200;
-    private final static double INITIAL_HEIGHT = 645;
+    private final static double INITIAL_HEIGHT = 655;
     private final static double MIN_WIDTH      = 900;
-    private final static double MIN_HEIGHT     = 645;
+    private final static double MIN_HEIGHT     = 655;
     private static Stage stage;
 
     @Override

@@ -22,7 +22,8 @@ public class RootParent extends HBox {
 
         this.getStylesheets().add(ResourceLoader.stylesheet);
 
-        this.setId("rootParent");
+        this.getStyleClass().add("defaults");
+        this.getStyleClass().add("colorSchemeDark");
 
 
         pageContainer.getChildren().setAll(

@@ -3,13 +3,14 @@ package application.view.pages.publish;
 
 import application.view.navigation.OnClickAction;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 public class DonationButton extends Button implements OnClickAction {
     private static DonationButton instance = null;
 
     private DonationButton() {
         this.setText("Donation");
-        this.setOnMouseClicked(e -> this.action());
+        this.setOnMouseClicked(this::action);
 
         this.setId("active");
     }
@@ -20,7 +21,7 @@ public class DonationButton extends Button implements OnClickAction {
     }
 
     @Override
-    public void action() {
+    public void action(MouseEvent e) {
         this.setId("active");
         RequestButton.getInstance().setId("inactive");
         PublishPage.getInstance().setPostType("Donation");

@@ -1,5 +1,6 @@
 package application.view.pages.publish;
 
+import application.ResourceLoader;
 import application.model.client.Client;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
@@ -24,11 +25,16 @@ public class TagChoiceDropdown extends VBox {
 
     public TagChoiceDropdown(Set<String> initialTags){
         tagChoices = new ComboBox<>(FXCollections.observableArrayList(Client.getInstance().getTagParser().getAllTags()));
+
         tagChoices.getStyleClass().add("tagDropdown");
         tagChoices.setOnHidden(this::action);
+
         chosenTags.addAll(initialTags);
+
         this.tagDisplay = new FlowPane();
+
         this.getChildren().addAll(tagChoices, tagDisplay);
+
         updateTags(chosenTags);
     }
 
@@ -42,9 +48,9 @@ public class TagChoiceDropdown extends VBox {
             HBox tagBox = new HBox();
             Label tagLabel = new Label(tag);
 
+
             Button deleteButton = new Button();
-            deleteButton.setText("X");
-            //TODO: styling
+            deleteButton.setGraphic(ResourceLoader.xIconBig);
 
             tagBox.getChildren().addAll(tagLabel, deleteButton);
             tagBox.getStyleClass().add("tag");

@@ -3,6 +3,7 @@ package application.view.navigation;
 import application.view.util.SVGHelper;
 import javafx.application.Platform;
 import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 
 public class ExitNavigationButton extends NavigationButton {
     private static ExitNavigationButton instance = null;
@@ -15,7 +16,7 @@ public class ExitNavigationButton extends NavigationButton {
                 "0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h336V33.18c0-21.58-19.56-37.41-39.76-32.17zM264 288c-13.25 0-24-14.33-24-32s10.75-32 " +
                 "24-32 24 14.33 24 32-10.75 32-24 32z", 0.05));
 
-        this.setOnMouseClicked(e->this.action());
+        this.setOnMouseClicked(this::action);
 
         this.setTooltip(new Tooltip("Exit the application"));
     }
@@ -26,7 +27,7 @@ public class ExitNavigationButton extends NavigationButton {
     }
 
     @Override
-    public void action() {
+    public void action(MouseEvent e) {
         Platform.exit();
         System.exit(0);
     }
