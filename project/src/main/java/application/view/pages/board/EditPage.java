@@ -3,11 +3,14 @@ package application.view.pages.board;
 import application.controller.PostController;
 import application.model.posts.IPost;
 import application.view.pages.Page;
+import application.view.pages.publish.TagChoiceDropdown;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+
+import java.util.Set;
 
 public class EditPage extends VBox implements Page {
     private static EditPage instance = null;
@@ -17,6 +20,7 @@ public class EditPage extends VBox implements Page {
     private static String uuidField;
     private static String postType;
 
+    private static TagChoiceDropdown tagChoiceDropdown;
 
     public EditPage() {
         // Create the GUI elements
@@ -27,7 +31,7 @@ public class EditPage extends VBox implements Page {
         titleInput.setPromptText("enter your new post title");
         descriptionInput     = new TextArea();
         descriptionInput.setPromptText("enter your new description");
-
+        tagChoiceDropdown    = new TagChoiceDropdown();
         // Set id for reference
         this.getStyleClass().add("padding");
         this.getStyleClass().add("spacing");
@@ -43,8 +47,8 @@ public class EditPage extends VBox implements Page {
                 titleInput,
                 newDescription,
                 descriptionInput,
+                tagChoiceDropdown,
                 update
-
         );
 
     }
@@ -60,6 +64,7 @@ public class EditPage extends VBox implements Page {
         descriptionInput.setText(oldPost.getDescription());
         uuidField = oldPost.getUniqueID();
         postType = oldPost.getType();
+        tagChoiceDropdown.setChosenTags(oldPost.getTags());
     }
 
     public static String getTitleInput () {
@@ -76,6 +81,10 @@ public class EditPage extends VBox implements Page {
 
     public static String getPostType(){
         return postType;
+    }
+
+    public static Set<String > getTags(){
+        return tagChoiceDropdown.getChosenTags();
     }
 
 

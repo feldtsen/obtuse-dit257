@@ -1,7 +1,6 @@
 package application.view.pages.publish;
 
 import application.model.client.Client;
-import application.view.pages.util.TagDisplay;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.scene.control.Button;
@@ -15,23 +14,27 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class TagChoiceDropdown extends VBox {
-    private final Set<String> chosenTags = new HashSet<>();
+    private Set<String> chosenTags = new HashSet<>();
     private final ComboBox<String> tagChoices;
     private final FlowPane tagDisplay;
 
     public TagChoiceDropdown(){
+        this(Set.of());
+    }
+
+    public TagChoiceDropdown(Set<String> initialTags){
         tagChoices = new ComboBox<>(FXCollections.observableArrayList(Client.getInstance().getTagParser().getAllTags()));
         tagChoices.getStyleClass().add("tagDropdown");
         tagChoices.setOnHidden(this::action);
-
+        chosenTags.addAll(initialTags);
         this.tagDisplay = new FlowPane();
         this.getChildren().addAll(tagChoices, tagDisplay);
+        updateTags(chosenTags);
     }
 
-    private void setTags(Set<String> tags) {
+    private void updateTags(Set<String> tags) {
         tagDisplay.getChildren().clear();
         tagDisplay.getStyleClass().add("tagContainer");
-
         tagDisplay.setVgap(10);
         tagDisplay.setHgap(10);
 
@@ -62,11 +65,16 @@ public class TagChoiceDropdown extends VBox {
             String tag = tagChoices.getSelectionModel().getSelectedItem();
             chosenTags.add(tag);
             tagChoices.getSelectionModel().clearSelection();
-            setTags(chosenTags);
+            updateTags(chosenTags);
         }
     }
 
     public Set<String> getChosenTags(){
         return chosenTags;
+    }
+
+    public void setChosenTags(Set<String> tags){
+       this.chosenTags = tags;
+       updateTags(chosenTags);
     }
 }
