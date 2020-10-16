@@ -160,7 +160,7 @@
 
 
 .combo-box, .combo-box-popup {
-    -fx-background-color: transparent!important;
+   -fx-background-color: #21242d;  /*transparent!important;*/
 }
 
 
