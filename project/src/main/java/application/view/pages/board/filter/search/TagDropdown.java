@@ -10,23 +10,11 @@ import java.util.ArrayList;
 
 public class TagDropdown extends ComboBox<String> {
     private final static TagParser tagParser = Client.getInstance().getTagParser();
-    private final SearchInput searchInput = new SearchInput(this);
 
 
     public TagDropdown(){
+        // Initializes ComboBox with the content equal to all available tags
         super(FXCollections.observableArrayList(tagParser.getAllTags()));
-        this.setOnHiding(e -> action(searchInput));
-
-        this.getStyleClass().add("tagDropdown");
-    }
-
-    private void action (SearchInput searchInput) {
-        searchInput.setText(this.getSelectionModel().getSelectedItem());
-
-    }
-
-    public SearchInput getSearchInputField () {
-        return this.searchInput;
     }
 
     public void filter(String input) {
@@ -47,4 +35,5 @@ public class TagDropdown extends ComboBox<String> {
         // Replace the existing items in the combobox, if there is no items we retrieve the original list
         this.getItems().setAll(filteredTags);
     }
+
 }
