@@ -16,6 +16,8 @@
 
 * 12/13 92%
 
+### Week 5:
+
 ## Personal well-being (daily) (1-5)
 
 ### Week 1:
@@ -49,6 +51,14 @@
 * Day 4: 3.29
 * Day 5: 3.29
 
+### Week 5:
+
+* Day 1: 3.29
+* Day 2: 3.29
+* Day 3: 3.43
+* Day 4: 3.43
+* Day 5: 3.86
+
 ## Team satisfaction (weekly) (1-5)
 
 ### Week 1:
@@ -66,4 +76,8 @@
 ### Week 4:
 
 * 3.57
+
+### Week 5:
+
+* 4.14
 
