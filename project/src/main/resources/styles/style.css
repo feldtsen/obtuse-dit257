@@ -165,11 +165,21 @@
     -fx-background-color: #21242d;
     -fx-background-radius: 10;
     -fx-padding: 0;
-
 }
 
+.combo-box .combo-box-popup .list-view, .list-cell {
+    -fx-background-color:  #21242d;
+    -fx-text-fill:         #FFFFFF;
+    -fx-background-radius: 10;
+}
 
-
+.combo-box .combo-box-popup .list-cell:hover {
+    -fx-text-fill:         #FFFFFF;
+    -fx-background-color:  #6c6f77;
+    -fx-opacity: 0.99;
+    -fx-background-radius: 10;
+    -fx-background-opacity: 0.2;
+}
 
 
 
