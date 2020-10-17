@@ -12,7 +12,9 @@
 
 ## Resources
 Trello: https://trello.com/invite/b/FFDYCcny/8518947e43eaa2c797088ab654d10e63/konrad-board
+
 Slack: https://join.slack.com/t/obtuse-dit257/shared_invite/zt-ihafm4b5-sVm8RzePdEKytYYLpyQ01w
+
 Lucidchart: https://app.lucidchart.com/invitations/accept/088a14a7-988d-4f10-ac37-11b4d66aa07e
 
 ## Dependencies
