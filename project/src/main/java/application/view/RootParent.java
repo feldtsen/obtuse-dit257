@@ -15,43 +15,41 @@ public class RootParent extends HBox {
     private RootParent() {
         NavigationParent navigationParent = NavigationParent.getInstance();
         PageParent pageParent = PageParent.getInstance();
+        StackPane rootContainer = new StackPane();
 
-        StackPane floatContainer = new StackPane();
-        floatContainer.prefWidthProperty().bind(pageContainer.widthProperty());
-        floatContainer.setPickOnBounds(true);
+        // Makes rootContainer occupy the space given to it
+        HBox.setHgrow(rootContainer, Priority.ALWAYS);
 
-        HBox.setHgrow(floatContainer, Priority.ALWAYS);
-        pageContainer.prefWidthProperty().bind(floatContainer.widthProperty());
-        pageContainer.prefHeightProperty().bind(floatContainer.heightProperty());
-
-
+        // Load the CSS file
         this.getStylesheets().add(ResourceLoader.stylesheet);
 
+        // The default theme
         this.getStyleClass().add("colorSchemeDark");
 
+        // Set software default styling to reset unwanted settings
         this.getStyleClass().add("defaults");
 
-        floatContainer.setAlignment(Pos.BOTTOM_CENTER);
+        // Placement in the rootContainer get set relative to bottom
+        rootContainer.setAlignment(Pos.BOTTOM_CENTER);
 
+        // This container contains everything except the navigation menu on the left
         pageContainer.getChildren().setAll(
                 StatusBanner.getInstance(),
                 pageParent
         );
 
-        floatContainer.getChildren().addAll(
+
+        // Add elements you want to float on the screen here
+        rootContainer.getChildren().addAll(
                 pageContainer,
                 AlertBanner.getInstance()
         );
 
+
         this.getChildren().addAll(
                 navigationParent,
-                floatContainer
+                rootContainer
         );
-
-
-        // Trick to force the navigation bar to never change position
-        // The navigation bar will be as big as the logo
-
     }
 
     public static RootParent getInstance() {

@@ -13,33 +13,33 @@ import javafx.scene.layout.VBox;
 
 public class PageParent extends HBox {
     private static PageParent instance = null;
-    private static final VBox pageContainer = new VBox();
+    private static final VBox pageContentContainer = new VBox();
 
     private PageParent() {
-        ScrollPane content = new ScrollPane();
+        ScrollPane scrollableContentContainer = new ScrollPane();
 
-        Region margin = new Region();
-        Region margin2 = new Region();
+        Region leftMargin = new Region();
+        Region rightMargin = new Region();
 
-        HBox.setHgrow(margin, Priority.ALWAYS);
-        HBox.setHgrow(margin2, Priority.ALWAYS);
+        HBox.setHgrow(leftMargin, Priority.ALWAYS);
+        HBox.setHgrow(rightMargin, Priority.ALWAYS);
 
         HBox.setHgrow(this, Priority.ALWAYS);
-        HBox.setHgrow(pageContainer, Priority.ALWAYS);
-        HBox.setHgrow(content, Priority.ALWAYS);
+        HBox.setHgrow(pageContentContainer, Priority.ALWAYS);
+        HBox.setHgrow(scrollableContentContainer, Priority.ALWAYS);
 
-        content.setId("pageParent");
-        pageContainer.setId("maxWidth");
+        scrollableContentContainer.setId("pageParent");
+        pageContentContainer.setId("maxWidth");
 
 
         // Pages min width and min height is as big as the scroll pane
-        content.fitToWidthProperty().set(true);
+        scrollableContentContainer.fitToWidthProperty().set(true);
 
-        content.setContent(
-                pageContainer
+        scrollableContentContainer.setContent(
+                pageContentContainer
         );
 
-        this.getChildren().addAll(margin, content, margin2);
+        this.getChildren().addAll(leftMargin, scrollableContentContainer, rightMargin);
 
         loadPage(RegisterPage.getInstance(), RegisterNavigationButton.getInstance());
 
@@ -54,7 +54,7 @@ public class PageParent extends HBox {
     // Changes the active page
     public static void loadPage (Node page, NavigationButton button) {
         NavigationParent.getInstance().applyActiveClass(button);
-        pageContainer.getChildren().setAll(
+        pageContentContainer.getChildren().setAll(
                 page
         );
     }
