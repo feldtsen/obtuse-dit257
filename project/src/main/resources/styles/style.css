@@ -99,9 +99,10 @@ TODO: break into multiple css-files!
     -fx-background-color:  background-less-contrast;
     -fx-opacity:           0.99;
 
+    -fx-font-size: 15;
+
     -fx-alignment:         center;
 
-    -fx-font-weight:       900;
     -fx-background-radius: 10;
     -fx-translate-y:       -20;
 }

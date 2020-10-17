@@ -1,58 +1,38 @@
 package application.view.pages.publish;
 
-import application.controller.ImageChooser;
 import application.controller.PostController;
 import application.model.posts.IPost;
 import application.view.pages.Page;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 import java.util.Set;
 
-public class EditPage extends HBox implements Page {
+public class EditPage extends HBox implements Page, IPublishable {
     private static EditPage instance = null;
 
-    private static TextArea descriptionInput;
-    private static TextField titleInput;
-    private static String uuidField;
-    private static String postType;
+    Button update = new Button("Update");
+    private final InputModule inputModule = new InputModule(update);
+    private final MetaModule metaModule = new MetaModule(this);
 
-    private static TagChoiceDropdown tagChoiceDropdown;
 
-    private static ImageChooser imageChooser;
+    private  String uuidField;
+    private  String postType;
 
     public EditPage() {
-        // Create the GUI elements
-        Label newTitle       = new Label("New title");
-        Label newDescription = new Label("New description");
-        Button update        = new Button("Update");
-        titleInput           = new TextField();
-        titleInput.setPromptText("enter your new post title");
-        descriptionInput     = new TextArea();
-        descriptionInput.setPromptText("enter your new description");
-        tagChoiceDropdown    = new TagChoiceDropdown();
-        imageChooser = new ImageChooser();
+
         // Set id for reference
         this.getStyleClass().add("padding");
         this.getStyleClass().add("spacing");
         this.getStyleClass().add("descriptionInput");
 
-        descriptionInput.setWrapText(true);
         // Connect button to controller
         update.setOnMouseClicked(e -> PostController.updatePost());
 
-        // Add GUI elements to the page
+
         this.getChildren().addAll(
-                newTitle,
-                titleInput,
-                newDescription,
-                descriptionInput,
-                tagChoiceDropdown,
-                imageChooser,
-                update
+                inputModule,
+                metaModule
         );
 
     }
@@ -64,40 +44,47 @@ public class EditPage extends HBox implements Page {
     }
 
     public void prepareWithOldValues(IPost oldPost) {
-        titleInput.setText(oldPost.getTitle());
-        descriptionInput.setText(oldPost.getDescription());
+        metaModule.removeActive();
+
+        inputModule.getTitleInputField().setText(oldPost.getTitle());
+        inputModule.getDescriptionInputArea().setText(oldPost.getDescription());
+
         uuidField = oldPost.getUniqueID();
         postType = oldPost.getType();
-        tagChoiceDropdown.setChosenTags(oldPost.getTags());
-        imageChooser.setRelativePath(oldPost.getImagePath());
+
+        metaModule.getTagChoiceDropdown().setChosenTags(oldPost.getTags());
+        metaModule.getImageChooser().setRelativePath(oldPost.getImagePath());
     }
 
-    public static String getTitleInput () {
-        return titleInput.getText();
+    public  String getTitleInput () {
+        return inputModule.getTitleInputField().getText();
     }
 
-    public static String getDescriptionInput() {
-        return  descriptionInput.getText();
+    public  String getDescriptionInput() {
+        return inputModule.getDescriptionInputArea().getText();
     }
 
-    public static String getUUID() {
+    public String getUUID() {
         return uuidField;
     }
 
-    public static String getPostType(){
+    public String getPostType(){
         return postType;
     }
 
-    public static Set<String> getTags(){
-        return tagChoiceDropdown.getChosenTags();
+    public Set<String> getTags(){
+        return metaModule.getTagChoiceDropdown().getChosenTags();
     }
 
-    public static String getImagePath() {
-        System.out.println(imageChooser.getSelectedPath());
-        return imageChooser.getSelectedPath();
+    public String getImagePath() {
+        return metaModule.getImageChooser().getSelectedPath();
     }
 
 
+    @Override
+    public void setPostType(String type) {
+        this.postType = type;
+    }
 }
 
 

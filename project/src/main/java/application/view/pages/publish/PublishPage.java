@@ -1,12 +1,12 @@
 package application.view.pages.publish;
 
 import application.view.pages.Page;
+import application.view.pages.board.posts.SubmitPostButton;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 import java.util.Set;
 
-public class PublishPage extends HBox implements Page {
+public class PublishPage extends HBox implements Page, IPublishable {
     private static PublishPage instance = null;
 
     private final InputModule inputModule;
@@ -16,11 +16,8 @@ public class PublishPage extends HBox implements Page {
         this.getStyleClass().add("spacing");
         this.getStyleClass().add("padding");
 
-        inputModule = new InputModule();
-        metaModule = new MetaModule();
-
-        HBox.setHgrow(inputModule, Priority.ALWAYS);
-
+        inputModule = new InputModule(SubmitPostButton.getInstance());
+        metaModule = new MetaModule(this);
 
         this.getChildren().addAll(
                 inputModule,

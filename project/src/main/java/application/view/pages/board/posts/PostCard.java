@@ -49,6 +49,7 @@ public class PostCard extends VBox {
        this.getStyleClass().add("spacing");
        this.getStyleClass().add("padding");
 
+
        descriptionText.getStyleClass().add("description");
 
        deleteButton.getStyleClass().add("deleteButton");
@@ -75,7 +76,7 @@ public class PostCard extends VBox {
           Image image = new Image(new File(path).toURI().toString());
           //imageView = new ImageView(image);
           imageView.setImage(image);
-          imageView.setFitWidth(250);
+          imageView.setFitWidth(100);
           imageView.setPreserveRatio(true);
           imageView.setSmooth(true);
           imageView.setCache(true);
