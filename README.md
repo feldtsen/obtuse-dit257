@@ -10,7 +10,7 @@
 * Malin Jansson as *malingo88*
 * Ludvig Östergaard as *LudvigGU*
 
-## Project Structure
+## Repository structure
 This section contains short description of each file and folder in the root directory.
 
 ### KPIs
@@ -49,6 +49,28 @@ Our definition of done. This document is used to evaluate if a user story is don
 ### socia-contract.md
 Our social contract. This details how we should work as a team and how we should treat each other.
 
-## Project documentation
-[TODO]
+## Project setup
+TODO: describe maven setup, java-version required, pom-file, etc...
+    * include instructions for both intellij and eclipse! 
+
+## Project structure
+- src
+    - main
+        - java (source)
+            - controller
+            - model
+            - view
+            - App.java
+            - ResourceLoader.java
+        - resources
+        - tests (tests folder)
+* pom.xml
+
+### java (source)
+#### controller (package)
+#### model (package)
+#### view (package)
+#### App
+#### ResourceLoader
+
 
