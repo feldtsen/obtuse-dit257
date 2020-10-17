@@ -76,11 +76,12 @@ public class PostController {
 
     public static void updatePost(){
         IClient client = Client.getInstance();
+        EditPage editPage = EditPage.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
-        Post newPost = new Post(EditPage.getTitleInput(), EditPage.getDescriptionInput(), client.getUser(), EditPage.getPostType(), EditPage.getTags(), EditPage.getImagePath());
-        newPost.setUniqueID(EditPage.getUUID());
-        client.getBoard().replacePost(EditPage.getUUID(), newPost);
+        Post newPost = new Post(editPage.getTitleInput(), editPage.getDescriptionInput(), client.getUser(), editPage.getPostType(), editPage.getTags(), editPage.getImagePath());
+        newPost.setUniqueID(editPage.getUUID());
+        client.getBoard().replacePost(editPage.getUUID(), newPost);
 
         ClientController.showAlert("Successfully updated " + newPost.getTitle(), Alert.AlertType.CONFIRMATION);
 

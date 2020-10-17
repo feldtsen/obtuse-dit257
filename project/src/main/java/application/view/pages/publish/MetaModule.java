@@ -4,6 +4,7 @@ import application.controller.ImageChooser;
 import application.view.pages.board.posts.ButtonContainer;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -14,14 +15,22 @@ public class MetaModule extends VBox {
     private String type = "Donation";
     private final TagChoiceDropdown tagChoice = new TagChoiceDropdown();
     private final ImageChooser imageChooser = new ImageChooser();
+    private final DonationButton donationButton = new DonationButton();
+    private final RequestButton requestButton = new RequestButton();
+    private final IPublishable publishable;
 
-    public MetaModule() {
+    public MetaModule(IPublishable publishable) {
+        this.publishable = publishable;
+
         this.getStyleClass().add("spacing");
 
         List<Button> buttons = new ArrayList<>();
-        buttons.add(DonationButton.getInstance());
-        buttons.add(RequestButton.getInstance());
+        buttons.add(donationButton);
+        buttons.add(requestButton);
         ButtonContainer buttonContainer = new ButtonContainer(buttons);
+
+        donationButton.setOnMouseClicked(this::donationAction);
+        requestButton.setOnMouseClicked(this::requestAction);
 
         this.setMaxWidth(250);
 
@@ -34,6 +43,14 @@ public class MetaModule extends VBox {
                 imageChooser
         );
 
+    }
+
+    public TagChoiceDropdown getTagChoiceDropdown () {
+        return tagChoice;
+    }
+
+    public ImageChooser getImageChooser () {
+        return imageChooser;
     }
 
     public String getType(){
@@ -55,4 +72,24 @@ public class MetaModule extends VBox {
         return null;
     }
 
+    public void requestAction(MouseEvent e) {
+        if (!requestButton.getStyleClass().contains("active")) {
+            requestButton.getStyleClass().add("active");
+            donationButton.getStyleClass().remove("active");
+        }
+        publishable.setPostType("Request");
+    }
+    public void donationAction(MouseEvent e) {
+        if (!donationButton.getStyleClass().contains("active")) {
+            donationButton.getStyleClass().add("active");
+            requestButton.getStyleClass().remove("active");
+        }
+        publishable.setPostType("Donation");
+    }
+
+    public void removeActive () {
+        donationButton.getStyleClass().remove("active");
+        requestButton.getStyleClass().remove("active");
+    }
 }
+
