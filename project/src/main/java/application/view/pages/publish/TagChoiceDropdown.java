@@ -2,13 +2,12 @@ package application.view.pages.publish;
 
 import application.ResourceLoader;
 import application.model.client.Client;
+import application.view.util.SVGHelper;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.HashSet;
@@ -47,21 +46,17 @@ public class TagChoiceDropdown extends VBox {
         tagDisplay.setHgap(10);
 
         for(String tag : tags) {
-            HBox tagBox = new HBox();
-            Label tagLabel = new Label(tag);
+            Button deleteButton = new Button(tag);
+            deleteButton.getStyleClass().add("tag");
 
 
-            Button deleteButton = new Button();
-            deleteButton.setGraphic(ResourceLoader.xIconBig);
+            deleteButton.setGraphic(SVGHelper.createIcon(ResourceLoader.crossIcon, 0.025));
 
-            tagBox.getChildren().addAll(tagLabel, deleteButton);
-            tagBox.getStyleClass().add("tag");
-
-            tagDisplay.getChildren().add(tagBox);
+            tagDisplay.getChildren().add(deleteButton);
 
             // Delete tag on button press
             deleteButton.setOnAction(e -> {
-                tagDisplay.getChildren().remove(tagBox);
+                tagDisplay.getChildren().remove(deleteButton);
                 chosenTags.remove(tag);
             });
 

@@ -6,7 +6,7 @@ import application.model.posts.IPost;
 import application.model.posts.Post;
 import application.view.navigation.PublishNavigationButton;
 import application.view.pages.PageParent;
-import application.view.pages.board.EditPage;
+import application.view.pages.publish.EditPage;
 import application.view.pages.publish.PublishPage;
 import javafx.scene.control.Alert;
 

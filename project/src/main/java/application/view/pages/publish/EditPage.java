@@ -1,19 +1,18 @@
-package application.view.pages.board;
+package application.view.pages.publish;
 
 import application.controller.ImageChooser;
 import application.controller.PostController;
 import application.model.posts.IPost;
 import application.view.pages.Page;
-import application.view.pages.publish.TagChoiceDropdown;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 import java.util.Set;
 
-public class EditPage extends VBox implements Page {
+public class EditPage extends HBox implements Page {
     private static EditPage instance = null;
 
     private static TextArea descriptionInput;

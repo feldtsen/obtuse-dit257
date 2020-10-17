@@ -11,6 +11,7 @@ public class CategoryButtonContainer extends HBox {
     private final CategoryButton donationCategoryButton;
     private final CategoryButton requestCategoryButton;
     private static String currentlySelectedPostType = Filter.ALL;
+
     public CategoryButtonContainer() {
 
         this.donationCategoryButton = new CategoryButton("Donations");
@@ -33,11 +34,11 @@ public class CategoryButtonContainer extends HBox {
         Filter filter;
         if (category.equals("Donations")) {
             this.donationCategoryButton.toggleActiveStatus();
-            this.requestCategoryButton.setId("inactive");
+            this.requestCategoryButton.getStyleClass().remove("active");
             currentlySelectedPostType = currentlySelectedPostType.equals("Donation") ? Filter.ALL : "Donation";
         } else if (category.equals("Requests")) {
             this.requestCategoryButton.toggleActiveStatus();
-            this.donationCategoryButton.setId("inactive");
+            this.donationCategoryButton.getStyleClass().remove("active");
             currentlySelectedPostType = currentlySelectedPostType.equals("Request") ? Filter.ALL : "Request";
         }
 

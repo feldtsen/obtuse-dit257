@@ -11,7 +11,6 @@ public class RequestButton extends Button implements OnClickAction {
     private RequestButton() {
         this.setText("Request");
         this.setOnMouseClicked(this::action);
-        this.setId("inactive");
     }
 
     public static RequestButton getInstance() {
@@ -21,8 +20,8 @@ public class RequestButton extends Button implements OnClickAction {
 
     @Override
     public void action(MouseEvent e) {
-        this.setId("active");
-        DonationButton.getInstance().setId("inactive");
+        this.getStyleClass().add("active");
+        DonationButton.getInstance().getStyleClass().remove("active");
         PublishPage.getInstance().setPostType("Request");
     }
 }

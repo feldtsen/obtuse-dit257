@@ -35,17 +35,7 @@ TODO: break into multiple css-files!
 
 }
 
-#active,
-#active:hover
-{
-    -fx-pref-width: 1000000000000;
-    -fx-text-fill:        text-fill-default;
-    -fx-background-color: highlight-default;
-}
-#inactive
-{
-    -fx-pref-width: 1000000000000;
-}
+
 /*TODO END: convert ID to class */
 
 .defaults {
@@ -98,7 +88,6 @@ TODO: break into multiple css-files!
 }
 
 
-
 .label
 {
     -fx-text-fill: text-fill-default;
@@ -138,11 +127,24 @@ TODO: break into multiple css-files!
 }
 
 
-
+.active,
+.active:hover
+{
+    -fx-text-fill:        text-fill-default;
+    -fx-background-color: highlight-default;
+}
 .button:hover
 {
     -fx-background-color:  focus-default;
 }
+
+.active,
+.active:hover
+{
+    -fx-text-fill:        text-fill-default;
+    -fx-background-color: highlight-default;
+}
+
 
 .colorSchemeSwap,
 .colorSchemeSwap:hover,
@@ -171,6 +173,7 @@ TODO: break into multiple css-files!
     -fx-background-color: transparent;
 
     -fx-pref-height:       1000000000;
+    -fx-pref-width:        0;
 }
 
 .navigationButton:hover,
@@ -182,12 +185,11 @@ TODO: break into multiple css-files!
     -fx-fill:             highlight-default;
  }
 
-.search,
-.search SVGPath
+.magnifierIcon,
+.magnifierIcon SVGPath
 {
     -fx-fill:      text-fill-default;
 
-    -fx-min-width: 30;
 }
 
 
@@ -262,7 +264,6 @@ TODO: break into multiple css-files!
 
 .tagContainer .button
 {
-    -fx-padding: 0;
     -fx-min-width: 5;
 }
 
@@ -271,13 +272,20 @@ TODO: break into multiple css-files!
     -fx-spacing: 5;
 }
 
-.tag
+.tag SVGPath {
+    -fx-fill: text-fill-less-important;
+}
+
+.tag,
+.tag:hover,
+.tag:hover SVGPath
 {
     -fx-text-fill:         text-fill-less-important;
+    -fx-fill:              background-danger;
     -fx-background-color:  background-more-contrast;
 
     -fx-background-radius: 10;
-    -fx-padding:           2 10 2 10;
+    -fx-padding:           2 5 2 5;
 }
 
 .title
@@ -303,6 +311,8 @@ TODO: break into multiple css-files!
 .combo-box
 {
     -fx-background-insets: 0 0 0 0, 0, 0, 0;
+
+    -fx-max-width: 1000000000000;
 
 }
 

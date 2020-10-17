@@ -12,7 +12,7 @@ public class DonationButton extends Button implements OnClickAction {
         this.setText("Donation");
         this.setOnMouseClicked(this::action);
 
-        this.setId("active");
+        this.getStyleClass().add("active");
     }
 
     public static DonationButton getInstance() {
@@ -22,8 +22,8 @@ public class DonationButton extends Button implements OnClickAction {
 
     @Override
     public void action(MouseEvent e) {
-        this.setId("active");
-        RequestButton.getInstance().setId("inactive");
+        this.getStyleClass().add("active");
+        RequestButton.getInstance().getStyleClass().remove("active");
         PublishPage.getInstance().setPostType("Donation");
     }
 }
