@@ -29,6 +29,8 @@ public class TagChoiceDropdown extends VBox {
         tagChoices.getStyleClass().add("tagDropdown");
         tagChoices.setOnHidden(this::action);
 
+        tagChoices.setMaxWidth(10000000000000000d);
+
         chosenTags.addAll(initialTags);
 
         this.tagDisplay = new FlowPane();

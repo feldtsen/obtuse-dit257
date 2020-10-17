@@ -27,12 +27,11 @@ public class MetaModule extends VBox {
 
 
         this.getChildren().addAll(
-                new Label("Post type"),
+                new Label("Select your post type"),
                 buttonContainer,
-                new Label("Select image"),
-                imageChooser,
-                new Label("Tag your post"),
-                tagChoice
+                new Label("Pick relevant tags"),
+                tagChoice,
+                imageChooser
         );
 
     }

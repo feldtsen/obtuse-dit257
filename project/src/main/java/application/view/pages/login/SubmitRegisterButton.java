@@ -8,7 +8,7 @@ public class SubmitRegisterButton extends Button  {
 
     private SubmitRegisterButton() {
 
-        this.setText("register");
+        this.setText("Register");
 
         this.setOnMouseClicked(e -> mouseClickAction());
 

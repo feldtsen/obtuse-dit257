@@ -6,6 +6,7 @@ import application.model.board.IFilter;
 import application.view.pages.board.filter.categories.CategoryButtonContainer;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.skin.ComboBoxListViewSkin;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -18,12 +19,12 @@ import java.util.Set;
 
 public class SearchModule extends GridPane {
     private final TagDropdown tagDropdown = new TagDropdown();
-    private final SearchInput searchInput = new SearchInput();
+    private final TextField searchInput = new TextField();
 
     public SearchModule() {
         ComboBoxListViewSkin<String> tagDropdownSkin = new ComboBoxListViewSkin<>(tagDropdown);
         tagDropdownSkin.getPopupContent().addEventFilter(KeyEvent.ANY, (event) -> {
-            if( event.getCode() == KeyCode.SPACE || event.getCode()== KeyCode.ESCAPE) {
+            if( event.getCode() == KeyCode.SPACE || event.getCode()== KeyCode.ESCAPE ) {
                 event.consume();
             }
         });
@@ -41,6 +42,7 @@ public class SearchModule extends GridPane {
         searchButton.getStyleClass().add("search");
 
 
+
         searchButton.setOnMouseClicked( e -> tagDropdown.filter(searchInput.getText()));
 
 
@@ -52,22 +54,24 @@ public class SearchModule extends GridPane {
         tagDropdown.getStyleClass().add("tagDropdown");
 
 
-        HBox.setHgrow(this, Priority.ALWAYS);
 
         this.setHgap(10);
 
-
+        HBox.setHgrow(this, Priority.ALWAYS);
         GridPane.setHgrow(searchInput, Priority.ALWAYS);
-        GridPane.setHgrow(tagDropdown, Priority.ALWAYS);
+        tagDropdown.setMaxWidth(10000000000000000d);
+
 
         this.add(tagDropdown, 0, 0);
         this.add(searchInput, 0, 0);
-        this.add(searchButton, 1, 0);
+        this.add(searchButton, 2, 0);
     }
 
     private void keyTyped(KeyEvent keyEvent) {
 
         KeyCode keyCode = keyEvent.getCode();
+
+        System.out.println("enter");
 
         if(searchInput.getText() == null) {
             tagDropdown.hide();

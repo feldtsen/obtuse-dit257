@@ -1,14 +1,18 @@
+/*
+
+TODO: break into multiple css-files!
+
+*/
+
+
+
 @font-face
 {
     -fx-font-family: Comfortaa-Bold;
     src:url('Comfortaa-Bold.ttf');
 }
 
-#icon
-{
-    -fx-font-size: 16px;
-}
-
+/*TODO: convert ID to class */
 #navigationParent *,
 #pageParent
 {
@@ -16,6 +20,33 @@
     -fx-border-image-insets: 0, 0, 0;
     -fx-background-insets:   0, 0, 0;
 }
+
+#navigationParent {
+    -fx-background-color: background-contrast;
+}
+
+#pageParent{
+    -fx-background:       transparent;
+    -fx-background-color: transparent;
+}
+
+#maxWidth {
+    -fx-max-width: 1200;
+
+}
+
+#active,
+#active:hover
+{
+    -fx-pref-width: 1000000000000;
+    -fx-text-fill:        text-fill-default;
+    -fx-background-color: highlight-default;
+}
+#inactive
+{
+    -fx-pref-width: 1000000000000;
+}
+/*TODO END: convert ID to class */
 
 .defaults {
     -fx-font-size:           14px;
@@ -51,7 +82,7 @@
 {
     /* COLOR VARIABLES */
     highlight-default:         #50AA50;
-    focus-default:             #F5F5F5;
+    focus-default:             #D5D5D5;
 
     text-fill-default:         #000000;
     text-fill-less-important:  #444444;
@@ -67,6 +98,7 @@
 }
 
 
+
 .label
 {
     -fx-text-fill: text-fill-default;
@@ -76,12 +108,13 @@
 {
     -fx-text-fill:         text-fill-default;
     -fx-background-color:  background-less-contrast;
+    -fx-opacity:           0.99;
 
     -fx-alignment:         center;
 
-    -fx-font-weight: 900;
+    -fx-font-weight:       900;
     -fx-background-radius: 10;
-    -fx-translate-y:       -30;
+    -fx-translate-y:       -20;
 }
 
 .confirmation {
@@ -101,7 +134,7 @@
     -fx-text-fill:         text-fill-default;
 
     -fx-background-radius: 10;
-    -fx-min-width:         120;
+    -fx-max-width:         1000000000;
 }
 
 
@@ -137,9 +170,7 @@
     -fx-fill:             text-fill-less-important;
     -fx-background-color: transparent;
 
-    -fx-min-height:       0;
-    -fx-min-width:        70;
-    -fx-max-width:        70;
+    -fx-pref-height:       1000000000;
 }
 
 .navigationButton:hover,
@@ -159,12 +190,7 @@
     -fx-min-width: 30;
 }
 
-#active,
-#active:hover
-{
-    -fx-text-fill:        text-fill-default;
-    -fx-background-color: highlight-default;
-}
+
 
 .logoutButton
 {
@@ -184,7 +210,7 @@
 
 .spacing
 {
-    -fx-spacing: 10;
+    -fx-spacing: 8;
 }
 
 .padding
@@ -210,19 +236,7 @@
 }
 
 /*NAVIGATION*/
-#navigationParent {
-    -fx-background-color: background-contrast;
-}
 
-/*PAGES*/
-#pageParent{
-    -fx-background:       transparent;
-    -fx-background-color: transparent;
-}
-
-#maxWidth {
-    -fx-max-width: 1200;
-}
 
 .toolbar > .button,
 .toolbar > .button SVGPath
@@ -285,7 +299,8 @@
 }
 
 .text-field,
-.text-area .content
+.text-area .content,
+.combo-box
 {
     -fx-background-insets: 0 0 0 0, 0, 0, 0;
 
@@ -315,7 +330,9 @@
 }
 .list-cell:hover
 {
-    -fx-text-fill: highlight-default;
+    -fx-background-color: highlight-default;
+
+    -fx-background-radius: 10;
 
 }
 

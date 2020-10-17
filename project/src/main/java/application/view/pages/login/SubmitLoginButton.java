@@ -8,7 +8,7 @@ public class SubmitLoginButton extends Button  {
 
     private SubmitLoginButton() {
 
-        this.setText("login");
+        this.setText("Login");
 
         this.setOnMouseClicked(e -> mouseClickAction());
 

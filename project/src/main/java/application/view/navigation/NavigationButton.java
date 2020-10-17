@@ -1,8 +1,8 @@
 package application.view.navigation;
 
-import application.view.ResponsiveButton;
+import javafx.scene.control.Button;
 
-public abstract class NavigationButton extends ResponsiveButton implements OnClickAction {
+public abstract class NavigationButton extends Button implements OnClickAction {
     protected NavigationButton() {
         this.getStyleClass().add("navigationButton");
     }
