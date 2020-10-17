@@ -24,7 +24,7 @@ public class App extends Application {
 
         stage.getIcons().add(new Image(ResourceLoader.logoSymbol));
 
-        Scene scene = new Scene(RootParent.getInstance(stage), INITIAL_WIDTH, INITIAL_HEIGHT);
+        Scene scene = new Scene(RootParent.getInstance(), INITIAL_WIDTH, INITIAL_HEIGHT);
 
         stage.setMinHeight(MIN_HEIGHT);
         stage.setMinWidth(MIN_WIDTH);

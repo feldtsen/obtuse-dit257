@@ -1,11 +1,14 @@
 package application.view.status;
 
+import application.view.navigation.RegisterNavigationButton;
+import application.view.pages.PageParent;
+import application.view.pages.login.RegisterPage;
+import application.view.util.SVGHelper;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.SVGPath;
 
 public class LoginBannerModule extends HBox {
     private static LoginBannerModule instance = null;
@@ -14,23 +17,23 @@ public class LoginBannerModule extends HBox {
 
     private LoginBannerModule() {
 
-        SVGPath svgPath = new SVGPath();
-        svgPath.setContent("M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z");
-        svgPath.setScaleX(0.04);
-        svgPath.setScaleY(0.04);
-        svgPath.setFill(Color.valueOf("#BBBBBB"));
+        Group icon = SVGHelper.createIcon("M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z", 0.04);
+        Button avatar = new Button();
 
-        Group icon = new Group(svgPath);
+        avatar.setGraphic(icon);
+
+        avatar.getStyleClass().add("avatar");
 
         loginStatus = new Label(NOT_LOGGED_IN_MESSAGE);
 
-        loginStatus.setStyle("-fx-text-fill: #BBBBBB!important;");
+        avatar.setOnMouseClicked(event -> PageParent.loadPage(RegisterPage.getInstance(), RegisterNavigationButton.getInstance()));
+
 
         this.setAlignment(Pos.CENTER_RIGHT);
         this.getChildren().addAll(
                 loginStatus,
                 LogoutButton.getInstance(),
-                icon
+                avatar
         );
     }
 

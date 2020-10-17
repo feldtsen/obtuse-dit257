@@ -13,7 +13,7 @@ import application.model.client.TagParser;
 import application.view.navigation.RegisterNavigationButton;
 import application.view.pages.PageParent;
 import application.view.pages.login.RegisterPage;
-import application.view.status.AlertBannerModule;
+import application.view.status.AlertBanner;
 import application.view.status.LoginBannerModule;
 import application.view.status.LogoutButton;
 import javafx.scene.control.Alert;
@@ -177,7 +177,7 @@ public class ClientController {
      */
     public static void showAlert (String message, Alert.AlertType alertType){
         //Alert myAlert = new Alert(alertType, message, buttonType);
-        AlertBannerModule myAlert = AlertBannerModule.getInstance();
+        AlertBanner myAlert = AlertBanner.getInstance();
         myAlert.setAlertMessage(message, alertType);
     }
 }

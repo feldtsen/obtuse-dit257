@@ -38,14 +38,59 @@
     text-fill-least-important: #707070;
 
 
-    background-default:        #11111f;
-    background-contrast:       #21242d;
+    background-default:        #11111F;
+    background-less-contrast:  #2c2f37;
+    background-contrast:       #21242D;
     background-more-contrast:  #3c3f47;
     background-danger:         #B22222;
     background-danger-hover:   #F26262;
 
 }
 
+.colorSchemeLight
+{
+    /* COLOR VARIABLES */
+    highlight-default:         #50AA50;
+    focus-default:             #F5F5F5;
+
+    text-fill-default:         #000000;
+    text-fill-less-important:  #444444;
+    text-fill-least-important: #8F8F8F;
+
+
+    background-default:        #BDBDBD;
+    background-less-contrast:  #E5E5E5;
+    background-contrast:       #F5F5F5;
+    background-more-contrast:  #ADADAD;
+    background-danger:         #B22222;
+    background-danger-hover:   #F26262;
+}
+
+
+.label
+{
+    -fx-text-fill: text-fill-default;
+}
+
+.alertBanner
+{
+    -fx-text-fill:         text-fill-default;
+    -fx-background-color:  background-less-contrast;
+
+    -fx-alignment:         center;
+
+    -fx-font-weight: 900;
+    -fx-background-radius: 10;
+    -fx-translate-y:       -30;
+}
+
+.confirmation {
+    -fx-text-fill: highlight-default;
+}
+
+.error {
+    -fx-text-fill: background-danger;
+}
 /* BUTTON */
 .button
 {
@@ -66,6 +111,25 @@
     -fx-background-color:  focus-default;
 }
 
+.colorSchemeSwap,
+.colorSchemeSwap:hover,
+.colorSchemeSwap SVGPath,
+.avatar,
+.avatar:hover,
+.avatar SVGPath
+{
+    -fx-background-color: transparent;
+    -fx-fill: text-fill-default;
+
+    -fx-min-width: 30;
+}
+
+.colorSchemeSwap:hover SVGPath,
+.avatar:hover SVGPath
+{
+    -fx-fill: highlight-default;
+}
+
 
 .navigationButton,
 .navigationButton SVGPath
@@ -75,6 +139,7 @@
 
     -fx-min-height:       0;
     -fx-min-width:        70;
+    -fx-max-width:        70;
 }
 
 .navigationButton:hover,
@@ -293,4 +358,10 @@
 {
     -fx-background-color:  background-contrast;
     -fx-background-radius: 5;
+}
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button
+{
+    -fx-fill: transparent;
+    -fx-opacity: 0;
 }
