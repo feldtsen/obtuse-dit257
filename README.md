@@ -17,10 +17,6 @@ Slack: https://join.slack.com/t/obtuse-dit257/shared_invite/zt-ihafm4b5-sVm8RzeP
 
 Lucidchart: https://app.lucidchart.com/invitations/accept/088a14a7-988d-4f10-ac37-11b4d66aa07e
 
-## Dependencies
-* maven
-* java[version???]
-
 ## Repository structure
 This section contains short description of each file and folder in the root directory.
 
@@ -59,6 +55,10 @@ Our definition of done. This document is used to evaluate if a user story is don
 
 ### socia-contract.md
 Our social contract. This details how we should work as a team and how we should treat each other.
+
+## Dependencies
+* maven
+* java[version???]
 
 ## Project setup
 TODO: describe maven setup, java-version required, pom-file, etc...
