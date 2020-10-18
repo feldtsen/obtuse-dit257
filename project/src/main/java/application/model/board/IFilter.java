@@ -2,7 +2,6 @@ package application.model.board;
 
 import application.model.posts.IPost;
 
-import java.util.List;
 import java.util.Set;
 
 // A filter is used for filtering the contents of a board

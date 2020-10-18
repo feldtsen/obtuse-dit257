@@ -1,7 +1,6 @@
 package application.model.users;
 
 import application.model.util.PhoneNumber;
-import javafx.scene.control.PasswordField;
 
 public class User implements IUser{
     private final String name;

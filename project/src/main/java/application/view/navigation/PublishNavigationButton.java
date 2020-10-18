@@ -31,8 +31,11 @@ public class PublishNavigationButton extends NavigationButton {
 
     @Override
     public void action(MouseEvent e) {
+        // TODO START move this?
         PublishPage.getInstance().getMetaModule().getImageChooser().setSelectedFile(null);
         PublishPage.getInstance().getMetaModule().getImageChooser().setRelativePath("");
+        // TODO END
+
         PageParent.loadPage(PublishPage.getInstance(), this);
     }
 }

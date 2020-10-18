@@ -3,7 +3,6 @@ package application.model.board;
 import application.model.posts.IPost;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.List;
 
 public interface IBoard extends Serializable {

@@ -1,10 +1,8 @@
 package application.model.posts;
 
 import application.model.users.IUser;
-import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 public interface IPost extends Serializable {
