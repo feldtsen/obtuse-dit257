@@ -116,9 +116,9 @@ public class PostCard extends VBox {
         VBox.setVgrow(childrenWithPadding, Priority.ALWAYS);
 
         childrenWithPadding.getChildren().setAll(
+                titleLabel,
                 postTypeLabel,
                 tagDisplay,
-                titleLabel,
                 descriptionContainer,
                 spaceBetween,
                 phoneNumberLabel,
