@@ -19,7 +19,7 @@ public class BoardPage extends GridPane implements Page {
         this.getStyleClass().add("padding");
 
 
-        ColumnConstraints col = new ColumnConstraints(300);
+        ColumnConstraints col = new ColumnConstraints(280);
         this.getColumnConstraints().addAll(col,col,col);
     }
 

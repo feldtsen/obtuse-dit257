@@ -47,6 +47,10 @@ public class PublishPage extends HBox implements Page, IPublishable {
         return metaModule.getImagePath();
     }
 
+    public MetaModule getMetaModule() {
+        return metaModule;
+    }
+
     public static PublishPage getInstance() {
         if (instance == null) instance = new PublishPage();
         return instance;

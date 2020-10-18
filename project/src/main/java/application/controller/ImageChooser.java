@@ -101,9 +101,7 @@ public class ImageChooser extends VBox {
         choiceLabel.setText(labelText);
     }
 
-    public File getSelectedFile () {
-       return  selectedFile;
-    }
+   
     public void setSelectedFile (File selectedFile) {
         this.selectedFile = selectedFile;
     }
