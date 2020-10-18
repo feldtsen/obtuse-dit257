@@ -5,11 +5,17 @@ import application.model.client.Client;
 import application.model.posts.IPost;
 import application.model.users.IUser;
 import application.view.pages.util.TagDisplay;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
@@ -55,10 +61,7 @@ public class PostCard extends VBox {
         //List of buttons to be wrapped in a HBox
         buttons = new ArrayList<>();
 
-        //Id used for styling and reference
-        this.getStyleClass().add("cardBackground");
-        this.getStyleClass().add("spacing");
-        this.getStyleClass().add("padding");
+
 
 
         descriptionText.getStyleClass().add("description");
@@ -83,26 +86,55 @@ public class PostCard extends VBox {
         imageView = new ImageView();
         if(post.getImagePath() != null) {
             String path = post.getImagePath();
-            System.out.println(path);
             Image image = new Image(new File(path).toURI().toString());
             //imageView = new ImageView(image);
+            //imageView.fitWidthProperty().bind(this.widthProperty());
             imageView.setImage(image);
-            imageView.setFitWidth(100);
+            imageView.setFitWidth(250);
             imageView.setPreserveRatio(true);
             imageView.setSmooth(true);
             imageView.setCache(true);
+
+            Rectangle clip = new Rectangle(imageView.getFitWidth(), 1000);
+            clip.setArcWidth(10);
+            clip.setArcHeight(10);
+
+            imageView.setClip(clip);
+
+            SnapshotParameters parameters = new SnapshotParameters();
+            parameters.setFill(Color.TRANSPARENT);
+
+            WritableImage writableImage = imageView.snapshot(parameters, null);
+            imageView.setClip(null);
+            imageView.setImage(writableImage);
+
         }
+
+        VBox childrenWithPadding = new VBox();
+        Region spaceBetween = new Region();
+        VBox.setVgrow(spaceBetween, Priority.ALWAYS);
+        VBox.setVgrow(childrenWithPadding, Priority.ALWAYS);
+
+        childrenWithPadding.getChildren().setAll(
+                postTypeLabel,
+                tagDisplay,
+                titleLabel,
+                descriptionContainer,
+                spaceBetween,
+                phoneNumberLabel,
+                nameAndAddressLabel,
+                new ButtonContainer(buttons)
+        );
+        childrenWithPadding.getStyleClass().add("padding");
+        childrenWithPadding.getStyleClass().add("spacing");
+        //Id used for styling and reference
+        this.getStyleClass().add("cardBackground");
 
         //Adds the GUI components to the post
         this.getChildren().setAll(
-                postTypeLabel,
-                titleLabel,
                 imageView,
-                descriptionContainer,
-                phoneNumberLabel,
-                tagDisplay,
-                nameAndAddressLabel,
-                new ButtonContainer(buttons)
+                childrenWithPadding
+
         );
 
     }

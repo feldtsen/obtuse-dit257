@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 public class ImageChooser extends VBox {
-    public static final String IMAGE_PATH = "src/main/resources/images/";
+    public static final String IMAGE_DIR_PATH = "src/main/resources/images/";
 
     private final Button chooseButton;
     private final Label choiceLabel;
@@ -53,9 +53,9 @@ public class ImageChooser extends VBox {
     private void copyFile() {
         if(isSelected()) {
             //TODO ugly semi-hard coded relative path!??
-            new File(toFullPath(IMAGE_PATH)).mkdir();
+            new File(toFullPath(IMAGE_DIR_PATH)).mkdir();
 
-            relativePath = IMAGE_PATH + selectedFile.getName();
+            relativePath = IMAGE_DIR_PATH + selectedFile.getName();
             File copyFile = new File(toFullPath(relativePath));
 
             int index = 1;
@@ -99,5 +99,12 @@ public class ImageChooser extends VBox {
 
         String labelText = path.substring(path.lastIndexOf("/") + 1);
         choiceLabel.setText(labelText);
+    }
+
+    public File getSelectedFile () {
+       return  selectedFile;
+    }
+    public void setSelectedFile (File selectedFile) {
+        this.selectedFile = selectedFile;
     }
 }

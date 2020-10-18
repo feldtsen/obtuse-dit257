@@ -6,6 +6,7 @@ import application.view.pages.Page;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
+import java.io.File;
 import java.util.Set;
 
 public class EditPage extends HBox implements Page, IPublishable {
@@ -44,7 +45,7 @@ public class EditPage extends HBox implements Page, IPublishable {
     }
 
     public void prepareWithOldValues(IPost oldPost) {
-        metaModule.removeActive();
+        metaModule.removeActive(); // removes the colors for a selected post type button
 
         inputModule.getTitleInputField().setText(oldPost.getTitle());
         inputModule.getDescriptionInputArea().setText(oldPost.getDescription());
@@ -54,6 +55,9 @@ public class EditPage extends HBox implements Page, IPublishable {
 
         metaModule.getTagChoiceDropdown().setChosenTags(oldPost.getTags());
         metaModule.getImageChooser().setRelativePath(oldPost.getImagePath());
+
+        metaModule.getImageChooser().setSelectedFile(new File(oldPost.getImagePath()));
+
     }
 
     public  String getTitleInput () {

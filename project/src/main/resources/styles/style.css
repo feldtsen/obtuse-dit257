@@ -210,7 +210,11 @@ TODO: break into multiple css-files!
 
 .padding
 {
-    -fx-padding: 5 14 5 14;
+    -fx-padding: 10;
+}
+
+.paddingLeftRightBottom {
+    -fx-padding: 0 14 14 14;
 }
 
 .cardBackground

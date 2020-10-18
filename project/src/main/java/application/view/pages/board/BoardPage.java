@@ -3,6 +3,7 @@ package application.view.pages.board;
 import application.view.pages.Page;
 import application.view.pages.board.filter.FilterBanner;
 import javafx.geometry.Pos;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 
 public class BoardPage extends GridPane implements Page {
@@ -18,6 +19,8 @@ public class BoardPage extends GridPane implements Page {
         this.getStyleClass().add("padding");
 
 
+        ColumnConstraints col = new ColumnConstraints(250);
+        this.getColumnConstraints().addAll(col,col,col);
     }
 
     public static BoardPage getInstance() {
