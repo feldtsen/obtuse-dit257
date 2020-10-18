@@ -57,10 +57,19 @@ Our definition of done. This document is used to evaluate if a user story is don
 Our social contract. This details how we should work as a team and how we should treat each other.
 
 ## Dependencies
-* maven
-* java[version???]
+* Apache Maven 3.6.3 (or later)
+* java-11 (java-11-openjdk) (or later???)
 
 ## Project setup
+### Intellij 
+1. Clone this repository
+2. Open the *project* folder in intellij idea
+3. traverse the project view and mark the *java* package as Sources root, *resources* as Resources root and *tests* as Test sources root (right click -> Mark Directory as)
+4. pick java version 11 (File -> Project Structure -> Project Settings -> Project)
+5. Press *Add configuration* and chose *Template*, then *Application*. Under *Main class* write *application.App* and under *Working directory* input the path to the project folder. In the *Use classpath of module* dropdown, pick *project*. Do not forget to actually create the configuration (the top left plus sign).
+6. Build and run the application
+
+### Eclipse 
 TODO: describe maven setup, java-version required, pom-file, etc...
     * include instructions for both intellij and eclipse! 
 
