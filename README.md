@@ -57,8 +57,12 @@ Our definition of done. This document is used to evaluate if a user story is don
 Our social contract. This details how we should work as a team and how we should treat each other.
 
 ## Dependencies
-* Apache Maven 3.6.3 (or later)
-* java-11 (java-11-openjdk) (or later???)
+* Apache Maven 3.6.3 
+* java-11 (java-11-openjdk) 
+[TODO: list maven dependencies?]
+* javafx-15
+* junit-4.11
+* gson-2.8.5
 
 ## Project setup
 ### Intellij 
@@ -70,8 +74,10 @@ Our social contract. This details how we should work as a team and how we should
 6. Build and run the application
 
 ### Eclipse 
-TODO: describe maven setup, java-version required, pom-file, etc...
-    * include instructions for both intellij and eclipse! 
+1. Clone this repository
+2. Move the *project* folder into one of your eclipse workspaces (or create a new one).
+3. Open the *project* folder in eclipse.
+4. Build and run the application.
 
 ## Project structure
 - src
