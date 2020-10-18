@@ -56,7 +56,7 @@ public class EditPage extends HBox implements Page, IPublishable {
         metaModule.getTagChoiceDropdown().setChosenTags(oldPost.getTags());
         metaModule.getImageChooser().setRelativePath(oldPost.getImagePath());
 
-        metaModule.getImageChooser().setSelectedFile(new File(oldPost.getImagePath()));
+        if(oldPost.getImagePath() != null) metaModule.getImageChooser().setSelectedFile(new File(oldPost.getImagePath()));
 
     }
 
