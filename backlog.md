@@ -1,4 +1,4 @@
-# (Initial) Epics/Themes
+# Epics/Themes
 Our goal is to create an application where people can donate unused groceries/food within their local community. This application could be used within a small village, neighborhood or housing cooperative. By allowing each community to set up their own “sharing room”, they can ensure they know and trust each other, which will inspire them to share more freely. The intention of this application is to help small communities manage their sharing and build additional trust among neighbours, in turn strengthening the community. 
 
 The application could also be expanded to support sharing tools, various household supplies, or other utilities within the community. An additional possibility is to allow communities to share food or utilities with other, adjacent communities that they trust.
