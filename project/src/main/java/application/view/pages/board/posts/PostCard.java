@@ -95,7 +95,7 @@ public class PostCard extends VBox {
             imageView.setSmooth(true);
             imageView.setCache(true);
 
-            Rectangle clip = new Rectangle(imageView.getFitWidth(), 1000);
+            Rectangle clip = new Rectangle(imageView.getFitWidth(), 200);
             clip.setArcWidth(10);
             clip.setArcHeight(10);
 
