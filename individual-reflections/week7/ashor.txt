@@ -1,0 +1,20 @@
+A:
+This last sprint we tried to finish the most important features to get our product ready for final presentation. I personally worked with
+mostly refactoring. I did complete two tasks, first one moving our TagParser to the model and completing what needed in our UML and second 
+one was some small refactoring.
+We had a user story to comment what needed in our source code. I started there but then I relized that it has to be devided into small tasks 
+and it had the least priority of all our user stories so I took another one and that is testing our appplication and try to find any errors
+but couldn't find anything strange. This sprint most of task was a continuation of what is left and there was already people working on 
+these user stories and no help request was sent from anyone. 
+
+B:
+I am satisfied with what we did last sprint and the project as whole. I wish only we could design the GUI better and clarify our source
+code more. Less time spending on refactoring would be a nice step to concentrate on other things. More testing of our product would be 
+helpful to catch errors faster. Estimation need to be improved and I still find it the most important to success in this way of working
+in team.
+
+A->B:
+I find it important to spend more time on designing our product and I mean all parts model, GUI and how we controll things. We 
+needed to do more commenting especially method and class comments and those rows that needed to be clarified. Test driven development is
+the key to success and we have very little here it needed to be improved. The estimation part improves a lot with experiancing doing things 
+over and over again and the more we work according to agile methodology. 
