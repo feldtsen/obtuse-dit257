@@ -2,7 +2,6 @@ package application.view.pages.board;
 
 import application.view.pages.Page;
 import application.view.pages.board.filter.FilterBanner;
-import application.view.pages.board.posts.PostCard;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 
@@ -17,6 +16,8 @@ public class BoardPage extends GridPane implements Page {
         this.setHgap(10);
 
         this.getStyleClass().add("padding");
+
+
     }
 
     public static BoardPage getInstance() {
@@ -24,12 +25,8 @@ public class BoardPage extends GridPane implements Page {
         return instance;
     }
 
-    public void setFullWidth(PostCard postCard) {
-        GridPane.setColumnSpan(postCard, 2);
-    }
-
     public void setFullWidth(FilterBanner filterBanner) {
-        GridPane.setColumnSpan(filterBanner, 2);
+        GridPane.setColumnSpan(filterBanner, 3);
     }
 
 }

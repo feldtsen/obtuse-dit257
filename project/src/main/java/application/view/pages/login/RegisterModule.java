@@ -6,7 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 public class RegisterModule extends VBox implements Page {
@@ -27,21 +26,21 @@ public class RegisterModule extends VBox implements Page {
         HBox titleContainer = new HBox();
         titleContainer.getChildren().setAll(registerLabel);
         titleContainer.setAlignment(Pos.TOP_CENTER);
-        HBox.setHgrow(titleContainer, Priority.ALWAYS);
 
         nameInput = new TextField();
         nameInput.setPromptText("enter your name");
+
         addressInput = new TextField();
         addressInput.setPromptText("enter your address");
+
         phoneInput = new TextField();
         phoneInput.setPromptText("enter you phone number");
+
         passwordInput = new PasswordField();
         passwordInput.setPromptText("enter you password");
 
         this.getStyleClass().add("spacing");
         registerLabel.getStyleClass().add("title");
-
-        HBox.setHgrow(this, Priority.ALWAYS);
 
 
         this.getChildren().addAll(

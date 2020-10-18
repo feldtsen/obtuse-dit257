@@ -13,13 +13,6 @@ TODO: break into multiple css-files!
 }
 
 /*TODO: convert ID to class */
-#navigationParent *,
-#pageParent
-{
-    -fx-border-insets:       0, 0, 0;
-    -fx-border-image-insets: 0, 0, 0;
-    -fx-background-insets:   0, 0, 0;
-}
 
 #navigationParent {
     -fx-background-color: background-contrast;
@@ -31,10 +24,7 @@ TODO: break into multiple css-files!
 }
 
 #maxWidth {
-    -fx-max-width: 1200;
-
 }
-
 
 /*TODO END: convert ID to class */
 
@@ -45,7 +35,7 @@ TODO: break into multiple css-files!
     -fx-font-family:         Comfortaa-Bold;
     -fx-border-insets:       0, 0, 0;
     -fx-border-image-insets: 0, 0, 0;
-    -fx-background-insets:   0, 0, 0;
+    -background-insets:      0, 0, 0;
 }
 
 .colorSchemeDark
@@ -99,7 +89,7 @@ TODO: break into multiple css-files!
     -fx-background-color:  background-less-contrast;
     -fx-opacity:           0.99;
 
-    -fx-font-size: 15;
+    -fx-font-size:         15;
 
     -fx-alignment:         center;
 
@@ -123,8 +113,10 @@ TODO: break into multiple css-files!
     -fx-background-color:  background-more-contrast;
     -fx-text-fill:         text-fill-default;
 
+
     -fx-background-radius: 10;
     -fx-max-width:         1000000000;
+
 }
 
 
@@ -295,6 +287,7 @@ TODO: break into multiple css-files!
     -fx-font-weight: 900;
 }
 
+
 /* Filter  */
 .text-field,
 .text-area,
@@ -312,9 +305,6 @@ TODO: break into multiple css-files!
 .combo-box
 {
     -fx-background-insets: 0 0 0 0, 0, 0, 0;
-
-    -fx-max-width: 1000000000000;
-
 }
 
 

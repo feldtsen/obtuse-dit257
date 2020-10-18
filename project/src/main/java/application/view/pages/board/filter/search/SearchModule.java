@@ -43,23 +43,25 @@ public class SearchModule extends GridPane {
 
         searchInput.setPromptText("search");
         searchInput.setOnKeyReleased(this::keyTyped);
+        GridPane.setFillWidth(searchInput,  true);
+        GridPane.setHgrow(searchInput,  Priority.ALWAYS);
+        HBox.setHgrow(this, Priority.ALWAYS);
 
 
         tagDropdown.setOnHiding(e -> searchInput.setText(tagDropdown.getSelectionModel().getSelectedItem()));
         tagDropdown.getStyleClass().add("tagDropdown");
+        tagDropdown.setMaxWidth(10000000000d);
 
 
 
         this.setHgap(5);
 
-        HBox.setHgrow(this, Priority.ALWAYS);
-        GridPane.setHgrow(searchInput, Priority.ALWAYS);
-        tagDropdown.setMaxWidth(10000000000000000d);
 
 
         this.add(tagDropdown, 0, 0);
         this.add(searchInput, 0, 0);
-        this.add(searchButton, 2, 0);
+        this.add(searchButton, 1, 0);
+
     }
 
     private void keyTyped(KeyEvent keyEvent) {

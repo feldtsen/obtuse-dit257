@@ -6,8 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 public class LoginModule extends VBox implements Page {
@@ -24,9 +22,6 @@ public class LoginModule extends VBox implements Page {
         HBox titleContainer = new HBox();
         titleContainer.getChildren().setAll(loginLabel);
         titleContainer.setAlignment(Pos.TOP_CENTER);
-        HBox.setHgrow(titleContainer, Priority.ALWAYS);
-
-
 
         phoneInput = new TextField();
         passwordInput = new PasswordField();
@@ -37,10 +32,7 @@ public class LoginModule extends VBox implements Page {
         this.getStyleClass().add("spacing");
         loginLabel.getStyleClass().add("title");
 
-        Region buttonSpacing = new Region();
-        VBox.setVgrow(buttonSpacing, Priority.ALWAYS);
 
-        HBox.setHgrow(this, Priority.ALWAYS);
 
         this.getChildren().addAll(
                 titleContainer,

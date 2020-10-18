@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class BoardController {
@@ -45,7 +46,6 @@ public class BoardController {
 
         BoardPage boardPage = BoardPage.getInstance();
         Collection<IPost> posts = client.getBoard().getVisiblePosts();
-        PostCard postCard;
         int counter = 0;
         int rowIndex = 0;
         int colIndex = 0;
@@ -65,22 +65,41 @@ public class BoardController {
             ClientController.showAlert("The board is empty", Alert.AlertType.INFORMATION);
         }
 
+        Collection<PostCard> postCards = BoardController.convertToPostcardCollection(posts);
+        BoardController.addPosts(postCards, counter, rowIndex, colIndex);
+
+    }
+
+    private static Collection<PostCard> convertToPostcardCollection (Collection<IPost> posts) {
+        Collection<PostCard> postCards = new ArrayList<>();
         for (IPost post : posts) {
+           postCards.add(new PostCard(post));
+        }
+
+        // This will fill the empty columns so that the width of the GridPane always stays the same without hardcoding
+        // a value for the width
+        int emptyColumns = 3 - (posts.size() % 3);
+        for (int i = 0; i < emptyColumns; i++) {
+           postCards.add(new PostCard());
+        }
+
+        return postCards;
+    }
+
+    private static void addPosts (Collection<PostCard> postsCards, int counter, int rowIndex, int colIndex) {
+        BoardPage boardPage = BoardPage.getInstance();
+        for (PostCard postCard : postsCards) {
             // Restricts it to 2 columns
-            colIndex = (counter % 2);
-            postCard = new PostCard(post);
-
-            // If there is only one card on a row, it will take occupy 100% of the width
-            if (posts.size() - 1 == counter && colIndex == 0) boardPage.setFullWidth(postCard);
-
+            colIndex = (counter % 3);
 
             //Appends the post to the board (grid pane) which need to know which cell to put it in
             boardPage.add(postCard, colIndex, rowIndex);
 
             // Everytime we filled a cell in the second column, we start on a new row
-            if(colIndex == 1) rowIndex++;
+            if(colIndex == 2) rowIndex++;
             counter++;
         }
+        
 
     }
 

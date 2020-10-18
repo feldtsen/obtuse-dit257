@@ -16,11 +16,12 @@ public class PageParent extends HBox {
     private static final VBox pageContentContainer = new VBox();
 
     private PageParent() {
+        // Scrollable content
         ScrollPane scrollableContentContainer = new ScrollPane();
 
+        // We want to maximize the width of the content, when this limit is reached we add margins to center the content
         Region leftMargin = new Region();
         Region rightMargin = new Region();
-
         HBox.setHgrow(leftMargin, Priority.ALWAYS);
         HBox.setHgrow(rightMargin, Priority.ALWAYS);
 
@@ -32,16 +33,19 @@ public class PageParent extends HBox {
         pageContentContainer.setId("maxWidth");
 
 
-        // Pages min width and min height is as big as the scroll pane
+        // Make the scrollable content occupy the width given to it
         scrollableContentContainer.fitToWidthProperty().set(true);
 
+        // Take in a VBox that expands vertically, resolving in a vertical scrollbar when container is filled
         scrollableContentContainer.setContent(
                 pageContentContainer
         );
 
         this.getChildren().addAll(leftMargin, scrollableContentContainer, rightMargin);
 
+        // The default page we want to show the user when the application launches
         loadPage(RegisterPage.getInstance(), RegisterNavigationButton.getInstance());
+
 
     }
 
@@ -51,9 +55,10 @@ public class PageParent extends HBox {
         return instance;
     }
 
-    // Changes the active page
+    // Changes the active page and highlight the respective navigation button in green
     public static void loadPage (Node page, NavigationButton button) {
         NavigationParent.getInstance().applyActiveClass(button);
+        HBox.setHgrow(page, Priority.ALWAYS);
         pageContentContainer.getChildren().setAll(
                 page
         );

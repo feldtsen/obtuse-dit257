@@ -8,7 +8,6 @@ public class RegisterPage extends VBox implements Page {
 
     private RegisterPage() {
         this.getStyleClass().add("spacing");
-        this.getStyleClass().add("padding");
 
 
 
