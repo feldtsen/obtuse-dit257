@@ -90,7 +90,7 @@ public class PostCard extends VBox {
             //imageView = new ImageView(image);
             //imageView.fitWidthProperty().bind(this.widthProperty());
             imageView.setImage(image);
-            imageView.setFitWidth(250);
+            imageView.setFitWidth(300);
             imageView.setPreserveRatio(true);
             imageView.setSmooth(true);
             imageView.setCache(true);

@@ -13,7 +13,7 @@ import javafx.stage.StageStyle;
 public class App extends Application {
     private final static double INITIAL_WIDTH  = 1200;
     private final static double INITIAL_HEIGHT = 655;
-    private final static double MIN_WIDTH      = 900;
+    private final static double MIN_WIDTH      = 1000;
     private final static double MIN_HEIGHT     = 655;
     private static Stage stage;
 
@@ -24,10 +24,10 @@ public class App extends Application {
 
         stage.getIcons().add(new Image(ResourceLoader.logoSymbol));
 
-        Scene scene = new Scene(RootParent.getInstance(), INITIAL_WIDTH, INITIAL_HEIGHT);
-
         stage.setMinHeight(MIN_HEIGHT);
         stage.setMinWidth(MIN_WIDTH);
+
+        Scene scene = new Scene(RootParent.getInstance(), INITIAL_WIDTH, INITIAL_HEIGHT);
 
         ClientController.init();
 
