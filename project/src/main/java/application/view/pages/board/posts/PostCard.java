@@ -22,7 +22,6 @@ import javafx.scene.text.TextFlow;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class PostCard extends VBox {
 
@@ -30,43 +29,27 @@ public class PostCard extends VBox {
 
     public PostCard ( IPost post )
     {
-        Label postTypeLabel;
-        Label titleLabel;
-        Label nameAndAddressLabel;
-        Label phoneNumberLabel;
-        Text descriptionText;
-        TextFlow descriptionContainer;
-        Button editButton;
-        Button deleteButton;
-        ImageView imageView;
-        List<Button> buttons;
-        TagDisplay tagDisplay;
 
         //The author of the current post
         IUser author = post.getAuthor();
 
         //Creates the GUI elements
-        postTypeLabel          = new Label(post.getType());
-        titleLabel             = new Label(post.getTitle());
-        nameAndAddressLabel    = new Label(author.getName() + ", " + author.getAddress());
-        phoneNumberLabel       = new Label("Contact " + author.getPhoneNumber().getNumber());
-        descriptionText        = new Text(post.getDescription());
-        descriptionContainer   = new TextFlow(descriptionText);
-        editButton             = new Button("Edit");
-        deleteButton           = new Button("Delete");
+        Label postTypeLabel           = new Label(post.getType());
+        Label titleLabel              = new Label(post.getTitle());
+        Label nameAndAddressLabel     = new Label(author.getName() + ", " + author.getAddress());
+        Label phoneNumberLabel        = new Label("Contact " + author.getPhoneNumber().getNumber());
+        Text descriptionText          = new Text(post.getDescription());
+        TextFlow descriptionContainer = new TextFlow(descriptionText);
+        Button editButton             = new Button("Edit");
+        Button deleteButton           = new Button("Delete");
 
         // Create and initialize container for tags
-        tagDisplay = new TagDisplay(post.getTags());
+        TagDisplay tagDisplay = new TagDisplay(post.getTags());
 
         //List of buttons to be wrapped in a HBox
-        buttons = new ArrayList<>();
+        List<Button> buttons = new ArrayList<>();
 
 
-
-
-        descriptionText.getStyleClass().add("description");
-
-        deleteButton.getStyleClass().add("deleteButton");
 
         //Connect button clicks with a controller
         editButton.setOnMouseClicked(e-> PostController.editPost(post.getUniqueID()));
@@ -83,38 +66,39 @@ public class PostCard extends VBox {
         }
 
         // Load image
-        imageView = new ImageView();
+        ImageView imageView = new ImageView();
         if(post.getImagePath() != null) {
             String path = post.getImagePath();
             Image image = new Image(new File(path).toURI().toString());
-            //imageView = new ImageView(image);
-            //imageView.fitWidthProperty().bind(this.widthProperty());
             imageView.setImage(image);
+            // TODO: not hardcode width, this needs to be reflected in the column constraints
             imageView.setFitWidth(280);
             imageView.setPreserveRatio(true);
             imageView.setSmooth(true);
             imageView.setCache(true);
 
+            // We need a shape we can clip the image into so that we get rounded corners
             Rectangle clip = new Rectangle(imageView.getFitWidth(), 200);
             clip.setArcWidth(10);
             clip.setArcHeight(10);
-
             imageView.setClip(clip);
 
+            // We set the shape to be transparent, we only want the rounded corners
             SnapshotParameters parameters = new SnapshotParameters();
             parameters.setFill(Color.TRANSPARENT);
-
             WritableImage writableImage = imageView.snapshot(parameters, null);
             imageView.setClip(null);
+
             imageView.setImage(writableImage);
 
         }
 
-        VBox childrenWithPadding = new VBox();
-        Region spaceBetween = new Region();
-        VBox.setVgrow(spaceBetween, Priority.ALWAYS);
-        VBox.setVgrow(childrenWithPadding, Priority.ALWAYS);
 
+        // We do not want padding around the picture
+        VBox childrenWithPadding = new VBox();
+        VBox.setVgrow(childrenWithPadding, Priority.ALWAYS);
+        Region spaceBetween = new Region(); // Used to force content to the bottom of the card
+        VBox.setVgrow(spaceBetween, Priority.ALWAYS);
         childrenWithPadding.getChildren().setAll(
                 titleLabel,
                 postTypeLabel,
@@ -125,8 +109,13 @@ public class PostCard extends VBox {
                 nameAndAddressLabel,
                 new ButtonContainer(buttons)
         );
+
+        // Apply CSS classes for styling
         childrenWithPadding.getStyleClass().add("padding");
         childrenWithPadding.getStyleClass().add("spacing");
+        descriptionText.getStyleClass().add("description");
+        deleteButton.getStyleClass().add("deleteButton");
+
         //Id used for styling and reference
         this.getStyleClass().add("cardBackground");
 
@@ -139,11 +128,15 @@ public class PostCard extends VBox {
 
     }
 
+    // This is the empty card, get the same width no matter the amount of posts present on the board
+    // See boardController to see how it is used
     public PostCard ()
     {
-        //this.setVisible(false);
+        this.setVisible(false);
+        // Add a child that is always taking the available space to extend to the card's width
+        // This will ensure correct boardPage width
         this.getChildren().setAll(
-              new TagDisplay(Set.of())
+              new Button()
         );
     }
 
