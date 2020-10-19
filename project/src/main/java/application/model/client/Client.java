@@ -39,9 +39,6 @@ public class Client implements IClient{
         return board;
     }
 
-    //boolean notifyRoom(IPost post);
-    //Update getNotifications();
-
     @Override
     public TagParser getTagParser() {
         return tagParser;

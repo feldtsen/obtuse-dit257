@@ -8,23 +8,11 @@ import java.util.*;
 
 
 public class TagParser {
-    private final String path;    //Input file which needs to be parsed
-    private final String delimiter;
     private Map<String, List<String>> tagsByCategory;  //a map with category as key and tags as values
 
 
     public TagParser(String path, String delimiter) throws IOException {
-        this.path = path;
-        this.delimiter = delimiter;
         prepareData(path, delimiter);
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public String getDelimiter() {
-        return delimiter;
     }
 
     /**

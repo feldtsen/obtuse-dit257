@@ -6,7 +6,7 @@ public class User implements IUser{
     private final String name;
     private final String address;
     private final PhoneNumber phoneNumber;
-    private String password;
+    private final String password;
 
     public User(String name, String address, PhoneNumber phoneNumber, String password){
         this.name = name;

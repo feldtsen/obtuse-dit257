@@ -43,12 +43,6 @@ public class Filter implements IFilter, Serializable {
         return typeMatch && tagsMatch;
     }
 
-    public static IFilter combineFilter(IFilter f1, IFilter f2) {
-        Set<String> tags = f1.getTags();
-        tags.addAll(f2.getTags());
-        return new Filter(f1.getPostType(), tags);
-    }
-
     @Override
     public void addTag(String tag) {
         tags.add(tag);
