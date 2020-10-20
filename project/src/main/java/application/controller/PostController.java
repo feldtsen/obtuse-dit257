@@ -36,7 +36,7 @@ public class PostController {
             return;
         }
 
-        Post newPost = new Post(publishPage.getTitleInput(),
+        IPost newPost = new Post(publishPage.getTitleInput(),
                 publishPage.getDescriptionInput(),
                 client.getUser(),
                 publishPage.getPostType(),
@@ -79,7 +79,7 @@ public class PostController {
         EditPage editPage = EditPage.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
-        Post newPost = new Post(editPage.getTitleInput(), editPage.getDescriptionInput(), client.getUser(), editPage.getPostType(), editPage.getTags(), editPage.getImagePath());
+        IPost newPost = new Post(editPage.getTitleInput(), editPage.getDescriptionInput(), client.getUser(), editPage.getPostType(), editPage.getTags(), editPage.getImagePath());
         newPost.setUniqueID(editPage.getUUID());
         client.getBoard().replacePost(editPage.getUUID(), newPost);
 

@@ -35,7 +35,6 @@ public class ClientController {
             }
             else {
                 showAlert("Wrong password", Alert.AlertType.ERROR);
-                return;
             }
         } else {
             showAlert("Please register or type the correct username", Alert.AlertType.ERROR);
@@ -50,7 +49,6 @@ public class ClientController {
     }
 
     public static void handleLogout() {
-        //TODO
         IClient client = Client.getInstance();
         IUser user = client.getUser();
         if (user==null) {

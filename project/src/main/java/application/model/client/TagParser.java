@@ -28,7 +28,7 @@ public class TagParser {
         FileReader fileReader = new FileReader(file);
         BufferedReader reader = new BufferedReader(fileReader);
         tagsByCategory = new HashMap<>();
-        String line = "";
+        String line;
         while( (line = reader.readLine()) != null) {
             String[] words = line.split(delimiter);   //convert a string line to an array of strings
 
