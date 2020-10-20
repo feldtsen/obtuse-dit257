@@ -1,0 +1,6 @@
+A:
+We are organizing our final report and have used previous weekly reflections as a jump-off point for our text.
+B:
+I would like to be in a flow where we are working with the report text and can discuss finer details about it.
+A->B:
+To achieve this i need to contextualize our previous weekly reflections in the context of the finished project program. And by reviewing previously completed User Stories.

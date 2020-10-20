@@ -71,10 +71,8 @@ Our social contract. This details how we should work as a team and how we should
 # Dependencies
 * Apache Maven 3.6.3 
 * java-11 (java-11-openjdk) 
-[TODO: list maven dependencies?]
 * javafx-15
 * junit-4.11
-* gson-2.8.5
 
 # Project setup
 ## Intellij 
