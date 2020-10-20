@@ -106,7 +106,7 @@ Here the structure of the `project` folder is detailed. This folder contains all
         - tests (tests folder)
 * pom.xml
 
-## java (source)
+## src.main.java (source)
 This is the source folder. Below follos short descriptions of each package one step below root (the `application` package), and a few important files.
 
 ### application.controller (package)
@@ -127,5 +127,11 @@ This is a utils class which loads resources from disk and stores paths and names
 ### module-info.java
 This file is required by javaFX which contains, as the name suggests, information about javaFX modules.
 
+## src.main.resources
+This folder contains images, csv-files and fxml-files, as well as fonts and css-files, etc, used within the application. Copies of images which the user has included in their posts are also stored here.
 
+## src.main.tests
+This package contains all unit tests.
 
+## pom.xml
+This is a xml-file used by maven to define project specific settings. For example, our dependencies are included here. 
