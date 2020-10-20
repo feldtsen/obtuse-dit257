@@ -90,23 +90,42 @@ Our social contract. This details how we should work as a team and how we should
 4. Build and run the application.
 
 # Project structure
+Here the structure of the `project` folder is detailed. This folder contains all our source code and application specific data.
+
 - src
     - main
         - java (source)
-            - controller
-            - model
-            - view
-            - App.java
-            - ResourceLoader.java
+            - application
+                - controller
+                - model
+                - view
+                - App.java
+                - ResourceLoader.java
+            - module-info.java
         - resources
         - tests (tests folder)
 * pom.xml
 
 ## java (source)
-### controller (package)
-### model (package)
-### view (package)
-### App
-### ResourceLoader
+This is the source folder. Below follos short descriptions of each package one step below root (the `application` package), and a few important files.
+
+### application.controller (package)
+This package contains controllers for different types of pages and functions. For example, there's a controller for controlling board functionality, one for client functionality, one for posts, and one for images. The controller package interacts with the model, for example by adding a post to the board.
+
+### application.model (package)
+This package contains the entire model of our application. This includes the board, the client, the post and user classes, and varius utilities used for managing the model.
+
+### application.view (package)
+This package contains UI elements such as different pages, buttons and status bars. The view package typically interacts with the controller package.
+
+### application - App.java
+This is the main class of the application. It contains the main method and is responsible for initializing the client, creating a window and showing it to the screen.
+
+### application - ResourceLoader.java
+This is a utils class which loads resources from disk and stores paths and names used when reading files.
+
+### module-info.java
+This file is required by javaFX which contains, as the name suggests, information about javaFX modules.
+
 
 
