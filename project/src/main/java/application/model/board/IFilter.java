@@ -8,8 +8,10 @@ import java.util.Set;
 public interface IFilter {
     // Post type is either request or donation
     String getPostType();
+
     // The tags used for search
     Set<String> getTags();
+
     // Returns true if a post matches type and at least one tag
     boolean match(IPost post);
 }
