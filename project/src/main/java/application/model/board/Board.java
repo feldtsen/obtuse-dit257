@@ -14,7 +14,10 @@ public class Board implements IBoard {
     private final Map<String, IPost> postMap;
 
     // Filter used for limiting the number of visible posts. Initially this is set to a filter
-    // which matches against all posts.
+    // which matches against all posts. This value is transient, to ensure the filter set is not
+    // saved to disk. This is done to avoid confusion when a user searches or picks a specific category,
+    // exits the application, and then starts the application again. Without the transient property,
+    // the posts will still be filtered without any user action.
     private transient IFilter filter = new Filter(Filter.ALL, Set.of());
 
     public Board() {
