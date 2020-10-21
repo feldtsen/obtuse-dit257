@@ -1,7 +1,6 @@
 module org.openjfx {
+    requires javafx.graphics;
     requires javafx.controls;
-    requires javafx.fxml;
 
-    opens application.controller to javafx.fxml;
-    exports application;
+    exports application to javafx.graphics, javafx.controls;
 }
