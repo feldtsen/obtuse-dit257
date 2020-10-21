@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class FilterTest {
     private final IPost post = new Post("Post", "This is not a post", null, "Donation",
-            Set.of("apple", "pear", "orange"));
+            Set.of("apple", "pear", "orange"), null);
 
     @Test
     public void strictNoMatchType() {

@@ -18,9 +18,9 @@ public class BoardTest {
 
     @Before
     public void init() {
-        p1 = new Post("p1", "d1", null, "Donation", Set.of("tag1", "tag2", "tag3"));
-        p2 = new Post("p2", "d2", null, "Request",  Set.of("tag2", "tag3"));
-        p3 = new Post("p3", "d3", null, "Donation", Set.of("tag1", "tag4"));
+        p1 = new Post("p1", "d1", null, "Donation", Set.of("tag1", "tag2", "tag3"), null);
+        p2 = new Post("p2", "d2", null, "Request",  Set.of("tag2", "tag3"), null);
+        p3 = new Post("p3", "d3", null, "Donation", Set.of("tag1", "tag4"), null);
         board = new Board();
         board.addPost(p1);
         board.addPost(p2);
