@@ -4,7 +4,7 @@ import application.model.board.IBoard;
 import application.model.users.IUser;
 
 public class Client implements IClient{
-    private static IClient INSTANCE;
+    private static IClient instance;
 
     private IUser user;
     private final IBoard board;
@@ -17,11 +17,11 @@ public class Client implements IClient{
     }
 
     public static void init(IUser user, IBoard board, TagParser tagParser) {
-        INSTANCE = new Client(user, board, tagParser);
+        instance = new Client(user, board, tagParser);
     }
 
     public static IClient getInstance() {
-        return INSTANCE;
+        return instance;
     }
 
     @Override
