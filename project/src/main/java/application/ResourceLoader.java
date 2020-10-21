@@ -3,6 +3,10 @@ package application;
 
 import java.io.InputStream;
 
+/*
+*  Used to make sure we do not load resources multiple times
+* */
+
 public class ResourceLoader {
     public final static String stylesheet = App.class.getResource("/styles/style.css").toString();
     public final static InputStream logo = App.class.getResourceAsStream("/application/konrad_logo_sketch_2.png");
