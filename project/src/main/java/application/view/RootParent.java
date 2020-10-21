@@ -38,7 +38,6 @@ public class RootParent extends HBox {
                 pageParent
         );
 
-
         // Add elements you want to float on the screen here
         rootContainer.getChildren().addAll(
                 pageContainer,
@@ -46,12 +45,14 @@ public class RootParent extends HBox {
         );
 
 
+        // Add the elements in the order you want (left to right)
         this.getChildren().addAll(
                 navigationParent,
                 rootContainer
         );
     }
 
+    // Singleton
     public static RootParent getInstance() {
         if (instance == null) {
             instance = new RootParent();
@@ -59,6 +60,7 @@ public class RootParent extends HBox {
         return instance;
     }
 
+    // Currently we have two themes to swap between
     public void changeTheme() {
        if (this.getStyleClass().contains("colorSchemeDark")) {
            this.getStyleClass().remove("colorSchemeDark");

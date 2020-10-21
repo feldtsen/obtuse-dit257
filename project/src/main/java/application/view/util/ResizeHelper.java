@@ -11,10 +11,14 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+/*
 
-// IMPORTED
-// created by https://stackoverflow.com/users/325554/alexander-berg
-
+*  This class is IMPORTED and not written by us, since we remove the default window toolbar we need to make
+*  functionality to resize and move the window around. This enables that functionality.
+*
+*   The author is: https://stackoverflow.com/users/325554/alexander-berg
+*
+* */
 
 public class ResizeHelper {
     private static boolean isDragging = false;

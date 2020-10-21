@@ -17,43 +17,49 @@ public class StatusBanner extends HBox {
     private static StatusBanner instance = null;
 
     private StatusBanner() {
+        // Applies padding to the status banner
         this.getStyleClass().add("padding");
 
+        // Load the logo and set the size
         Image image = new Image(ResourceLoader.logoText);
         ImageView imageView = new ImageView(image);
         imageView.setPreserveRatio(true);
         imageView.setFitHeight(25);
 
+        // Toolbar button (top right of the application) for minimizing and exiting the app
         Button exit = new Button();
         Button minimize = new Button();
-        //Button maximize = new Button();
+
+        // Add icons to the buttons
         exit.setGraphic(SVGHelper.createIcon(ResourceLoader.crossIcon, 0.02));
-        //maximize.setGraphic(SVGHelper.createIcon("M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-16 160H64v-84c0-6.6 5.4-12 12-12h360c6.6 0 12 5.4 12 12v84z", 0.02));
         minimize.setGraphic(SVGHelper.createIcon(ResourceLoader.minusIcon, 0.02));
 
+        // Decide what to do when the buttons are clicked
         exit.setOnMouseClicked(e -> ExitNavigationButton.getInstance().action(e));
         minimize.setOnMouseClicked(e -> App.getStage().setIconified(true));
 
-
+        // Add toolbar button for swapping the available themes
         Button colorSchemeSwap = new Button();
         colorSchemeSwap.setOnMouseClicked(e -> RootParent.getInstance().changeTheme());
         colorSchemeSwap.getStyleClass().add("colorSchemeSwap");
-
+        // Add icon to the color swapper button
         Group sunIcon = SVGHelper.createIcon(ResourceLoader.sunIcon, 0.04);
         colorSchemeSwap.setGraphic(sunIcon);
 
         HBox toolbar = new HBox();
         toolbar.getChildren().addAll(
                 minimize,
-         //       maximize,
                 exit
         );
 
+        // Takes care of responsiveness and positioning
         HBox.setHgrow(LoginBannerModule.getInstance(), Priority.ALWAYS);
         LoginBannerModule.getInstance().setAlignment(Pos.CENTER_RIGHT);
 
+        // Adds a styling class to the toolbar
         toolbar.getStyleClass().add("toolbar");
 
+        // Add components in the order you want them to be displayed (left to right)
         this.getChildren().addAll(
                 imageView,
                 LoginBannerModule.getInstance(),
@@ -62,6 +68,7 @@ public class StatusBanner extends HBox {
         );
     }
 
+    // Singleton
     public static StatusBanner getInstance() {
         if(instance == null)
             instance = new StatusBanner();

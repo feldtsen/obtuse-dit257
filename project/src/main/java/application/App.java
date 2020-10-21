@@ -20,20 +20,28 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         App.stage = stage;
+
+        // We remove the default toolbar
         stage.initStyle(StageStyle.UNDECORATED);
 
+        // Sets the taskbar icon to be our logo
         stage.getIcons().add(new Image(ResourceLoader.logoSymbol));
 
+        // Set the application min width and height
         stage.setMinHeight(MIN_HEIGHT);
         stage.setMinWidth(MIN_WIDTH);
 
+        // Set the root graphical component to out application and set initial size
         Scene scene = new Scene(RootParent.getInstance(), INITIAL_WIDTH, INITIAL_HEIGHT);
-
-        ClientController.init();
-
         stage.setScene(scene);
         stage.show();
 
+        // Initialize the client part of the application
+        ClientController.init();
+
+
+        // Since we remove the default toolbar for the application window, we need to add some basic functionality to
+        // resize the window and move it around
         ResizeHelper.draggable(stage);
         ResizeHelper.addResizeListener(stage);
 

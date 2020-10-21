@@ -1,5 +1,6 @@
 package application.view.status;
 
+import application.ResourceLoader;
 import application.view.navigation.RegisterNavigationButton;
 import application.view.pages.PageParent;
 import application.view.pages.login.RegisterPage;
@@ -12,24 +13,27 @@ import javafx.scene.layout.HBox;
 
 public class LoginBannerModule extends HBox {
     private static LoginBannerModule instance = null;
-    private static final String NOT_LOGGED_IN_MESSAGE = "Not logged in ";
+
+    private static final String NOT_LOGGED_IN_MESSAGE = "Not logged in "; // Displayed when not logged in
     private final Label loginStatus;  //label that shows what user is currently logged in
 
     private LoginBannerModule() {
-
-        Group icon = SVGHelper.createIcon("M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z", 0.04);
+        // Create a button and set the icon
+        Group icon = SVGHelper.createIcon(ResourceLoader.avatarIcon, 0.04);
         Button avatar = new Button();
-
         avatar.setGraphic(icon);
-
         avatar.getStyleClass().add("avatar");
 
+        // Label for the status
         loginStatus = new Label(NOT_LOGGED_IN_MESSAGE);
 
+        // What happens when you clicked the avatar icon
         avatar.setOnMouseClicked(event -> PageParent.loadPage(RegisterPage.getInstance(), RegisterNavigationButton.getInstance()));
 
-
+        // Set the position withing the LoginBannerModule
         this.setAlignment(Pos.CENTER_RIGHT);
+
+        // Sets in what order you want the components to be displayed (left to right)
         this.getChildren().addAll(
                 loginStatus,
                 LogoutButton.getInstance(),
@@ -37,19 +41,19 @@ public class LoginBannerModule extends HBox {
         );
     }
 
+    // Singleton
     public static LoginBannerModule getInstance() {
         if(instance == null)
             instance = new LoginBannerModule();
         return instance;
     }
 
+    // When not logged in, change status
     public void setNotLoggedIn(){
         loginStatus.setText(NOT_LOGGED_IN_MESSAGE);
     }
-    /**
-     * Set the passed in user as the currently logged in user
-     * @param userName the user name
-     */
+
+    // Given a userName, update the status to the user's username
     public void setLoggedInAs(String userName) {
         loginStatus.setText(userName);
     }
