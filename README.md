@@ -118,7 +118,7 @@ This package contains the entire model of our application. This includes the boa
 ### application.view (package)
 This package contains UI elements such as different pages, buttons and status bars. The view package typically interacts with the controller package.
 
-### application - App.java
+### application - App.java (main)
 This is the main class of the application. It contains the main method and is responsible for initializing the client, creating a window and showing it to the screen.
 
 ### application - ResourceLoader.java
@@ -127,10 +127,10 @@ This is a utils class which loads resources from disk and stores paths and names
 ### module-info.java
 This file is required by javaFX which contains, as the name suggests, information about javaFX modules.
 
-## src.main.resources
+## src.main.resources (resources)
 This folder contains images, csv-files and fxml-files, as well as fonts and css-files, etc, used within the application. Copies of images which the user has included in their posts are also stored here.
 
-## src.main.tests
+## src.main.tests (tests)
 This package contains all unit tests.
 
 ## pom.xml
