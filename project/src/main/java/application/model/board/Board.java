@@ -28,7 +28,7 @@ public class Board implements IBoard {
 
             filteredPosts = new ArrayList<>();
             for(IPost post : posts) {
-                if(filter.looseMatch(post)) { //TODO: loose match??
+                if(filter.match(post)) { //TODO: loose match??
                     filteredPosts.add(post);
                 }
             }

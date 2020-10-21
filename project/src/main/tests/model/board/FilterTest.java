@@ -14,81 +14,51 @@ public class FilterTest {
             Set.of("apple", "pear", "orange"), null);
 
     @Test
-    public void strictNoMatchType() {
+    public void testNoMatchType() {
         IFilter filter = new Filter("Request", Set.of("apple", "pear", "orange"));
-        assertFalse(filter.strictMatch(post));
+        assertFalse(filter.match(post));
     }
 
     @Test
-    public void strictNoMatchTags() {
-        IFilter filter = new Filter("Donation", Set.of("pear", "orange"));
-        assertFalse(filter.strictMatch(post));
-    }
-
-    @Test
-    public void strictNoMatchAll() {
-        IFilter filter = new Filter(Filter.ALL, Set.of("pear", "orange"));
-        assertFalse(filter.strictMatch(post));
-    }
-
-    @Test
-    public void strictMatchAll() {
-        IFilter filter = new Filter(Filter.ALL, Set.of("apple", "pear", "orange"));
-        assertTrue(filter.strictMatch(post));
-    }
-
-    @Test
-    public void strictMatchTypeTags() {
-        IFilter filter = new Filter("Donation", Set.of("apple", "pear", "orange"));
-        assertTrue(filter.strictMatch(post));
-    }
-
-    @Test
-    public void looseNoMatchType() {
-        IFilter filter = new Filter("Request", Set.of("apple", "pear", "orange"));
-        assertFalse(filter.looseMatch(post));
-    }
-
-    @Test
-    public void looseNoMatchTag() {
+    public void testNoMatchTag() {
         IFilter filter = new Filter("Donation", Set.of("melon"));
-        assertFalse(filter.looseMatch(post));
+        assertFalse(filter.match(post));
     }
 
     @Test
-    public void looseNoMatchAll() {
+    public void testNoMatchAll() {
         IFilter filter = new Filter(Filter.ALL, Set.of("melon"));
-        assertFalse(filter.looseMatch(post));
+        assertFalse(filter.match(post));
     }
 
     @Test
-    public void looseMatchAll() {
+    public void testMatchAll() {
         IFilter filter = new Filter(Filter.ALL, Set.of("apple"));
-        assertTrue(filter.looseMatch(post));
+        assertTrue(filter.match(post));
     }
 
     @Test
-    public void looseMatchAllEmptyTags() {
+    public void testMatchAllEmptyTags() {
         IFilter filter = new Filter(Filter.ALL, Set.of());
-        assertTrue(filter.looseMatch(post));
+        assertTrue(filter.match(post));
     }
 
     @Test
-    public void looseMatchTypeEmptyTags() {
+    public void testMatchTypeEmptyTags() {
         IFilter filter = new Filter("Donation", Set.of());
-        assertTrue(filter.looseMatch(post));
+        assertTrue(filter.match(post));
     }
 
     @Test
-    public void looseMatch() {
+    public void testMatch() {
         IFilter filter = new Filter("Donation", Set.of("orange", "apple"));
-        assertTrue(filter.looseMatch(post));
+        assertTrue(filter.match(post));
     }
 
     @Test
-    public void looseFullMatch() {
+    public void testFullMatch() {
         IFilter filter = new Filter("Donation", Set.of("orange", "apple", "pear"));
-        assertTrue(filter.looseMatch(post));
+        assertTrue(filter.match(post));
     }
 
 }

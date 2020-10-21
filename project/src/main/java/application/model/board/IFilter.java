@@ -10,11 +10,6 @@ public interface IFilter {
     String getPostType();
     // The tags used for search
     Set<String> getTags();
-    // Returns true if a post matches type and all tags
-    boolean strictMatch(IPost post);
     // Returns true if a post matches type and at least one tag
-    boolean looseMatch(IPost post);
-
-    void addTag(String tag);
-
+    boolean match(IPost post);
 }
