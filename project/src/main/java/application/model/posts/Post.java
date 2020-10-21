@@ -15,11 +15,6 @@ public class Post implements IPost {
     private final String type;
     private final Set<String> tags;
     private final String imagePath;
-    // TODO: implement private final ImageContainer image;
-
-    public Post(String title, String description, IUser author, String type, Set<String> tags) {
-        this(title, description, author, type, tags, null);
-    }
 
     public Post(String title, String description, IUser author, String type, Set<String> tags, String imagePath) {
         this.title = title;

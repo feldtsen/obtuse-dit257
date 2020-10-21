@@ -45,7 +45,7 @@ public class LoginBannerModule extends HBox {
 
     public void setNotLoggedIn(){
         loginStatus.setText(NOT_LOGGED_IN_MESSAGE);
-    };
+    }
     /**
      * Set the passed in user as the currently logged in user
      * @param userName the user name
