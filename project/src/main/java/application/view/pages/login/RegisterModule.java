@@ -8,25 +8,31 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+// module for the user to enter registration information
 public class RegisterModule extends VBox implements Page {
+    // Singleton pattern
     private static RegisterModule instance = null;
 
+    // Input fields for user data
     private final TextField nameInput;
     private final TextField addressInput;
     private final TextField phoneInput;
     private final PasswordField passwordInput;
 
     private RegisterModule() {
+        // Create labels for text indicators
         Label registerLabel = new Label("Create Account");
         Label nameLabel = new Label("Name");
         Label addressLabel = new Label("Address");
         Label phoneLabel = new Label("Phone Number");
         Label passwordLabel = new Label("Password");
 
+        // Create title container and set styling
         HBox titleContainer = new HBox();
         titleContainer.getChildren().setAll(registerLabel);
         titleContainer.setAlignment(Pos.TOP_CENTER);
 
+        // Initialize input fields and prompts
         nameInput = new TextField();
         nameInput.setPromptText("enter your name");
 
@@ -39,6 +45,7 @@ public class RegisterModule extends VBox implements Page {
         passwordInput = new PasswordField();
         passwordInput.setPromptText("enter you password");
 
+        // Set styling
         this.getStyleClass().add("spacing");
         registerLabel.getStyleClass().add("title");
 
@@ -65,6 +72,7 @@ public class RegisterModule extends VBox implements Page {
 
     }
 
+    // Create and return global instance
     public static RegisterModule getInstance() {
         if (instance == null) instance = new RegisterModule();
 
@@ -80,6 +88,5 @@ public class RegisterModule extends VBox implements Page {
     public String getPhoneInput() {
         return phoneInput.getText();
     }
-    public String getPasswordInput() { return passwordInput.getText();
-    }
+    public String getPasswordInput() { return passwordInput.getText(); }
 }
