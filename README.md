@@ -135,3 +135,16 @@ This package contains all unit tests.
 
 ## pom.xml
 This is a xml-file used by maven to define project specific settings. For example, our dependencies are included here. 
+
+# Statistics
+Here follows a short overview of the contributions, by author, to the project. The statistics are fetched directly from the github insights-page. As they are, the statistics look a big sqewed, and therefore we thought they required a short description.
+
+Since we've been having a lot of physical meetings we've been relying heavily on pair programming. This has been especially vital since some group members had more knowledge in certain areas, and it greatly aided the work of the group by allowing people to work together with those who possessed this knowledge. However, since we probably didn't utilize co-authors enough and some people did more work in code-heavy areas, the statistics does not truly reflect the amount of effort/value each group member contributed with. 
+
+And in addition to this, it's only natural some people spend more time doing the actual coding than others. Work with SCRUM, documentation, reports, meeting protocols, etc, is not properly reflected in the github statistics.
+
+[INCLUDE STATISTICS HERE]
+
+
+
+
