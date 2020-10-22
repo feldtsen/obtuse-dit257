@@ -11,9 +11,14 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class App extends Application {
+
+    // The initial width of the application window
     private final static double INITIAL_WIDTH  = 1200;
+    // The initial height of the application window
     private final static double INITIAL_HEIGHT = 655;
+    // The minimum width of the application window
     private final static double MIN_WIDTH      = 1000;
+    // The minimum height of the application window
     private final static double MIN_HEIGHT     = 655;
     private static Stage stage;
 

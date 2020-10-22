@@ -21,7 +21,7 @@ import java.util.Collection;
 // This class is responsible for setting up the board and load/save of the board.
 public class BoardController {
 
-
+    // Sets the filter for client and refreshes board
     public static void setFilter(IFilter filter) {
         Client.getInstance().getBoard().setFilter(filter);
         BoardPage.getInstance().getChildren().setAll();
@@ -114,7 +114,7 @@ public class BoardController {
         }
     }
 
-    // Saves board object to disk
+    // Saves Board object to disk
     public static void saveBoardToDisk() throws IOException {
         FileIO.saveObject(Client.getInstance().getBoard(), ResourceLoader.boardFile);
     }
