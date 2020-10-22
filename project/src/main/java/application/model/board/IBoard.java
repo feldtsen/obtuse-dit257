@@ -7,7 +7,9 @@ import java.util.List;
 
 // Class representing all posts in the user client.
 // The set of visible posts can be filtered using a filter
+// Extends Serializable for the functionality of saving in a .ser file
 public interface IBoard extends Serializable {
+
     // Returns all posts that match the filter
     List<IPost> getVisiblePosts();
 
@@ -23,7 +25,7 @@ public interface IBoard extends Serializable {
     // Replaces (or updates) a specific post
     void replacePost(String id, IPost newPost);
 
-    // Deletes a post from the board
+    // Deletes a post from the board, returns true if delete succeeded
     boolean deletePost(String id);
 
     // Sets the filter. The filter will affect the result of calling getVisiblePosts.

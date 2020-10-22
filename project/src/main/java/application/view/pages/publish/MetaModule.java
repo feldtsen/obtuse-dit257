@@ -66,10 +66,7 @@ public class MetaModule extends VBox {
     }
 
     public String getImagePath() {
-        if(imageChooser.isSelected()) {
-            return imageChooser.getSelectedPath();
-        }
-        return null;
+        return imageChooser.getSelectedPath();
     }
 
     public void requestAction(MouseEvent e) {

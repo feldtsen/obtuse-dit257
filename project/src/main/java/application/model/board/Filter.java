@@ -8,7 +8,9 @@ import java.util.Set;
 
 // A class used for filtering the posts of a board.
 // A filter matches against post type and tags in a post.
+// Extends Serializable for the functionality of saving in a .ser file
 public class Filter implements IFilter, Serializable {
+
     // This field is used to when creating a filter that matches against all post types
     public final static String ALL = "ALL";
 

@@ -119,9 +119,7 @@ public class ClientController {
         }
         // Create user directory if it does not exist
         File userDir = new File(ResourceLoader.usersDir);
-        if(!userDir.exists()) {
-            userDir.mkdirs();
-        }
+        userDir.mkdirs();
 
         PhoneNumber phone = new PhoneNumber(phoneNumber);
         return new User(name, address, phone, password);
