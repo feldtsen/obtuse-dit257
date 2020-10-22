@@ -5,7 +5,7 @@ import application.model.users.IUser;
 
 import java.io.Serializable;
 
-public interface IClient extends Serializable {
+public interface IClient {
     IUser getUser();
     void setUser(IUser user);
     IBoard getBoard();
