@@ -20,11 +20,15 @@ import javafx.scene.control.Alert;
 
 import java.io.*;
 
+// Responsible for setting up Board and User (the login and registration of user)
 public class ClientController {
+
+    //
     public static void init() {
         loadFromDisk();
     }
 
+    // Handles login and errorHandling
     public static void handleLogin(String phone, String password) {
         String path = createUserFilePath(phone);
         File file = new File(path);
@@ -47,7 +51,7 @@ public class ClientController {
         showAlert("Login successful as " + user.getName(), Alert.AlertType.CONFIRMATION);
         LogoutButton.getInstance().setWhenLoggedInText();
     }
-
+    // Handles logout and error-handling
     public static void handleLogout() {
         IClient client = Client.getInstance();
         IUser user = client.getUser();
@@ -63,7 +67,7 @@ public class ClientController {
 
     }
 
-
+    // Handles registration (saving user to user/) and error-handling for registration.
     public static void handleRegisterButton(String name, String address, String phoneNumber, String password) {
 
         if (name.equals("")) {
@@ -146,7 +150,8 @@ public class ClientController {
         BoardController.saveBoardToDisk();
     }
 
-    public static void saveUserToDisk() throws IOException {
+
+    private static void saveUserToDisk() throws IOException {
         FileIO.saveObject(Client.getInstance().getUser(), createUserFilePath(Client.getInstance().getUser()));
     }
 

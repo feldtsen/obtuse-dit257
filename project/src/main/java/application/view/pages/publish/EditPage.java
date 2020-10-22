@@ -17,7 +17,7 @@ public class EditPage extends HBox implements Page, IPublishable {
     private final MetaModule metaModule = new MetaModule(this);
 
 
-    private  String uuidField;
+    private  String uniqueIDField;
     private  String postType;
 
     public EditPage() {
@@ -50,7 +50,7 @@ public class EditPage extends HBox implements Page, IPublishable {
         inputModule.getTitleInputField().setText(oldPost.getTitle());
         inputModule.getDescriptionInputArea().setText(oldPost.getDescription());
 
-        uuidField = oldPost.getUniqueID();
+        uniqueIDField = oldPost.getUniqueID();
         postType = oldPost.getType();
 
         metaModule.getTagChoiceDropdown().setChosenTags(oldPost.getTags());
@@ -73,8 +73,8 @@ public class EditPage extends HBox implements Page, IPublishable {
         return inputModule.getDescriptionInputArea().getText();
     }
 
-    public String getUUID() {
-        return uuidField;
+    public String getUniqueID() {
+        return uniqueIDField;
     }
 
     public String getPostType(){
