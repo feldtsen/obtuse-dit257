@@ -7,10 +7,10 @@ import javafx.scene.control.ComboBox;
 
 import java.util.ArrayList;
 
-
+// Dropdown view for displaying available tags
 public class TagDropdown extends ComboBox<String> {
+    // Fetch global tag parser instance for client
     private final static TagParser tagParser = Client.getInstance().getTagParser();
-
 
     public TagDropdown(){
         // Initializes ComboBox with the content equal to all available tags

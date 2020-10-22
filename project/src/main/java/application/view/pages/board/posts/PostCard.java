@@ -23,17 +23,17 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+// UI element for showing the contents of the Post model class
+// This class displays all relevant information related to a post,
+// included user specific information such as phone number and address
 public class PostCard extends VBox {
 
+    public PostCard (IPost post) {
 
-
-    public PostCard ( IPost post )
-    {
-
-        //The author of the current post
+        // The author of the current post
         IUser author = post.getAuthor();
 
-        //Creates the GUI elements
+        // Creates the different labels, texts and buttons
         Label postTypeLabel           = new Label(post.getType());
         Label titleLabel              = new Label(post.getTitle());
         Label nameAndAddressLabel     = new Label(author.getName() + ", " + author.getAddress());
@@ -49,8 +49,6 @@ public class PostCard extends VBox {
         //List of buttons to be wrapped in a HBox
         List<Button> buttons = new ArrayList<>();
 
-
-
         //Connect button clicks with a controller
         editButton.setOnMouseClicked(e-> PostController.editPost(post.getUniqueID()));
         deleteButton.setOnMouseClicked(e-> PostController.deletePost(post.getUniqueID()));
@@ -65,13 +63,16 @@ public class PostCard extends VBox {
             }
         }
 
-        // Load image
+        // Load image if a path is defined in the post
         ImageView imageView = new ImageView();
         if(post.getImagePath() != null) {
             String path = post.getImagePath();
+
+            // Create new image and set it to the view
             Image image = new Image(new File(path).toURI().toString());
             imageView.setImage(image);
             // TODO: not hardcode width, this needs to be reflected in the column constraints
+            // Set styling and dimensions
             imageView.setFitWidth(280);
             imageView.setPreserveRatio(true);
             imageView.setSmooth(true);
@@ -90,7 +91,6 @@ public class PostCard extends VBox {
             imageView.setClip(null);
 
             imageView.setImage(writableImage);
-
         }
 
 
