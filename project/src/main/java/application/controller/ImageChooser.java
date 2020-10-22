@@ -87,9 +87,7 @@ public class ImageChooser extends VBox {
 
     public String getSelectedPath() {
         //TODO: currently does two things... :(
-        if(selectedFile != null) {
-            copyFile();
-        }
+        copyFile();
         return relativePath;
     }
 
