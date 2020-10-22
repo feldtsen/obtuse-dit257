@@ -12,8 +12,10 @@ import javafx.scene.control.Alert;
 
 import java.io.IOException;
 
+// Responsible for creating, editing and deleting posts. Used in view.
 public class PostController {
 
+    // CReads the contents from publish page and adds the post to board
     public static void createPost() {
         IClient client = Client.getInstance();
 
@@ -56,32 +58,33 @@ public class PostController {
         }
     }
 
-   public static void editPost(String oldPostUUID) {
+    // Used to create a new edited post based on a old post
+   public static void editPost(String uniqueID) {
         //IClient client = ClientController.loadState();
        IClient client = Client.getInstance();
 
-        // Retrieves the correct post based on the UUID
-        IPost oldPost = client.getBoard().getSpecificPost(oldPostUUID);
+        // Retrieves the correct post based on the uniqueID
+        IPost oldPost = client.getBoard().getSpecificPost(uniqueID);
 
         // Populates the field in the edit page to reflect the current content of the post
         EditPage.getInstance().prepareWithOldValues(oldPost);
 
         ClientController.showAlert("Currently editing " + oldPost.getTitle(), Alert.AlertType.INFORMATION);
 
-
         // Makes the edit page visible
         PageParent.loadPage(EditPage.getInstance(), PublishNavigationButton.getInstance());
 
     }
 
+    // Used to override a post with an edited post
     public static void updatePost(){
         IClient client = Client.getInstance();
         EditPage editPage = EditPage.getInstance();
 
         // We do not modify the current post, we replace the old one with a new post
         IPost newPost = new Post(editPage.getTitleInput(), editPage.getDescriptionInput(), client.getUser(), editPage.getPostType(), editPage.getTags(), editPage.getImagePath());
-        newPost.setUniqueID(editPage.getUUID());
-        client.getBoard().replacePost(editPage.getUUID(), newPost);
+        newPost.setUniqueID(editPage.getUniqueID());
+        client.getBoard().replacePost(editPage.getUniqueID(), newPost);
 
         ClientController.showAlert("Successfully updated " + newPost.getTitle(), Alert.AlertType.CONFIRMATION);
 
@@ -96,12 +99,13 @@ public class PostController {
         BoardController.retrievePosts();
     }
 
-    public static void deletePost(String postUUID) {
+    // Deletes the post with the corresponding uniqueID
+    public static void deletePost(String uniqueID) {
         IClient client = Client.getInstance();
-        IPost oldPost = client.getBoard().getSpecificPost(postUUID);
+        IPost oldPost = client.getBoard().getSpecificPost(uniqueID);
 
         // Removes the specified post from the board
-        client.getBoard().deletePost(postUUID);
+        client.getBoard().deletePost(uniqueID);
         ClientController.showAlert("Successfully deleted " + oldPost.getTitle(), Alert.AlertType.CONFIRMATION);
 
         // Saves the changes to our persistent storage

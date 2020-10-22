@@ -18,14 +18,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+// This class is responsible for setting up the board and load/save of the board.
 public class BoardController {
 
+    // Sets the filter for client and refreshes board
     public static void setFilter(IFilter filter) {
         Client.getInstance().getBoard().setFilter(filter);
         BoardPage.getInstance().getChildren().setAll();
         retrievePosts();
     }
 
+    // Sets up the board with posts if user is logged in.
     public static void retrievePosts() {
         IClient client = Client.getInstance();
 
@@ -41,10 +44,8 @@ public class BoardController {
         if (client.getBoard() == null)
             return;
 
-        BoardPage.getInstance().getChildren().setAll();
-
-
         BoardPage boardPage = BoardPage.getInstance();
+        boardPage.getChildren().setAll();
         Collection<IPost> posts = client.getBoard().getVisiblePosts();
         int counter = 0;
         int rowIndex = 0;
@@ -99,10 +100,9 @@ public class BoardController {
             if(colIndex == 2) rowIndex++;
             counter++;
         }
-        
-
     }
 
+    // Loads the board if there is one, otherwise creates a new one
     public static IBoard loadBoard() {
         // If a stored board already exists
         if (new File(ResourceLoader.boardFile).exists()) {
@@ -114,6 +114,7 @@ public class BoardController {
         }
     }
 
+    // Saves Board object to disk
     public static void saveBoardToDisk() throws IOException {
         FileIO.saveObject(Client.getInstance().getBoard(), ResourceLoader.boardFile);
     }
