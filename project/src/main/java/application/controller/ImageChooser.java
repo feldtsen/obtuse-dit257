@@ -14,6 +14,7 @@ import java.nio.file.StandardCopyOption;
 
 // This class is responsible for handling image loading.
 public class ImageChooser extends VBox {
+    // The path where images as copied to
     public static final String IMAGE_DIR_PATH = "src/main/resources/images/";
 
     private final Button chooseButton;
@@ -53,7 +54,6 @@ public class ImageChooser extends VBox {
 
     private void copyFile() {
         if(isSelected()) {
-            //TODO ugly semi-hard coded relative path!??
             new File(toFullPath(IMAGE_DIR_PATH)).mkdir();
 
             relativePath = IMAGE_DIR_PATH + selectedFile.getName();
@@ -85,15 +85,15 @@ public class ImageChooser extends VBox {
     public static String toFullPath(String relativePath) {
         return Paths.get("").toAbsolutePath().toString() + "/" + relativePath;
     }
-
+    // Copies a file to resources/images/ & then returns the filepath for the file copy.
     public String getSelectedPath() {
-        //TODO: currently does two things... :(
         if(isSelected()) {
             copyFile();
         }
         return relativePath;
     }
 
+    // Sets the relative path for the file
     public void setRelativePath(String path) {
         if(path == null) return;
         this.relativePath = path;
@@ -102,7 +102,7 @@ public class ImageChooser extends VBox {
         choiceLabel.setText(labelText);
     }
 
-   
+   // Sets the selected file
     public void setSelectedFile (File selectedFile) {
         this.selectedFile = selectedFile;
     }
