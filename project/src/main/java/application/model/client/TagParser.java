@@ -7,9 +7,10 @@ import java.io.IOException;
 import java.util.*;
 
 
+// A parser class for handling tags which are saved to a file on disk
 public class TagParser {
-    private Map<String, List<String>> tagsByCategory;  //a map with category as key and tags as values
-
+    // a map with category as key and tags as values
+    private Map<String, List<String>> tagsByCategory;
 
     public TagParser(String path, String delimiter) throws IOException {
         prepareData(path, delimiter);

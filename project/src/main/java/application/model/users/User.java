@@ -2,7 +2,9 @@ package application.model.users;
 
 import application.model.util.PhoneNumber;
 
-public class User implements IUser{
+// A class representing the user of the application.
+// Class is described in the comments to the IUser interface.
+public class User implements IUser {
     private final String name;
     private final String address;
     private final PhoneNumber phoneNumber;
