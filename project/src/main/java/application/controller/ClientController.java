@@ -63,6 +63,7 @@ public class ClientController {
 
     }
 
+
     public static void handleRegisterButton(String name, String address, String phoneNumber, String password) {
 
         if (name.equals("")) {

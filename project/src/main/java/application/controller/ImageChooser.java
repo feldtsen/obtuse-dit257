@@ -12,7 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-// This class is responsible for handling image loading
+// This class is responsible for handling
 public class ImageChooser extends VBox {
     public static final String IMAGE_DIR_PATH = "src/main/resources/images/";
 
