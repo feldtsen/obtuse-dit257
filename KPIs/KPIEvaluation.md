@@ -61,6 +61,15 @@
 * Day 4: 3.43
 * Day 5: 3.86
 
+
+### Week 6:
+
+* Day 1: 3.57
+* Day 2: 3.14
+* Day 3: 3.43
+* Day 4: 3.29
+* Day 5: 3.43
+
 ## Team satisfaction (weekly) (1-5)
 
 ### Week 1:
@@ -82,4 +91,8 @@
 ### Week 5:
 
 * 4.14
+
+### Week 6:
+
+* 3.86
 
