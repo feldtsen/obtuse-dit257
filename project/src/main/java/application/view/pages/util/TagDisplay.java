@@ -6,7 +6,6 @@ import javafx.scene.layout.FlowPane;
 import java.util.Set;
 
 public class TagDisplay extends FlowPane {
-
     public TagDisplay(Set<String> tags) {
         setTags(tags);
     }
