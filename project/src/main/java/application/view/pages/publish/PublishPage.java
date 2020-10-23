@@ -6,18 +6,25 @@ import javafx.scene.layout.HBox;
 
 import java.util.Set;
 
+// Page for publishing a new post
 public class PublishPage extends HBox implements Page, IPublishable {
+    // Singleton pattern, since there should only be one
     private static PublishPage instance = null;
 
+    // Module for entering title, description, etc
     private final InputModule inputModule;
+
+    // Module for adding tags, images and post type
     private final MetaModule metaModule;
 
     private PublishPage() {
+        // Set styling
         this.getStyleClass().add("spacing");
         this.getStyleClass().add("padding");
 
+        // Create modules
         inputModule = new InputModule(SubmitPostButton.getInstance());
-        metaModule = new MetaModule(this);
+        metaModule  = new MetaModule(this);
 
         this.getChildren().addAll(
                 inputModule,
@@ -25,7 +32,7 @@ public class PublishPage extends HBox implements Page, IPublishable {
         );
     }
 
-    public String getTitleInput () {
+    public String getTitleInput() {
         return inputModule.getTitleInputField().getText();
     }
 
@@ -51,6 +58,7 @@ public class PublishPage extends HBox implements Page, IPublishable {
         return metaModule;
     }
 
+    // Create and return global instance
     public static PublishPage getInstance() {
         if (instance == null) instance = new PublishPage();
         return instance;
