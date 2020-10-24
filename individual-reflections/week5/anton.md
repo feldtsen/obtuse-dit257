@@ -7,4 +7,4 @@ However, at this point in time we all have shared much more knowledge, and most 
 I'd like to be able to contribute to cosntructing good sprints with reasonable estimations. I'd also like to learn even more about the GUI and error handling. I also would like to learn more about how to do persistent data storage in a good way for an application like ours.
 
 # Plan (A -> B)
-More open communicate. I'd like to participate on all physical meetings and make sure we cover all points we need to cover. I should also do more pair programming, to aid in the sharing of knowledge within the group. 
+More open communication. I'd like to participate on all physical meetings and make sure we cover all points we need to cover. I should also do more pair programming, to aid in the sharing of knowledge within the group. 
