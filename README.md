@@ -143,7 +143,8 @@ Since we've been having a lot of physical meetings we've been relying heavily on
 
 And in addition to this, it's only natural some people spend more time doing the actual coding than others. Work with SCRUM, documentation, reports, meeting protocols, etc, is not properly reflected in the github statistics.
 
-[INCLUDE STATISTICS HERE]
+<img src="statistics/commits.png">
+(commits and additions/deletions, by author)
 
 
 
