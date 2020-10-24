@@ -1,0 +1,29 @@
+A:
+It is the last sprint for us and we finished most of what we expected to get ready for the final
+stage. I personally was very busy with the task of making a runnable jar file. 
+It didn't be ready in time and there me personally didn't estimate the time right and we didn't 
+devided into tasks either because of the low priority on it where everyone was busy with other 
+things. We thought that it would easy to automate it completely through the IDE but it turned out 
+things must be refactored in order it to get running
+We decided to write instructions to run the application in both Eclipse and Intelij instead.
+I feel that we all did our best to make what needed to be deliver done and have a nice start to keep
+improve the application further in the future. I was happy with the way the course is orgenized and
+supervised.   
+
+B:
+I see now that making a runnable jar file should be made long time ago because it is part of
+deploying the applications and make things much easier to change if we started earlier. 
+Thing we must try to avoid is making big user stories and not deviding them into smaller 
+tasks and I think personally the estemation of things is not accurate yet but it improved
+dramatically with time but more work is need it to make it even better.
+There is no specific thing that I wish to change in the course and everyone did a nice
+job both the staffs and my teammates 
+
+A->B:
+By concentrating more on the design of our application the model, GUI and the controller 
+already in start stage and studying every detail in the uml diagram help us save alot
+of refactoring in the development stage.
+Start to make the jar file for the application earlier and catch those things that make
+it not runnable already there help us safe refactory later on.
+I don't have an idea how to make the course better because it is already well
+designed and i am sutisfied with it. Thanks everyone who was involved.
