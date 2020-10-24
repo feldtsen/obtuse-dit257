@@ -13,6 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
+
+// The status banner on the top of the window. This banner includes things
+// such as the app name, the name of the currently logged in user, settings, etc
 public class StatusBanner extends HBox {
     private static StatusBanner instance = null;
 

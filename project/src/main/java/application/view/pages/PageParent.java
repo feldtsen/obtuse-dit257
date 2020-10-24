@@ -45,8 +45,6 @@ public class PageParent extends HBox {
 
         // The default page we want to show the user when the application launches
         loadPage(RegisterPage.getInstance(), RegisterNavigationButton.getInstance());
-
-
     }
 
     // Singleton

@@ -10,16 +10,22 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+// The root class of the application. This class is responsible for launching
+// the app.
 public class App extends Application {
-
     // The initial width of the application window
     private final static double INITIAL_WIDTH  = 1200;
+
     // The initial height of the application window
     private final static double INITIAL_HEIGHT = 655;
+
     // The minimum width of the application window
     private final static double MIN_WIDTH      = 1000;
+
     // The minimum height of the application window
     private final static double MIN_HEIGHT     = 655;
+
+    // The root stage (or window) of the application
     private static Stage stage;
 
     @Override
@@ -49,8 +55,6 @@ public class App extends Application {
         // resize the window and move it around
         ResizeHelper.draggable(stage);
         ResizeHelper.addResizeListener(stage);
-
-
     }
 
     public static void main(String[] args) {
@@ -60,6 +64,4 @@ public class App extends Application {
     public static Stage getStage () {
         return stage;
     }
-
-
 }

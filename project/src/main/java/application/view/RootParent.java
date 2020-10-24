@@ -8,11 +8,14 @@ import application.view.status.StatusBanner;
 import javafx.geometry.Pos;
 import javafx.scene.layout.*;
 
+// The root node of the application. This class contains
+// all the other components of the application
 public class RootParent extends HBox {
     private static RootParent instance = null;
     private static final VBox pageContainer = new VBox();
 
     private RootParent() {
+        // Get different application components
         NavigationParent navigationParent = NavigationParent.getInstance();
         PageParent pageParent = PageParent.getInstance();
         StackPane rootContainer = new StackPane();
