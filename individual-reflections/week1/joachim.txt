@@ -1,8 +1,0 @@
-This week has been about KPIs, the social contract, agreeing on a project idea, 
-epics/themes, what UN goals our project aids, and getting to know each other. 
-Now we need to agree on how to structure future work. We need to make a scrum 
-board with user stories derived from the epic and eventually make concise and 
-manageable tasks. We need to have a meeting to ensure that everyone is one the 
-same page concerning how the agile development process will work, and where we 
-delve deeper into what tools we will be using for the project and how we will 
-structure it.
