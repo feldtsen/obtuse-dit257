@@ -9,10 +9,10 @@ I've paired up with Mattias and added some desired search functionality. I've al
 
 # B 
 Since we are reaching the course end, we have some paperwork to write. Communication will be the key to our success. Also, we need to add some 
-final modifications to the app. Still not completely happy with how the app looks, so I'll continue, with Malin, to improve the UI.
+final modifications to the app. I'm pretty happy with how the app looks, I'll see if there are changed still needed for the UI.
 
 # A -> B 
 Use the communication tools we have available (mainly that is Slack), have more physical meetings and have a good look at Trello on what needs to get done. 
 We need to distributethe work such that people that have not partaken in certain parts of the app get to work with it now. I need to ask if people are 
-confused about what's next and make sure everyone agrees on the workflow for the final report. 
+confused about what's next and make sure everyone agrees on the workflow for the final report. Need to consult the team to see if there are any changes to the UI they would like to see and implement them with Malin.
 
