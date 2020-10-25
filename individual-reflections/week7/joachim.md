@@ -9,7 +9,7 @@ I've paired up with Mattias and added some desired search functionality. I've al
 
 # B 
 Since we are reaching the course end, we have some paperwork to write. Communication will be the key to our success. Also, we need to add some 
-final modifications to the app. 
+final modifications to the app. Still not completely happy with how the app looks, so I'll continue, with Malin, to improve the UI.
 
 # A -> B 
 Use the communication tools we have available (mainly that is Slack), have more physical meetings and have a good look at Trello on what needs to get done. 
