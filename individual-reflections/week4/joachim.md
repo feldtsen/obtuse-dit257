@@ -11,4 +11,4 @@ I should let my team members contribute more.
 # A -> B
 As I've mentioned in earlier reflections, I need to teach people about the framework so that they can
 visually implement the features they are working on by themselves. I need to make sure I assign myself 
-on other task (model/controller) and make sure that other team memebers assign themselves view related tasks.
+on other task (model/controller) and make sure that other team members assign themselves view related tasks.
