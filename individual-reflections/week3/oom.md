@@ -4,4 +4,4 @@ Everyone in the group does not have the same level of knowledge, so by explainin
 
 This week we strucutred our sprint as a group I think actually doing the tasks went well, but planning the sprint could be better. Since its everyones first time working like this I think getting experience and being able to discuss with your supervisor what went well and what didnt go so well is very good and helps alot to improve.
 
-This week I created a new scrum board and added all the user stories as well as implementing the tags class and post class. I think this week went well, we only wanted to implement the basic stuff needed for out application. I also updated our kpi evaluation and helped in the team reflection.
+This week I created a new scrum board and added all the user stories as well as implementing the tags class, post class, and request and donation classes. I think this week went well, we only wanted to implement the basic stuff needed for out application. I also updated our kpi evaluation and helped in the team reflection.
