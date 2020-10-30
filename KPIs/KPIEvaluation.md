@@ -20,6 +20,10 @@
 
 * 13/13 100%
 
+### Week 6:
+
+* 6/6 100%
+
 ## Personal well-being (daily) (1-5)
 
 ### Week 1:

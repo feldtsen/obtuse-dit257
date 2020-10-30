@@ -1,6 +1,6 @@
 # 1. Acceptence criteria fulfilled (weekly) (percentage)
-* how many tasks are completed relative to our estimate?
-* (completed tasks) / (estimated completed tasks) 
+* how many acceptance criteria are completed relative to our estimate?
+* (completed acceptance criteria) / (estimated completed acceptance criteria) 
 
 # 2. Personal well-being (daily) (scale 1-5)
 * how is everyone feeling?
